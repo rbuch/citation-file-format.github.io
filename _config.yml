@@ -5,17 +5,34 @@
 # For technical reasons, this file is *NOT* reloaded automatically when you use
 # `jekyll serve`. If you change this file, please restart the server process.
 
+#####################################################
+# CUSTOM CONFIG
+#####################################################
+
+# Current CFF version
+current                  : 0.9-RC1
+
+scholar:
+  bibtex_filters:
+    - latex
+    - markdown
+  bibliography_template: bib
+  style: ./_bibliography/apa.csl
+
+
+#####################################################
+
 minimal_mistakes_skin    : "default" # "air", "contrast", "dark", "dirt", "mint", "sunrise"
 
 # Site Settings
 locale                   : "en"
-title                    : "Site Title"
-title_separator          : "-"
-name                     : "Your Name"
-description              : "An amazing website."
-url                      : # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
+title                    : "Citation File Format (CFF)"
+title_separator          : "|"
+author                   : Stephan Druskat
+description              : "Landing page for the Citation File Format (CFF), a YAML 1.2-based format for providing citation metadata for (research/scientific) software."
+url                      : https://citation-file-format.github.io # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl                  : # the subpath of your site, e.g. "/blog"
-repository               : # GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
+repository               : citation-file-format/citation-file-format.github.io # GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
 teaser                   : # path of fallback teaser image, e.g. "/assets/images/500x300.png"
 # breadcrumbs            : false # true, false (default)
 words_per_minute         : 200
@@ -83,19 +100,19 @@ analytics:
 
 # Site Author
 author:
-  name             : "Your Name"
+  name             : "Stephan Druskat"
   avatar           : # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
-  bio              : "I am an amazing person."
-  location         : "Somewhere"
-  email            :
-  uri              :
+  bio              : # "I am an amazing person."
+  location         : # "Somewhere"
+  email            : mail@sdruskat.net
+  uri              : http://sdruskat.net
   bitbucket        :
   codepen          :
   dribbble         :
   flickr           :
   facebook         :
   foursquare       :
-  github           :
+  github           : citation-file-format
   gitlab           :
   google_plus      :
   keybase          :
@@ -191,6 +208,7 @@ plugins:
   - jekyll-gist
   - jekyll-feed
   - jemoji
+  - jekyll/scholar
 
 # mimic GitHub Pages with --safe
 whitelist:
@@ -243,11 +261,11 @@ defaults:
   # _posts
   - scope:
       path: ""
-      type: posts
+      type: pages
     values:
       layout: single
-      author_profile: true
+      author_profile: false
       read_time: true
       comments: # true
-      share: true
-      related: true
+      share: false
+      related: false
