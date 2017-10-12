@@ -290,7 +290,7 @@ CFF defines the following reference keys.
 The abbreviation of the work
 {: .notice--primary}
 
-[abstract](){: .btn .btn--primary .btn--large}  
+**`abstract`**  
 *String*  
 The abstract of the work
 {: .notice--primary}
@@ -1954,7 +1954,7 @@ references:
         role: main-author
     title: mrt-iain-m-banks
     version: 1.0.4 (Iain M. Banks)
-    url: https://github.com/doe/docker-brew-mrt-core/blob/160d54f9e935c914df38c1ffda752112b5c979a8/iain/Dockerfile
+    url: https://github.com/doe/docker-brew-mrt-core/blob/160d54f9e935/iain/Dockerfile
     repository: https://hub.docker.hu-berlin.de/_/mrt-iain-m-banks/
 {% endhighlight %}
 
