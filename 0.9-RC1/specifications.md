@@ -52,12 +52,13 @@ Sustainability Institute](https://www.software.ac.uk/).
 
 ## Rationale
 
-> The rationale for a standardized, machine- and human-readable format for
+The rationale for a standardized, machine- and human-readable format for
 `CITATION` files is discussed in more detail in 
 {% cite standardized-citation-files %}. CFF has been developed to support all 
 use cases for the citation of software, as
 discussed in {% cite principles %}, and thus promote attribution and credit for
 software in general, and research software in particular.
+{: .notice--primary}
 
 In a blog post {% cite citation-files %}, Robin Wilson has introduced `CITATION`
 files as a means to make citation information for software easily accessible.
@@ -81,7 +82,7 @@ research software.
  or RIS), and specifically provide optimized means of citation for software via
  the provision of software-specific reference keys and types, e.g., a dedicated
  type for source code and one for executables, and a reference key for versions,
- cf. [Reference types].
+ cf. [Reference types](#reference-types).
 
 The ultimate goal of CFF as a project is comprehensive uptake and re-use of the
 format by Research Software Engineers and software developers as well as by
@@ -100,7 +101,7 @@ should follow common sense. If not, it will confuse the user of the `CITATION`
 file, and some of the information will probably be lost in re-use scenarios such
 as conversion or display. If you feel that CFF does not offer a solution for
 your specific use case, please consider contributing to the format as described
-in section [Contributions].
+in section [Contributions](#contributions).
 
 Furthermore please note that if a section of a work is referenced, this is not
 supported by a dedicated reference type. Instead, the `section` key in the parent
@@ -144,16 +145,16 @@ A reference item, i.e., an item in the list under `references`, must at least
 specify values for the following mandatory keys: `type`, `authors`, `title`.
 
 `type` must specify the type of the referenced work. For a list of available 
-values, cf. [reference types].
+values, cf. [reference types](#reference-types).
 
-`authors` must specify a list of [person objects].
+`authors` must specify a list of [person objects](#person-objects).
 
 `title` must specify the title of the referenced work.
 
-Additionally, it can contain any further [reference keys]. In version 
+Additionally, it can contain any further [reference keys](#reference-keys). In version 
 {{ page.version }}, 
 CFF does not specify a strict schema where specific [reference
-types] can only contain specific [reference keys], although this may be
+types](#reference-types) can only contain specific [reference keys](#reference-keys), although this may be
 implemented in future versions.
 
 ### Notable reference keys
@@ -180,7 +181,7 @@ references:
 **authors**, **contact**, **editors**, **editors-series**, **recipients**,
 **senders**, **translators**
 
-These keys take a collection of [person objects] as value. Person objects
+These keys take a collection of [person objects](#person-objects) as value. Person objects
 provide a fixed set of keys to reference individuals, including a detailed
 set for specifiying personal names, an affiliation, a role, etc.
 
@@ -213,10 +214,10 @@ references:
 
 These keys only take values from a defined set, cf. the respective sections:
 
-- [Reference types]
-- [Language strings]
-- [Programming language strings]
-- [Status strings]
+- [Reference types](#reference-types)
+- [Language strings](#language-strings)
+- [Programming language strings](#programming-language-strings)
+- [Status strings](#status-strings)
 
 **license‑url**, **repository**, **repository-code**, **repository-artifact**,
 **url**
@@ -302,7 +303,7 @@ The abstract of the work
 
   abstract                    String                                                              The abstract of a work
 
-  authors                     Collection of **[entity](#entity-objects)** or **[person objects]** The author of a work
+  authors                     Collection of **[entity](#entity-objects)** or **[person objects](#person-objects)** The author of a work
 
   collection-doi              String                                                              The DOI of a collection conttaining the work
 
@@ -314,7 +315,7 @@ The abstract of the work
 
   conference                  **[Entity object](#entity-objects)**                                The conference where the work was presented
 
-  contact                     Collection of **[entity](#entity-objects)** or **[person objects]**                                          The contact person, group, company, etc. for a work
+  contact                     Collection of **[entity](#entity-objects)** or **[person objects](#person-objects)**                                          The contact person, group, company, etc. for a work
 
   copyright                   String                                                               The copyright information pertaining to the work
 
@@ -338,9 +339,9 @@ The abstract of the work
 
   edition                     String                                                              The edition of the work
 
-  editors                     Collection of **[entity](#entity-objects)** or **[person objects]**                                          The editors of a work
+  editors                     Collection of **[entity](#entity-objects)** or **[person objects](#person-objects)**                                          The editors of a work
 
-  editors-series              Collection of **[entity](#entity-objects)** or **[person objects]**                                           The editors of a series in which a work has been published
+  editors-series              Collection of **[entity](#entity-objects)** or **[person objects](#person-objects)**                                           The editors of a series in which a work has been published
 
   end                         Integer                                                             The end page of the work
 
@@ -400,7 +401,7 @@ The abstract of the work
 
   publisher                   **[Entity object](#entity-objects)**                                          The publisher who has published the work
 
-  recipients                  Collection of **[entity](#entity-objects)** or **[person objects]**                                          The recipient of a personal communication
+  recipients                  Collection of **[entity](#entity-objects)** or **[person objects](#person-objects)**                                          The recipient of a personal communication
 
   repository                  String (*URL*)                                                      The repository where the work is stored
 
@@ -412,7 +413,7 @@ The abstract of the work
 
   section                     String                                                               The section of a work that is referenced
 
-  senders                     Collection of **[person objects]**                                          The sender of a personal communication
+  senders                     Collection of **[person objects](#person-objects)**                                          The sender of a personal communication
 
   status                      **[Status string](#status-strings)**                                        The publication status of the work                           
 
@@ -422,9 +423,9 @@ The abstract of the work
 
   title                       String                                                              The title of the work
 
-  translators                 Collection of **[entity](#entity-objects)** or **[person objects]**                                          The translator of a work
+  translators                 Collection of **[entity](#entity-objects)** or **[person objects](#person-objects)**                                          The translator of a work
 
-  type                        **[Reference types] string**                                                The type of the work
+  type                        **[Reference types](#reference-types) string**                                                The type of the work
 
   url                         String (*URL*)                                                      The URL of the work
 
