@@ -54,9 +54,9 @@ Sustainability Institute](https://www.software.ac.uk/).
 
 The rationale for a standardized, machine- and human-readable format for
 `CITATION` files is discussed in more detail in 
-{% cite standardized-citation-files %}. CFF has been developed to support all 
+{% cite standardized-citation-files --style ./_bibliography/apa-text.csl %}. CFF has been developed to support all 
 use cases for the citation of software, as
-discussed in {% cite principles %}, and thus promote attribution and credit for
+discussed in {% cite principles --style ./_bibliography/apa-text.csl %}, and thus promote attribution and credit for
 software in general, and research software in particular.
 {: .notice--primary}
 
@@ -285,162 +285,81 @@ general. These include:
 
 CFF defines the following reference keys.  
 
-
-**`abbreviation`**  
-*String*  
-The abbreviation of the work
-{: .notice--primary}
-
-**`abstract`**  
-*String*  
-The abstract of the work
-{: .notice--primary}
-
-  -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-  **CFF Key**                 **CFF Data Type**                                                   **Description**
-  --------------------------- ------------------------------------------------------------------- ----------------------------------------------------------------------------------------------------------------------
-  abbreviation                String                                                              The abbreviation of the work
-
-  abstract                    String                                                              The abstract of a work
-
-  authors                     Collection of **[entity](#entity-objects)** or **[person objects](#person-objects)** The author of a work
-
-  collection-doi              String                                                              The DOI of a collection conttaining the work
-
-  collection-title            String                                                              The title of a collection or proceedings
-
-  collection-type             String                                                              The type of a collection  
-
-  commit                      String                                                              The (e.g., Git) commit hash or (e.g., Subversion) revision number of the work
-
-  conference                  **[Entity object](#entity-objects)**                                The conference where the work was presented
-
-  contact                     Collection of **[entity](#entity-objects)** or **[person objects](#person-objects)**                                          The contact person, group, company, etc. for a work
-
-  copyright                   String                                                               The copyright information pertaining to the work
-
-  data-type                   String                                                               The data type of a data set
-
-  database                    String                                                               The name of the database where a work was accessed/is stored
-
-  database-provider           **[Entity object](#entity-objects)**                                 The provider of the database where a work was accessed/is stored
-
-  date-accessed               Date                                                                The date the work has been last accessed
-
-  date-downloaded               Date                                                              The date the work has been downloaded
-
-  date-published              Date                                                                The date the work has been published
-
-  date-released               Date                                                                 The date the work has been released
-
-  department                  String                                                               The department where a work has been produced
-
-  doi                         String                                                               The DOI of the work
-
-  edition                     String                                                              The edition of the work
-
-  editors                     Collection of **[entity](#entity-objects)** or **[person objects](#person-objects)**                                          The editors of a work
-
-  editors-series              Collection of **[entity](#entity-objects)** or **[person objects](#person-objects)**                                           The editors of a series in which a work has been published
-
-  end                         Integer                                                             The end page of the work
-
-  entry                       String                                                               An entry in the collection that constitutes the work
-
-  filename                    String                                                              The name of the electronic file containing the work
-
-  format                      String                                                              The format in which a work is represented
-
-  institution                 **[Entity object](#entity-objects)**                                The institution where a work has been produced or published
-
-  isbn                        String                                                              The ISBN of the work
-
-  issn                        String                                                              The ISSN of the work
+  |       CFF Key         |                                 CFF Data Type                                    |                                    Description                                      |
+  |-----------------------|----------------------------------------------------------------------------------|-------------------------------------------------------------------------------------|
+  | abbreviation          | String                                                                           | The abbreviation of the work                                                        |
+  | abstract              | String                                                                           | The abstract of a work                                                              |
+  | authors               | Collection of *[entity](#entity-objects)* or *[person objects](#person-objects)* | The author of a work                                                                |
+  | collection-doi        | String                                                                           | The DOI of a collection conttaining the work                                        |
+  | collection-title      | String                                                                           | The title of a collection or proceedings                                            |
+  | collection-type       | String                                                                           | The type of a collection                                                            |
+  | commit                | String                                                                           | The (e.g., Git) commit hash or (e.g., Subversion) revision number of the work       |
+  | conference            | *[Entity object](#entity-objects)*                                               | The conference where the work was presented                                         |
+  | contact               | Collection of *[entity](#entity-objects)* or *[person objects](#person-objects)* | The contact person, group, company, etc. for a work                                 |
+  | copyright             | String                                                                           | The copyright information pertaining to the work                                    |
+  | data-type             | String                                                                           | The data type of a data set                                                         |
+  | database              | String                                                                           | The name of the database where a work was accessed/is stored                        |
+  | database-provider     | *[Entity object](#entity-objects)*                                               | The provider of the database where a work was accessed/is stored                    |
+  | date-accessed         | Date                                                                             | The date the work has been last accessed                                            |
+  | date-downloaded       | Date                                                                             | The date the work has been downloaded                                               |
+  | date-published        | Date                                                                             | The date the work has been published                                                |
+  | date-released         | Date                                                                             | The date the work has been released                                                 |
+  | department            | String                                                                           | The department where a work has been produced                                       |
+  | doi                   | String                                                                           | The DOI of the work                                                                 |
+  | edition               | String                                                                           | The edition of the work                                                             |
+  | editors               | Collection of *[entity](#entity-objects)* or *[person objects](#person-objects)* | The editors of a work                                                               |
+  | editors-series        | Collection of *[entity](#entity-objects)* or *[person objects](#person-objects)* | The editors of a series in which a work has been published                          |
+  | end                   | Integer                                                                          | The end page of the work                                                            |
+  | entry                 | String                                                                           | An entry in the collection that constitutes the work                                |
+  | filename              | String                                                                           | The name of the electronic file containing the work                                 |
+  | format                | String                                                                           | The format in which a work is represented                                           |
+  | institution           | *[Entity object](#entity-objects)*                                               | The institution where a work has been produced or published                         |
+  | isbn                  | String                                                                           | The ISBN of the work                                                                |
+  | issn                  | String                                                                           | The ISSN of the work                                                                |
+  | issue                 | Integer                                                                          | The issue of a periodical in which a work appeared                                  |
+  | issue-date            | String                                                                           | The publication date of the issue of a periodical in which a work appeared          |
+  | issue-title           | String                                                                           | The name of the issue of a periodical in which the work appeared                    |
+  | journal               | String                                                                           | The name of the journal/magazine/newspaper/periodical where the work was published  |
+  | keywords              | Collection of strings                                                            | Keywords pertaining to the work                                                     |
+  | languages             | Collection of ISO 639 [*language strings*](#language-strings)                    | The language of the work                                                            |
+  | license               | String                                                                           | The license under which a work is licensed                                          |
+  | license-url           | String (*URL*)                                                                   | The URL of the license text under which a work is licensed                          |
+  | location              | *[Entity object](#entity-objects)*                                               | The location of the work                                                            |
+  | loc-start             | Integer                                                                          | The line of code in the file where the work starts                                  |
+  | loc-end               | Integer                                                                          | The line of code in the file where the work ends                                    |
+  | medium                | String                                                                           | The medium of the work                                                              |
+  | month                 | Integer                                                                          | The month in which a work has been published                                        |
+  | nihmsid               | String                                                                           | The NIHMSID of a work                                                               |
+  | notes                 | String                                                                           | Notes pertaining to the work                                                        |
+  | number                | String                                                                           | The accession number for a work                                                     |
+  | number-volumes        | Integer                                                                          | The number of volumes making up the collection in which the work has been published |
+  | pages                 | Integer                                                                          | The number of pages of the work                                                     |
+  | patent-states         | String                                                                           | The states for which a patent is granted                                            |
+  | pmcid                 | String                                                                           | The PMCID of a work                                                                 |
+  | programming-languages | Collection of [*programming language strings*](#programming-language-strings)    | The programming language of the work                                                |
+  | publisher             | *[Entity object](#entity-objects)*                                               | The publisher who has published the work                                            |
+  | recipients            | Collection of *[entity](#entity-objects)* or *[person objects](#person-objects)* | The recipient of a personal communication                                           |
+  | repository            | String (*URL*)                                                                   | The repository where the work is stored                                             |
+  | repository-code       | String (*URL*)                                                                   | The version control system where the source code of the work is stored              |
+  | repository-artifact   | String (*URL*)                                                                   | The repository where the (executable/binary) artifact of the work is stored         |
+  | scope                 | String                                                                           | The scope of the reference, e.g., the section of the work it adheres to             |
+  | section               | String                                                                           | The section of a work that is referenced                                            |
+  | senders               | Collection of *[person objects](#person-objects)*                                | The sender of a personal communication                                              |
+  | status                | *[Status string](#status-strings)*                                               | The publication status of the work                                                  |
+  | start                 | Integer                                                                          | The start page of the work                                                          |
+  | thesis-type           | String                                                                           | The type of the thesis that is the work                                             |
+  | title                 | String                                                                           | The title of the work                                                               |
+  | translators           | Collection of *[entity](#entity-objects)* or *[person objects](#person-objects)* | The translator of a work                                                            |
+  | type                  | *[Reference types](#reference-types) string*                                     | The type of the work                                                                |
+  | url                   | String (*URL*)                                                                   | The URL of the work                                                                 |
+  | version               | String                                                                           | The version of the work                                                             |
+  | volume                | Integer                                                                          | The volume of the periodical in which a work appeared                               |
+  | volume-title          | String                                                                           | The title of the volume in which the work appeared                                  |
+  | year                  | Integer                                                                          | The year in which a work has been published                                         |
+  | year-original         | Integer                                                                          | The year of the original publication                                                |
  
-  issue                       Integer                                                             The issue of a periodical in which a work appeared
- 
-  issue-date                  String                                                              The publication date of the issue of a periodical in which a work appeared
-
-  issue-title                 String                                                              The name of the issue of a periodical in which the work appeared
-
-  journal                     String                                                              The name of the journal/magazine/newspaper/periodical where the work was published
-
-  keywords                    Collection of strings                                               Keywords pertaining to the work
-
-  languages                   Collection of ISO 639 **[language strings]**                                  The language of the work
-
-  license                     String                                                              The license under which a work is licensed
-
-  license-url                 String (*URL*)                                                      The URL of the license text under which a work is licensed
-
-  location                    **[Entity object](#entity-objects)**                                The location of the work
-
-  loc-start                    Integer                                                             The line of code in the file where the work starts
-
-  loc-end                     Integer                                                             The line of code in the file where the work ends
-
-  medium                      String                                                              The medium of the work
-
-  month                       Integer                                                             The month in which a work has been published
-
-  nihmsid                     String                                                              The NIHMSID of a work
-
-  notes                       String                                                              Notes pertaining to the work
-
-  number                      String                                                              The accession number for a work
-
-  number-volumes              Integer                                                             The number of volumes making up the collection in which the work has been published
-
-  pages                       Integer                                                             The number of pages of the work
-
-  patent-states               String                                                              The states for which a patent is granted
-
-  pmcid                       String                                                              The PMCID of a work
-
-  programming-languages       Collection of **[programming language strings]**                       The programming language of the work
-
-  publisher                   **[Entity object](#entity-objects)**                                          The publisher who has published the work
-
-  recipients                  Collection of **[entity](#entity-objects)** or **[person objects](#person-objects)**                                          The recipient of a personal communication
-
-  repository                  String (*URL*)                                                      The repository where the work is stored
-
-  repository-code             String (*URL*)                                                      The version control system where the source code of the work is stored
-
-  repository-artifact         String (*URL*)                                                      The repository where the (executable/binary) artifact of the work is stored
-
-  scope                       String                                                              The scope of the reference, e.g., the section of the work it adheres to
-
-  section                     String                                                               The section of a work that is referenced
-
-  senders                     Collection of **[person objects](#person-objects)**                                          The sender of a personal communication
-
-  status                      **[Status string](#status-strings)**                                        The publication status of the work                           
-
-  start                       Integer                                                             The start page of the work
-
-  thesis-type                 String                                                              The type of the thesis that is the work
-
-  title                       String                                                              The title of the work
-
-  translators                 Collection of **[entity](#entity-objects)** or **[person objects](#person-objects)**                                          The translator of a work
-
-  type                        **[Reference types](#reference-types) string**                                                The type of the work
-
-  url                         String (*URL*)                                                      The URL of the work
-
-  version                     String                                                              The version of the work
-
-  volume                      Integer                                                             The volume of the periodical in which a work appeared
-
-  volume-title                String                                                              The title of the volume in which the work appeared
-
-  year                        Integer                                                             The year in which a work has been published
-
-  year-original               Integer                                                             The year of the original publication
-
-  ----------------------- ----------------------------------------- ---------------------------------------------------------------------------------------------------------------------------
 Table: Complete list of CFF keys.
+{: .text-right}
 
 ### Exemplary uses
 
@@ -518,57 +437,58 @@ ambiguity/misuse.
 
 ## Reference types
 
-  Reference type string         Description
-  ----------------------------- -------------------
-  **art**                       A work of art, e.g., a painting
-  **article **                  
-  **audiovisual**               
-  **bill**                      A legal bill
-  **blog**                      A blog post
-  **book**                      A book or e-book
-  **catalogue**                 
-  **conference**                
-  **conference-paper**          
-  **data**                      A data set
-  **database**                  An aggregated or online database
-  **dictionary**                
-  **edited-work**               An edited work, e.g., a book
-  **encyclopedia**              
-  **film-broadcast**            A film or broadcast
-  **generic**                   The fallback type
-  **government-document**       
-  **grant**                     A research or other grant
-  **hearing**                   
-  **historical-work**           A historical work, e.g., a medieval manuscript
-  **legal-case**                
-  **legal-rule**                
-  **magazine-article**          
-  **manual**                    A manual
-  **map**                       A geographical map
-  **multimedia**                A multimedia file
-  **music**                     A music file or sheet music
-  **newspaper-article**         
-  **pamphlet**                  
-  **patent**                    
-  **personal-communication**    
-  **proceedings**               Conference proceedings
-  **report**                    
-  **serial**                    
-  **slides**                    Slides, i.e., a published slide deck
-  **software**                  Software
-  **software-code**             Software source code
-  **software-container**        A software container (e.g., a docker container)
-  **software-executable**       An executable software, i.e., a binary/artifact
-  **software-virtual-machine**  A virtual machine/vm image
-  **sound-recording**
-  **standard**
-  **statute**
-  **thesis**                    An academic thesis
-  **unpublished**
-  **video**                     A video recording
-  **website** 
-  ----------------------------- -------------------
-  Table: Complete list of CFF reference types.
+|    Reference type string     |                   Description                   |
+|------------------------------|-------------------------------------------------|
+| **art**                      | A work of art, e.g., a painting                 |
+| **article**                  |                                                 |
+| **audiovisual**              |                                                 |
+| **bill**                     | A legal bill                                    |
+| **blog**                     | A blog post                                     |
+| **book**                     | A book or e-book                                |
+| **catalogue**                |                                                 |
+| **conference**               |                                                 |
+| **conference-paper**         |                                                 |
+| **data**                     | A data set                                      |
+| **database**                 | An aggregated or online database                |
+| **dictionary**               |                                                 |
+| **edited-work**              | An edited work, e.g., a book                    |
+| **encyclopedia**             |                                                 |
+| **film-broadcast**           | A film or broadcast                             |
+| **generic**                  | The fallback type                               |
+| **government-document**      |                                                 |
+| **grant**                    | A research or other grant                       |
+| **hearing**                  |                                                 |
+| **historical-work**          | A historical work, e.g., a medieval manuscript  |
+| **legal-case**               |                                                 |
+| **legal-rule**               |                                                 |
+| **magazine-article**         |                                                 |
+| **manual**                   | A manual                                        |
+| **map**                      | A geographical map                              |
+| **multimedia**               | A multimedia file                               |
+| **music**                    | A music file or sheet music                     |
+| **newspaper-article**        |                                                 |
+| **pamphlet**                 |                                                 |
+| **patent**                   |                                                 |
+| **personal-communication**   |                                                 |
+| **proceedings**              | Conference proceedings                          |
+| **report**                   |                                                 |
+| **serial**                   |                                                 |
+| **slides**                   | Slides, i.e., a published slide deck            |
+| **software**                 | Software                                        |
+| **software-code**            | Software source code                            |
+| **software-container**       | A software container (e.g., a docker container) |
+| **software-executable**      | An executable software, i.e., a binary/artifact |
+| **software-virtual-machine** | A virtual machine/vm image                      |
+| **sound-recording**          |                                                 |
+| **standard**                 |                                                 |
+| **statute**                  |                                                 |
+| **thesis**                   | An academic thesis                              |
+| **unpublished**              |                                                 |
+| **video**                    | A video recording                               |
+| **website**                  |                                                 |
+
+Table: Complete list of CFF reference types.
+{: .text-right}
 
 # Objects
 
@@ -578,39 +498,25 @@ Entity objects can represent different types of entities, e.g.,
 a publishing company, or conference. In CFF, they are realized as collections with
 a defined set of keys. Only the key `name` is mandatory. 
 
-  --------------------------------------------
-  Entity key    Entity Data Type    optional
-  ------------- ------------------ ----------
-  name          String             
+| Entity key   | Entity Data Type | optional |
+| -            | -                | :-:      |
+| `name`       | String           |          |
+| `address`    | String           | •        |
+| `city`       | String           | •        |
+| `region`     | String           | •        |
+| `post-code`  | String           | •        |
+| `country`    | String           | •        |
+| `orcid`      | String           | •        |
+| `email`      | String           | •        |
+| `tel`        | String           | •        |
+| `fax`        | String           | •        |
+| `website`    | String (*URL*)   | •        |
+| `date-start` | Date             | •        |
+| `date-end`   | Date             | •        |
+| `location`   | String           | •        |
 
-  address       String             •
-
-  city          String             •
-
-  region        String             •
-
-  post-code     String             •
-
-  country       String             •
-
-  orcid         String             •
-
-  email         String             •
-
-  tel           String             •
-
-  fax           String             •
-
-  website       String (*URL*)     •
-
-  date-start      Date               •
-
-  date-end        Date               •
-
-  location      String             •
-
-  ---------------------------------------------
 Table: Complete list of keys for entity objects.
+{: .text-right}
 
 ### Exemplary uses
 
@@ -656,42 +562,27 @@ A person object represents a person. In CFF, person objects are realized as
 collections with a defined set of keys, of which only `family-names` and
 `given-names` are mandatory.
 
-  ----------------------------------------------------
-  Entity key    Entity Data Type            optional
-  ------------- ------------------------- ------------
-  family-names  String             
+| Entity key    | Entity Data Type                       | optional       |
+| -             | -                                      | :------------: |
+| family-names  | String                                 |                |
+| given-names   | String                                 |                |
+| name-particle | String                                 | •              |
+| name-suffix   | String                                 | •              |
+| affiliation   | String                                 | •              |
+| address       | String                                 | •              |
+| city          | String                                 | •              |
+| region        | String                                 | •              |
+| post-code     | String                                 | •              |
+| country       | String                                 | •              |
+| orcid         | String                                 | •              |
+| email         | String                                 | •              |
+| tel           | String                                 | •              |
+| fax           | String                                 | •              |
+| website       | String (*URL*)                         | •              |
+| role          | [*Person roles*](#person-roles) string | •              |
 
-  given-names   String
-
-  name-particle String                         •
-
-  name-suffix   String                         •
-
-  affiliation   String                         •
-
-  address       String                         •
-
-  city          String                         •
-
-  region        String                         •
-
-  post-code     String                         •
-
-  country       String                         •
-
-  orcid         String                         •
-
-  email         String                         •
-
-  tel           String                         •
-
-  fax           String                         •
-
-  website       String (*URL*)                 •
-
-  role          **[Person roles] string**      •
-  -----------------------------------------------------
-  Table: Complete list of keys for person objects.
+Table: Complete list of keys for person objects.
+{: .text-right}
 
 ### Exemplary uses
 
@@ -701,7 +592,7 @@ CFF aims at implementing a culturally neutral model for personal names,
 according to the
 [suggestions on splitting personal names by the W3C](https://www.w3.org/International/questions/qa-personal-names) 
 and the implementation of personal name splitting in 
-B[ib]{style="font-variant:small-caps;"}T<sub>E</sub>X {% cite names-in-bibtex %}.
+BibTeX {% cite names-in-bibtex %}.
 
 To this end, CFF provides four generic keys to specify personal names: 
 
@@ -730,7 +621,7 @@ file authors to find the optimal name split in any given case.
 
 **Address keys**
 
-- Cf. [Entity objects] for details.
+- Cf. [Entity objects](#entity-objects) for details.
 
 **orcid**
 
@@ -744,35 +635,36 @@ specifying authorship status, e.g., to distinguish main authors of a software
 from contributors who have provided a small patch. The defined roles are:
 
 
-  Key
-  -------------------------------------------------------------
-  **administrator** (e.g., of a software system)
-  **artist**
-  **assignee** (e.g., of a patent)
-  **author**
-  **benchmarker** (e.g., of a software)
-  **cartographer**
-  **composer**
-  **contributor**
-  **creator**
-  **designer**
-  **director** (e.g., of a movie)
-  **editor** (e.g., of an edited book/edition)
-  **evangelist** (e.g., for a software)
-  **institution** (e.g., issuing a standard)
-  **inventor**
-  **main-author**
-  **maintainer** (of a software project)
-  **manager** (e.g., of a software project)
-  **programmer**
-  **reporter** (e.g., of a court case/a software bug)
-  **researcher** (e.g., authoring a data set/informing a software implementation)
-  **engineer** (e.g., for a software)
-  **technical-writer** (e.g., of a software documentation)
-  **tester** (e.g., of a software)
-  **trainer**
-  -------------------------------------------------------------
-  Table: Defined roles for person objects.
+|                                      Key                                      |
+|-------------------------------------------------------------------------------|
+| `administrator` (e.g., of a software system)                                  |
+| `artist`                                                                      |
+| `assignee` (e.g., of a patent)                                                |
+| `author`                                                                      |
+| `benchmarker` (e.g., of a software)                                           |
+| `cartographer`                                                                |
+| `composer`                                                                    |
+| `contributor`                                                                 |
+| `creator`                                                                     |
+| `designer`                                                                    |
+| `director` (e.g., of a movie)                                                 |
+| `editor` (e.g., of an edited book/edition)                                    |
+| `evangelist` (e.g., for a software)                                           |
+| `institution` (e.g., issuing a standard)                                      |
+| `inventor`                                                                    |
+| `main-author`                                                                 |
+| `maintainer` (of a software project)                                          |
+| `manager` (e.g., of a software project)                                       |
+| `programmer`                                                                  |
+| `reporter` (e.g., of a court case/a software bug)                             |
+| `researcher` (e.g., authoring a data set/informing a software implementation) |
+| `engineer` (e.g., for a software)                                             |
+| `technical-writer` (e.g., of a software documentation)                        |
+| `tester` (e.g., of a software)                                                |
+| `trainer`                                                                     |
+
+Table: Defined roles for person objects.
+{: .text-right}
 
 # Specified value strings
 
@@ -784,15 +676,16 @@ from a fixed set of strings. These are specified below.
 Works can have a different status of publication, e.g., journal papers. CFF
 specifies the following value strings for the key `status`.
 
-  Status (String)    Description
-  ------------------ -----------------------------
-  **in-preparation**     A work in preparation, e.g., a manuscript
-  **abstract**           The abstract of a work
-  **submitted**          A work that has been submitted for publication
-  **in-press**           A work that has been accepted for publication but has not yet been published
-  **advance-online**     A work that has been published online in advance of publication in the target medium
-  ------------------ -----------------------------
-  Table: Defined statuses for works
+  | Status (String)  |                                     Description                                      |
+  |------------------|--------------------------------------------------------------------------------------|
+  | `in-preparation` | A work in preparation, e.g., a manuscript                                            |
+  | `abstract`       | The abstract of a work                                                               |
+  | `submitted`      | A work that has been submitted for publication                                       |
+  | `in-press`       | A work that has been accepted for publication but has not yet been published         |
+  | `advance-online` | A work that has been published online in advance of publication in the target medium |
+
+Table: Defined statuses for works.
+{: .text-right}
 
 ## Language strings
 
