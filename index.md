@@ -11,7 +11,7 @@ The current version is [{{ site.current }}](/{{ site.current }}/).
 
 ## Context
 
-CFF
+CFF has been devised as a necessity that has been 
 
 ## Relation to other endeavours
 
