@@ -1,0 +1,324 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.6.0 by Michael Rose
+  Copyright 2017 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE.txt
+-->
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin SEO -->
+
+
+
+
+
+
+
+
+
+<title>Citation File Format (CFF)</title>
+
+
+
+
+<meta name="description" content="Landing page for the Citation File Format (CFF), a YAML 1.2-based format for providing citation metadata for (research/scientific) software.">
+
+
+
+
+<meta name="author" content="Stephan Druskat">
+
+<meta property="og:locale" content="en">
+<meta property="og:site_name" content="Citation File Format (CFF)">
+<meta property="og:title" content="Citation File Format (CFF)">
+
+
+  <link rel="canonical" href="https://citation-file-format.github.io/">
+  <meta property="og:url" content="https://citation-file-format.github.io/">
+
+
+
+
+
+
+
+  
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <script type="application/ld+json">
+    {
+      "@context" : "http://schema.org",
+      "@type" : "Person",
+      "name" : "",
+      "url" : "https://citation-file-format.github.io",
+      "sameAs" : null
+    }
+  </script>
+
+
+
+
+
+
+
+<!-- end SEO -->
+
+
+<link href="https://citation-file-format.github.io/feed.xml" type="application/atom+xml" rel="alternate" title="Citation File Format (CFF) Feed">
+
+<!-- http://t.co/dKP3o1e -->
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="https://citation-file-format.github.io/assets/css/main.css">
+
+<!--[if lte IE 9]>
+  <style>
+    /* old IE unsupported flexbox fixes */
+    .greedy-nav .site-title {
+      padding-right: 3em;
+    }
+    .greedy-nav button {
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+    }
+  </style>
+<![endif]-->
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use http://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+  </head>
+
+  <body class="layout--single">
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+    <div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        <a class="site-title" href="https://citation-file-format.github.io/">Citation File Format (CFF)</a>
+        <ul class="visible-links">
+          <li class="masthead__menu-item"><a href="/0.9-RC1/">Current version</a></li>
+          
+            
+            <li class="masthead__menu-item"><a href="https://citation-file-format.github.io/versions/">All versions</a></li>
+          
+            
+            <li class="masthead__menu-item"><a href="https://github.com/citation-file-format"><i class="fa fa-github"></i> GitHub</a></li>
+          
+        </ul>
+        <button type="button">
+          <span class="visually-hidden">Toggle Menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+    
+
+
+
+<div id="main" role="main">
+  <article class="page" itemscope itemtype="http://schema.org/CreativeWork">
+    
+    
+    
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          
+          
+          
+            <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
+
+
+
+
+  1 minute read
+</p>
+          
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+        <aside class="sidebar__right">
+<nav class="toc">
+    <header><h4 class="nav__title"><i class="fa fa-file-text"></i> On This Page</h4></header>
+<ul class="toc__menu" id="markdown-toc">
+  <li><a href="#citation-file-format-cff" id="markdown-toc-citation-file-format-cff">Citation File Format (CFF)</a>    <ul>
+      <li><a href="#status" id="markdown-toc-status">Status</a></li>
+      <li><a href="#context" id="markdown-toc-context">Context</a></li>
+    </ul>
+  </li>
+  <li><a href="#references" id="markdown-toc-references">References</a></li>
+</ul>
+
+  </nav>
+</aside>
+
+<h1 id="citation-file-format-cff">Citation File Format (CFF)</h1>
+
+<p>CFF is a human- and machine-readable file format in YAML 1.2 which provides
+citation metadata for software. It is maintained openly on GitHub:
+<a href="https://github.com/citation-file-format">https://github.com/citation-file-format</a>.</p>
+
+<p>The current version is <a href="/0.9-RC1/">0.9-RC1</a>.</p>
+
+<h2 id="status">Status</h2>
+
+<p>The spectrum of available concepts for software citation metadata files reaches
+from non-standardized <code class="highlighter-rouge">CITATION</code> files as suggested by Robin
+Wilson <a href="#citation-files">(Wilson, 2013)</a><sup id="fnref:no-file-no-use"><a href="#fn:no-file-no-use" class="footnote">1</a></sup> to full transitive credit encoded in JSON-LD
+<a href="#transitive-credit-json-ld">(Katz &amp; Smith, 2015)</a>.</p>
+
+<p>Along this spectrum, CFF is located somewhere between these two extremes as it adds
+machine-readability and thus a greater re-use potential to <code class="highlighter-rouge">CITATION</code> files,
+but does not offer transitive credit capabilities (yet), or support for all
+citation use cases as outlined by <a href="#principles">Smith et al., (2016)</a>.</p>
+
+<p>CFF aims at providing a practical solution, and human-friendly properties such
+as readability and writability, for the most common software citation use
+cases, i.e., <em>1. Use software for a paper</em>, <em>2. Use software in/with new software</em>,
+and <em>15. Store software entry</em> (cf. Table 2, <a href="#principles">Smith et al., (2016), p. 6</a>).</p>
+
+<h2 id="context">Context</h2>
+
+<p>CFF is an indirect outcome of the discussion group “DS3. Development and
+implementation of a standard format for CITATION files.” at the <a href="http://wssspe.researchcomputing.org.uk/wssspe5-1/">Workshop on
+Sustainable Software for Science: Practice and Experiences
+(WSSSPE5.1)</a> (6 September
+2017, Manchester, UK). The group discussed the potential and outlined
+requirements for a format for machine-readable CITATION files[^citation-files],
+and has authored a blog post on the subject, which will be published on the
+<a href="http://software.ac.uk/blog/">blog</a> of the <a href="http://software.ac.uk/">Software Sustainability
+Institute</a>.</p>
+
+<p>Members of the group were:</p>
+
+<ul>
+  <li>Stephan Druskat (Humboldt-Universität zu Berlin, Germany), <em>Lead</em></li>
+  <li>Neil Chue Hong (Software Sustainability Institute, University of Edinburgh, UK)</li>
+  <li>Raniere Silva (Software Sustainability Institute, University of Manchester, UK)</li>
+  <li>Radovan Bast (University of Tromsø, Norway)</li>
+  <li>Andrew Rowley (University of Manchester, UK)</li>
+  <li>Alexander Konovalov (University of St. Andrews, UK)</li>
+</ul>
+
+<p>One requirement for the blog post was to be able to make a concrete suggestion
+for a format for these machine-readable CITATION files, which triggered the
+development of CFF.</p>
+
+<h1 id="references">References</h1>
+
+<ol class="bibliography"><li><p><span id="citation-files">Wilson, Robin. (2013). Encouraging citation of software - introducing CITATION files. Retrieved from <a href="https://www.software.ac.uk/blog/2013-09-02-encouraging-citation-software-introducing-citation-files">https://www.software.ac.uk/blog/2013-09-02-encouraging-citation-software-introducing-citation-files</a>.</span></p>
+ 
+</li>
+<li><p><span id="transitive-credit-json-ld">Katz, Daniel S, &amp; Smith, Arfon M. (2015). Implementing transitive credit with JSON-LD. <i>Journal of Open Research Software</i>, <i>3</i>(e7). <a href="https://doi.org/10.5334/jors.by">https://doi.org/10.5334/jors.by</a>.</span></p>
+ 
+</li>
+<li><p><span id="principles">Smith, Arfon M., Katz, Daniel S., Niemeyer, Kyle E., &amp; FORCE11 Software Citation Working Group. (2016). Software citation principles. <i>PeerJ Computer Science</i>, <i>2</i>, e86. <a href="https://doi.org/10.7717/peerj-cs.86">https://doi.org/10.7717/peerj-cs.86</a>.</span></p>
+ 
+</li></ol>
+<div class="footnotes">
+  <ol>
+    <li id="fn:no-file-no-use">
+      <p>Not providing a file with software citation metadata is not considered a valid option here. <a href="#fnref:no-file-no-use" class="reversefootnote">&#8617;</a></p>
+    </li>
+  </ol>
+</div>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+        
+      </footer>
+
+      
+
+      
+    </div>
+
+    
+  </article>
+
+  
+  
+</div>
+
+
+    <div class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>Follow:</strong></li>
+    
+    
+    
+    
+      <li><a href="http://github.com/citation-file-format"><i class="fa fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+    
+    
+    
+    <li><a href="https://citation-file-format.github.io/feed.xml"><i class="fa fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2017 Citation File Format (CFF). Powered by <a href="http://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="https://citation-file-format.github.io/assets/js/main.min.js"></script>
+
+
+
+
+
+
+  </body>
+</html>

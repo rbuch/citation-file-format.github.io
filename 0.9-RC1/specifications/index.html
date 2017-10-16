@@ -1,0 +1,4446 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.6.0 by Michael Rose
+  Copyright 2017 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE.txt
+-->
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin SEO -->
+
+
+
+
+
+
+
+
+
+<title>            Citation File Format (CFF)      Citation File Format (CFF)      </title>
+
+
+
+
+<meta name="description" content="Landing page for the Citation File Format (CFF), a YAML 1.2-based format for providing citation metadata for (research/scientific) software.">
+
+
+
+
+<meta name="author" content="Stephan Druskat (mail@sdruskat.net)">
+
+<meta property="og:locale" content="en">
+<meta property="og:site_name" content="Citation File Format (CFF)">
+<meta property="og:title" content="Citation File Format (CFF)">
+
+
+  <link rel="canonical" href="https://citation-file-format.github.io/0.9-RC1/specifications/">
+  <meta property="og:url" content="https://citation-file-format.github.io/0.9-RC1/specifications/">
+
+
+
+
+
+
+
+  
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <script type="application/ld+json">
+    {
+      "@context" : "http://schema.org",
+      "@type" : "Person",
+      "name" : "",
+      "url" : "https://citation-file-format.github.io",
+      "sameAs" : null
+    }
+  </script>
+
+
+
+
+
+
+
+<!-- end SEO -->
+
+
+<link href="https://citation-file-format.github.io/feed.xml" type="application/atom+xml" rel="alternate" title="Citation File Format (CFF) Feed">
+
+<!-- http://t.co/dKP3o1e -->
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="https://citation-file-format.github.io/assets/css/main.css">
+
+<!--[if lte IE 9]>
+  <style>
+    /* old IE unsupported flexbox fixes */
+    .greedy-nav .site-title {
+      padding-right: 3em;
+    }
+    .greedy-nav button {
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+    }
+  </style>
+<![endif]-->
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use http://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+  </head>
+
+  <body class="layout--single">
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+    <div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        <a class="site-title" href="https://citation-file-format.github.io/">Citation File Format (CFF)</a>
+        <ul class="visible-links">
+          <li class="masthead__menu-item"><a href="/0.9-RC1/">Current version</a></li>
+          
+            
+            <li class="masthead__menu-item"><a href="https://citation-file-format.github.io/versions/">All versions</a></li>
+          
+            
+            <li class="masthead__menu-item"><a href="https://github.com/citation-file-format"><i class="fa fa-github"></i> GitHub</a></li>
+          
+        </ul>
+        <button type="button">
+          <span class="visually-hidden">Toggle Menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+    
+
+
+
+<div id="main" role="main">
+  <article class="page" itemscope itemtype="http://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Citation File Format (CFF)">
+    
+    
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 class="page__title" itemprop="headline">Citation File Format (CFF)
+</h1>
+          <h2 class="page__title" itemprop="headline">Version 0.9-RC1
+</h2>
+          
+            <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
+
+
+
+
+  46 minute read
+</p>
+          
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+          <h1>Abstract</h1>
+          <p>The <em>Citation File Format</em> (<em>CFF</em>) is a human- <em>and</em> machine-readable format for CITATION files. These files provide citation metadata for (research and scientific) software. The format aims to support all use cases for software citation described in <a href="#principles">(Smith et al., 2016)</a>. CFF is serialized in <a href="http://yaml.org">YAML</a> <a href="http://yaml.org/spec/1.2/spec.html">1.2</a>, and is therefore Unicode-based and cross-language (in terms of both natural language scripts and programming languages). This specification, together with the Unicode standard for characters, aims to provide all the information necessary to understand CFF, and to use (i.e., write) and re-use (i.e., read, validate, convert from) it. These specifications are maintained openly at <a href="https://github.com/sdruskat/citation-file-format">https://github.com/sdruskat/citation-file-format</a>.</p>
+
+        
+        <aside class="sidebar__right">
+<nav class="toc">
+    <header><h4 class="nav__title"><i class="fa fa-file-text"></i> On This Page</h4></header>
+<ul class="toc__menu" id="markdown-toc">
+  <li><a href="#introduction" id="markdown-toc-introduction">Introduction</a>    <ul>
+      <li><a href="#status-of-this-document" id="markdown-toc-status-of-this-document">Status of this document</a></li>
+      <li><a href="#rationale" id="markdown-toc-rationale">Rationale</a></li>
+      <li><a href="#goals" id="markdown-toc-goals">Goals</a></li>
+      <li><a href="#concepts" id="markdown-toc-concepts">Concepts</a></li>
+    </ul>
+  </li>
+  <li><a href="#format" id="markdown-toc-format">Format</a>    <ul>
+      <li><a href="#file-structure" id="markdown-toc-file-structure">File structure</a>        <ul>
+          <li><a href="#reference-structure" id="markdown-toc-reference-structure">Reference structure</a></li>
+          <li><a href="#notable-reference-keys" id="markdown-toc-notable-reference-keys">Notable reference keys</a></li>
+        </ul>
+      </li>
+      <li><a href="#formatting" id="markdown-toc-formatting">Formatting</a></li>
+      <li><a href="#reference-keys" id="markdown-toc-reference-keys">Reference keys</a>        <ul>
+          <li><a href="#exemplary-uses" id="markdown-toc-exemplary-uses">Exemplary uses</a></li>
+        </ul>
+      </li>
+      <li><a href="#reference-types" id="markdown-toc-reference-types">Reference types</a></li>
+    </ul>
+  </li>
+  <li><a href="#objects" id="markdown-toc-objects">Objects</a>    <ul>
+      <li><a href="#entity-objects" id="markdown-toc-entity-objects">Entity objects</a>        <ul>
+          <li><a href="#exemplary-uses-1" id="markdown-toc-exemplary-uses-1">Exemplary uses</a></li>
+        </ul>
+      </li>
+      <li><a href="#person-objects" id="markdown-toc-person-objects">Person objects</a>        <ul>
+          <li><a href="#exemplary-uses-2" id="markdown-toc-exemplary-uses-2">Exemplary uses</a></li>
+          <li><a href="#person-roles" id="markdown-toc-person-roles">Person roles</a></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li><a href="#specified-value-strings" id="markdown-toc-specified-value-strings">Specified value strings</a>    <ul>
+      <li><a href="#status-strings" id="markdown-toc-status-strings">Status strings</a></li>
+      <li><a href="#language-strings" id="markdown-toc-language-strings">Language strings</a></li>
+      <li><a href="#programming-language-strings" id="markdown-toc-programming-language-strings">Programming language strings</a></li>
+    </ul>
+  </li>
+  <li><a href="#schema" id="markdown-toc-schema">Schema</a></li>
+  <li><a href="#examples" id="markdown-toc-examples">Examples</a>    <ul>
+      <li><a href="#software-examples" id="markdown-toc-software-examples">Software examples</a>        <ul>
+          <li><a href="#a-software-with-a-doi" id="markdown-toc-a-software-with-a-doi">A software with a DOI</a></li>
+          <li><a href="#a-software-without-a-doi" id="markdown-toc-a-software-without-a-doi">A software without a DOI</a></li>
+          <li><a href="#software-with-two-references" id="markdown-toc-software-with-two-references"><code class="highlighter-rouge">software</code> (with two references)</a></li>
+          <li><a href="#software-code-without-a-doi-code-repository--commit" id="markdown-toc-software-code-without-a-doi-code-repository--commit"><code class="highlighter-rouge">software-code</code> (without a DOI: code repository + commit)</a></li>
+          <li><a href="#software-container" id="markdown-toc-software-container"><code class="highlighter-rouge">software-container</code></a></li>
+          <li><a href="#software-executable" id="markdown-toc-software-executable"><code class="highlighter-rouge">software-executable</code></a></li>
+        </ul>
+      </li>
+      <li><a href="#other-examples" id="markdown-toc-other-examples">Other examples</a>        <ul>
+          <li><a href="#art" id="markdown-toc-art"><code class="highlighter-rouge">art</code></a></li>
+          <li><a href="#article" id="markdown-toc-article"><code class="highlighter-rouge">article</code></a></li>
+          <li><a href="#blog" id="markdown-toc-blog"><code class="highlighter-rouge">blog</code></a></li>
+          <li><a href="#book" id="markdown-toc-book"><code class="highlighter-rouge">book</code></a></li>
+          <li><a href="#conference-paper" id="markdown-toc-conference-paper"><code class="highlighter-rouge">conference-paper</code></a></li>
+          <li><a href="#edited-work" id="markdown-toc-edited-work"><code class="highlighter-rouge">edited-work</code></a></li>
+          <li><a href="#report" id="markdown-toc-report"><code class="highlighter-rouge">report</code></a></li>
+          <li><a href="#thesis" id="markdown-toc-thesis"><code class="highlighter-rouge">thesis</code></a></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li><a href="#infrastructure" id="markdown-toc-infrastructure">Infrastructure</a></li>
+  <li><a href="#contributions" id="markdown-toc-contributions">Contributions</a></li>
+  <li><a href="#license" id="markdown-toc-license">License</a></li>
+  <li><a href="#references" id="markdown-toc-references">References</a></li>
+</ul>
+
+  </nav>
+</aside>
+
+<p><a href="https://doi.org/10.5281/zenodo.1003150"><img src="https://citation-file-format.github.io/assets/images/zenodo.1003150.svg" alt="DOI" /></a></p>
+
+<h1 id="introduction">Introduction</h1>
+
+<h2 id="status-of-this-document">Status of this document</h2>
+
+<p>This document reflects the version 0.9-RC1 of the <em>Citation File Format</em> (CFF).
+CFF has been developed in the context of the <a href="http://wssspe.researchcomputing.org.uk/wssspe5-1/"><em>Workshop on Sustainable Software
+for Science: Practice and Experiences
+(WSSSPE5.1)</em></a>, which was held
+on 6 September 2017 in Manchester, UK. More specifically, the constraints for
+CFF has been developed in the discusion and speed blogging group “Development
+and implementation of a standard format for CITATION files”, whose members were
+Stephan Druskat (Humboldt-Universität zu Berlin, Germany), Neil Chue Hong
+(Software Sustainability Institute, University of Edinburgh, UK), Raniere Silva
+(Software Sustainability Institute, University of Manchester, UK), Radovan Bast
+(University of Tromsø, Norway), Andrew Rowley (University of Manchester, UK),
+and Alexander Konovalov (University of St. Andrews, UK).</p>
+
+<p>CFF Version 0.9-RC1 has been developed by Stephan Druskat with contributions from
+the following.</p>
+
+<ul>
+  <li>Radovan Bast (<a href="https://github.com/bast">@bast</a>): Reporter</li>
+  <li>Raniere Silva (<a href="https://github.com/rgaiacs">@rgaiacs</a>): Reporter</li>
+</ul>
+
+<p>CFF has been developed to provide the first iteration of a format for <code class="highlighter-rouge">CITATION</code>
+files which could be recommended to readers of the blog post which has been
+produced by the group during the workshop and shortly after, and which will be
+published on the <a href="https://www.software.ac.uk/blog">blog page</a> of the <a href="https://www.software.ac.uk/">Software
+Sustainability Institute</a>.</p>
+
+<h2 id="rationale">Rationale</h2>
+
+<p class="notice--primary">The rationale for a standardized, machine- and human-readable format for
+<code class="highlighter-rouge">CITATION</code> files is discussed in more detail in 
+<a href="#standardized-citation-files">Druskat, (2017)</a>. CFF has been developed to support all 
+use cases for the citation of software, as
+discussed in <a href="#principles">Smith et al., (2016)</a>, and thus promote attribution and credit for
+software in general, and research software in particular.</p>
+
+<p>In a blog post <a href="#citation-files">(Wilson, 2013)</a>, Robin Wilson has introduced <code class="highlighter-rouge">CITATION</code>
+files as a means to make citation information for software easily accessible.
+This accessibility is important, because in order to receive deserved credit for
+research software in the academic system - where credit is still mainly measured
+based on citations -, the citation information for software must be made
+visible; Authors will only cite software if the citation information is readily
+available, as there is no standard, easily deducible way (yet) to cite software,
+such as there is for journals for example.</p>
+
+<p>Some have followed the advice, and have uploaded <code class="highlighter-rouge">CITATION</code> (or <code class="highlighter-rouge">CITATION.md</code>,
+or <code class="highlighter-rouge">CITATION.txt</code>) files to the root of the source code repository holding their
+software. While this practice has made for a good start, plain text,
+unstandardized <code class="highlighter-rouge">CITATION</code> files are not machine-readable, and machine-
+readability is a precondition for re-use of the citation information in
+different contexts which could further support a fair distribution of credit for
+research software.</p>
+
+<h2 id="goals">Goals</h2>
+<p>The goal of CFF is to provide an all-purpose citation format (similar to BibTeX
+ or RIS), and specifically provide optimized means of citation for software via
+ the provision of software-specific reference keys and types, e.g., a dedicated
+ type for source code and one for executables, and a reference key for versions,
+ cf. <a href="#reference-types">Reference types</a>.</p>
+
+<p>The ultimate goal of CFF as a project is comprehensive uptake and re-use of the
+format by Research Software Engineers and software developers as well as by
+vendors and services, such as software repositories, reference managers, etc.,
+in order to boost the visibility of citation information for research software,
+and empower the fair distribution of credit for software development,
+maintenance, etc., in academia.</p>
+
+<h2 id="concepts">Concepts</h2>
+
+<p>For users of other reference formats, such as BibTeX or RIS, it is important to
+note that in CFF, all available keys can be used for all reference types. CFF
+leaves reasonability of use with format users and providers of tooling, such as
+conversion software for CFF and other formats. In other words, the use of keys
+should follow common sense. If not, it will confuse the user of the <code class="highlighter-rouge">CITATION</code>
+file, and some of the information will probably be lost in re-use scenarios such
+as conversion or display. If you feel that CFF does not offer a solution for
+your specific use case, please consider contributing to the format as described
+in section <a href="#contributions">Contributions</a>.</p>
+
+<p>Furthermore please note that if a section of a work is referenced, this is not
+supported by a dedicated reference type. Instead, the <code class="highlighter-rouge">section</code> key in the parent
+type (i.e., <code class="highlighter-rouge">book</code> for a section of a book, etc.) should be used.</p>
+
+<h1 id="format">Format</h1>
+
+<p>CFF <code class="highlighter-rouge">CITATION</code> files must be named <code class="highlighter-rouge">CITATION.cff</code>.</p>
+
+<p>CFF is implemented in YAML 1.2, as the language provides optimal human-
+readability and the required core data types. For details, see the
+YAML 1.2 Specifications <a href="#yaml-1-2-specs">(Ben-Kiki et al., 2009)</a>.</p>
+
+<h2 id="file-structure">File structure</h2>
+
+<p>CFF <code class="highlighter-rouge">CITATION</code> files are YAML 1.2 dictionaries (“maps”) with
+three mandatory keys: <code class="highlighter-rouge">cff-version</code>, <code class="highlighter-rouge">message</code>, <code class="highlighter-rouge">references</code>.</p>
+
+<p><code class="highlighter-rouge">cff-version</code> must specify the exact version of the
+Citation File Format that is used for the file.</p>
+
+<p><code class="highlighter-rouge">message</code> must specify instructions to users on how
+to cite the software the CITATION.cff file is associated
+with.</p>
+
+<p><code class="highlighter-rouge">references</code> must specify a list of references.</p>
+
+<p>Example:</p>
+
+<figure class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="na">cff-version</span><span class="pi">:</span> <span class="s">1.0.0</span>
+<span class="na">message</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Please</span><span class="nv"> </span><span class="s">cite</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">following</span><span class="nv"> </span><span class="s">works</span><span class="nv"> </span><span class="s">when</span><span class="nv"> </span><span class="s">using</span><span class="nv"> </span><span class="s">this</span><span class="nv"> </span><span class="s">software."</span>
+<span class="na">references</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">...</span>
+  <span class="pi">-</span> <span class="s">...</span></code></pre></figure>
+
+<h3 id="reference-structure">Reference structure</h3>
+
+<p>A reference item, i.e., an item in the list under <code class="highlighter-rouge">references</code>, must at least
+specify values for the following mandatory keys: <code class="highlighter-rouge">type</code>, <code class="highlighter-rouge">authors</code>, <code class="highlighter-rouge">title</code>.</p>
+
+<p><code class="highlighter-rouge">type</code> must specify the type of the referenced work. For a list of available 
+values, cf. <a href="#reference-types">reference types</a>.</p>
+
+<p><code class="highlighter-rouge">authors</code> must specify a list of <a href="#person-objects">person objects</a>.</p>
+
+<p><code class="highlighter-rouge">title</code> must specify the title of the referenced work.</p>
+
+<p>Additionally, it can contain any further <a href="#reference-keys">reference keys</a>. In version 
+0.9-RC1, 
+CFF does not specify a strict schema where specific <a href="#reference-types">reference
+types</a> can only contain specific <a href="#reference-keys">reference keys</a>, although this may be
+implemented in future versions.</p>
+
+<h3 id="notable-reference-keys">Notable reference keys</h3>
+
+<p><strong>conference</strong>, <strong>database‑provider</strong>, <strong>institution</strong>, <strong>publisher</strong></p>
+
+<p>These keys take an <a href="#entity-objects">entity object</a> as value. Entity objects
+reference named entities and provide a fixed set of keys, such as <code class="highlighter-rouge">name</code> and
+contact information.</p>
+
+<p>Example:</p>
+
+<figure class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="nn">...</span>
+<span class="na">references</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="na">type</span><span class="pi">:</span> <span class="s">book</span>
+    <span class="na">publisher</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">PeerJ</span>
+        <span class="na">city</span><span class="pi">:</span> <span class="s">London</span>
+        <span class="na">country</span><span class="pi">:</span> <span class="s">GB</span>
+        <span class="na">website</span><span class="pi">:</span> <span class="s">https://peerj.com/</span></code></pre></figure>
+
+<p><strong>authors</strong>, <strong>contact</strong>, <strong>editors</strong>, <strong>editors-series</strong>, <strong>recipients</strong>,
+<strong>senders</strong>, <strong>translators</strong></p>
+
+<p>These keys take a collection of <a href="#person-objects">person objects</a> as value. Person objects
+provide a fixed set of keys to reference individuals, including a detailed
+set for specifiying personal names, an affiliation, a role, etc.</p>
+
+<p>Example:</p>
+
+<figure class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="nn">...</span>
+<span class="na">references</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="na">type</span><span class="pi">:</span> <span class="s">software</span>
+    <span class="na">authors</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="na">family-names</span><span class="pi">:</span> <span class="s">Druskat</span>
+        <span class="na">given-names</span><span class="pi">:</span> <span class="s">Stephan</span>
+        <span class="na">orcid</span><span class="pi">:</span> <span class="s">0000-0003-4925-7248</span>
+        <span class="na">affiliation</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Humboldt-Universität</span><span class="nv"> </span><span class="s">zu</span><span class="nv"> </span><span class="s">Berlin"</span>
+        <span class="na">email</span><span class="pi">:</span> <span class="s2">"</span><span class="s">mail@sdruskat.net"</span>
+        <span class="na">website</span><span class="pi">:</span> <span class="s">http://sdruskat.net</span>
+        <span class="na">role</span><span class="pi">:</span> <span class="s">main-author</span>
+      <span class="pi">-</span> <span class="na">family-names</span><span class="pi">:</span> <span class="s">Beethoven</span>
+        <span class="na">name-particle</span><span class="pi">:</span> <span class="s">van</span>
+        <span class="na">given-names</span><span class="pi">:</span> <span class="s">Ludwig</span>
+        <span class="na">role</span><span class="pi">:</span> <span class="s">artist</span>
+      <span class="pi">-</span> <span class="na">family-names</span><span class="pi">:</span> <span class="s">Fernández de Córdoba</span>
+        <span class="na">given-names</span><span class="pi">:</span> <span class="s">Gonzalo</span>
+        <span class="na">name-suffix</span><span class="pi">:</span> <span class="s">Jr.</span>
+        <span class="na">role</span><span class="pi">:</span> <span class="s">tester</span>
+    <span class="s">...</span></code></pre></figure>
+
+<p><strong>type</strong>, <strong>languages</strong>, <strong>programming-languages</strong>, <strong>status</strong></p>
+
+<p>These keys only take values from a defined set, cf. the respective sections:</p>
+
+<ul>
+  <li><a href="#reference-types">Reference types</a></li>
+  <li><a href="#language-strings">Language strings</a></li>
+  <li><a href="#programming-language-strings">Programming language strings</a></li>
+  <li><a href="#status-strings">Status strings</a></li>
+</ul>
+
+<p><strong>license‑url</strong>, <strong>repository</strong>, <strong>repository-code</strong>, <strong>repository-artifact</strong>,
+<strong>url</strong></p>
+
+<p>These keys take URL strings as values.</p>
+
+<p><strong>keywords</strong></p>
+
+<p>This key takes a collection of strings.</p>
+
+<p>Example:</p>
+
+<figure class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="nn">...</span>
+<span class="na">references</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="na">type</span><span class="pi">:</span> <span class="s">software</span>
+    <span class="na">keywords</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">linguistics</span>
+      <span class="pi">-</span> <span class="s2">"</span><span class="s">multi-layer</span><span class="nv"> </span><span class="s">annotation"</span>
+      <span class="pi">-</span> <span class="s">web service</span>
+    <span class="s">...</span></code></pre></figure>
+
+<p><strong>scope</strong></p>
+
+<p>A reference item can specify a more detailed scope for the reference, via the 
+reference key <code class="highlighter-rouge">scope</code>. This key can be useful if certatin references should only
+be cited under specific circumstances, e.g., only when a specific package
+of the software is used. In such a case, the package would ideally have its own
+CFF file, but if this is not possible for whatever reason, the <code class="highlighter-rouge">scope</code> key
+my come in handy.</p>
+
+<p>Example:</p>
+
+<figure class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="nn">...</span>
+<span class="na">references</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="na">scope</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Cite</span><span class="nv"> </span><span class="s">this</span><span class="nv"> </span><span class="s">paper</span><span class="nv"> </span><span class="s">when</span><span class="nv"> </span><span class="s">you</span><span class="nv"> </span><span class="s">run</span><span class="nv"> </span><span class="s">software</span><span class="nv"> </span><span class="s">X</span><span class="nv"> </span><span class="s">with</span><span class="nv"> </span><span class="s">flag</span><span class="nv"> </span><span class="s">--xy"</span>
+    <span class="na">type</span><span class="pi">:</span> <span class="s">article</span>
+    <span class="s">...</span></code></pre></figure>
+
+<h2 id="formatting">Formatting</h2>
+
+<p>CFF follows the formatting rules of YAML 1.2, of which one of
+the most important ones is that the colon (<code class="highlighter-rouge">:</code>) after a key should always be
+followed by a whitespace.</p>
+
+<p>Structure is determined by indentation, i.e., lines
+containing nested elements must be indented by at least one whitespace character,
+although using at least two whitespaces as a standard for indentation preserves 
+readability.</p>
+
+<p>Value strings can (and sometimes should) be double-quoted, e.g. <code class="highlighter-rouge">"string"</code>, 
+especially when they contain YAML special characters, or special characters in
+general. These include:</p>
+
+<blockquote>
+  <p><code class="highlighter-rouge">:  {  }  [  ]  ,  &amp;  *  #  ?  |  -  &lt;  &gt;  =  !  %  @  \</code></p>
+</blockquote>
+
+<h2 id="reference-keys">Reference keys</h2>
+
+<p>CFF defines the following reference keys.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>CFF Key</th>
+      <th>CFF Data Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">abbreviation</code></td>
+      <td>String</td>
+      <td>The abbreviation of the work</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">abstract</code></td>
+      <td>String</td>
+      <td>The abstract of a work</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">authors</code></td>
+      <td>Collection of <em><a href="#entity-objects">entity</a></em> or <em><a href="#person-objects">person objects</a></em></td>
+      <td>The author of a work</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">collection-doi</code></td>
+      <td>String</td>
+      <td>The DOI of a collection conttaining the work</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">collection-title</code></td>
+      <td>String</td>
+      <td>The title of a collection or proceedings</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">collection-type</code></td>
+      <td>String</td>
+      <td>The type of a collection</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">commit</code></td>
+      <td>String</td>
+      <td>The (e.g., Git) commit hash or (e.g., Subversion) revision number of the work</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">conference</code></td>
+      <td><em><a href="#entity-objects">Entity object</a></em></td>
+      <td>The conference where the work was presented</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">contact</code></td>
+      <td>Collection of <em><a href="#entity-objects">entity</a></em> or <em><a href="#person-objects">person objects</a></em></td>
+      <td>The contact person, group, company, etc. for a work</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">copyright</code></td>
+      <td>String</td>
+      <td>The copyright information pertaining to the work</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">data-type</code></td>
+      <td>String</td>
+      <td>The data type of a data set</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">database</code></td>
+      <td>String</td>
+      <td>The name of the database where a work was accessed/is stored</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">database-provider</code></td>
+      <td><em><a href="#entity-objects">Entity object</a></em></td>
+      <td>The provider of the database where a work was accessed/is stored</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">date-accessed</code></td>
+      <td>Date</td>
+      <td>The date the work has been last accessed</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">date-downloaded</code></td>
+      <td>Date</td>
+      <td>The date the work has been downloaded</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">date-published</code></td>
+      <td>Date</td>
+      <td>The date the work has been published</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">date-released</code></td>
+      <td>Date</td>
+      <td>The date the work has been released</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">department</code></td>
+      <td>String</td>
+      <td>The department where a work has been produced</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">doi</code></td>
+      <td>String</td>
+      <td>The DOI of the work</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">edition</code></td>
+      <td>String</td>
+      <td>The edition of the work</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">editors</code></td>
+      <td>Collection of <em><a href="#entity-objects">entity</a></em> or <em><a href="#person-objects">person objects</a></em></td>
+      <td>The editors of a work</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">editors-series</code></td>
+      <td>Collection of <em><a href="#entity-objects">entity</a></em> or <em><a href="#person-objects">person objects</a></em></td>
+      <td>The editors of a series in which a work has been published</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">end</code></td>
+      <td>Integer</td>
+      <td>The end page of the work</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">entry</code></td>
+      <td>String</td>
+      <td>An entry in the collection that constitutes the work</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">filename</code></td>
+      <td>String</td>
+      <td>The name of the electronic file containing the work</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">format</code></td>
+      <td>String</td>
+      <td>The format in which a work is represented</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">institution</code></td>
+      <td><em><a href="#entity-objects">Entity object</a></em></td>
+      <td>The institution where a work has been produced or published</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">isbn</code></td>
+      <td>String</td>
+      <td>The ISBN of the work</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">issn</code></td>
+      <td>String</td>
+      <td>The ISSN of the work</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">issue</code></td>
+      <td>Integer</td>
+      <td>The issue of a periodical in which a work appeared</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">issue-date</code></td>
+      <td>String</td>
+      <td>The publication date of the issue of a periodical in which a work appeared</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">issue-title</code></td>
+      <td>String</td>
+      <td>The name of the issue of a periodical in which the work appeared</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">journal</code></td>
+      <td>String</td>
+      <td>The name of the journal/magazine/newspaper/periodical where the work was published</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">keywords</code></td>
+      <td>Collection of strings</td>
+      <td>Keywords pertaining to the work</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">languages</code></td>
+      <td>Collection of ISO 639 <a href="#language-strings"><em>language strings</em></a></td>
+      <td>The language of the work</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">license</code></td>
+      <td>String</td>
+      <td>The license under which a work is licensed</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">license-url</code></td>
+      <td>String (<em>URL</em>)</td>
+      <td>The URL of the license text under which a work is licensed</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">location</code></td>
+      <td><em><a href="#entity-objects">Entity object</a></em></td>
+      <td>The location of the work</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">loc-start</code></td>
+      <td>Integer</td>
+      <td>The line of code in the file where the work starts</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">loc-end</code></td>
+      <td>Integer</td>
+      <td>The line of code in the file where the work ends</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">medium</code></td>
+      <td>String</td>
+      <td>The medium of the work</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">month</code></td>
+      <td>Integer</td>
+      <td>The month in which a work has been published</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">nihmsid</code></td>
+      <td>String</td>
+      <td>The NIHMSID of a work</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">notes</code></td>
+      <td>String</td>
+      <td>Notes pertaining to the work</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">number</code></td>
+      <td>String</td>
+      <td>The accession number for a work</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">number-volumes</code></td>
+      <td>Integer</td>
+      <td>The number of volumes making up the collection in which the work has been published</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">pages</code></td>
+      <td>Integer</td>
+      <td>The number of pages of the work</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">patent-states</code></td>
+      <td>String</td>
+      <td>The states for which a patent is granted</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">pmcid</code></td>
+      <td>String</td>
+      <td>The PMCID of a work</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">programming-languages</code></td>
+      <td>Collection of <a href="#programming-language-strings"><em>programming language strings</em></a></td>
+      <td>The programming language of the work</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">publisher</code></td>
+      <td><em><a href="#entity-objects">Entity object</a></em></td>
+      <td>The publisher who has published the work</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">recipients</code></td>
+      <td>Collection of <em><a href="#entity-objects">entity</a></em> or <em><a href="#person-objects">person objects</a></em></td>
+      <td>The recipient of a personal communication</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">repository</code></td>
+      <td>String (<em>URL</em>)</td>
+      <td>The repository where the work is stored</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">repository-code</code></td>
+      <td>String (<em>URL</em>)</td>
+      <td>The version control system where the source code of the work is stored</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">repository-artifact</code></td>
+      <td>String (<em>URL</em>)</td>
+      <td>The repository where the (executable/binary) artifact of the work is stored</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">scope</code></td>
+      <td>String</td>
+      <td>The scope of the reference, e.g., the section of the work it adheres to</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">section</code></td>
+      <td>String</td>
+      <td>The section of a work that is referenced</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">senders</code></td>
+      <td>Collection of <em><a href="#person-objects">person objects</a></em></td>
+      <td>The sender of a personal communication</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">status</code></td>
+      <td><em><a href="#status-strings">Status string</a></em></td>
+      <td>The publication status of the work</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">start</code></td>
+      <td>Integer</td>
+      <td>The start page of the work</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">thesis-type</code></td>
+      <td>String</td>
+      <td>The type of the thesis that is the work</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">title</code></td>
+      <td>String</td>
+      <td>The title of the work</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">translators</code></td>
+      <td>Collection of <em><a href="#entity-objects">entity</a></em> or <em><a href="#person-objects">person objects</a></em></td>
+      <td>The translator of a work</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">type</code></td>
+      <td><em><a href="#reference-types">Reference types</a> string</em></td>
+      <td>The type of the work</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">url</code></td>
+      <td>String (<em>URL</em>)</td>
+      <td>The URL of the work</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">version</code></td>
+      <td>String</td>
+      <td>The version of the work</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">volume</code></td>
+      <td>Integer</td>
+      <td>The volume of the periodical in which a work appeared</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">volume-title</code></td>
+      <td>String</td>
+      <td>The title of the volume in which the work appeared</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">year</code></td>
+      <td>Integer</td>
+      <td>The year in which a work has been published</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">year-original</code></td>
+      <td>Integer</td>
+      <td>The year of the original publication</td>
+    </tr>
+  </tbody>
+</table>
+
+<p class="text-right">Table: Complete list of CFF keys.</p>
+
+<h3 id="exemplary-uses">Exemplary uses</h3>
+
+<p>This section details exemplary use cases for some of the keys to avoid
+ambiguity/misuse.</p>
+
+<p><strong>abstract</strong></p>
+
+<ul>
+  <li>If the work is a journal paper or other academic work: The abstract of the work.</li>
+  <li>If the work is a film, broadcast or similar: The synopsis of the work.</li>
+</ul>
+
+<p><strong>department</strong></p>
+
+<ul>
+  <li>If the work is a thesis: The academic department where the thesis has been produced.</li>
+  <li>If the work is a government document: The governmental department which has issued the document.</li>
+</ul>
+
+<p><strong>format</strong></p>
+
+<ul>
+  <li>If the work is a music file: The digital format in which a musical piece is saved, e.g., MP3.</li>
+  <li>If the work is a data set: The digital format in which the data set is saved.</li>
+  <li>If the work is a painting: The format of the painting, e.g., the width and height of the canvas.</li>
+</ul>
+
+<p><strong>institution</strong></p>
+
+<ul>
+  <li>If the work is a report: The institution where the report has been produced.</li>
+  <li>If the work is a case: The court where a case has been held.</li>
+  <li>If the work is a blog post: The institution responsible for running the blog.</li>
+  <li>If the work is a patent, legal rule or similar: The issuing institution of the patent/rule.</li>
+  <li>If the work is a grant: The funding agency sponsoring the grant.</li>
+  <li>If the work is a thesis: The university where a thesis has been produced.</li>
+  <li>If the work is a statute: The institution or geographical unit which the statute adheres to.</li>
+  <li>If the work is a conference: The organisation which held the conference.</li>
+</ul>
+
+<p><strong>languages</strong></p>
+
+<ul>
+  <li>If the work is a book: The language in which the book is written.</li>
+</ul>
+
+<p><strong>location</strong></p>
+
+<ul>
+  <li>If the work is an artwork: E.g., the museum holding the work.</li>
+  <li>If the work is a historical work, illuminated manuscript or similar: The library or archive where the work is held.</li>
+</ul>
+
+<p><strong>medium</strong></p>
+
+<ul>
+  <li>If the work is an artwork: The medium of the artwork, e.g., “photograph”, 
+“painting”, “oil on canvas”, etc.</li>
+  <li>If the work is a book or similar: Whether it is a printed book or an ebook.</li>
+</ul>
+
+<p><strong>month</strong></p>
+
+<ul>
+  <li>If the work is a conference: The month in which the conference has been held.</li>
+  <li>If the work is a magazine article: The month in which the magazine issue containing the article has been published.</li>
+</ul>
+
+<p><strong>number</strong></p>
+
+<ul>
+  <li>If the work is a conference paper: E.g., the submission number of the paper</li>
+  <li>If the work is a grant: The grant number provided by the funding agency.</li>
+  <li>If the work is a work of art: E.g., the catalogue number provided by a museum holding the artwork.</li>
+  <li>If the work is a report: The report number of a report.</li>
+  <li>If the work is a patent: The patent number of the work.</li>
+  <li>If the work is a historical work, illuminated manuscript or similar: The codex or folio number of a manuscript, or the library identifier for a manuscript.</li>
+</ul>
+
+<p><strong>term</strong></p>
+
+<ul>
+  <li>If the work is a dictionary or encyclopedia: The term in the dictionary or encyclopedia that is being referenced.</li>
+</ul>
+
+<p><strong>title</strong></p>
+
+<ul>
+  <li>If the work is a case: The name of the case (e.g., Name v. Name).</li>
+</ul>
+
+<p><strong>version</strong></p>
+
+<ul>
+  <li>If the work is a software: The version of the referenced software.</li>
+</ul>
+
+<h2 id="reference-types">Reference types</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Reference type string</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>art</strong></td>
+      <td>A work of art, e.g., a painting</td>
+    </tr>
+    <tr>
+      <td><strong>article</strong></td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><strong>audiovisual</strong></td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><strong>bill</strong></td>
+      <td>A legal bill</td>
+    </tr>
+    <tr>
+      <td><strong>blog</strong></td>
+      <td>A blog post</td>
+    </tr>
+    <tr>
+      <td><strong>book</strong></td>
+      <td>A book or e-book</td>
+    </tr>
+    <tr>
+      <td><strong>catalogue</strong></td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><strong>conference</strong></td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><strong>conference-paper</strong></td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><strong>data</strong></td>
+      <td>A data set</td>
+    </tr>
+    <tr>
+      <td><strong>database</strong></td>
+      <td>An aggregated or online database</td>
+    </tr>
+    <tr>
+      <td><strong>dictionary</strong></td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><strong>edited-work</strong></td>
+      <td>An edited work, e.g., a book</td>
+    </tr>
+    <tr>
+      <td><strong>encyclopedia</strong></td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><strong>film-broadcast</strong></td>
+      <td>A film or broadcast</td>
+    </tr>
+    <tr>
+      <td><strong>generic</strong></td>
+      <td>The fallback type</td>
+    </tr>
+    <tr>
+      <td><strong>government-document</strong></td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><strong>grant</strong></td>
+      <td>A research or other grant</td>
+    </tr>
+    <tr>
+      <td><strong>hearing</strong></td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><strong>historical-work</strong></td>
+      <td>A historical work, e.g., a medieval manuscript</td>
+    </tr>
+    <tr>
+      <td><strong>legal-case</strong></td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><strong>legal-rule</strong></td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><strong>magazine-article</strong></td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><strong>manual</strong></td>
+      <td>A manual</td>
+    </tr>
+    <tr>
+      <td><strong>map</strong></td>
+      <td>A geographical map</td>
+    </tr>
+    <tr>
+      <td><strong>multimedia</strong></td>
+      <td>A multimedia file</td>
+    </tr>
+    <tr>
+      <td><strong>music</strong></td>
+      <td>A music file or sheet music</td>
+    </tr>
+    <tr>
+      <td><strong>newspaper-article</strong></td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><strong>pamphlet</strong></td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><strong>patent</strong></td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><strong>personal-communication</strong></td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><strong>proceedings</strong></td>
+      <td>Conference proceedings</td>
+    </tr>
+    <tr>
+      <td><strong>report</strong></td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><strong>serial</strong></td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><strong>slides</strong></td>
+      <td>Slides, i.e., a published slide deck</td>
+    </tr>
+    <tr>
+      <td><strong>software</strong></td>
+      <td>Software</td>
+    </tr>
+    <tr>
+      <td><strong>software-code</strong></td>
+      <td>Software source code</td>
+    </tr>
+    <tr>
+      <td><strong>software-container</strong></td>
+      <td>A software container (e.g., a docker container)</td>
+    </tr>
+    <tr>
+      <td><strong>software-executable</strong></td>
+      <td>An executable software, i.e., a binary/artifact</td>
+    </tr>
+    <tr>
+      <td><strong>software-virtual-machine</strong></td>
+      <td>A virtual machine/vm image</td>
+    </tr>
+    <tr>
+      <td><strong>sound-recording</strong></td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><strong>standard</strong></td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><strong>statute</strong></td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><strong>thesis</strong></td>
+      <td>An academic thesis</td>
+    </tr>
+    <tr>
+      <td><strong>unpublished</strong></td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><strong>video</strong></td>
+      <td>A video recording</td>
+    </tr>
+    <tr>
+      <td><strong>website</strong></td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<p class="text-right">Table: Complete list of CFF reference types.</p>
+
+<h1 id="objects">Objects</h1>
+
+<h2 id="entity-objects">Entity objects</h2>
+
+<p>Entity objects can represent different types of entities, e.g., 
+a publishing company, or conference. In CFF, they are realized as collections with
+a defined set of keys. Only the key <code class="highlighter-rouge">name</code> is mandatory.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Entity key</th>
+      <th>Entity Data Type</th>
+      <th style="text-align: center">optional</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">name</code></td>
+      <td>String</td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">address</code></td>
+      <td>String</td>
+      <td style="text-align: center">•</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">city</code></td>
+      <td>String</td>
+      <td style="text-align: center">•</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">region</code></td>
+      <td>String</td>
+      <td style="text-align: center">•</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">post-code</code></td>
+      <td>String</td>
+      <td style="text-align: center">•</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">country</code></td>
+      <td>String</td>
+      <td style="text-align: center">•</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">orcid</code></td>
+      <td>String</td>
+      <td style="text-align: center">•</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">email</code></td>
+      <td>String</td>
+      <td style="text-align: center">•</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">tel</code></td>
+      <td>String</td>
+      <td style="text-align: center">•</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">fax</code></td>
+      <td>String</td>
+      <td style="text-align: center">•</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">website</code></td>
+      <td>String (<em>URL</em>)</td>
+      <td style="text-align: center">•</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">date-start</code></td>
+      <td>Date</td>
+      <td style="text-align: center">•</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">date-end</code></td>
+      <td>Date</td>
+      <td style="text-align: center">•</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">location</code></td>
+      <td>String</td>
+      <td style="text-align: center">•</td>
+    </tr>
+  </tbody>
+</table>
+
+<p class="text-right">Table: Complete list of keys for entity objects.</p>
+
+<h3 id="exemplary-uses-1">Exemplary uses</h3>
+
+<p><strong>address</strong></p>
+
+<ul>
+  <li>To be used for street names and house numbers, etc.</li>
+</ul>
+
+<p><strong>region</strong></p>
+
+<ul>
+  <li>To be used for, e.g., states (as in US states or German federal states).</li>
+</ul>
+
+<p><strong>post-code</strong></p>
+
+<ul>
+  <li>The post code or zip code of an address.</li>
+</ul>
+
+<p><strong>country</strong></p>
+
+<ul>
+  <li>The ISO 3166-1 alpha-2 country code for a country. A list of ISO 3166-1 
+alpha-2 codes can be found at
+<a href="https://en.wikipedia.org/wiki/ISO_3166-1">Wikipedia:ISO 3166-1</a>.</li>
+</ul>
+
+<p>Example:</p>
+
+<figure class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="nn">...</span>
+<span class="na">references</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="na">type</span><span class="pi">:</span> <span class="s">book</span>
+    <span class="na">publisher</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">PeerJ</span>
+        <span class="na">city</span><span class="pi">:</span> <span class="s">London</span>
+        <span class="na">country</span><span class="pi">:</span> <span class="s">GB</span></code></pre></figure>
+
+<p><strong>date-start</strong> and <strong>date-end</strong></p>
+
+<ul>
+  <li>The start and end date of, e.g., a conference. This must be formatted 
+according to <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO 8601</a>, e.g., 
+<code class="highlighter-rouge">YYYY-MM-DD</code>, or <code class="highlighter-rouge">2017-10-04T16:20:57+00:00</code>.</li>
+</ul>
+
+<h2 id="person-objects">Person objects</h2>
+
+<p>A person object represents a person. In CFF, person objects are realized as
+collections with a defined set of keys, of which only <code class="highlighter-rouge">family-names</code> and
+<code class="highlighter-rouge">given-names</code> are mandatory.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Entity key</th>
+      <th>Entity Data Type</th>
+      <th style="text-align: center">optional</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>family-names</td>
+      <td>String</td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td>given-names</td>
+      <td>String</td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td>name-particle</td>
+      <td>String</td>
+      <td style="text-align: center">•</td>
+    </tr>
+    <tr>
+      <td>name-suffix</td>
+      <td>String</td>
+      <td style="text-align: center">•</td>
+    </tr>
+    <tr>
+      <td>affiliation</td>
+      <td>String</td>
+      <td style="text-align: center">•</td>
+    </tr>
+    <tr>
+      <td>address</td>
+      <td>String</td>
+      <td style="text-align: center">•</td>
+    </tr>
+    <tr>
+      <td>city</td>
+      <td>String</td>
+      <td style="text-align: center">•</td>
+    </tr>
+    <tr>
+      <td>region</td>
+      <td>String</td>
+      <td style="text-align: center">•</td>
+    </tr>
+    <tr>
+      <td>post-code</td>
+      <td>String</td>
+      <td style="text-align: center">•</td>
+    </tr>
+    <tr>
+      <td>country</td>
+      <td>String</td>
+      <td style="text-align: center">•</td>
+    </tr>
+    <tr>
+      <td>orcid</td>
+      <td>String</td>
+      <td style="text-align: center">•</td>
+    </tr>
+    <tr>
+      <td>email</td>
+      <td>String</td>
+      <td style="text-align: center">•</td>
+    </tr>
+    <tr>
+      <td>tel</td>
+      <td>String</td>
+      <td style="text-align: center">•</td>
+    </tr>
+    <tr>
+      <td>fax</td>
+      <td>String</td>
+      <td style="text-align: center">•</td>
+    </tr>
+    <tr>
+      <td>website</td>
+      <td>String (<em>URL</em>)</td>
+      <td style="text-align: center">•</td>
+    </tr>
+    <tr>
+      <td>role</td>
+      <td><a href="#person-roles"><em>Person roles</em></a> string</td>
+      <td style="text-align: center">•</td>
+    </tr>
+  </tbody>
+</table>
+
+<p class="text-right">Table: Complete list of keys for person objects.</p>
+
+<h3 id="exemplary-uses-2">Exemplary uses</h3>
+
+<p><strong>Name keys</strong></p>
+
+<p>CFF aims at implementing a culturally neutral model for personal names, 
+according to the
+<a href="https://www.w3.org/International/questions/qa-personal-names">suggestions on splitting personal names by the W3C</a> 
+and the implementation of personal name splitting in 
+BibTeX <a href="#names-in-bibtex">(Hufflen, 2006)</a>.</p>
+
+<p>To this end, CFF provides four generic keys to specify personal names:</p>
+
+<ol>
+  <li>Values for <code class="highlighter-rouge">family-names</code> specify family names, including combinations of given and 
+patronymic forms, such as <em>Guðmundsdóttir</em> or <em>bin Osman</em>; double names with or 
+without hyphen, such as <em>Leutheusser-Schnarrenberger</em> or <em>Sánchez Vicario</em>. It 
+can potentially also specify names that include prepositions or (nobiliary)
+particles, especially if they occur in between family names such as in Spanish-
+or Portuguese-origin names, such as <em>Fernández de Córdoba</em>.</li>
+  <li>Values for <code class="highlighter-rouge">given-names</code> specify given and any other names.</li>
+  <li>Values for <code class="highlighter-rouge">name-particle</code> specify nobiliary particles and prepositions, such as in
+Ludwig <em>van</em> Beethoven or Rafael <em>van der</em> Vaart.</li>
+  <li>Values for <code class="highlighter-rouge">name-suffix</code> specify suffixes such as <em>Jr.</em> or <em>III</em> (as in 
+<a href="https://en.wikipedia.org/wiki/Tr%C3%A9_Cool">Frank Edwin Wright <em>III</em></a>).</li>
+</ol>
+
+<p>Note that these keys may still not be optimal for, e.g., Icelandic names which
+do not have the concept of family names, or Chinese generation names, but the 
+alternative is highly localized customization, which would be counterintuitive 
+as to CFF’s goal to be easily accessible. Thus, it is ultimately the task of CFF 
+file authors to find the optimal name split in any given case.</p>
+
+<p><strong>affiliation</strong></p>
+
+<ul>
+  <li>To specify the affiliation of a person, e.g., a university, research centre, etc.</li>
+</ul>
+
+<p><strong>Address keys</strong></p>
+
+<ul>
+  <li>Cf. <a href="#entity-objects">Entity objects</a> for details.</li>
+</ul>
+
+<p><strong>orcid</strong></p>
+
+<ul>
+  <li>To specify an <a href="https://orcid.org/">ORCID</a> identifier in the format
+<code class="highlighter-rouge">dddd-dddd-dddd-dddd</code>, e.g., <code class="highlighter-rouge">0000-0003-4925-7248</code>.</li>
+</ul>
+
+<h3 id="person-roles">Person roles</h3>
+
+<p>A person object can be assigned a role for the purposes of
+specifying authorship status, e.g., to distinguish main authors of a software
+from contributors who have provided a small patch. The defined roles are:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Key</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">administrator</code> (e.g., of a software system)</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">artist</code></td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">assignee</code> (e.g., of a patent)</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">author</code></td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">benchmarker</code> (e.g., of a software)</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">cartographer</code></td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">composer</code></td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">contributor</code></td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">creator</code></td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">designer</code></td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">director</code> (e.g., of a movie)</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">editor</code> (e.g., of an edited book/edition)</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">evangelist</code> (e.g., for a software)</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">institution</code> (e.g., issuing a standard)</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">inventor</code></td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">main-author</code></td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">maintainer</code> (of a software project)</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">manager</code> (e.g., of a software project)</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">programmer</code></td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">reporter</code> (e.g., of a court case/a software bug)</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">researcher</code> (e.g., authoring a data set/informing a software implementation)</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">engineer</code> (e.g., for a software)</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">technical-writer</code> (e.g., of a software documentation)</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">tester</code> (e.g., of a software)</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">trainer</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<p class="text-right">Table: Defined roles for person objects.</p>
+
+<h1 id="specified-value-strings">Specified value strings</h1>
+
+<p>The keys <code class="highlighter-rouge">status</code>, <code class="highlighter-rouge">languages</code> and <code class="highlighter-rouge">programming-languages</code> can only take values
+from a fixed set of strings. These are specified below.</p>
+
+<h2 id="status-strings">Status strings</h2>
+
+<p>Works can have a different status of publication, e.g., journal papers. CFF
+specifies the following value strings for the key <code class="highlighter-rouge">status</code>.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Status (String)</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">in-preparation</code></td>
+      <td>A work in preparation, e.g., a manuscript</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">abstract</code></td>
+      <td>The abstract of a work</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">submitted</code></td>
+      <td>A work that has been submitted for publication</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">in-press</code></td>
+      <td>A work that has been accepted for publication but has not yet been published</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">advance-online</code></td>
+      <td>A work that has been published online in advance of publication in the target medium</td>
+    </tr>
+  </tbody>
+</table>
+
+<p class="text-right">Table: Defined statuses for works.</p>
+
+<h2 id="language-strings">Language strings</h2>
+
+<p>Natural languages as a value for the key <code class="highlighter-rouge">languages</code> are specified via their
+respective 3-character <a href="https://en.wikipedia.org/wiki/ISO_639-3">ISO 639-3</a> code. A list
+of ISO 639-3 codes in maintained at 
+<a href="https://en.wikipedia.org/wiki/List_of_ISO_639-3_codes">Wikipedia:List of ISO 639-3 codes</a>.
+Alternatively, a language’s 2-character 
+<a href="https://en.wikipedia.org/wiki/ISO_639-1">ISO 639-1</a> code may be used. A list
+of ISO 639-1 codes is maintained at
+<a href="https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes">Wikipedia:List of ISO 639-1 codes</a>.</p>
+
+<p>Example for a work in both English and Daakaka:</p>
+
+<figure class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="nn">...</span>
+<span class="na">references</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="na">type</span><span class="pi">:</span> <span class="s">book</span>
+    <span class="s">...</span>
+    <span class="na">languages</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">en</span>
+      <span class="pi">-</span> <span class="s">bpa</span></code></pre></figure>
+
+<h2 id="programming-language-strings">Programming language strings</h2>
+
+<p>CFF specifies the following value strings for the key <code class="highlighter-rouge">programming-languages</code>.
+If a language is not included, please use the string <code class="highlighter-rouge">other</code> with a lower-case,
+hyphenated string argument, and do not include the version of the programming
+language used, e.g., for <em>My Fancy Language v4.2.1</em>, use <code class="highlighter-rouge">other=my-fancy-
+language</code>. Additionally, please create an issue on the <a href="https://github.com/sdruskat/citation-file-format/issues/new">GitHub repository for
+CFF</a>, asking to
+include the programming language in the list.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>CFF key</th>
+      <th>Language name</th>
+      <th>Language type</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">1c-enterprise</code></td>
+      <td>1C Enterprise</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">abap</code></td>
+      <td>ABAP</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">abnf</code></td>
+      <td>ABNF</td>
+      <td>data</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">actionscript</code></td>
+      <td>ActionScript</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">ada</code></td>
+      <td>Ada</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">adobe-font-metrics</code></td>
+      <td>Adobe Font Metrics</td>
+      <td>data</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">agda</code></td>
+      <td>Agda</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">ags-script</code></td>
+      <td>AGS Script</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">alloy</code></td>
+      <td>Alloy</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">alpine-abuild</code></td>
+      <td>Alpine Abuild</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">ampl</code></td>
+      <td>AMPL</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">ant-build-system</code></td>
+      <td>Ant Build System</td>
+      <td>data</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">antlr</code></td>
+      <td>ANTLR</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">apacheconf</code></td>
+      <td>ApacheConf</td>
+      <td>data</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">apex</code></td>
+      <td>Apex</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">api-blueprint</code></td>
+      <td>API Blueprint</td>
+      <td>markup</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">apl</code></td>
+      <td>APL</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">apollo-guidance-computer</code></td>
+      <td>Apollo Guidance Computer</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">applescript</code></td>
+      <td>AppleScript</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">arc</code></td>
+      <td>Arc</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">arduino</code></td>
+      <td>Arduino</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">asciidoc</code></td>
+      <td>AsciiDoc</td>
+      <td>prose</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">asn.1</code></td>
+      <td>ASN.1</td>
+      <td>data</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">asp</code></td>
+      <td>ASP</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">aspectj</code></td>
+      <td>AspectJ</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">assembly</code></td>
+      <td>Assembly</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">ats</code></td>
+      <td>ATS</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">augeas</code></td>
+      <td>Augeas</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">autohotkey</code></td>
+      <td>AutoHotkey</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">autoit</code></td>
+      <td>AutoIt</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">awk</code></td>
+      <td>Awk</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">ballerina</code></td>
+      <td>Ballerina</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">batchfile</code></td>
+      <td>Batchfile</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">befunge</code></td>
+      <td>Befunge</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">bison</code></td>
+      <td>Bison</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">bitbake</code></td>
+      <td>BitBake</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">blade</code></td>
+      <td>Blade</td>
+      <td>markup</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">blitzbasic</code></td>
+      <td>BlitzBasic</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">blitzmax</code></td>
+      <td>BlitzMax</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">bluespec</code></td>
+      <td>Bluespec</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">boo</code></td>
+      <td>Boo</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">brainfuck</code></td>
+      <td>Brainfuck</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">brightscript</code></td>
+      <td>Brightscript</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">bro</code></td>
+      <td>Bro</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">c#</code></td>
+      <td>C#</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">c++</code></td>
+      <td>C++</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">c</code></td>
+      <td>C</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">c-objdump</code></td>
+      <td>C-ObjDump</td>
+      <td>data</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">c2hs-haskell</code></td>
+      <td>C2hs Haskell</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">cap'n-proto</code></td>
+      <td>Cap’n Proto</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">cartocss</code></td>
+      <td>CartoCSS</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">ceylon</code></td>
+      <td>Ceylon</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">chapel</code></td>
+      <td>Chapel</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">charity</code></td>
+      <td>Charity</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">chuck</code></td>
+      <td>ChucK</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">cirru</code></td>
+      <td>Cirru</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">clarion</code></td>
+      <td>Clarion</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">clean</code></td>
+      <td>Clean</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">click</code></td>
+      <td>Click</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">clips</code></td>
+      <td>CLIPS</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">clojure</code></td>
+      <td>Clojure</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">closure-templates</code></td>
+      <td>Closure Templates</td>
+      <td>markup</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">cmake</code></td>
+      <td>CMake</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">cobol</code></td>
+      <td>COBOL</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">coffeescript</code></td>
+      <td>CoffeeScript</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">coldfusion</code></td>
+      <td>ColdFusion</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">coldfusion-cfc</code></td>
+      <td>ColdFusion CFC</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">collada</code></td>
+      <td>COLLADA</td>
+      <td>data</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">common-lisp</code></td>
+      <td>Common Lisp</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">component-pascal</code></td>
+      <td>Component Pascal</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">cool</code></td>
+      <td>Cool</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">coq</code></td>
+      <td>Coq</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">cpp-objdump</code></td>
+      <td>Cpp-ObjDump</td>
+      <td>data</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">creole</code></td>
+      <td>Creole</td>
+      <td>prose</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">crystal</code></td>
+      <td>Crystal</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">cson</code></td>
+      <td>CSON</td>
+      <td>data</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">csound</code></td>
+      <td>Csound</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">csound-document</code></td>
+      <td>Csound Document</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">csound-score</code></td>
+      <td>Csound Score</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">css</code></td>
+      <td>CSS</td>
+      <td>markup</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">csv</code></td>
+      <td>CSV</td>
+      <td>data</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">cuda</code></td>
+      <td>Cuda</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">cweb</code></td>
+      <td>CWeb</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">cycript</code></td>
+      <td>Cycript</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">cython</code></td>
+      <td>Cython</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">d</code></td>
+      <td>D</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">d-objdump</code></td>
+      <td>D-ObjDump</td>
+      <td>data</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">darcs-patch</code></td>
+      <td>Darcs Patch</td>
+      <td>data</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">dart</code></td>
+      <td>Dart</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">dataweave</code></td>
+      <td>DataWeave</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">desktop</code></td>
+      <td>desktop</td>
+      <td>data</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">diff</code></td>
+      <td>Diff</td>
+      <td>data</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">digital-command-language</code></td>
+      <td>DIGITAL Command Language</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">dm</code></td>
+      <td>DM</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">dns-zone</code></td>
+      <td>DNS Zone</td>
+      <td>data</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">dockerfile</code></td>
+      <td>Dockerfile</td>
+      <td>data</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">dogescript</code></td>
+      <td>Dogescript</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">dtrace</code></td>
+      <td>DTrace</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">dylan</code></td>
+      <td>Dylan</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">e</code></td>
+      <td>E</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">eagle</code></td>
+      <td>Eagle</td>
+      <td>data</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">easybuild</code></td>
+      <td>Easybuild</td>
+      <td>data</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">ebnf</code></td>
+      <td>EBNF</td>
+      <td>data</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">ec</code></td>
+      <td>eC</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">ecere-projects</code></td>
+      <td>Ecere Projects</td>
+      <td>data</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">ecl</code></td>
+      <td>ECL</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">eclipse</code></td>
+      <td>ECLiPSe</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">edn</code></td>
+      <td>edn</td>
+      <td>data</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">eiffel</code></td>
+      <td>Eiffel</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">ejs</code></td>
+      <td>EJS</td>
+      <td>markup</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">elixir</code></td>
+      <td>Elixir</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">elm</code></td>
+      <td>Elm</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">emacs-lisp</code></td>
+      <td>Emacs Lisp</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">emberscript</code></td>
+      <td>EmberScript</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">eq</code></td>
+      <td>EQ</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">erlang</code></td>
+      <td>Erlang</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">f#</code></td>
+      <td>F#</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">factor</code></td>
+      <td>Factor</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">fancy</code></td>
+      <td>Fancy</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">fantom</code></td>
+      <td>Fantom</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">filebench-wml</code></td>
+      <td>Filebench WML</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">filterscript</code></td>
+      <td>Filterscript</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">fish</code></td>
+      <td>fish</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">flux</code></td>
+      <td>FLUX</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">formatted</code></td>
+      <td>Formatted</td>
+      <td>data</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">forth</code></td>
+      <td>Forth</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">fortran</code></td>
+      <td>Fortran</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">freemarker</code></td>
+      <td>FreeMarker</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">frege</code></td>
+      <td>Frege</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">g-code</code></td>
+      <td>G-code</td>
+      <td>data</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">game-maker-language</code></td>
+      <td>Game Maker Language</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">gams</code></td>
+      <td>GAMS</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">gap</code></td>
+      <td>GAP</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">gcc-machine-description</code></td>
+      <td>GCC Machine Description</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">gdb</code></td>
+      <td>GDB</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">gdscript</code></td>
+      <td>GDScript</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">genie</code></td>
+      <td>Genie</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">genshi</code></td>
+      <td>Genshi</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">gentoo-ebuild</code></td>
+      <td>Gentoo Ebuild</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">gentoo-eclass</code></td>
+      <td>Gentoo Eclass</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">gerber-image</code></td>
+      <td>Gerber Image</td>
+      <td>data</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">gettext-catalog</code></td>
+      <td>Gettext Catalog</td>
+      <td>prose</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">gherkin</code></td>
+      <td>Gherkin</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">glsl</code></td>
+      <td>GLSL</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">glyph</code></td>
+      <td>Glyph</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">gn</code></td>
+      <td>GN</td>
+      <td>data</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">gnuplot</code></td>
+      <td>Gnuplot</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">go</code></td>
+      <td>Go</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">golo</code></td>
+      <td>Golo</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">gosu</code></td>
+      <td>Gosu</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">grace</code></td>
+      <td>Grace</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">gradle</code></td>
+      <td>Gradle</td>
+      <td>data</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">grammatical-framework</code></td>
+      <td>Grammatical Framework</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">graph-modeling-language</code></td>
+      <td>Graph Modeling Language</td>
+      <td>data</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">graphql</code></td>
+      <td>GraphQL</td>
+      <td>data</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">graphviz</code></td>
+      <td>Graphviz (DOT)</td>
+      <td>data</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">groovy</code></td>
+      <td>Groovy</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">groovy-server-pages</code></td>
+      <td>Groovy Server Pages</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">hack</code></td>
+      <td>Hack</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">haml</code></td>
+      <td>Haml</td>
+      <td>markup</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">handlebars</code></td>
+      <td>Handlebars</td>
+      <td>markup</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">harbour</code></td>
+      <td>Harbour</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">haskell</code></td>
+      <td>Haskell</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">haxe</code></td>
+      <td>Haxe</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">hcl</code></td>
+      <td>HCL</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">hlsl</code></td>
+      <td>HLSL</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">html+django</code></td>
+      <td>HTML+Django</td>
+      <td>markup</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">html+ecr</code></td>
+      <td>HTML+ECR</td>
+      <td>markup</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">html+eex</code></td>
+      <td>HTML+EEX</td>
+      <td>markup</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">html+erb</code></td>
+      <td>HTML+ERB</td>
+      <td>markup</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">html+php</code></td>
+      <td>HTML+PHP</td>
+      <td>markup</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">html</code></td>
+      <td>HTML</td>
+      <td>markup</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">http</code></td>
+      <td>HTTP</td>
+      <td>data</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">hy</code></td>
+      <td>Hy</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">hyphy</code></td>
+      <td>HyPhy</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">idl</code></td>
+      <td>IDL</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">idris</code></td>
+      <td>Idris</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">igor-pro</code></td>
+      <td>IGOR Pro</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">inform-7</code></td>
+      <td>Inform 7</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">ini</code></td>
+      <td>INI</td>
+      <td>data</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">inno-setup</code></td>
+      <td>Inno Setup</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">io</code></td>
+      <td>Io</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">ioke</code></td>
+      <td>Ioke</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">irc-log</code></td>
+      <td>IRC log</td>
+      <td>data</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">isabelle</code></td>
+      <td>Isabelle</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">isabelle-root</code></td>
+      <td>Isabelle ROOT</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">j</code></td>
+      <td>J</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">jasmin</code></td>
+      <td>Jasmin</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">java</code></td>
+      <td>Java</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">java-server-pages</code></td>
+      <td>Java Server Pages</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">javascript</code></td>
+      <td>JavaScript</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">jflex</code></td>
+      <td>JFlex</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">jison</code></td>
+      <td>Jison</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">jison-lex</code></td>
+      <td>Jison Lex</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">jolie</code></td>
+      <td>Jolie</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">json</code></td>
+      <td>JSON</td>
+      <td>data</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">json5</code></td>
+      <td>JSON5</td>
+      <td>data</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">jsoniq</code></td>
+      <td>JSONiq</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">jsonld</code></td>
+      <td>JSONLD</td>
+      <td>data</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">jsx</code></td>
+      <td>JSX</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">julia</code></td>
+      <td>Julia</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">jupyter-notebook</code></td>
+      <td>Jupyter Notebook</td>
+      <td>markup</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">kicad-layout</code></td>
+      <td>KiCad Layout</td>
+      <td>data</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">kicad-legacy-layout</code></td>
+      <td>KiCad Legacy Layout</td>
+      <td>data</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">kicad-schematic</code></td>
+      <td>KiCad Schematic</td>
+      <td>data</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">kit</code></td>
+      <td>Kit</td>
+      <td>markup</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">kotlin</code></td>
+      <td>Kotlin</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">krl</code></td>
+      <td>KRL</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">labview</code></td>
+      <td>LabVIEW</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">lasso</code></td>
+      <td>Lasso</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">latte</code></td>
+      <td>Latte</td>
+      <td>markup</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">lean</code></td>
+      <td>Lean</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">less</code></td>
+      <td>Less</td>
+      <td>markup</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">lex</code></td>
+      <td>Lex</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">lfe</code></td>
+      <td>LFE</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">lilypond</code></td>
+      <td>LilyPond</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">limbo</code></td>
+      <td>Limbo</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">linker-script</code></td>
+      <td>Linker Script</td>
+      <td>data</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">linux-kernel-module</code></td>
+      <td>Linux Kernel Module</td>
+      <td>data</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">liquid</code></td>
+      <td>Liquid</td>
+      <td>markup</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">literate-agda</code></td>
+      <td>Literate Agda</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">literate-coffeescript</code></td>
+      <td>Literate CoffeeScript</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">literate-haskell</code></td>
+      <td>Literate Haskell</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">livescript</code></td>
+      <td>LiveScript</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">llvm</code></td>
+      <td>LLVM</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">logos</code></td>
+      <td>Logos</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">logtalk</code></td>
+      <td>Logtalk</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">lolcode</code></td>
+      <td>LOLCODE</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">lookml</code></td>
+      <td>LookML</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">loomscript</code></td>
+      <td>LoomScript</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">lsl</code></td>
+      <td>LSL</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">lua</code></td>
+      <td>Lua</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">m</code></td>
+      <td>M</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">m4</code></td>
+      <td>M4</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">m4sugar</code></td>
+      <td>M4Sugar</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">makefile</code></td>
+      <td>Makefile</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">mako</code></td>
+      <td>Mako</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">markdown</code></td>
+      <td>Markdown</td>
+      <td>prose</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">marko</code></td>
+      <td>Marko</td>
+      <td>markup</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">mask</code></td>
+      <td>Mask</td>
+      <td>markup</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">mathematica</code></td>
+      <td>Mathematica</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">matlab</code></td>
+      <td>Matlab</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">maven-pom</code></td>
+      <td>Maven POM</td>
+      <td>data</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">max</code></td>
+      <td>Max</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">maxscript</code></td>
+      <td>MAXScript</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">mediawiki</code></td>
+      <td>MediaWiki</td>
+      <td>prose</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">mercury</code></td>
+      <td>Mercury</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">meson</code></td>
+      <td>Meson</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">metal</code></td>
+      <td>Metal</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">minid</code></td>
+      <td>MiniD</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">mirah</code></td>
+      <td>Mirah</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">modelica</code></td>
+      <td>Modelica</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">modula-2</code></td>
+      <td>Modula-2</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">module-management-system</code></td>
+      <td>Module Management System</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">monkey</code></td>
+      <td>Monkey</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">moocode</code></td>
+      <td>Moocode</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">moonscript</code></td>
+      <td>MoonScript</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">mql4</code></td>
+      <td>MQL4</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">mql5</code></td>
+      <td>MQL5</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">mtml</code></td>
+      <td>MTML</td>
+      <td>markup</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">muf</code></td>
+      <td>MUF</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">mupad</code></td>
+      <td>mupad</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">myghty</code></td>
+      <td>Myghty</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">ncl</code></td>
+      <td>NCL</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">nearley</code></td>
+      <td>Nearley</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">nemerle</code></td>
+      <td>Nemerle</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">nesc</code></td>
+      <td>nesC</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">netlinx+erb</code></td>
+      <td>NetLinx+ERB</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">netlinx</code></td>
+      <td>NetLinx</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">netlogo</code></td>
+      <td>NetLogo</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">newlisp</code></td>
+      <td>NewLisp</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">nginx</code></td>
+      <td>Nginx</td>
+      <td>data</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">nim</code></td>
+      <td>Nim</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">ninja</code></td>
+      <td>Ninja</td>
+      <td>data</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">nit</code></td>
+      <td>Nit</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">nix</code></td>
+      <td>Nix</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">nl</code></td>
+      <td>NL</td>
+      <td>data</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">nsis</code></td>
+      <td>NSIS</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">nu</code></td>
+      <td>Nu</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">numpy</code></td>
+      <td>NumPy</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">objdump</code></td>
+      <td>ObjDump</td>
+      <td>data</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">objective-c++</code></td>
+      <td>Objective-C++</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">objective-c</code></td>
+      <td>Objective-C</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">objective-j</code></td>
+      <td>Objective-J</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">ocaml</code></td>
+      <td>OCaml</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">omgrofl</code></td>
+      <td>Omgrofl</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">ooc</code></td>
+      <td>ooc</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">opa</code></td>
+      <td>Opa</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">opal</code></td>
+      <td>Opal</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">opencl</code></td>
+      <td>OpenCL</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">openedge-abl</code></td>
+      <td>OpenEdge ABL</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">openrc-runscript</code></td>
+      <td>OpenRC runscript</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">openscad</code></td>
+      <td>OpenSCAD</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">opentype-feature-file</code></td>
+      <td>OpenType Feature File</td>
+      <td>data</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">org</code></td>
+      <td>Org</td>
+      <td>prose</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">other</code></td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">ox</code></td>
+      <td>Ox</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">oxygene</code></td>
+      <td>Oxygene</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">oz</code></td>
+      <td>Oz</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">p4</code></td>
+      <td>P4</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">pan</code></td>
+      <td>Pan</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">papyrus</code></td>
+      <td>Papyrus</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">parrot</code></td>
+      <td>Parrot</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">parrot-assembly</code></td>
+      <td>Parrot Assembly</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">parrot-internal-representation</code></td>
+      <td>Parrot Internal Representation</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">pascal</code></td>
+      <td>Pascal</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">pawn</code></td>
+      <td>PAWN</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">pep8</code></td>
+      <td>Pep8</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">perl</code></td>
+      <td>Perl</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">perl-6</code></td>
+      <td>Perl 6</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">php</code></td>
+      <td>PHP</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">pic</code></td>
+      <td>Pic</td>
+      <td>markup</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">pickle</code></td>
+      <td>Pickle</td>
+      <td>data</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">picolisp</code></td>
+      <td>PicoLisp</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">piglatin</code></td>
+      <td>PigLatin</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">pike</code></td>
+      <td>Pike</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">plpgsql</code></td>
+      <td>PLpgSQL</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">plsql</code></td>
+      <td>PLSQL</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">pod</code></td>
+      <td>Pod</td>
+      <td>prose</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">pogoscript</code></td>
+      <td>PogoScript</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">pony</code></td>
+      <td>Pony</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">postscript</code></td>
+      <td>PostScript</td>
+      <td>markup</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">pov-ray-sdl</code></td>
+      <td>POV-Ray SDL</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">powerbuilder</code></td>
+      <td>PowerBuilder</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">powershell</code></td>
+      <td>PowerShell</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">processing</code></td>
+      <td>Processing</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">prolog</code></td>
+      <td>Prolog</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">propeller-spin</code></td>
+      <td>Propeller Spin</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">protocol-buffer</code></td>
+      <td>Protocol Buffer</td>
+      <td>data</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">public-key</code></td>
+      <td>Public Key</td>
+      <td>data</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">pug</code></td>
+      <td>Pug</td>
+      <td>markup</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">puppet</code></td>
+      <td>Puppet</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">pure-data</code></td>
+      <td>Pure Data</td>
+      <td>data</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">purebasic</code></td>
+      <td>PureBasic</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">purescript</code></td>
+      <td>PureScript</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">python</code></td>
+      <td>Python</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">python-console</code></td>
+      <td>Python console</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">python-traceback</code></td>
+      <td>Python traceback</td>
+      <td>data</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">qmake</code></td>
+      <td>QMake</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">qml</code></td>
+      <td>QML</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">r</code></td>
+      <td>R</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">racket</code></td>
+      <td>Racket</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">ragel</code></td>
+      <td>Ragel</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">raml</code></td>
+      <td>RAML</td>
+      <td>markup</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">rascal</code></td>
+      <td>Rascal</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">raw-token-data</code></td>
+      <td>Raw token data</td>
+      <td>data</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">rdoc</code></td>
+      <td>RDoc</td>
+      <td>prose</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">realbasic</code></td>
+      <td>REALbasic</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">reason</code></td>
+      <td>Reason</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">rebol</code></td>
+      <td>Rebol</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">red</code></td>
+      <td>Red</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">redcode</code></td>
+      <td>Redcode</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">regular-expression</code></td>
+      <td>Regular Expression</td>
+      <td>data</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">ren'py</code></td>
+      <td>Ren’Py</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">renderscript</code></td>
+      <td>RenderScript</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">restructuredtext</code></td>
+      <td>reStructuredText</td>
+      <td>prose</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">rexx</code></td>
+      <td>REXX</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">rhtml</code></td>
+      <td>RHTML</td>
+      <td>markup</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">ring</code></td>
+      <td>Ring</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">rmarkdown</code></td>
+      <td>RMarkdown</td>
+      <td>prose</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">robotframework</code></td>
+      <td>RobotFramework</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">roff</code></td>
+      <td>Roff</td>
+      <td>markup</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">rouge</code></td>
+      <td>Rouge</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">rpm-spec</code></td>
+      <td>RPM Spec</td>
+      <td>data</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">ruby</code></td>
+      <td>Ruby</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">runoff</code></td>
+      <td>RUNOFF</td>
+      <td>markup</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">rust</code></td>
+      <td>Rust</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">sage</code></td>
+      <td>Sage</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">saltstack</code></td>
+      <td>SaltStack</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">sas</code></td>
+      <td>SAS</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">sass</code></td>
+      <td>Sass</td>
+      <td>markup</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">scala</code></td>
+      <td>Scala</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">scaml</code></td>
+      <td>Scaml</td>
+      <td>markup</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">scheme</code></td>
+      <td>Scheme</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">scilab</code></td>
+      <td>Scilab</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">scss</code></td>
+      <td>SCSS</td>
+      <td>markup</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">self</code></td>
+      <td>Self</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">shaderlab</code></td>
+      <td>ShaderLab</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">shell</code></td>
+      <td>Shell</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">shellsession</code></td>
+      <td>ShellSession</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">shen</code></td>
+      <td>Shen</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">slash</code></td>
+      <td>Slash</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">slim</code></td>
+      <td>Slim</td>
+      <td>markup</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">smali</code></td>
+      <td>Smali</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">smalltalk</code></td>
+      <td>Smalltalk</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">smarty</code></td>
+      <td>Smarty</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">smt</code></td>
+      <td>SMT</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">sourcepawn</code></td>
+      <td>SourcePawn</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">sparql</code></td>
+      <td>SPARQL</td>
+      <td>data</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">spline-font-database</code></td>
+      <td>Spline Font Database</td>
+      <td>data</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">sqf</code></td>
+      <td>SQF</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">sql</code></td>
+      <td>SQL</td>
+      <td>data</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">sqlpl</code></td>
+      <td>SQLPL</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">squirrel</code></td>
+      <td>Squirrel</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">srecode-template</code></td>
+      <td>SRecode Template</td>
+      <td>markup</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">stan</code></td>
+      <td>Stan</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">standard-ml</code></td>
+      <td>Standard ML</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">stata</code></td>
+      <td>Stata</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">ston</code></td>
+      <td>STON</td>
+      <td>data</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">stylus</code></td>
+      <td>Stylus</td>
+      <td>markup</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">sublime-text-config</code></td>
+      <td>Sublime Text Config</td>
+      <td>data</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">subrip-text</code></td>
+      <td>SubRip Text</td>
+      <td>data</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">supercollider</code></td>
+      <td>SuperCollider</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">svg</code></td>
+      <td>SVG</td>
+      <td>data</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">swift</code></td>
+      <td>Swift</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">systemverilog</code></td>
+      <td>SystemVerilog</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">tcl</code></td>
+      <td>Tcl</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">tcsh</code></td>
+      <td>Tcsh</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">tea</code></td>
+      <td>Tea</td>
+      <td>markup</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">terra</code></td>
+      <td>Terra</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">tex</code></td>
+      <td>TeX</td>
+      <td>markup</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">text</code></td>
+      <td>Text</td>
+      <td>prose</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">textile</code></td>
+      <td>Textile</td>
+      <td>prose</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">thrift</code></td>
+      <td>Thrift</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">ti-program</code></td>
+      <td>TI Program</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">tla</code></td>
+      <td>TLA</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">toml</code></td>
+      <td>TOML</td>
+      <td>data</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">turing</code></td>
+      <td>Turing</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">turtle</code></td>
+      <td>Turtle</td>
+      <td>data</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">twig</code></td>
+      <td>Twig</td>
+      <td>markup</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">txl</code></td>
+      <td>TXL</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">type-language</code></td>
+      <td>Type Language</td>
+      <td>data</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">typescript</code></td>
+      <td>TypeScript</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">unified-parallel-c</code></td>
+      <td>Unified Parallel C</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">unity3d-asset</code></td>
+      <td>Unity3D Asset</td>
+      <td>data</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">unix-assembly</code></td>
+      <td>Unix Assembly</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">uno</code></td>
+      <td>Uno</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">unrealscript</code></td>
+      <td>UnrealScript</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">urweb</code></td>
+      <td>UrWeb</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">vala</code></td>
+      <td>Vala</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">vcl</code></td>
+      <td>VCL</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">verilog</code></td>
+      <td>Verilog</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">vhdl</code></td>
+      <td>VHDL</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">vim-script</code></td>
+      <td>Vim script</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">visual-basic</code></td>
+      <td>Visual Basic</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">volt</code></td>
+      <td>Volt</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">vue</code></td>
+      <td>Vue</td>
+      <td>markup</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">wavefront-material</code></td>
+      <td>Wavefront Material</td>
+      <td>data</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">wavefront-object</code></td>
+      <td>Wavefront Object</td>
+      <td>data</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">web-ontology-language</code></td>
+      <td>Web Ontology Language</td>
+      <td>data</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">webassembly</code></td>
+      <td>WebAssembly</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">webidl</code></td>
+      <td>WebIDL</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">wisp</code></td>
+      <td>wisp</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">world-of-warcraft-addon-data</code></td>
+      <td>World of Warcraft Addon Data</td>
+      <td>data</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">x10</code></td>
+      <td>X10</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">xbase</code></td>
+      <td>xBase</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">xc</code></td>
+      <td>XC</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">xcompose</code></td>
+      <td>XCompose</td>
+      <td>data</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">xml</code></td>
+      <td>XML</td>
+      <td>data</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">xojo</code></td>
+      <td>Xojo</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">xpages</code></td>
+      <td>XPages</td>
+      <td>data</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">xpm</code></td>
+      <td>XPM</td>
+      <td>data</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">xproc</code></td>
+      <td>XProc</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">xquery</code></td>
+      <td>XQuery</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">xs</code></td>
+      <td>XS</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">xslt</code></td>
+      <td>XSLT</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">xtend</code></td>
+      <td>Xtend</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">yacc</code></td>
+      <td>Yacc</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">yaml</code></td>
+      <td>YAML</td>
+      <td>data</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">yang</code></td>
+      <td>YANG</td>
+      <td>data</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">zephir</code></td>
+      <td>Zephir</td>
+      <td>programming</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">zimpl</code></td>
+      <td>Zimpl</td>
+      <td>programming</td>
+    </tr>
+  </tbody>
+</table>
+
+<p class="text-right">Table: List of programming language names available in CFF. Table based on the languages available on GitHub (via <a href="https://github.com/github/linguist/blob/master/lib/linguist/languages.yml">https://github.com/github/linguist/blob/master/lib/linguist/languages.yml</a>, MIT license, Copyright (c) 2017 GitHub, Inc.).</p>
+
+<h1 id="schema">Schema</h1>
+
+<p>Work is still in progress to provide a schema for CFF, against which CFF files
+can be validated.</p>
+
+<h1 id="examples">Examples</h1>
+
+<h2 id="software-examples">Software examples</h2>
+
+<p>One of the main foci of CFF is to comprehensively cover the provision of 
+citation metadata for software. To this end, it should always be used based on
+the Software Citation Principles <a href="#principles">(Smith et al., 2016)</a>! Please make sure you
+follow the best practices wherever possible. Two typical scenarios for
+software citation metadata include the existence and respectively lack of a
+DOI for the software for which citation metadata is provided, for both of which 
+examples follow.</p>
+
+<h3 id="a-software-with-a-doi">A software with a DOI</h3>
+
+<p>Note that <a href="#principles">Smith et al., (2016), p. 12</a> recommend</p>
+
+<blockquote>
+  <p>[…] the use of DOIs as the unique identifier due to their common usage and
+acceptance, particularly as they are the standard for other digital products
+such as publications.</p>
+</blockquote>
+
+<p>Furthermore, DOIs should point to a “unique, specific software version” 
+<a href="#principles">(Smith et al., 2016, p. 12)</a>. Also it is recommended <a href="#principles">(Smith et al., 2016, p. 13)</a> that:</p>
+
+<blockquote>
+  <p>the [DOI] should resolve to a persistent landing page that contains metadata 
+and a link to the software itself, rather than directly to the source code files,
+repository, or executable.</p>
+</blockquote>
+
+<p>Therefore, a minimal <code class="highlighter-rouge">CITATION.cff</code> file in such a case would look similar to
+the following.</p>
+
+<figure class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="na">cff-version</span><span class="pi">:</span> <span class="s">1.0.0</span>
+<span class="na">message</span><span class="pi">:</span> <span class="s">If you use this software, please cite it as below.</span>
+<span class="na">references</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="na">type</span><span class="pi">:</span> <span class="s">software</span>
+    <span class="na">authors</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="na">family-names</span><span class="pi">:</span> <span class="s">Druskat</span>
+        <span class="na">given-names</span><span class="pi">:</span> <span class="s">Stephan</span>
+        <span class="na">orcid</span><span class="pi">:</span> <span class="s">0000-0003-4925-7248</span>
+    <span class="na">title</span><span class="pi">:</span> <span class="s">My Research Tool</span>
+    <span class="na">version</span><span class="pi">:</span> <span class="s">1.0.4</span>
+    <span class="na">doi</span><span class="pi">:</span> <span class="s">10043/zenodo.1234</span></code></pre></figure>
+
+<p>A more comprehensive version could look similar to the following.</p>
+
+<figure class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="na">cff-version</span><span class="pi">:</span> <span class="s">1.0.0</span>
+<span class="na">message</span><span class="pi">:</span> <span class="s">If you use this software, please cite it as below.</span>
+<span class="na">references</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="na">type</span><span class="pi">:</span> <span class="s">software</span>
+    <span class="na">authors</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="na">family-names</span><span class="pi">:</span> <span class="s">Druskat</span>
+        <span class="na">given-names</span><span class="pi">:</span> <span class="s">Stephan</span>
+        <span class="na">orcid</span><span class="pi">:</span> <span class="s">0000-0003-4925-7248</span>
+        <span class="na">affiliation</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Humboldt-Universität</span><span class="nv"> </span><span class="s">zu</span><span class="nv"> </span><span class="s">Berlin,</span><span class="nv"> </span><span class="s">Dept.</span><span class="nv"> </span><span class="s">of</span><span class="nv"> </span><span class="s">German</span><span class="nv"> </span><span class="s">Studies</span> 
+        <span class="s">and</span><span class="nv"> </span><span class="s">Linguistics"</span>
+        <span class="na">email</span><span class="pi">:</span> <span class="s">mail@sdruskat.net</span>
+        <span class="na">website</span><span class="pi">:</span> <span class="s">https://hu.berlin/sdruskat</span>
+    <span class="na">title</span><span class="pi">:</span> <span class="s">My Research Tool</span>
+    <span class="na">version</span><span class="pi">:</span> <span class="s">1.0.4</span>
+    <span class="na">doi</span><span class="pi">:</span> <span class="s">10043/zenodo.1234</span>
+    <span class="na">repository-code</span><span class="pi">:</span> <span class="s">https://github.com/sdruskat/my-research-tool</span>
+    <span class="na">repository-artifact</span><span class="pi">:</span> <span class="s">https://hu.berlin/nexus/mrt</span>
+    <span class="na">date-published</span><span class="pi">:</span> <span class="s">2017-09-23</span>
+    <span class="na">keywords</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s2">"</span><span class="s">McAuthor's</span><span class="nv"> </span><span class="s">algorithm"</span>
+      <span class="pi">-</span> <span class="s">linguistics</span>
+      <span class="pi">-</span> <span class="s">nlp</span>
+      <span class="pi">-</span> <span class="s">parser</span>
+      <span class="pi">-</span> <span class="s">deep convolutional neural network</span>
+    <span class="na">programming-languages</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">java</span>
+      <span class="pi">-</span> <span class="s">python</span>
+      <span class="pi">-</span> <span class="s">c</span>
+      <span class="pi">-</span> <span class="s">haskell</span>
+      <span class="pi">-</span> <span class="s">pascal</span>
+      <span class="pi">-</span> <span class="s">rust</span>
+    <span class="na">license</span><span class="pi">:</span> <span class="s">Apache License, Version 2.0</span>
+    <span class="na">license-url</span><span class="pi">:</span> <span class="s">http://www.apache.org/licenses/LICENSE-2.0</span>
+    <span class="na">url</span><span class="pi">:</span> <span class="s">https://sdruskat.github.io/my-research-tool</span></code></pre></figure>
+
+<h3 id="a-software-without-a-doi">A software without a DOI</h3>
+
+<p>For software without a DOI, it is recommended that “the metadata should still
+provide information on how to access the specific software, but this may be a
+company’s product number or a link to a website that allows the software be
+purchased.” <a href="#principles">(Smith et al., 2016, p. 13)</a>. Furthermore, “if the version number and
+release date are not available, the download date can be used. Similarly, the
+contact name/email is an alternative to the location/repository.” 
+<a href="#principles">(Smith et al., 2016, p. 7)</a></p>
+
+<p>Hence, for a closed source software without a DOI for which the version number
+and release date cannot be determined, a <code class="highlighter-rouge">CITATION.cff</code> file could look like
+this.</p>
+
+<figure class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="na">cff-version</span><span class="pi">:</span> <span class="s">1.0.0</span>
+<span class="na">message</span><span class="pi">:</span> <span class="s2">"</span><span class="s">If</span><span class="nv"> </span><span class="s">you</span><span class="nv"> </span><span class="s">dare</span><span class="nv"> </span><span class="s">to</span><span class="nv"> </span><span class="s">use</span><span class="nv"> </span><span class="s">this</span><span class="nv"> </span><span class="s">commercial,</span><span class="nv"> </span><span class="s">closed-source,</span><span class="nv"> </span><span class="s">unversioned</span><span class="nv"> </span><span class="s">software</span> 
+<span class="s">in</span><span class="nv"> </span><span class="s">your</span><span class="nv"> </span><span class="s">research,</span><span class="nv"> </span><span class="s">please</span><span class="nv"> </span><span class="s">at</span><span class="nv"> </span><span class="s">least</span><span class="nv"> </span><span class="s">cite</span><span class="nv"> </span><span class="s">it</span><span class="nv"> </span><span class="s">as</span><span class="nv"> </span><span class="s">below."</span>
+<span class="na">references</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="na">type</span><span class="pi">:</span> <span class="s">software</span>
+    <span class="na">title</span><span class="pi">:</span> <span class="s">Opaquity</span>
+    <span class="na">number</span><span class="pi">:</span> <span class="s">opq-1234-XZVF-ACME-RLY</span>
+    <span class="na">date-downloaded</span><span class="pi">:</span> <span class="s">2017-02-31</span>
+    <span class="na">contact</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="na">family-names</span><span class="pi">:</span> <span class="s">Vader</span>
+        <span class="na">given-names</span><span class="pi">:</span> <span class="s">Darth</span>
+        <span class="na">affiliation</span><span class="pi">:</span> <span class="s">Dark Side Software</span>
+        <span class="na">location</span><span class="pi">:</span> <span class="s">DS-1 Orbital Battle Station, near Scarif</span>
+        <span class="na">email</span><span class="pi">:</span> <span class="s">father@imperial-empire.com</span>
+        <span class="na">tel</span><span class="pi">:</span> <span class="s">+850 (0)123-45-666</span></code></pre></figure>
+
+<h3 id="software-with-two-references"><code class="highlighter-rouge">software</code> (with two references)</h3>
+
+<figure class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="na">cff-version</span><span class="pi">:</span> <span class="s">1.0.0</span>
+<span class="na">message</span><span class="pi">:</span> <span class="s2">"</span><span class="s">If</span><span class="nv"> </span><span class="s">you</span><span class="nv"> </span><span class="s">use</span><span class="nv"> </span><span class="s">My</span><span class="nv"> </span><span class="s">Research</span><span class="nv"> </span><span class="s">Tool,</span><span class="nv"> </span><span class="s">please</span><span class="nv"> </span><span class="s">cite</span><span class="nv"> </span><span class="s">both</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">software</span><span class="nv"> </span><span class="s">and</span><span class="nv"> </span><span class="s">the</span> 
+<span class="s">outline</span><span class="nv"> </span><span class="s">paper."</span>
+<span class="na">references</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="na">type</span><span class="pi">:</span> <span class="s">software</span>
+    <span class="na">authors</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="na">family-names</span><span class="pi">:</span> <span class="s">Doe</span>
+        <span class="na">given-names</span><span class="pi">:</span> <span class="s">Jane</span>
+        <span class="na">role</span><span class="pi">:</span> <span class="s">main-author</span>
+      <span class="pi">-</span> <span class="na">family-names</span><span class="pi">:</span> <span class="s">Bielefeld</span>
+        <span class="na">name-particle</span><span class="pi">:</span> <span class="s">von</span>
+        <span class="na">given-names</span><span class="pi">:</span> <span class="s">Arthur</span>
+        <span class="na">role</span><span class="pi">:</span> <span class="s">tester</span>
+      <span class="pi">-</span> <span class="na">family-names</span><span class="pi">:</span> <span class="s">McAuthor</span>
+        <span class="na">given-names</span><span class="pi">:</span> <span class="s">Juniper</span>
+        <span class="na">name-suffix</span><span class="pi">:</span> <span class="s">Jr.</span>
+        <span class="na">role</span><span class="pi">:</span> <span class="s">maintainer</span>
+    <span class="na">title</span><span class="pi">:</span> <span class="s">My Research Tool</span>
+    <span class="na">doi</span><span class="pi">:</span> <span class="s">10043/zenodo.1234</span>
+  <span class="pi">-</span> <span class="na">type</span><span class="pi">:</span> <span class="s">article</span>
+    <span class="na">authors</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="na">family-names</span><span class="pi">:</span> <span class="s">Doe</span>
+        <span class="na">given-names</span><span class="pi">:</span> <span class="s">Jane</span>
+        <span class="na">role</span><span class="pi">:</span> <span class="s">main-author</span>
+      <span class="pi">-</span> <span class="na">family-names</span><span class="pi">:</span> <span class="s">Bielefeld</span>
+        <span class="na">name-particle</span><span class="pi">:</span> <span class="s">von</span>
+        <span class="na">given-names</span><span class="pi">:</span> <span class="s">Arthur</span>
+        <span class="na">role</span><span class="pi">:</span> <span class="s">author</span>
+    <span class="na">title</span><span class="pi">:</span> <span class="s2">"</span><span class="s">My</span><span class="nv"> </span><span class="s">Research</span><span class="nv"> </span><span class="s">Tool:</span><span class="nv"> </span><span class="s">A</span><span class="nv"> </span><span class="s">100%</span><span class="nv"> </span><span class="s">accuracy</span><span class="nv"> </span><span class="s">syntax</span><span class="nv"> </span><span class="s">parser</span><span class="nv"> </span><span class="s">for</span><span class="nv"> </span><span class="s">all</span><span class="nv"> </span><span class="s">languages"</span>
+    <span class="na">year</span><span class="pi">:</span> <span class="s">2099</span>
+    <span class="na">journal</span><span class="pi">:</span> <span class="s">Journal of Hard Science Fiction</span>
+    <span class="na">volume</span><span class="pi">:</span> <span class="s">42</span>
+    <span class="na">issue</span><span class="pi">:</span> <span class="s">13</span>
+    <span class="na">doi</span><span class="pi">:</span> <span class="s">10.9999/hardscifi-lang.42132</span></code></pre></figure>
+
+<h3 id="software-code-without-a-doi-code-repository--commit"><code class="highlighter-rouge">software-code</code> (without a DOI: code repository + commit)</h3>
+
+<blockquote>
+  <p>We recognize that there are certain situations where it may not be possible to
+follow the recommended best-practice. For example, if (1) the software authors
+did not register a DOI and/or release a specific version, or (2) the version of
+the software used does not match what is available to cite. In those cases,
+falling back on a combination of the repository URL and version number/commit
+hash would be an appropriate way to cite the software used. <a href="#principles">(Smith et al., 2016, p. 12)</a></p>
+</blockquote>
+
+<figure class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="na">cff-version</span><span class="pi">:</span> <span class="s">1.0.0</span>
+<span class="na">message</span><span class="pi">:</span> <span class="s2">"</span><span class="s">If</span><span class="nv"> </span><span class="s">you</span><span class="nv"> </span><span class="s">use</span><span class="nv"> </span><span class="s">this</span><span class="nv"> </span><span class="s">MRT</span><span class="nv"> </span><span class="s">alpha</span><span class="nv"> </span><span class="s">snapshot</span><span class="nv"> </span><span class="s">version,</span><span class="nv"> </span><span class="s">please</span><span class="nv"> </span><span class="s">cite."</span>
+<span class="na">references</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="na">type</span><span class="pi">:</span> <span class="s">software-code</span>
+    <span class="na">authors</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="na">family-names</span><span class="pi">:</span> <span class="s">Doe</span>
+        <span class="na">given-names</span><span class="pi">:</span> <span class="s">Jane</span>
+    <span class="na">title</span><span class="pi">:</span> <span class="s">My Research Tool Prototype</span>
+    <span class="na">version</span><span class="pi">:</span> <span class="s">0.0.1-alpha1-build1507284872</span>
+    <span class="na">repository-code</span><span class="pi">:</span> <span class="s">https://github.com/doe/mrt</span>
+    <span class="na">commit</span><span class="pi">:</span> <span class="s">160d54f9e935c914df38c1ffda752112b5c979a8</span></code></pre></figure>
+
+<h3 id="software-container"><code class="highlighter-rouge">software-container</code></h3>
+
+<figure class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="na">cff-version</span><span class="pi">:</span> <span class="s">1.0.0</span>
+<span class="na">message</span><span class="pi">:</span> <span class="s2">"</span><span class="s">If</span><span class="nv"> </span><span class="s">you</span><span class="nv"> </span><span class="s">use</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">MRT</span><span class="nv"> </span><span class="s">Docker</span><span class="nv"> </span><span class="s">container,</span><span class="nv"> </span><span class="s">please</span><span class="nv"> </span><span class="s">cite</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">following."</span>
+<span class="na">references</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="na">type</span><span class="pi">:</span> <span class="s">software-container</span>
+    <span class="na">authors</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Humboldt-Universität</span><span class="nv"> </span><span class="s">zu</span><span class="nv"> </span><span class="s">Berlin"</span>
+        <span class="na">website</span><span class="pi">:</span> <span class="s">https://www.linguistik.hu-berlin.de/</span>
+        <span class="na">role</span><span class="pi">:</span> <span class="s">maintainer</span>
+      <span class="pi">-</span> <span class="na">family-names</span><span class="pi">:</span> <span class="s">Doe</span>
+        <span class="na">given-names</span><span class="pi">:</span> <span class="s">Jane</span>
+        <span class="na">role</span><span class="pi">:</span> <span class="s">main-author</span>
+    <span class="na">title</span><span class="pi">:</span> <span class="s">mrt-iain-m-banks</span>
+    <span class="na">version</span><span class="pi">:</span> <span class="s">1.0.4 (Iain M. Banks)</span>
+    <span class="na">url</span><span class="pi">:</span> <span class="s">https://github.com/doe/docker-brew-mrt-core/blob/160d54f9e935/iain/Dockerfile</span>
+    <span class="na">repository</span><span class="pi">:</span> <span class="s">https://hub.docker.hu-berlin.de/_/mrt-iain-m-banks/</span></code></pre></figure>
+
+<h3 id="software-executable"><code class="highlighter-rouge">software-executable</code></h3>
+
+<figure class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="na">cff-version</span><span class="pi">:</span> <span class="s">1.0.0</span>
+<span class="na">message</span><span class="pi">:</span> <span class="s2">"</span><span class="s">If</span><span class="nv"> </span><span class="s">you</span><span class="nv"> </span><span class="s">use</span><span class="nv"> </span><span class="s">MRT,</span><span class="nv"> </span><span class="s">please</span><span class="nv"> </span><span class="s">cite</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">following."</span>
+<span class="na">references</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="na">type</span><span class="pi">:</span> <span class="s">software-executable</span>
+    <span class="na">authors</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="na">family-names</span><span class="pi">:</span> <span class="s">Doe</span>
+        <span class="na">given-names</span><span class="pi">:</span> <span class="s">Jane</span>
+        <span class="na">role</span><span class="pi">:</span> <span class="s">main-author</span>
+    <span class="na">title</span><span class="pi">:</span> <span class="s">My Research Tool Kickstarter</span>
+    <span class="na">version</span><span class="pi">:</span> <span class="s">2.0.0</span>
+    <span class="na">doi</span><span class="pi">:</span> <span class="s">10043/zenodo.1234</span>
+    <span class="na">repository-artifact</span><span class="pi">:</span> <span class="s">https://hu.berlin/nexus/mrt-kickstarter</span>
+    <span class="na">filename</span><span class="pi">:</span> <span class="s">mrt2-kickstarter.exe</span></code></pre></figure>
+
+<h2 id="other-examples">Other examples</h2>
+
+<h3 id="art"><code class="highlighter-rouge">art</code></h3>
+
+<figure class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="na">cff-version</span><span class="pi">:</span> <span class="s">1.0.0</span>
+<span class="na">message</span><span class="pi">:</span> <span class="s2">"</span><span class="s">If</span><span class="nv"> </span><span class="s">you</span><span class="nv"> </span><span class="s">use</span><span class="nv"> </span><span class="s">this</span><span class="nv"> </span><span class="s">software,</span><span class="nv"> </span><span class="s">please</span><span class="nv"> </span><span class="s">cite</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">following."</span>
+<span class="na">references</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="na">type</span><span class="pi">:</span> <span class="s">art</span>
+    <span class="na">authors</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="na">family-names</span><span class="pi">:</span> <span class="s">Picasso</span>
+        <span class="na">given-names</span><span class="pi">:</span> <span class="s">Pablo</span>
+    <span class="na">title</span><span class="pi">:</span> <span class="s">Guernica</span>
+    <span class="na">year</span><span class="pi">:</span> <span class="s">1937</span>
+    <span class="na">medium</span><span class="pi">:</span> <span class="s">Oil on canvas</span>
+    <span class="na">format</span><span class="pi">:</span> <span class="s">349.3cm x 776.6cm</span>
+    <span class="na">location</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Museo Reina Sofia</span>
+        <span class="na">city</span><span class="pi">:</span> <span class="s">Madrid</span>
+        <span class="na">country</span><span class="pi">:</span> <span class="s">ES</span></code></pre></figure>
+
+<h3 id="article"><code class="highlighter-rouge">article</code></h3>
+
+<figure class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="na">cff-version</span><span class="pi">:</span> <span class="s">1.0.0</span>
+<span class="na">message</span><span class="pi">:</span> <span class="s2">"</span><span class="s">If</span><span class="nv"> </span><span class="s">you</span><span class="nv"> </span><span class="s">use</span><span class="nv"> </span><span class="s">this</span><span class="nv"> </span><span class="s">software,</span><span class="nv"> </span><span class="s">please</span><span class="nv"> </span><span class="s">cite</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">following</span><span class="nv"> </span><span class="s">paper."</span>
+<span class="na">references</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="na">type</span><span class="pi">:</span> <span class="s">article</span>
+    <span class="na">authors</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="na">family-names</span><span class="pi">:</span> <span class="s">Smith</span>
+        <span class="na">given-names</span><span class="pi">:</span> <span class="s">Arfon M.</span>
+        <span class="na">role</span><span class="pi">:</span> <span class="s">main-author</span>
+      <span class="pi">-</span> <span class="na">family-names</span><span class="pi">:</span> <span class="s">Katz</span>
+        <span class="na">given-names</span><span class="pi">:</span> <span class="s">Daniel S.</span>
+        <span class="na">affiliation</span><span class="pi">:</span> <span class="s2">"</span><span class="s">National</span><span class="nv"> </span><span class="s">Center</span><span class="nv"> </span><span class="s">for</span><span class="nv"> </span><span class="s">Supercomputing</span><span class="nv"> </span><span class="s">Applications</span><span class="nv"> </span><span class="s">&amp;</span> 
+        <span class="s">Electrical</span><span class="nv"> </span><span class="s">and</span><span class="nv"> </span><span class="s">Computer</span><span class="nv"> </span><span class="s">Engineering</span><span class="nv"> </span><span class="s">Department</span><span class="nv"> </span><span class="s">&amp;</span><span class="nv"> </span><span class="s">School</span><span class="nv"> </span><span class="s">of</span><span class="nv"> </span><span class="s">Information</span> 
+        <span class="s">Sciences,</span><span class="nv"> </span><span class="s">University</span><span class="nv"> </span><span class="s">of</span><span class="nv"> </span><span class="s">Illinois</span><span class="nv"> </span><span class="s">at</span><span class="nv"> </span><span class="s">Urbana-Champaign,</span><span class="nv"> </span><span class="s">Urbana,</span><span class="nv"> </span><span class="s">Illinois,</span> 
+        <span class="s">United</span><span class="nv"> </span><span class="s">States"</span>
+        <span class="na">orcid</span><span class="pi">:</span> <span class="s">0000-0001-5934-7525</span>
+        <span class="na">role</span><span class="pi">:</span> <span class="s">main-author</span>
+      <span class="pi">-</span> <span class="na">family-names</span><span class="pi">:</span> <span class="s">Niemeyer</span>
+        <span class="na">given-names</span><span class="pi">:</span> <span class="s">Kyle E.</span>
+        <span class="na">role</span><span class="pi">:</span> <span class="s">main-author</span>
+      <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s2">"</span><span class="s">FORCE11</span><span class="nv"> </span><span class="s">Software</span><span class="nv"> </span><span class="s">Citation</span><span class="nv"> </span><span class="s">Working</span><span class="nv"> </span><span class="s">Group"</span>
+        <span class="na">website</span><span class="pi">:</span> <span class="s">https://www.force11.org/group/software-citation-working-group</span>
+    <span class="na">title</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Software</span><span class="nv"> </span><span class="s">citation</span><span class="nv"> </span><span class="s">principles"</span>
+    <span class="na">year</span><span class="pi">:</span> <span class="s">2016</span>
+    <span class="na">journal</span><span class="pi">:</span> <span class="s">PeerJ Computer Science</span>
+    <span class="na">volume</span><span class="pi">:</span> <span class="s">2</span>
+    <span class="na">issue</span><span class="pi">:</span> <span class="s">e86</span>
+    <span class="na">doi</span><span class="pi">:</span> <span class="s">10.7717/peerj-cs.86</span>
+    <span class="na">url</span><span class="pi">:</span> <span class="s">https://doi.org/10.7717/peerj-cs.86</span></code></pre></figure>
+
+<h3 id="blog"><code class="highlighter-rouge">blog</code></h3>
+
+<figure class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="na">cff-version</span><span class="pi">:</span> <span class="s">1.0.0</span>
+<span class="na">message</span><span class="pi">:</span> <span class="s2">"</span><span class="s">If</span><span class="nv"> </span><span class="s">you</span><span class="nv"> </span><span class="s">use</span><span class="nv"> </span><span class="s">MRT</span><span class="nv"> </span><span class="s">in</span><span class="nv"> </span><span class="s">your</span><span class="nv"> </span><span class="s">research,</span><span class="nv"> </span><span class="s">please</span><span class="nv"> </span><span class="s">cite</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">following</span><span class="nv"> </span><span class="s">blog</span><span class="nv"> </span><span class="s">article."</span>
+<span class="na">references</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="na">type</span><span class="pi">:</span> <span class="s">blog</span>
+    <span class="na">authors</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="na">family-names</span><span class="pi">:</span> <span class="s">Doe</span>
+        <span class="na">given-names</span><span class="pi">:</span> <span class="s">Jane</span>
+    <span class="na">title</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Implement</span><span class="nv"> </span><span class="s">a</span><span class="nv"> </span><span class="s">100%</span><span class="nv"> </span><span class="s">accuracy</span><span class="nv"> </span><span class="s">syntax</span><span class="nv"> </span><span class="s">parser</span><span class="nv"> </span><span class="s">for</span><span class="nv"> </span><span class="s">all</span><span class="nv"> </span><span class="s">languages?</span><span class="nv"> </span><span class="s">No</span><span class="nv"> </span><span class="s">probs!"</span>
+    <span class="na">date-published</span><span class="pi">:</span> <span class="s">2017-09-23</span>
+    <span class="na">url</span><span class="pi">:</span> <span class="s">https://hu-berlin.de/blogs/jdoe/2017/09/23/if-only</span>
+    <span class="na">institution</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Humboldt-Universität</span><span class="nv"> </span><span class="s">zu</span><span class="nv"> </span><span class="s">Berlin"</span>
+        <span class="na">city</span><span class="pi">:</span> <span class="s">Berlin</span>
+        <span class="na">country</span><span class="pi">:</span> <span class="s">DE</span></code></pre></figure>
+
+<h3 id="book"><code class="highlighter-rouge">book</code></h3>
+
+<figure class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="na">cff-version</span><span class="pi">:</span> <span class="s">1.0.0</span>
+<span class="na">message</span><span class="pi">:</span> <span class="s2">"</span><span class="s">If</span><span class="nv"> </span><span class="s">you</span><span class="nv"> </span><span class="s">use</span><span class="nv"> </span><span class="s">MRT</span><span class="nv"> </span><span class="s">for</span><span class="nv"> </span><span class="s">your</span><span class="nv"> </span><span class="s">research,</span><span class="nv"> </span><span class="s">please</span><span class="nv"> </span><span class="s">cite</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">following</span><span class="nv"> </span><span class="s">book."</span>
+<span class="na">references</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="na">type</span><span class="pi">:</span> <span class="s">book</span>
+    <span class="na">authors</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="na">family-names</span><span class="pi">:</span> <span class="s">Doe</span>
+        <span class="na">given-names</span><span class="pi">:</span> <span class="s">Jane</span>
+        <span class="na">role</span><span class="pi">:</span> <span class="s">main-author</span>
+    <span class="na">title</span><span class="pi">:</span> <span class="s2">"</span><span class="s">The</span><span class="nv"> </span><span class="s">future</span><span class="nv"> </span><span class="s">of</span><span class="nv"> </span><span class="s">syntax</span><span class="nv"> </span><span class="s">parsing"</span>
+    <span class="na">year</span><span class="pi">:</span> <span class="s">2017</span>
+    <span class="na">publisher</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Far Out Publications</span>
+        <span class="na">city</span><span class="pi">:</span> <span class="s">Bielefeld</span>
+    <span class="na">medium</span><span class="pi">:</span> <span class="s">print</span></code></pre></figure>
+
+<h3 id="conference-paper"><code class="highlighter-rouge">conference-paper</code></h3>
+
+<figure class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="na">cff-version</span><span class="pi">:</span> <span class="s">1.0.0</span>
+<span class="na">message</span><span class="pi">:</span> <span class="s2">"</span><span class="s">If</span><span class="nv"> </span><span class="s">you</span><span class="nv"> </span><span class="s">use</span><span class="nv"> </span><span class="s">MRT</span><span class="nv"> </span><span class="s">for</span><span class="nv"> </span><span class="s">your</span><span class="nv"> </span><span class="s">research,</span><span class="nv"> </span><span class="s">please</span><span class="nv"> </span><span class="s">cite</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">following."</span>
+<span class="na">references</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="na">type</span><span class="pi">:</span> <span class="s">conference-paper</span>
+    <span class="na">authors</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="na">family-names</span><span class="pi">:</span> <span class="s">Doe</span>
+        <span class="na">given-names</span><span class="pi">:</span> <span class="s">Jane</span>
+    <span class="na">title</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Ultimate-accuracy</span><span class="nv"> </span><span class="s">syntax</span><span class="nv"> </span><span class="s">parsing</span><span class="nv"> </span><span class="s">with</span><span class="nv"> </span><span class="s">My</span><span class="nv"> </span><span class="s">Research</span><span class="nv"> </span><span class="s">Tool"</span>
+    <span class="na">year</span><span class="pi">:</span> <span class="s">2017</span>
+    <span class="na">collection-title</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Proceedings</span><span class="nv"> </span><span class="s">of</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">1st</span><span class="nv"> </span><span class="s">Conference</span><span class="nv"> </span><span class="s">on</span><span class="nv"> </span><span class="s">Wishful</span><span class="nv"> </span><span class="s">Thinking"</span>
+    <span class="na">collection-doi</span><span class="pi">:</span> <span class="s">10043.zenodo.4321</span>
+    <span class="na">editors</span><span class="pi">:</span> 
+      <span class="pi">-</span> <span class="na">family-names</span><span class="pi">:</span> <span class="s">Kirk</span>
+        <span class="na">given-names</span><span class="pi">:</span> <span class="s">James T.</span>
+    <span class="na">conference</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">1st Conference on Wishful Thinking</span>
+        <span class="na">location</span><span class="pi">:</span> <span class="s">Spock's Inn Hotel and Bar</span>
+        <span class="na">address</span><span class="pi">:</span> <span class="s">123 Main St</span>
+        <span class="na">city</span><span class="pi">:</span> <span class="s">Bielefeld</span>
+        <span class="na">region</span><span class="pi">:</span> <span class="s">Jarvis Island</span>
+        <span class="na">post-code</span><span class="pi">:</span> <span class="s">12345</span>
+        <span class="na">country</span><span class="pi">:</span> <span class="s">UM</span>
+        <span class="na">date-start</span><span class="pi">:</span> <span class="s">2017-04-01</span>
+        <span class="na">date-end</span><span class="pi">:</span> <span class="s">2017-04-01</span>
+    <span class="na">start</span><span class="pi">:</span> <span class="s">42</span>
+    <span class="na">end</span><span class="pi">:</span> <span class="s">45</span>
+    <span class="na">doi</span><span class="pi">:</span> <span class="s">10043/zenodo.1234</span></code></pre></figure>
+
+<h3 id="edited-work"><code class="highlighter-rouge">edited-work</code></h3>
+
+<p>Note that the editors of the edited work must be specified under the <code class="highlighter-rouge">authors</code>
+key. Specific citation styles may or may not attach a suffix to the authors,
+such as “, eds.” or similar.</p>
+
+<figure class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="na">cff-version</span><span class="pi">:</span> <span class="s">1.0.0</span>
+<span class="na">message</span><span class="pi">:</span> <span class="s2">"</span><span class="s">If</span><span class="nv"> </span><span class="s">you</span><span class="nv"> </span><span class="s">use</span><span class="nv"> </span><span class="s">MRT,</span><span class="nv"> </span><span class="s">please</span><span class="nv"> </span><span class="s">cite</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">following."</span>
+<span class="na">references</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="na">type</span><span class="pi">:</span> <span class="s">edited-work</span>
+    <span class="na">authors</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="na">family-names</span><span class="pi">:</span> <span class="s">Doe</span>
+        <span class="na">given-names</span><span class="pi">:</span> <span class="s">Jane</span>
+    <span class="na">title</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Ultimate-accuracy</span><span class="nv"> </span><span class="s">parsing</span><span class="nv"> </span><span class="s">in</span><span class="nv"> </span><span class="s">practice"</span>
+    <span class="na">year</span><span class="pi">:</span> <span class="s">2017</span>
+    <span class="na">publisher</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Far Out Publications</span>
+        <span class="na">city</span><span class="pi">:</span> <span class="s">Bielefeld</span>
+        <span class="na">country</span><span class="pi">:</span> <span class="s">DE</span></code></pre></figure>
+
+<h3 id="report"><code class="highlighter-rouge">report</code></h3>
+
+<figure class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="na">cff-version</span><span class="pi">:</span> <span class="s">1.0.0</span>
+<span class="na">message</span><span class="pi">:</span> <span class="s2">"</span><span class="s">If</span><span class="nv"> </span><span class="s">you</span><span class="nv"> </span><span class="s">use</span><span class="nv"> </span><span class="s">MRT</span><span class="nv"> </span><span class="s">in</span><span class="nv"> </span><span class="s">your</span><span class="nv"> </span><span class="s">research,</span><span class="nv"> </span><span class="s">please</span><span class="nv"> </span><span class="s">cite</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">following."</span>
+<span class="na">references</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="na">type</span><span class="pi">:</span> <span class="s">report</span>
+    <span class="na">authors</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Fictional Parsing Interest Group, ACME Inc.</span>
+    <span class="na">title</span><span class="pi">:</span> <span class="s2">"</span><span class="s">100%</span><span class="nv"> </span><span class="s">accuracy</span><span class="nv"> </span><span class="s">syntax</span><span class="nv"> </span><span class="s">parsing</span><span class="nv"> </span><span class="s">at</span><span class="nv"> </span><span class="s">ACME"</span>
+    <span class="na">url</span><span class="pi">:</span> <span class="s">http://www.acme.com/sigs/fp/reports/hpsp.pdf</span>
+    <span class="na">year</span><span class="pi">:</span> <span class="s">2017</span>
+    <span class="na">date-accessed</span><span class="pi">:</span> <span class="s">2017-09-23</span></code></pre></figure>
+
+<h3 id="thesis"><code class="highlighter-rouge">thesis</code></h3>
+
+<figure class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="na">cff-version</span><span class="pi">:</span> <span class="s">1.0.0</span>
+<span class="na">message</span><span class="pi">:</span> <span class="s2">"</span><span class="s">If</span><span class="nv"> </span><span class="s">you</span><span class="nv"> </span><span class="s">use</span><span class="nv"> </span><span class="s">MRT</span><span class="nv"> </span><span class="s">in</span><span class="nv"> </span><span class="s">your</span><span class="nv"> </span><span class="s">research,</span><span class="nv"> </span><span class="s">please</span><span class="nv"> </span><span class="s">cite</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">following."</span>
+<span class="na">references</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="na">type</span><span class="pi">:</span> <span class="s">thesis</span>
+    <span class="na">authors</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="na">family-names</span><span class="pi">:</span> <span class="s">Doe</span>
+        <span class="na">given-names</span><span class="pi">:</span> <span class="s">Jane</span>
+    <span class="na">title</span><span class="pi">:</span> <span class="s2">"</span><span class="s">A</span><span class="nv"> </span><span class="s">high</span><span class="nv"> </span><span class="s">accuracy</span><span class="nv"> </span><span class="s">syntax</span><span class="nv"> </span><span class="s">parser</span><span class="nv"> </span><span class="s">in</span><span class="nv"> </span><span class="s">Visual</span><span class="nv"> </span><span class="s">Basic"</span>
+    <span class="na">thesis-type</span><span class="pi">:</span> <span class="s">PhD</span>
+    <span class="na">year</span><span class="pi">:</span> <span class="s">2017</span>
+    <span class="na">department</span><span class="pi">:</span> <span class="s">Dept. of Universal Language Philosophy</span>
+    <span class="na">institution</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Humboldt-Universität</span><span class="nv"> </span><span class="s">zu</span><span class="nv"> </span><span class="s">Berlin"</span>
+        <span class="na">city</span><span class="pi">:</span> <span class="s">Berlin</span>
+        <span class="na">country</span><span class="pi">:</span> <span class="s">DE</span>
+    <span class="na">database</span><span class="pi">:</span> <span class="s">Thesiserver</span>
+    <span class="na">date-accessed</span><span class="pi">:</span> <span class="s">2017-09-23</span>
+    <span class="na">date-published</span><span class="pi">:</span> <span class="s">2017-03-21</span>
+    <span class="na">url</span><span class="pi">:</span> <span class="s">http://thesiserver.hu-berlin.de/2017/march/phd/doe-12345</span></code></pre></figure>
+
+<h1 id="infrastructure">Infrastructure</h1>
+
+<p>The roadmap for CFF plans for the provision of further infrastructure (e.g., 
+software packages and web services), to support the following use cases for CFF:</p>
+
+<ul>
+  <li>Creating CFF files</li>
+  <li>Reading CFF files</li>
+  <li>Validating CFF files</li>
+  <li>Converting CFF files</li>
+</ul>
+
+<h1 id="contributions">Contributions</h1>
+
+<p>Contributions to the format specifications are welcome! For details on how to
+contribute, please refer to the GitHub repository for CFF at
+<a href="http://github.com/sdruskat/citation-file-format">http://github.com/sdruskat/citation-file-format</a>.</p>
+
+<h1 id="license">License</h1>
+
+<p>This document is licensed under a <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC-BY-
+SA-4.0</a> license. The full
+license text can be obtained from the URL
+<a href="https://creativecommons.org/licenses/by-sa/4.0/legalcode">https://creativecommons.org/licenses/by-sa/4.0/legalcode</a>.</p>
+
+<h1 id="references">References</h1>
+
+<ol class="bibliography"><li><p><span id="standardized-citation-files">Druskat, Stephan. (2017). Track 2 Lightning Talk: Should CITATION files be standardized? In N. Chue Hong, S. Druskat, R. Haines, C. Jay, D. S. Katz, &amp; S. Sufi (Eds.), <i>Proceedings of the Workshop on Sustainable Software for Science: Practice and Experiences (WSSSPE5.1)</i>. figshare. <a href="https://doi.org/10.6084/m9.figshare.3827058">https://doi.org/10.6084/m9.figshare.3827058</a>.</span></p>
+ 
+</li>
+<li><p><span id="principles">Smith, Arfon M., Katz, Daniel S., Niemeyer, Kyle E., &amp; FORCE11 Software Citation Working Group. (2016). Software citation principles. <i>PeerJ Computer Science</i>, <i>2</i>, e86. <a href="https://doi.org/10.7717/peerj-cs.86">https://doi.org/10.7717/peerj-cs.86</a>.</span></p>
+ 
+</li>
+<li><p><span id="citation-files">Wilson, Robin. (2013). Encouraging citation of software - introducing CITATION files. Retrieved from <a href="https://www.software.ac.uk/blog/2013-09-02-encouraging-citation-software-introducing-citation-files">https://www.software.ac.uk/blog/2013-09-02-encouraging-citation-software-introducing-citation-files</a>.</span></p>
+ 
+</li>
+<li><p><span id="yaml-1-2-specs">Ben-Kiki, Oren, Evans, Clark, &amp; döt Net, Ingy. (2009). YAML Ain’t Markup Language (YAML™) Version 1.2. 3rd Edition, Patched at 2009-10-01. Retrieved from <a href="http://yaml.org/spec/1.2/spec.html">http://yaml.org/spec/1.2/spec.html</a>.</span></p>
+ 
+</li>
+<li><p><span id="names-in-bibtex">Hufflen, Jean-Michel. (2006). Names in BibTeX and mlBibTeX. <i>TUGboat</i>, <i>27</i>(2), 243–253. Retrieved from <a href="https://www.tug.org/TUGboat/tb27-2/tb87hufflen.pdf">https://www.tug.org/TUGboat/tb27-2/tb87hufflen.pdf</a>.</span></p>
+ 
+</li></ol>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+        
+      </footer>
+
+      
+
+      
+    </div>
+
+    
+  </article>
+
+  
+  
+</div>
+
+
+    <div class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>Follow:</strong></li>
+    
+    
+    
+    
+      <li><a href="http://github.com/citation-file-format"><i class="fa fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+    
+    
+    
+    <li><a href="https://citation-file-format.github.io/feed.xml"><i class="fa fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2017 Citation File Format (CFF). Powered by <a href="http://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="https://citation-file-format.github.io/assets/js/main.min.js"></script>
+
+
+
+
+
+
+  </body>
+</html>

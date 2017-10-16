@@ -1,31 +1,202 @@
----
-title: Citation File Format (CFF)  
-author: Stephan Druskat (mail@sdruskat.net)
-abstract: 
-  The *Citation File Format* (*CFF*) is a human- *and* machine-readable format 
-  for CITATION files. These files provide citation metadata for (research and 
-  scientific) software. The format aims to support all use cases for software 
-  citation described in {% cite principles %}. CFF is serialized in 
-  [YAML](http://yaml.org) [1.2](http://yaml.org/spec/1.2/spec.html), and is 
-  therefore Unicode-based and cross-language (in terms of both natural language 
-  scripts and programming languages). This specification, together with the 
-  Unicode standard for characters, aims to provide all the information necessary 
-  to understand CFF, and to use (i.e., write) and re-use (i.e., read, validate, 
-  convert from) it. These specifications are maintained openly at 
-  <https://github.com/sdruskat/citation-file-format>.
-geometry: margin=2cm
-version: 0.9-RC1
----
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.6.0 by Michael Rose
+  Copyright 2017 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE.txt
+-->
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
 
-{% include toc %}
+<!-- begin SEO -->
 
-[![DOI]({{ site.url }}{{ site.baseurl }}/assets/images/zenodo.1003150.svg)](https://doi.org/10.5281/zenodo.1003150)
+
+
+
+
+
+
+
+
+<title>            Citation File Format (CFF)      Citation File Format (CFF)      </title>
+
+
+
+
+<meta name="description" content="Landing page for the Citation File Format (CFF), a YAML 1.2-based format for providing citation metadata for (research/scientific) software.">
+
+
+
+
+<meta name="author" content="Stephan Druskat (mail@sdruskat.net)">
+
+<meta property="og:locale" content="en">
+<meta property="og:site_name" content="Citation File Format (CFF)">
+<meta property="og:title" content="Citation File Format (CFF)">
+
+
+  <link rel="canonical" href="https://citation-file-format.github.io/0.10-SNAPSHOT/specifications.md.draft">
+  <meta property="og:url" content="https://citation-file-format.github.io/0.10-SNAPSHOT/specifications.md.draft">
+
+
+
+
+
+
+
+  
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <script type="application/ld+json">
+    {
+      "@context" : "http://schema.org",
+      "@type" : "Person",
+      "name" : "",
+      "url" : "https://citation-file-format.github.io",
+      "sameAs" : null
+    }
+  </script>
+
+
+
+
+
+
+
+<!-- end SEO -->
+
+
+<link href="https://citation-file-format.github.io/feed.xml" type="application/atom+xml" rel="alternate" title="Citation File Format (CFF) Feed">
+
+<!-- http://t.co/dKP3o1e -->
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="https://citation-file-format.github.io/assets/css/main.css">
+
+<!--[if lte IE 9]>
+  <style>
+    /* old IE unsupported flexbox fixes */
+    .greedy-nav .site-title {
+      padding-right: 3em;
+    }
+    .greedy-nav button {
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+    }
+  </style>
+<![endif]-->
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use http://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+  </head>
+
+  <body class="layout--single">
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+    <div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        <a class="site-title" href="https://citation-file-format.github.io/">Citation File Format (CFF)</a>
+        <ul class="visible-links">
+          <li class="masthead__menu-item"><a href="/0.9-RC1/">Current version</a></li>
+          
+            
+            <li class="masthead__menu-item"><a href="https://citation-file-format.github.io/versions/">All versions</a></li>
+          
+            
+            <li class="masthead__menu-item"><a href="https://github.com/citation-file-format"><i class="fa fa-github"></i> GitHub</a></li>
+          
+        </ul>
+        <button type="button">
+          <span class="visually-hidden">Toggle Menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+    
+
+
+
+<div id="main" role="main">
+  <article class="page" itemscope itemtype="http://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Citation File Format (CFF)">
+    
+    
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 class="page__title" itemprop="headline">Citation File Format (CFF)
+</h1>
+          <h2 class="page__title" itemprop="headline">Version 0.9-RC1
+</h2>
+          
+            <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
+
+
+
+
+  39 minute read
+</p>
+          
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+          <h1>Abstract</h1>
+          <p>The <em>Citation File Format</em> (<em>CFF</em>) is a human- <em>and</em> machine-readable format for CITATION files. These files provide citation metadata for (research and scientific) software. The format aims to support all use cases for software citation described in <a href="#principles">(Smith et al., 2016)</a>. CFF is serialized in <a href="http://yaml.org">YAML</a> <a href="http://yaml.org/spec/1.2/spec.html">1.2</a>, and is therefore Unicode-based and cross-language (in terms of both natural language scripts and programming languages). This specification, together with the Unicode standard for characters, aims to provide all the information necessary to understand CFF, and to use (i.e., write) and re-use (i.e., read, validate, convert from) it. These specifications are maintained openly at <a href="https://github.com/sdruskat/citation-file-format">https://github.com/sdruskat/citation-file-format</a>.</p>
+
+        
+        <aside class="sidebar__right">
+<nav class="toc" markdown="1">
+<header><h4 class="nav__title"><i class="fa fa-file-text"></i> On This Page</h4></header>
+*  Auto generated table of contents
+{:toc .toc__menu}
+</nav>
+</aside>
+
+[![DOI](https://citation-file-format.github.io/assets/images/zenodo.1003150.svg)](https://doi.org/10.5281/zenodo.1003150)
 
 # Introduction
 
 ## Status of this document
 
-This document reflects the version {{ page.version }} of the *Citation File Format* (CFF).
+This document reflects the version 0.9-RC1 of the *Citation File Format* (CFF).
 CFF has been developed in the context of the [*Workshop on Sustainable Software
 for Science: Practice and Experiences
 (WSSSPE5.1)*](http://wssspe.researchcomputing.org.uk/wssspe5-1/), which was held
@@ -38,7 +209,7 @@ Stephan Druskat (Humboldt-Universität zu Berlin, Germany), Neil Chue Hong
 (University of Tromsø, Norway), Andrew Rowley (University of Manchester, UK),
 and Alexander Konovalov (University of St. Andrews, UK).
 
-CFF Version {{ page.version }} has been developed by Stephan Druskat with contributions from
+CFF Version 0.9-RC1 has been developed by Stephan Druskat with contributions from
 the following.
 
 - Radovan Bast ([@bast](https://github.com/bast)): Reporter
@@ -64,14 +235,14 @@ reference list of a journal article, and should not be omitted or separated.
 Software should be cited on the same basis as any other research product such as
 a paper or a book, that is, authors should cite the appropriate set of software
 products just as they cite the appropriate set of papers.
-{% cite principles -l 1 %}
+<a href="#principles">(Smith et al., 2016, p. 1)</a>
 
 In addition, the second principle of software citation (*Credit and attribution*) states:
 
 > Software citations should facilitate giving scholarly credit and normative,
 legal attribution to all contributors to the software, recognizing that a single
 style or mechanism of attribution may not be applicable to all software.
-{% cite principles -l 2 %}
+<a href="#principles">(Smith et al., 2016, p. 2)</a>
 
 In order to follow these principles, all parties involved -- from researchers
 authoring a paper for which they use software, to software repositories,
@@ -79,7 +250,7 @@ funders, indexers, and reference managers -- need access to software metadata.
 As software is a complicated beast, with dependencies, specific contribution
 roles, etc., the metadata describing it must reflect these properties
 adequately. One concept that promises to do so comprehensively is that of 
-"transitive credit" {% cite transitive-credit transitive-credit-json-ld %}.
+"transitive credit" <a href="#transitive-credit">(Katz, 2014; Katz &amp; Smith, 2015)</a>.
 
 However, the sustainable implementation of transitive credit is non-trivial,
 and for authors of software trying to record citation metadata manually or
@@ -88,7 +259,7 @@ in a paper, the creation of a linked data file in JSON-LD may prove an obstacle.
 
 For the latter case -- facilitation of citability for typical cases -- Robin 
 Wilson has suggested placing a file named `CITATION` in the source
-code repository of a software {% cite citation-files %}.
+code repository of a software <a href="#citation-files">(Wilson, 2013)</a>.
 
 While this practice is a great first step in the direction of
 implementing software citation principles, and is infinitely better than
@@ -104,7 +275,7 @@ default, it activates some of the potential of metadata formats for software
 citation metadata. As such, it can provide for re-use in some of the use cases,
 namely *1. Use software for a paper*, *2. Use software in/with new software*,
 and *15. Store software entry* 
-(cf. Table 2, {% cite principles --style ./_bibliography/apa-text.csl -l 6 %}),
+(cf. Table 2, <a href="#principles">Smith et al., (2016), p. 6</a>),
 so basically for *direct-citation-related use cases*, i.e., cases in which a software 
 must be cited or made citable.
 
@@ -118,12 +289,12 @@ a more ideal state.
 
 > The rationale for a standardized, machine- and human-readable format for
 `CITATION` files is discussed in more detail in 
-{% cite standardized-citation-files %}. CFF has been developed to support all 
+<a href="#standardized-citation-files">(Druskat, 2017)</a>. CFF has been developed to support all 
 use cases for the citation of software, as
-discussed in {% cite principles %}, and thus promote attribution and credit for
+discussed in <a href="#principles">(Smith et al., 2016)</a>, and thus promote attribution and credit for
 software in general, and research software in particular.
 
-In a blog post {% cite citation-files %}, Robin Wilson has introduced `CITATION`
+In a blog post <a href="#citation-files">(Wilson, 2013)</a>, Robin Wilson has introduced `CITATION`
 files as a means to make citation information for software easily accessible.
 This accessibility is important, because in order to receive deserved credit for
 research software in the academic system - where credit is still mainly measured
@@ -201,7 +372,7 @@ CFF `CITATION` files must be named `CITATION.cff`.
 
 CFF is implemented in YAML 1.2, as the language provides optimal human-
 readability and the required core data types. For details, see the
-YAML 1.2 Specifications {% cite yaml-1-2-specs %}.
+YAML 1.2 Specifications <a href="#yaml-1-2-specs">(Ben-Kiki et al., 2009)</a>.
 
 ## File structure
 
@@ -219,13 +390,11 @@ with.
 
 Example:
 
-{% highlight yaml %}
-cff-version: 1.0.0
-message: "Please cite the following works when using this software."
-references:
-  - ...
-  - ...
-{% endhighlight %}
+<figure class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="na">cff-version</span><span class="pi">:</span> <span class="s">1.0.0</span>
+<span class="na">message</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Please</span><span class="nv"> </span><span class="s">cite</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">following</span><span class="nv"> </span><span class="s">works</span><span class="nv"> </span><span class="s">when</span><span class="nv"> </span><span class="s">using</span><span class="nv"> </span><span class="s">this</span><span class="nv"> </span><span class="s">software."</span>
+<span class="na">references</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">...</span>
+  <span class="pi">-</span> <span class="s">...</span></code></pre></figure>
 
 ### Reference structure
 
@@ -240,7 +409,7 @@ values, cf. [reference types].
 `title` must specify the title of the referenced work.
 
 Additionally, it can contain any further [reference keys]. In version 
-{{ page.version }}, 
+0.9-RC1, 
 CFF does not specify a strict schema where specific [reference
 types] can only contain specific [reference keys], although this may be
 implemented in future versions.
@@ -255,16 +424,14 @@ contact information.
 
 Example:
 
-{% highlight yaml %}
-...
-references:
-  - type: book
-    publisher:
-      - name: PeerJ
-        city: London
-        country: GB
-        website: https://peerj.com/
-{% endhighlight %}
+<figure class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="nn">...</span>
+<span class="na">references</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="na">type</span><span class="pi">:</span> <span class="s">book</span>
+    <span class="na">publisher</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">PeerJ</span>
+        <span class="na">city</span><span class="pi">:</span> <span class="s">London</span>
+        <span class="na">country</span><span class="pi">:</span> <span class="s">GB</span>
+        <span class="na">website</span><span class="pi">:</span> <span class="s">https://peerj.com/</span></code></pre></figure>
 
 **authors**, **contact**, **editors**, **editors-series**, **recipients**,
 **senders**, **translators**
@@ -275,28 +442,26 @@ set for specifiying personal names, an affiliation, a role, etc.
 
 Example:
 
-{% highlight yaml %}
-...
-references:
-  - type: software
-    authors:
-      - family-names: Druskat
-        given-names: Stephan
-        orcid: 0000-0003-4925-7248
-        affiliation: "Humboldt-Universität zu Berlin"
-        email: "mail@sdruskat.net"
-        website: http://sdruskat.net
-        role: main-author
-      - family-names: Beethoven
-        name-particle: van
-        given-names: Ludwig
-        role: artist
-      - family-names: Fernández de Córdoba
-        given-names: Gonzalo
-        name-suffix: Jr.
-        role: tester
-    ...
-{% endhighlight %}
+<figure class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="nn">...</span>
+<span class="na">references</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="na">type</span><span class="pi">:</span> <span class="s">software</span>
+    <span class="na">authors</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="na">family-names</span><span class="pi">:</span> <span class="s">Druskat</span>
+        <span class="na">given-names</span><span class="pi">:</span> <span class="s">Stephan</span>
+        <span class="na">orcid</span><span class="pi">:</span> <span class="s">0000-0003-4925-7248</span>
+        <span class="na">affiliation</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Humboldt-Universität</span><span class="nv"> </span><span class="s">zu</span><span class="nv"> </span><span class="s">Berlin"</span>
+        <span class="na">email</span><span class="pi">:</span> <span class="s2">"</span><span class="s">mail@sdruskat.net"</span>
+        <span class="na">website</span><span class="pi">:</span> <span class="s">http://sdruskat.net</span>
+        <span class="na">role</span><span class="pi">:</span> <span class="s">main-author</span>
+      <span class="pi">-</span> <span class="na">family-names</span><span class="pi">:</span> <span class="s">Beethoven</span>
+        <span class="na">name-particle</span><span class="pi">:</span> <span class="s">van</span>
+        <span class="na">given-names</span><span class="pi">:</span> <span class="s">Ludwig</span>
+        <span class="na">role</span><span class="pi">:</span> <span class="s">artist</span>
+      <span class="pi">-</span> <span class="na">family-names</span><span class="pi">:</span> <span class="s">Fernández de Córdoba</span>
+        <span class="na">given-names</span><span class="pi">:</span> <span class="s">Gonzalo</span>
+        <span class="na">name-suffix</span><span class="pi">:</span> <span class="s">Jr.</span>
+        <span class="na">role</span><span class="pi">:</span> <span class="s">tester</span>
+    <span class="s">...</span></code></pre></figure>
 
 **type**, **languages**, **programming-languages**, **status**
 
@@ -318,16 +483,14 @@ This key takes a collection of strings.
 
 Example:
 
-{% highlight yaml %}
-...
-references:
-  - type: software
-    keywords:
-      - linguistics
-      - "multi-layer annotation"
-      - web service
-    ...
-{% endhighlight %}
+<figure class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="nn">...</span>
+<span class="na">references</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="na">type</span><span class="pi">:</span> <span class="s">software</span>
+    <span class="na">keywords</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">linguistics</span>
+      <span class="pi">-</span> <span class="s2">"</span><span class="s">multi-layer</span><span class="nv"> </span><span class="s">annotation"</span>
+      <span class="pi">-</span> <span class="s">web service</span>
+    <span class="s">...</span></code></pre></figure>
 
 
 **scope**
@@ -341,13 +504,11 @@ my come in handy.
 
 Example:
 
-{% highlight yaml %}
-...
-references:
-  - scope: "Cite this paper when you run software X with flag --xy"
-    type: article
-    ...
-{% endhighlight %}
+<figure class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="nn">...</span>
+<span class="na">references</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="na">scope</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Cite</span><span class="nv"> </span><span class="s">this</span><span class="nv"> </span><span class="s">paper</span><span class="nv"> </span><span class="s">when</span><span class="nv"> </span><span class="s">you</span><span class="nv"> </span><span class="s">run</span><span class="nv"> </span><span class="s">software</span><span class="nv"> </span><span class="s">X</span><span class="nv"> </span><span class="s">with</span><span class="nv"> </span><span class="s">flag</span><span class="nv"> </span><span class="s">--xy"</span>
+    <span class="na">type</span><span class="pi">:</span> <span class="s">article</span>
+    <span class="s">...</span></code></pre></figure>
 
 
 
@@ -722,15 +883,13 @@ alpha-2 codes can be found at
 
 Example:
 
-{% highlight yaml %}
-...
-references:
-  - type: book
-    publisher:
-      - name: PeerJ
-        city: London
-        country: GB
-{% endhighlight %}
+<figure class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="nn">...</span>
+<span class="na">references</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="na">type</span><span class="pi">:</span> <span class="s">book</span>
+    <span class="na">publisher</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">PeerJ</span>
+        <span class="na">city</span><span class="pi">:</span> <span class="s">London</span>
+        <span class="na">country</span><span class="pi">:</span> <span class="s">GB</span></code></pre></figure>
 
 **date-start** and **date-end**
 
@@ -789,7 +948,7 @@ CFF aims at implementing a culturally neutral model for personal names,
 according to the
 [suggestions on splitting personal names by the W3C](https://www.w3.org/International/questions/qa-personal-names) 
 and the implementation of personal name splitting in 
-B[ib]{style="font-variant:small-caps;"}T<sub>E</sub>X {% cite names-in-bibtex %}.
+B[ib]{style="font-variant:small-caps;"}T<sub>E</sub>X <a href="#names-in-bibtex">(Hufflen, 2006)</a>.
 
 To this end, CFF provides four generic keys to specify personal names: 
 
@@ -895,15 +1054,13 @@ of ISO 639-1 codes is maintained at
 
 Example for a work in both English and Daakaka:
 
-{% highlight yaml %}
-...
-references:
-  - type: book
-    ...
-    languages:
-      - en
-      - bpa
-{% endhighlight %}
+<figure class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="nn">...</span>
+<span class="na">references</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="na">type</span><span class="pi">:</span> <span class="s">book</span>
+    <span class="s">...</span>
+    <span class="na">languages</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">en</span>
+      <span class="pi">-</span> <span class="s">bpa</span></code></pre></figure>
 
 ## Programming language strings
 
@@ -1856,7 +2013,7 @@ can be validated.
 
 One of the main foci of CFF is to comprehensively cover the provision of 
 citation metadata for software. To this end, it should always be used based on
-the Software Citation Principles {% cite principles %}! Please make sure you
+the Software Citation Principles <a href="#principles">(Smith et al., 2016)</a>! Please make sure you
 follow the best practices wherever possible. Two typical scenarios for
 software citation metadata include the existence and respectively lack of a
 DOI for the software for which citation metadata is provided, for both of which 
@@ -1864,14 +2021,14 @@ examples follow.
 
 ### A software with a DOI
 
-Note that {% cite principles -l 12 %} recommends
+Note that <a href="#principles">(Smith et al., 2016, p. 12)</a> recommends
 
 > [...] the use of DOIs as the unique identifier due to their common usage and
 acceptance, particularly as they are the standard for other digital products
 such as publications.
 
 Furthermore, DOIs should point to a "unique, specific software version" 
-{% cite principles -l 12 %}. Also it is recommended {% cite principles -l 13 %} that:
+<a href="#principles">(Smith et al., 2016, p. 12)</a>. Also it is recommended <a href="#principles">(Smith et al., 2016, p. 13)</a> that:
 
 > the [DOI] should resolve to a persistent landing page that contains metadata 
 and a link to the software itself, rather than directly to the source code files,
@@ -1880,129 +2037,121 @@ repository, or executable.
 Therefore, a minimal `CITATION.cff` file in such a case would look similar to
 the following.
 
-{% highlight yaml %}
-cff-version: 1.0.0
-message: If you use this software, please cite it as below.
-references:
-  - type: software
-    authors:
-      - family-names: Druskat
-        given-names: Stephan
-        orcid: 0000-0003-4925-7248
-    title: My Research Tool
-    version: 1.0.4
-    doi: 10043/zenodo.1234
-{% endhighlight %}
+<figure class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="na">cff-version</span><span class="pi">:</span> <span class="s">1.0.0</span>
+<span class="na">message</span><span class="pi">:</span> <span class="s">If you use this software, please cite it as below.</span>
+<span class="na">references</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="na">type</span><span class="pi">:</span> <span class="s">software</span>
+    <span class="na">authors</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="na">family-names</span><span class="pi">:</span> <span class="s">Druskat</span>
+        <span class="na">given-names</span><span class="pi">:</span> <span class="s">Stephan</span>
+        <span class="na">orcid</span><span class="pi">:</span> <span class="s">0000-0003-4925-7248</span>
+    <span class="na">title</span><span class="pi">:</span> <span class="s">My Research Tool</span>
+    <span class="na">version</span><span class="pi">:</span> <span class="s">1.0.4</span>
+    <span class="na">doi</span><span class="pi">:</span> <span class="s">10043/zenodo.1234</span></code></pre></figure>
 
 A more comprehensive version could look similar to the following.
 
-{% highlight yaml %}
-cff-version: 1.0.0
-message: If you use this software, please cite it as below.
-references:
-  - type: software
-    authors:
-      - family-names: Druskat
-        given-names: Stephan
-        orcid: 0000-0003-4925-7248
-        affiliation: "Humboldt-Universität zu Berlin, Dept. of German Studies 
-        and Linguistics"
-        email: mail@sdruskat.net
-        website: https://hu.berlin/sdruskat
-    title: My Research Tool
-    version: 1.0.4
-    doi: 10043/zenodo.1234
-    repository-code: https://github.com/sdruskat/my-research-tool
-    repository-artifact: https://hu.berlin/nexus/mrt
-    date-published: 2017-09-23
-    keywords:
-      - "McAuthor's algorithm"
-      - linguistics
-      - nlp
-      - parser
-      - deep convolutional neural network
-    programming-languages:
-      - java
-      - python
-      - c
-      - haskell
-      - pascal
-      - rust
-    license: Apache License, Version 2.0
-    license-url: http://www.apache.org/licenses/LICENSE-2.0
-    url: https://sdruskat.github.io/my-research-tool
-{% endhighlight %}
+<figure class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="na">cff-version</span><span class="pi">:</span> <span class="s">1.0.0</span>
+<span class="na">message</span><span class="pi">:</span> <span class="s">If you use this software, please cite it as below.</span>
+<span class="na">references</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="na">type</span><span class="pi">:</span> <span class="s">software</span>
+    <span class="na">authors</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="na">family-names</span><span class="pi">:</span> <span class="s">Druskat</span>
+        <span class="na">given-names</span><span class="pi">:</span> <span class="s">Stephan</span>
+        <span class="na">orcid</span><span class="pi">:</span> <span class="s">0000-0003-4925-7248</span>
+        <span class="na">affiliation</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Humboldt-Universität</span><span class="nv"> </span><span class="s">zu</span><span class="nv"> </span><span class="s">Berlin,</span><span class="nv"> </span><span class="s">Dept.</span><span class="nv"> </span><span class="s">of</span><span class="nv"> </span><span class="s">German</span><span class="nv"> </span><span class="s">Studies</span> 
+        <span class="s">and</span><span class="nv"> </span><span class="s">Linguistics"</span>
+        <span class="na">email</span><span class="pi">:</span> <span class="s">mail@sdruskat.net</span>
+        <span class="na">website</span><span class="pi">:</span> <span class="s">https://hu.berlin/sdruskat</span>
+    <span class="na">title</span><span class="pi">:</span> <span class="s">My Research Tool</span>
+    <span class="na">version</span><span class="pi">:</span> <span class="s">1.0.4</span>
+    <span class="na">doi</span><span class="pi">:</span> <span class="s">10043/zenodo.1234</span>
+    <span class="na">repository-code</span><span class="pi">:</span> <span class="s">https://github.com/sdruskat/my-research-tool</span>
+    <span class="na">repository-artifact</span><span class="pi">:</span> <span class="s">https://hu.berlin/nexus/mrt</span>
+    <span class="na">date-published</span><span class="pi">:</span> <span class="s">2017-09-23</span>
+    <span class="na">keywords</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s2">"</span><span class="s">McAuthor's</span><span class="nv"> </span><span class="s">algorithm"</span>
+      <span class="pi">-</span> <span class="s">linguistics</span>
+      <span class="pi">-</span> <span class="s">nlp</span>
+      <span class="pi">-</span> <span class="s">parser</span>
+      <span class="pi">-</span> <span class="s">deep convolutional neural network</span>
+    <span class="na">programming-languages</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">java</span>
+      <span class="pi">-</span> <span class="s">python</span>
+      <span class="pi">-</span> <span class="s">c</span>
+      <span class="pi">-</span> <span class="s">haskell</span>
+      <span class="pi">-</span> <span class="s">pascal</span>
+      <span class="pi">-</span> <span class="s">rust</span>
+    <span class="na">license</span><span class="pi">:</span> <span class="s">Apache License, Version 2.0</span>
+    <span class="na">license-url</span><span class="pi">:</span> <span class="s">http://www.apache.org/licenses/LICENSE-2.0</span>
+    <span class="na">url</span><span class="pi">:</span> <span class="s">https://sdruskat.github.io/my-research-tool</span></code></pre></figure>
 
 ### A software without a DOI
 
 For software without a DOI, it is recommended that "the metadata should still
 provide information on how to access the specific software, but this may be a
 company’s product number or a link to a website that allows the software be
-purchased." {% cite principles -l 13 %}. Furthermore, "if the version number and
+purchased." <a href="#principles">(Smith et al., 2016, p. 13)</a>. Furthermore, "if the version number and
 release date are not available, the download date can be used. Similarly, the
 contact name/email is an alternative to the location/repository." 
-{% cite principles -l 7 %}
+<a href="#principles">(Smith et al., 2016, p. 7)</a>
 
 Hence, for a closed source software without a DOI for which the version number
 and release date cannot be determined, a `CITATION.cff` file could look like
 this.
 
-{% highlight yaml %}
-cff-version: 1.0.0
-message: "If you dare to use this commercial, closed-source, unversioned software 
-in your research, please at least cite it as below."
-references:
-  - type: software
-    title: Opaquity
-    number: opq-1234-XZVF-ACME-RLY
-    date-downloaded: 2017-02-31
-    contact:
-      - family-names: Vader
-        given-names: Darth
-        affiliation: Dark Side Software
-        location: DS-1 Orbital Battle Station, near Scarif
-        email: father@imperial-empire.com
-        tel: +850 (0)123-45-666
-{% endhighlight %}
+<figure class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="na">cff-version</span><span class="pi">:</span> <span class="s">1.0.0</span>
+<span class="na">message</span><span class="pi">:</span> <span class="s2">"</span><span class="s">If</span><span class="nv"> </span><span class="s">you</span><span class="nv"> </span><span class="s">dare</span><span class="nv"> </span><span class="s">to</span><span class="nv"> </span><span class="s">use</span><span class="nv"> </span><span class="s">this</span><span class="nv"> </span><span class="s">commercial,</span><span class="nv"> </span><span class="s">closed-source,</span><span class="nv"> </span><span class="s">unversioned</span><span class="nv"> </span><span class="s">software</span> 
+<span class="s">in</span><span class="nv"> </span><span class="s">your</span><span class="nv"> </span><span class="s">research,</span><span class="nv"> </span><span class="s">please</span><span class="nv"> </span><span class="s">at</span><span class="nv"> </span><span class="s">least</span><span class="nv"> </span><span class="s">cite</span><span class="nv"> </span><span class="s">it</span><span class="nv"> </span><span class="s">as</span><span class="nv"> </span><span class="s">below."</span>
+<span class="na">references</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="na">type</span><span class="pi">:</span> <span class="s">software</span>
+    <span class="na">title</span><span class="pi">:</span> <span class="s">Opaquity</span>
+    <span class="na">number</span><span class="pi">:</span> <span class="s">opq-1234-XZVF-ACME-RLY</span>
+    <span class="na">date-downloaded</span><span class="pi">:</span> <span class="s">2017-02-31</span>
+    <span class="na">contact</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="na">family-names</span><span class="pi">:</span> <span class="s">Vader</span>
+        <span class="na">given-names</span><span class="pi">:</span> <span class="s">Darth</span>
+        <span class="na">affiliation</span><span class="pi">:</span> <span class="s">Dark Side Software</span>
+        <span class="na">location</span><span class="pi">:</span> <span class="s">DS-1 Orbital Battle Station, near Scarif</span>
+        <span class="na">email</span><span class="pi">:</span> <span class="s">father@imperial-empire.com</span>
+        <span class="na">tel</span><span class="pi">:</span> <span class="s">+850 (0)123-45-666</span></code></pre></figure>
 
 ### `software` (with two references)
 
-{% highlight yaml %}
-cff-version: 1.0.0
-message: "If you use My Research Tool, please cite both the software and the 
-outline paper."
-references:
-  - type: software
-    authors:
-      - family-names: Doe
-        given-names: Jane
-        role: main-author
-      - family-names: Bielefeld
-        name-particle: von
-        given-names: Arthur
-        role: tester
-      - family-names: McAuthor
-        given-names: Juniper
-        name-suffix: Jr.
-        role: maintainer
-    title: My Research Tool
-    doi: 10043/zenodo.1234
-  - type: article
-    authors:
-      - family-names: Doe
-        given-names: Jane
-        role: main-author
-      - family-names: Bielefeld
-        name-particle: von
-        given-names: Arthur
-        role: author
-    title: "My Research Tool: A 100% accuracy syntax parser for all languages"
-    year: 2099
-    journal: Journal of Hard Science Fiction
-    volume: 42
-    issue: 13
-    doi: 10.9999/hardscifi-lang.42132
-{% endhighlight %}
+<figure class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="na">cff-version</span><span class="pi">:</span> <span class="s">1.0.0</span>
+<span class="na">message</span><span class="pi">:</span> <span class="s2">"</span><span class="s">If</span><span class="nv"> </span><span class="s">you</span><span class="nv"> </span><span class="s">use</span><span class="nv"> </span><span class="s">My</span><span class="nv"> </span><span class="s">Research</span><span class="nv"> </span><span class="s">Tool,</span><span class="nv"> </span><span class="s">please</span><span class="nv"> </span><span class="s">cite</span><span class="nv"> </span><span class="s">both</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">software</span><span class="nv"> </span><span class="s">and</span><span class="nv"> </span><span class="s">the</span> 
+<span class="s">outline</span><span class="nv"> </span><span class="s">paper."</span>
+<span class="na">references</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="na">type</span><span class="pi">:</span> <span class="s">software</span>
+    <span class="na">authors</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="na">family-names</span><span class="pi">:</span> <span class="s">Doe</span>
+        <span class="na">given-names</span><span class="pi">:</span> <span class="s">Jane</span>
+        <span class="na">role</span><span class="pi">:</span> <span class="s">main-author</span>
+      <span class="pi">-</span> <span class="na">family-names</span><span class="pi">:</span> <span class="s">Bielefeld</span>
+        <span class="na">name-particle</span><span class="pi">:</span> <span class="s">von</span>
+        <span class="na">given-names</span><span class="pi">:</span> <span class="s">Arthur</span>
+        <span class="na">role</span><span class="pi">:</span> <span class="s">tester</span>
+      <span class="pi">-</span> <span class="na">family-names</span><span class="pi">:</span> <span class="s">McAuthor</span>
+        <span class="na">given-names</span><span class="pi">:</span> <span class="s">Juniper</span>
+        <span class="na">name-suffix</span><span class="pi">:</span> <span class="s">Jr.</span>
+        <span class="na">role</span><span class="pi">:</span> <span class="s">maintainer</span>
+    <span class="na">title</span><span class="pi">:</span> <span class="s">My Research Tool</span>
+    <span class="na">doi</span><span class="pi">:</span> <span class="s">10043/zenodo.1234</span>
+  <span class="pi">-</span> <span class="na">type</span><span class="pi">:</span> <span class="s">article</span>
+    <span class="na">authors</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="na">family-names</span><span class="pi">:</span> <span class="s">Doe</span>
+        <span class="na">given-names</span><span class="pi">:</span> <span class="s">Jane</span>
+        <span class="na">role</span><span class="pi">:</span> <span class="s">main-author</span>
+      <span class="pi">-</span> <span class="na">family-names</span><span class="pi">:</span> <span class="s">Bielefeld</span>
+        <span class="na">name-particle</span><span class="pi">:</span> <span class="s">von</span>
+        <span class="na">given-names</span><span class="pi">:</span> <span class="s">Arthur</span>
+        <span class="na">role</span><span class="pi">:</span> <span class="s">author</span>
+    <span class="na">title</span><span class="pi">:</span> <span class="s2">"</span><span class="s">My</span><span class="nv"> </span><span class="s">Research</span><span class="nv"> </span><span class="s">Tool:</span><span class="nv"> </span><span class="s">A</span><span class="nv"> </span><span class="s">100%</span><span class="nv"> </span><span class="s">accuracy</span><span class="nv"> </span><span class="s">syntax</span><span class="nv"> </span><span class="s">parser</span><span class="nv"> </span><span class="s">for</span><span class="nv"> </span><span class="s">all</span><span class="nv"> </span><span class="s">languages"</span>
+    <span class="na">year</span><span class="pi">:</span> <span class="s">2099</span>
+    <span class="na">journal</span><span class="pi">:</span> <span class="s">Journal of Hard Science Fiction</span>
+    <span class="na">volume</span><span class="pi">:</span> <span class="s">42</span>
+    <span class="na">issue</span><span class="pi">:</span> <span class="s">13</span>
+    <span class="na">doi</span><span class="pi">:</span> <span class="s">10.9999/hardscifi-lang.42132</span></code></pre></figure>
 
 ### `software-code` (without a DOI: code repository + commit)
 
@@ -2011,184 +2160,168 @@ follow the recommended best-practice. For example, if (1) the software authors
 did not register a DOI and/or release a specific version, or (2) the version of
 the software used does not match what is available to cite. In those cases,
 falling back on a combination of the repository URL and version number/commit
-hash would be an appropriate way to cite the software used. {% cite principles -l 12 %}
+hash would be an appropriate way to cite the software used. <a href="#principles">(Smith et al., 2016, p. 12)</a>
 
-{% highlight yaml %}
-cff-version: 1.0.0
-message: "If you use this MRT alpha snapshot version, please cite."
-references:
-  - type: software-code
-    authors:
-      - family-names: Doe
-        given-names: Jane
-    title: My Research Tool Prototype
-    version: 0.0.1-alpha1-build1507284872
-    repository-code: https://github.com/doe/mrt
-    commit: 160d54f9e935c914df38c1ffda752112b5c979a8
-{% endhighlight %}
+<figure class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="na">cff-version</span><span class="pi">:</span> <span class="s">1.0.0</span>
+<span class="na">message</span><span class="pi">:</span> <span class="s2">"</span><span class="s">If</span><span class="nv"> </span><span class="s">you</span><span class="nv"> </span><span class="s">use</span><span class="nv"> </span><span class="s">this</span><span class="nv"> </span><span class="s">MRT</span><span class="nv"> </span><span class="s">alpha</span><span class="nv"> </span><span class="s">snapshot</span><span class="nv"> </span><span class="s">version,</span><span class="nv"> </span><span class="s">please</span><span class="nv"> </span><span class="s">cite."</span>
+<span class="na">references</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="na">type</span><span class="pi">:</span> <span class="s">software-code</span>
+    <span class="na">authors</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="na">family-names</span><span class="pi">:</span> <span class="s">Doe</span>
+        <span class="na">given-names</span><span class="pi">:</span> <span class="s">Jane</span>
+    <span class="na">title</span><span class="pi">:</span> <span class="s">My Research Tool Prototype</span>
+    <span class="na">version</span><span class="pi">:</span> <span class="s">0.0.1-alpha1-build1507284872</span>
+    <span class="na">repository-code</span><span class="pi">:</span> <span class="s">https://github.com/doe/mrt</span>
+    <span class="na">commit</span><span class="pi">:</span> <span class="s">160d54f9e935c914df38c1ffda752112b5c979a8</span></code></pre></figure>
 
 ### `software-container`
 
-{% highlight yaml %}
-cff-version: 1.0.0
-message: "If you use the MRT Docker container, please cite the following."
-references:
-  - type: software-container
-    authors:
-      - name: "Humboldt-Universität zu Berlin"
-        website: https://www.linguistik.hu-berlin.de/
-        role: maintainer
-      - family-names: Doe
-        given-names: Jane
-        role: main-author
-    title: mrt-iain-m-banks
-    version: 1.0.4 (Iain M. Banks)
-    url: https://github.com/doe/docker-brew-mrt-core/blob/160d54f9e935/iain/Dockerfile
-    repository: https://hub.docker.hu-berlin.de/_/mrt-iain-m-banks/
-{% endhighlight %}
+<figure class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="na">cff-version</span><span class="pi">:</span> <span class="s">1.0.0</span>
+<span class="na">message</span><span class="pi">:</span> <span class="s2">"</span><span class="s">If</span><span class="nv"> </span><span class="s">you</span><span class="nv"> </span><span class="s">use</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">MRT</span><span class="nv"> </span><span class="s">Docker</span><span class="nv"> </span><span class="s">container,</span><span class="nv"> </span><span class="s">please</span><span class="nv"> </span><span class="s">cite</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">following."</span>
+<span class="na">references</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="na">type</span><span class="pi">:</span> <span class="s">software-container</span>
+    <span class="na">authors</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Humboldt-Universität</span><span class="nv"> </span><span class="s">zu</span><span class="nv"> </span><span class="s">Berlin"</span>
+        <span class="na">website</span><span class="pi">:</span> <span class="s">https://www.linguistik.hu-berlin.de/</span>
+        <span class="na">role</span><span class="pi">:</span> <span class="s">maintainer</span>
+      <span class="pi">-</span> <span class="na">family-names</span><span class="pi">:</span> <span class="s">Doe</span>
+        <span class="na">given-names</span><span class="pi">:</span> <span class="s">Jane</span>
+        <span class="na">role</span><span class="pi">:</span> <span class="s">main-author</span>
+    <span class="na">title</span><span class="pi">:</span> <span class="s">mrt-iain-m-banks</span>
+    <span class="na">version</span><span class="pi">:</span> <span class="s">1.0.4 (Iain M. Banks)</span>
+    <span class="na">url</span><span class="pi">:</span> <span class="s">https://github.com/doe/docker-brew-mrt-core/blob/160d54f9e935/iain/Dockerfile</span>
+    <span class="na">repository</span><span class="pi">:</span> <span class="s">https://hub.docker.hu-berlin.de/_/mrt-iain-m-banks/</span></code></pre></figure>
 
 ### `software-executable`
 
-{% highlight yaml %}
-cff-version: 1.0.0
-message: "If you use MRT, please cite the following."
-references:
-  - type: software-executable
-    authors:
-      - family-names: Doe
-        given-names: Jane
-        role: main-author
-    title: My Research Tool Kickstarter
-    version: 2.0.0
-    doi: 10043/zenodo.1234
-    repository-artifact: https://hu.berlin/nexus/mrt-kickstarter
-    filename: mrt2-kickstarter.exe
-{% endhighlight %}
+<figure class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="na">cff-version</span><span class="pi">:</span> <span class="s">1.0.0</span>
+<span class="na">message</span><span class="pi">:</span> <span class="s2">"</span><span class="s">If</span><span class="nv"> </span><span class="s">you</span><span class="nv"> </span><span class="s">use</span><span class="nv"> </span><span class="s">MRT,</span><span class="nv"> </span><span class="s">please</span><span class="nv"> </span><span class="s">cite</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">following."</span>
+<span class="na">references</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="na">type</span><span class="pi">:</span> <span class="s">software-executable</span>
+    <span class="na">authors</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="na">family-names</span><span class="pi">:</span> <span class="s">Doe</span>
+        <span class="na">given-names</span><span class="pi">:</span> <span class="s">Jane</span>
+        <span class="na">role</span><span class="pi">:</span> <span class="s">main-author</span>
+    <span class="na">title</span><span class="pi">:</span> <span class="s">My Research Tool Kickstarter</span>
+    <span class="na">version</span><span class="pi">:</span> <span class="s">2.0.0</span>
+    <span class="na">doi</span><span class="pi">:</span> <span class="s">10043/zenodo.1234</span>
+    <span class="na">repository-artifact</span><span class="pi">:</span> <span class="s">https://hu.berlin/nexus/mrt-kickstarter</span>
+    <span class="na">filename</span><span class="pi">:</span> <span class="s">mrt2-kickstarter.exe</span></code></pre></figure>
 
 ## Other examples
 
 ### `art`
 
-{% highlight yaml %}
-cff-version: 1.0.0
-message: "If you use this software, please cite the following."
-references:
-  - type: art
-    authors:
-      - family-names: Picasso
-        given-names: Pablo
-    title: Guernica
-    year: 1937
-    medium: Oil on canvas
-    format: 349.3cm x 776.6cm
-    location:
-      - name: Museo Reina Sofia
-        city: Madrid
-        country: ES
-{% endhighlight %}
+<figure class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="na">cff-version</span><span class="pi">:</span> <span class="s">1.0.0</span>
+<span class="na">message</span><span class="pi">:</span> <span class="s2">"</span><span class="s">If</span><span class="nv"> </span><span class="s">you</span><span class="nv"> </span><span class="s">use</span><span class="nv"> </span><span class="s">this</span><span class="nv"> </span><span class="s">software,</span><span class="nv"> </span><span class="s">please</span><span class="nv"> </span><span class="s">cite</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">following."</span>
+<span class="na">references</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="na">type</span><span class="pi">:</span> <span class="s">art</span>
+    <span class="na">authors</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="na">family-names</span><span class="pi">:</span> <span class="s">Picasso</span>
+        <span class="na">given-names</span><span class="pi">:</span> <span class="s">Pablo</span>
+    <span class="na">title</span><span class="pi">:</span> <span class="s">Guernica</span>
+    <span class="na">year</span><span class="pi">:</span> <span class="s">1937</span>
+    <span class="na">medium</span><span class="pi">:</span> <span class="s">Oil on canvas</span>
+    <span class="na">format</span><span class="pi">:</span> <span class="s">349.3cm x 776.6cm</span>
+    <span class="na">location</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Museo Reina Sofia</span>
+        <span class="na">city</span><span class="pi">:</span> <span class="s">Madrid</span>
+        <span class="na">country</span><span class="pi">:</span> <span class="s">ES</span></code></pre></figure>
 
 ### `article`
 
-{% highlight yaml %}
-cff-version: 1.0.0
-message: "If you use this software, please cite the following paper."
-references:
-  - type: article
-    authors:
-      - family-names: Smith
-        given-names: Arfon M.
-        role: main-author
-      - family-names: Katz
-        given-names: Daniel S.
-        affiliation: "National Center for Supercomputing Applications & 
-        Electrical and Computer Engineering Department & School of Information 
-        Sciences, University of Illinois at Urbana-Champaign, Urbana, Illinois, 
-        United States"
-        orcid: 0000-0001-5934-7525
-        role: main-author
-      - family-names: Niemeyer
-        given-names: Kyle E.
-        role: main-author
-      - name: "FORCE11 Software Citation Working Group"
-        website: https://www.force11.org/group/software-citation-working-group
-    title: "Software citation principles"
-    year: 2016
-    journal: PeerJ Computer Science
-    volume: 2
-    issue: e86
-    doi: 10.7717/peerj-cs.86
-    url: https://doi.org/10.7717/peerj-cs.86
-{% endhighlight %}
+<figure class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="na">cff-version</span><span class="pi">:</span> <span class="s">1.0.0</span>
+<span class="na">message</span><span class="pi">:</span> <span class="s2">"</span><span class="s">If</span><span class="nv"> </span><span class="s">you</span><span class="nv"> </span><span class="s">use</span><span class="nv"> </span><span class="s">this</span><span class="nv"> </span><span class="s">software,</span><span class="nv"> </span><span class="s">please</span><span class="nv"> </span><span class="s">cite</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">following</span><span class="nv"> </span><span class="s">paper."</span>
+<span class="na">references</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="na">type</span><span class="pi">:</span> <span class="s">article</span>
+    <span class="na">authors</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="na">family-names</span><span class="pi">:</span> <span class="s">Smith</span>
+        <span class="na">given-names</span><span class="pi">:</span> <span class="s">Arfon M.</span>
+        <span class="na">role</span><span class="pi">:</span> <span class="s">main-author</span>
+      <span class="pi">-</span> <span class="na">family-names</span><span class="pi">:</span> <span class="s">Katz</span>
+        <span class="na">given-names</span><span class="pi">:</span> <span class="s">Daniel S.</span>
+        <span class="na">affiliation</span><span class="pi">:</span> <span class="s2">"</span><span class="s">National</span><span class="nv"> </span><span class="s">Center</span><span class="nv"> </span><span class="s">for</span><span class="nv"> </span><span class="s">Supercomputing</span><span class="nv"> </span><span class="s">Applications</span><span class="nv"> </span><span class="s">&amp;</span> 
+        <span class="s">Electrical</span><span class="nv"> </span><span class="s">and</span><span class="nv"> </span><span class="s">Computer</span><span class="nv"> </span><span class="s">Engineering</span><span class="nv"> </span><span class="s">Department</span><span class="nv"> </span><span class="s">&amp;</span><span class="nv"> </span><span class="s">School</span><span class="nv"> </span><span class="s">of</span><span class="nv"> </span><span class="s">Information</span> 
+        <span class="s">Sciences,</span><span class="nv"> </span><span class="s">University</span><span class="nv"> </span><span class="s">of</span><span class="nv"> </span><span class="s">Illinois</span><span class="nv"> </span><span class="s">at</span><span class="nv"> </span><span class="s">Urbana-Champaign,</span><span class="nv"> </span><span class="s">Urbana,</span><span class="nv"> </span><span class="s">Illinois,</span> 
+        <span class="s">United</span><span class="nv"> </span><span class="s">States"</span>
+        <span class="na">orcid</span><span class="pi">:</span> <span class="s">0000-0001-5934-7525</span>
+        <span class="na">role</span><span class="pi">:</span> <span class="s">main-author</span>
+      <span class="pi">-</span> <span class="na">family-names</span><span class="pi">:</span> <span class="s">Niemeyer</span>
+        <span class="na">given-names</span><span class="pi">:</span> <span class="s">Kyle E.</span>
+        <span class="na">role</span><span class="pi">:</span> <span class="s">main-author</span>
+      <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s2">"</span><span class="s">FORCE11</span><span class="nv"> </span><span class="s">Software</span><span class="nv"> </span><span class="s">Citation</span><span class="nv"> </span><span class="s">Working</span><span class="nv"> </span><span class="s">Group"</span>
+        <span class="na">website</span><span class="pi">:</span> <span class="s">https://www.force11.org/group/software-citation-working-group</span>
+    <span class="na">title</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Software</span><span class="nv"> </span><span class="s">citation</span><span class="nv"> </span><span class="s">principles"</span>
+    <span class="na">year</span><span class="pi">:</span> <span class="s">2016</span>
+    <span class="na">journal</span><span class="pi">:</span> <span class="s">PeerJ Computer Science</span>
+    <span class="na">volume</span><span class="pi">:</span> <span class="s">2</span>
+    <span class="na">issue</span><span class="pi">:</span> <span class="s">e86</span>
+    <span class="na">doi</span><span class="pi">:</span> <span class="s">10.7717/peerj-cs.86</span>
+    <span class="na">url</span><span class="pi">:</span> <span class="s">https://doi.org/10.7717/peerj-cs.86</span></code></pre></figure>
 
 ### `blog`
 
-{% highlight yaml %}
-cff-version: 1.0.0
-message: "If you use MRT in your research, please cite the following blog article."
-references:
-  - type: blog
-    authors:
-      - family-names: Doe
-        given-names: Jane
-    title: "Implement a 100% accuracy syntax parser for all languages? No probs!"
-    date-published: 2017-09-23
-    url: https://hu-berlin.de/blogs/jdoe/2017/09/23/if-only
-    institution:
-      - name: "Humboldt-Universität zu Berlin"
-        city: Berlin
-        country: DE
-{% endhighlight %}
+<figure class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="na">cff-version</span><span class="pi">:</span> <span class="s">1.0.0</span>
+<span class="na">message</span><span class="pi">:</span> <span class="s2">"</span><span class="s">If</span><span class="nv"> </span><span class="s">you</span><span class="nv"> </span><span class="s">use</span><span class="nv"> </span><span class="s">MRT</span><span class="nv"> </span><span class="s">in</span><span class="nv"> </span><span class="s">your</span><span class="nv"> </span><span class="s">research,</span><span class="nv"> </span><span class="s">please</span><span class="nv"> </span><span class="s">cite</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">following</span><span class="nv"> </span><span class="s">blog</span><span class="nv"> </span><span class="s">article."</span>
+<span class="na">references</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="na">type</span><span class="pi">:</span> <span class="s">blog</span>
+    <span class="na">authors</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="na">family-names</span><span class="pi">:</span> <span class="s">Doe</span>
+        <span class="na">given-names</span><span class="pi">:</span> <span class="s">Jane</span>
+    <span class="na">title</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Implement</span><span class="nv"> </span><span class="s">a</span><span class="nv"> </span><span class="s">100%</span><span class="nv"> </span><span class="s">accuracy</span><span class="nv"> </span><span class="s">syntax</span><span class="nv"> </span><span class="s">parser</span><span class="nv"> </span><span class="s">for</span><span class="nv"> </span><span class="s">all</span><span class="nv"> </span><span class="s">languages?</span><span class="nv"> </span><span class="s">No</span><span class="nv"> </span><span class="s">probs!"</span>
+    <span class="na">date-published</span><span class="pi">:</span> <span class="s">2017-09-23</span>
+    <span class="na">url</span><span class="pi">:</span> <span class="s">https://hu-berlin.de/blogs/jdoe/2017/09/23/if-only</span>
+    <span class="na">institution</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Humboldt-Universität</span><span class="nv"> </span><span class="s">zu</span><span class="nv"> </span><span class="s">Berlin"</span>
+        <span class="na">city</span><span class="pi">:</span> <span class="s">Berlin</span>
+        <span class="na">country</span><span class="pi">:</span> <span class="s">DE</span></code></pre></figure>
 
 ### `book`
 
-{% highlight yaml %}
-cff-version: 1.0.0
-message: "If you use MRT for your research, please cite the following book."
-references:
-  - type: book
-    authors:
-      - family-names: Doe
-        given-names: Jane
-        role: main-author
-    title: "The future of syntax parsing"
-    year: 2017
-    publisher:
-      - name: Far Out Publications
-        city: Bielefeld
-    medium: print
-{% endhighlight %}
+<figure class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="na">cff-version</span><span class="pi">:</span> <span class="s">1.0.0</span>
+<span class="na">message</span><span class="pi">:</span> <span class="s2">"</span><span class="s">If</span><span class="nv"> </span><span class="s">you</span><span class="nv"> </span><span class="s">use</span><span class="nv"> </span><span class="s">MRT</span><span class="nv"> </span><span class="s">for</span><span class="nv"> </span><span class="s">your</span><span class="nv"> </span><span class="s">research,</span><span class="nv"> </span><span class="s">please</span><span class="nv"> </span><span class="s">cite</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">following</span><span class="nv"> </span><span class="s">book."</span>
+<span class="na">references</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="na">type</span><span class="pi">:</span> <span class="s">book</span>
+    <span class="na">authors</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="na">family-names</span><span class="pi">:</span> <span class="s">Doe</span>
+        <span class="na">given-names</span><span class="pi">:</span> <span class="s">Jane</span>
+        <span class="na">role</span><span class="pi">:</span> <span class="s">main-author</span>
+    <span class="na">title</span><span class="pi">:</span> <span class="s2">"</span><span class="s">The</span><span class="nv"> </span><span class="s">future</span><span class="nv"> </span><span class="s">of</span><span class="nv"> </span><span class="s">syntax</span><span class="nv"> </span><span class="s">parsing"</span>
+    <span class="na">year</span><span class="pi">:</span> <span class="s">2017</span>
+    <span class="na">publisher</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Far Out Publications</span>
+        <span class="na">city</span><span class="pi">:</span> <span class="s">Bielefeld</span>
+    <span class="na">medium</span><span class="pi">:</span> <span class="s">print</span></code></pre></figure>
 
 ### `conference-paper`
 
-{% highlight yaml %}
-cff-version: 1.0.0
-message: "If you use MRT for your research, please cite the following."
-references:
-  - type: conference-paper
-    authors:
-      - family-names: Doe
-        given-names: Jane
-    title: "Ultimate-accuracy syntax parsing with My Research Tool"
-    year: 2017
-    collection-title: "Proceedings of the 1st Conference on Wishful Thinking"
-    collection-doi: 10043.zenodo.4321
-    editors: 
-      - family-names: Kirk
-        given-names: James T.
-    conference:
-      - name: 1st Conference on Wishful Thinking
-        location: Spock's Inn Hotel and Bar
-        address: 123 Main St
-        city: Bielefeld
-        region: Jarvis Island
-        post-code: 12345
-        country: UM
-        date-start: 2017-04-01
-        date-end: 2017-04-01
-    start: 42
-    end: 45
-    doi: 10043/zenodo.1234
-{% endhighlight %}
+<figure class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="na">cff-version</span><span class="pi">:</span> <span class="s">1.0.0</span>
+<span class="na">message</span><span class="pi">:</span> <span class="s2">"</span><span class="s">If</span><span class="nv"> </span><span class="s">you</span><span class="nv"> </span><span class="s">use</span><span class="nv"> </span><span class="s">MRT</span><span class="nv"> </span><span class="s">for</span><span class="nv"> </span><span class="s">your</span><span class="nv"> </span><span class="s">research,</span><span class="nv"> </span><span class="s">please</span><span class="nv"> </span><span class="s">cite</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">following."</span>
+<span class="na">references</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="na">type</span><span class="pi">:</span> <span class="s">conference-paper</span>
+    <span class="na">authors</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="na">family-names</span><span class="pi">:</span> <span class="s">Doe</span>
+        <span class="na">given-names</span><span class="pi">:</span> <span class="s">Jane</span>
+    <span class="na">title</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Ultimate-accuracy</span><span class="nv"> </span><span class="s">syntax</span><span class="nv"> </span><span class="s">parsing</span><span class="nv"> </span><span class="s">with</span><span class="nv"> </span><span class="s">My</span><span class="nv"> </span><span class="s">Research</span><span class="nv"> </span><span class="s">Tool"</span>
+    <span class="na">year</span><span class="pi">:</span> <span class="s">2017</span>
+    <span class="na">collection-title</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Proceedings</span><span class="nv"> </span><span class="s">of</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">1st</span><span class="nv"> </span><span class="s">Conference</span><span class="nv"> </span><span class="s">on</span><span class="nv"> </span><span class="s">Wishful</span><span class="nv"> </span><span class="s">Thinking"</span>
+    <span class="na">collection-doi</span><span class="pi">:</span> <span class="s">10043.zenodo.4321</span>
+    <span class="na">editors</span><span class="pi">:</span> 
+      <span class="pi">-</span> <span class="na">family-names</span><span class="pi">:</span> <span class="s">Kirk</span>
+        <span class="na">given-names</span><span class="pi">:</span> <span class="s">James T.</span>
+    <span class="na">conference</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">1st Conference on Wishful Thinking</span>
+        <span class="na">location</span><span class="pi">:</span> <span class="s">Spock's Inn Hotel and Bar</span>
+        <span class="na">address</span><span class="pi">:</span> <span class="s">123 Main St</span>
+        <span class="na">city</span><span class="pi">:</span> <span class="s">Bielefeld</span>
+        <span class="na">region</span><span class="pi">:</span> <span class="s">Jarvis Island</span>
+        <span class="na">post-code</span><span class="pi">:</span> <span class="s">12345</span>
+        <span class="na">country</span><span class="pi">:</span> <span class="s">UM</span>
+        <span class="na">date-start</span><span class="pi">:</span> <span class="s">2017-04-01</span>
+        <span class="na">date-end</span><span class="pi">:</span> <span class="s">2017-04-01</span>
+    <span class="na">start</span><span class="pi">:</span> <span class="s">42</span>
+    <span class="na">end</span><span class="pi">:</span> <span class="s">45</span>
+    <span class="na">doi</span><span class="pi">:</span> <span class="s">10043/zenodo.1234</span></code></pre></figure>
 
 ### `edited-work`
 
@@ -2196,60 +2329,54 @@ Note that the editors of the edited work must be specified under the `authors`
 key. Specific citation styles may or may not attach a suffix to the authors,
 such as ", eds." or similar.
 
-{% highlight yaml %}
-cff-version: 1.0.0
-message: "If you use MRT, please cite the following."
-references:
-  - type: edited-work
-    authors:
-      - family-names: Doe
-        given-names: Jane
-    title: "Ultimate-accuracy parsing in practice"
-    year: 2017
-    publisher:
-      - name: Far Out Publications
-        city: Bielefeld
-        country: DE
-{% endhighlight %}
+<figure class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="na">cff-version</span><span class="pi">:</span> <span class="s">1.0.0</span>
+<span class="na">message</span><span class="pi">:</span> <span class="s2">"</span><span class="s">If</span><span class="nv"> </span><span class="s">you</span><span class="nv"> </span><span class="s">use</span><span class="nv"> </span><span class="s">MRT,</span><span class="nv"> </span><span class="s">please</span><span class="nv"> </span><span class="s">cite</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">following."</span>
+<span class="na">references</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="na">type</span><span class="pi">:</span> <span class="s">edited-work</span>
+    <span class="na">authors</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="na">family-names</span><span class="pi">:</span> <span class="s">Doe</span>
+        <span class="na">given-names</span><span class="pi">:</span> <span class="s">Jane</span>
+    <span class="na">title</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Ultimate-accuracy</span><span class="nv"> </span><span class="s">parsing</span><span class="nv"> </span><span class="s">in</span><span class="nv"> </span><span class="s">practice"</span>
+    <span class="na">year</span><span class="pi">:</span> <span class="s">2017</span>
+    <span class="na">publisher</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Far Out Publications</span>
+        <span class="na">city</span><span class="pi">:</span> <span class="s">Bielefeld</span>
+        <span class="na">country</span><span class="pi">:</span> <span class="s">DE</span></code></pre></figure>
 
 ### `report`
 
-{% highlight yaml %}
-cff-version: 1.0.0
-message: "If you use MRT in your research, please cite the following."
-references:
-  - type: report
-    authors:
-      - name: Fictional Parsing Interest Group, ACME Inc.
-    title: "100% accuracy syntax parsing at ACME"
-    url: http://www.acme.com/sigs/fp/reports/hpsp.pdf
-    year: 2017
-    date-accessed: 2017-09-23
-{% endhighlight %}
+<figure class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="na">cff-version</span><span class="pi">:</span> <span class="s">1.0.0</span>
+<span class="na">message</span><span class="pi">:</span> <span class="s2">"</span><span class="s">If</span><span class="nv"> </span><span class="s">you</span><span class="nv"> </span><span class="s">use</span><span class="nv"> </span><span class="s">MRT</span><span class="nv"> </span><span class="s">in</span><span class="nv"> </span><span class="s">your</span><span class="nv"> </span><span class="s">research,</span><span class="nv"> </span><span class="s">please</span><span class="nv"> </span><span class="s">cite</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">following."</span>
+<span class="na">references</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="na">type</span><span class="pi">:</span> <span class="s">report</span>
+    <span class="na">authors</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Fictional Parsing Interest Group, ACME Inc.</span>
+    <span class="na">title</span><span class="pi">:</span> <span class="s2">"</span><span class="s">100%</span><span class="nv"> </span><span class="s">accuracy</span><span class="nv"> </span><span class="s">syntax</span><span class="nv"> </span><span class="s">parsing</span><span class="nv"> </span><span class="s">at</span><span class="nv"> </span><span class="s">ACME"</span>
+    <span class="na">url</span><span class="pi">:</span> <span class="s">http://www.acme.com/sigs/fp/reports/hpsp.pdf</span>
+    <span class="na">year</span><span class="pi">:</span> <span class="s">2017</span>
+    <span class="na">date-accessed</span><span class="pi">:</span> <span class="s">2017-09-23</span></code></pre></figure>
 
 ### `thesis`
 
-{% highlight yaml %}
-cff-version: 1.0.0
-message: "If you use MRT in your research, please cite the following."
-references:
-  - type: thesis
-    authors:
-      - family-names: Doe
-        given-names: Jane
-    title: "A high accuracy syntax parser in Visual Basic"
-    thesis-type: PhD
-    year: 2017
-    department: Dept. of Universal Language Philosophy
-    institution:
-      - name: "Humboldt-Universität zu Berlin"
-        city: Berlin
-        country: DE
-    database: Thesiserver
-    date-accessed: 2017-09-23
-    date-published: 2017-03-21
-    url: http://thesiserver.hu-berlin.de/2017/march/phd/doe-12345
-{% endhighlight %}
+<figure class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="na">cff-version</span><span class="pi">:</span> <span class="s">1.0.0</span>
+<span class="na">message</span><span class="pi">:</span> <span class="s2">"</span><span class="s">If</span><span class="nv"> </span><span class="s">you</span><span class="nv"> </span><span class="s">use</span><span class="nv"> </span><span class="s">MRT</span><span class="nv"> </span><span class="s">in</span><span class="nv"> </span><span class="s">your</span><span class="nv"> </span><span class="s">research,</span><span class="nv"> </span><span class="s">please</span><span class="nv"> </span><span class="s">cite</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">following."</span>
+<span class="na">references</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="na">type</span><span class="pi">:</span> <span class="s">thesis</span>
+    <span class="na">authors</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="na">family-names</span><span class="pi">:</span> <span class="s">Doe</span>
+        <span class="na">given-names</span><span class="pi">:</span> <span class="s">Jane</span>
+    <span class="na">title</span><span class="pi">:</span> <span class="s2">"</span><span class="s">A</span><span class="nv"> </span><span class="s">high</span><span class="nv"> </span><span class="s">accuracy</span><span class="nv"> </span><span class="s">syntax</span><span class="nv"> </span><span class="s">parser</span><span class="nv"> </span><span class="s">in</span><span class="nv"> </span><span class="s">Visual</span><span class="nv"> </span><span class="s">Basic"</span>
+    <span class="na">thesis-type</span><span class="pi">:</span> <span class="s">PhD</span>
+    <span class="na">year</span><span class="pi">:</span> <span class="s">2017</span>
+    <span class="na">department</span><span class="pi">:</span> <span class="s">Dept. of Universal Language Philosophy</span>
+    <span class="na">institution</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Humboldt-Universität</span><span class="nv"> </span><span class="s">zu</span><span class="nv"> </span><span class="s">Berlin"</span>
+        <span class="na">city</span><span class="pi">:</span> <span class="s">Berlin</span>
+        <span class="na">country</span><span class="pi">:</span> <span class="s">DE</span>
+    <span class="na">database</span><span class="pi">:</span> <span class="s">Thesiserver</span>
+    <span class="na">date-accessed</span><span class="pi">:</span> <span class="s">2017-09-23</span>
+    <span class="na">date-published</span><span class="pi">:</span> <span class="s">2017-03-21</span>
+    <span class="na">url</span><span class="pi">:</span> <span class="s">http://thesiserver.hu-berlin.de/2017/march/phd/doe-12345</span></code></pre></figure>
 
 # Infrastructure
 
@@ -2276,4 +2403,84 @@ license text can be obtained from the URL
 
 # References
 
-{% bibliography %}
+<ol class="bibliography"><li><p><span id="standardized-citation-files">Druskat, Stephan. (2017). Track 2 Lightning Talk: Should CITATION files be standardized? In N. Chue Hong, S. Druskat, R. Haines, C. Jay, D. S. Katz, &amp; S. Sufi (Eds.), <i>Proceedings of the Workshop on Sustainable Software for Science: Practice and Experiences (WSSSPE5.1)</i>. figshare. <a href="https://doi.org/10.6084/m9.figshare.3827058">https://doi.org/10.6084/m9.figshare.3827058</a>.</span></p>
+ 
+</li>
+<li><p><span id="principles">Smith, Arfon M., Katz, Daniel S., Niemeyer, Kyle E., &amp; FORCE11 Software Citation Working Group. (2016). Software citation principles. <i>PeerJ Computer Science</i>, <i>2</i>, e86. <a href="https://doi.org/10.7717/peerj-cs.86">https://doi.org/10.7717/peerj-cs.86</a>.</span></p>
+ 
+</li>
+<li><p><span id="citation-files">Wilson, Robin. (2013). Encouraging citation of software - introducing CITATION files. Retrieved from <a href="https://www.software.ac.uk/blog/2013-09-02-encouraging-citation-software-introducing-citation-files">https://www.software.ac.uk/blog/2013-09-02-encouraging-citation-software-introducing-citation-files</a>.</span></p>
+ 
+</li>
+<li><p><span id="yaml-1-2-specs">Ben-Kiki, Oren, Evans, Clark, &amp; döt Net, Ingy. (2009). YAML Ain’t Markup Language (YAML™) Version 1.2. 3rd Edition, Patched at 2009-10-01. Retrieved from <a href="http://yaml.org/spec/1.2/spec.html">http://yaml.org/spec/1.2/spec.html</a>.</span></p>
+ 
+</li>
+<li><p><span id="names-in-bibtex">Hufflen, Jean-Michel. (2006). Names in BibTeX and mlBibTeX. <i>TUGboat</i>, <i>27</i>(2), 243–253. Retrieved from <a href="https://www.tug.org/TUGboat/tb27-2/tb87hufflen.pdf">https://www.tug.org/TUGboat/tb27-2/tb87hufflen.pdf</a>.</span></p>
+ 
+</li>
+<li><p><span id="transitive-credit">Katz, Daniel S. (2014). Transitive Credit as a Means to Address Social and Technological Concerns Stemming from Citation and Attribution of Digital Products. <i>Journal of Open Research Software</i>, <i>2</i>(1), e20. <a href="https://doi.org/10.5334/jors.be">https://doi.org/10.5334/jors.be</a>.</span></p>
+ 
+</li>
+<li><p><span id="transitive-credit-json-ld">Katz, Daniel S, &amp; Smith, Arfon M. (2015). Implementing transitive credit with JSON-LD. <i>Journal of Open Research Software</i>, <i>3</i>(e7). <a href="https://doi.org/10.5334/jors.by">https://doi.org/10.5334/jors.by</a>.</span></p>
+ 
+</li></ol>
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+        
+      </footer>
+
+      
+
+      
+    </div>
+
+    
+  </article>
+
+  
+  
+</div>
+
+
+    <div class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>Follow:</strong></li>
+    
+    
+    
+    
+      <li><a href="http://github.com/citation-file-format"><i class="fa fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+    
+    
+    
+    <li><a href="https://citation-file-format.github.io/feed.xml"><i class="fa fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2017 Citation File Format (CFF). Powered by <a href="http://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="https://citation-file-format.github.io/assets/js/main.min.js"></script>
+
+
+
+
+
+
+  </body>
+</html>
