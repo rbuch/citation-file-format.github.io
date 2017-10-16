@@ -55,7 +55,7 @@ gem install jekyll-sitemap
 gem install jekyll-gist
 gem install jekyll-feed
 gem install jemoji
-gem install jekyll/scholar
+gem install jekyll-scholar
 gem install liquefy
 
 bundle exec jekyll build
