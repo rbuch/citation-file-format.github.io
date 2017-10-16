@@ -88,7 +88,7 @@ end
 
 def check_destination
   unless Dir.exist? CONFIG["destination"]
-    sh "git clone https://${GITHUB_TOKEN}@github.com/#{USERNAME}/#{REPO}.git #{CONFIG["destination"]}"
+    sh "git clone https://${GITHUB_TOKEN}@github.com/citation-file-format/citation-file-format.github.io.git #{CONFIG["destination"]}"
   end
 end
 
