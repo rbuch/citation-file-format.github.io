@@ -43,11 +43,11 @@ set -e
 
 # Build Jekyll
 ## cleanup "_site"
-rm -rf _site
-mkdir _site
+# rm -rf _site
+# mkdir _site
 
 ## clone remote repo to "_site"
-git clone https://${GITHUB_TOKEN}@github.com/citation-file-format/citation-file-format.github.io.git --branch gh-pages _site
+git clone https://${GITHUB_TOKEN}@github.com/citation-file-format/citation-file-format.github.io.git --branch src _site
 
 ## build with Jekyll into "_site"
 gem install jekyll-paginate
@@ -66,4 +66,4 @@ git config user.email "travis-ci@sdruskat.net"
 git config user.name "Travis CI"
 git add --all
 git commit -a -m "Travis #$TRAVIS_BUILD_NUMBER"
-git push --force origin gh-pages
+git push --force origin master
