@@ -1,5 +1,6 @@
 source "http://production.cf.rubygems.org/"
 
+gem "rake", "~> 12.1.0"
 gem "jekyll-paginate"
 gem "jekyll-sitemap"
 gem "jekyll-gist"
