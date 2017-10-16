@@ -19,6 +19,18 @@ scholar:
   bibliography_template: bib
   style: ./_bibliography/apa.csl
 
+# Variables used by Rakefile
+
+# GitHub
+username:             citation-file-format
+repo:                 citation-file-format.github.io
+branch:               src
+
+# Jekyll source / destination
+source:               .
+destination:          _site
+
+
 #####################################################
 
 minimal_mistakes_skin    : "default" # "air", "contrast", "dark", "dirt", "mint", "sunrise"
