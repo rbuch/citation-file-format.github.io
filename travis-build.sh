@@ -47,7 +47,7 @@ set -e
 # mkdir _site
 
 ## clone remote repo to "_site"
-git clone https://${GITHUB_TOKEN}@github.com/citation-file-format/citation-file-format.github.io.git --branch src _site
+git clone https://${GITHUB_TOKEN}@github.com/citation-file-format/citation-file-format.github.io.git --branch src
 
 ## build with Jekyll into "_site"
 gem install jekyll-paginate
