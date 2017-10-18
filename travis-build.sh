@@ -16,10 +16,10 @@ bundle exec jekyll build
 # cd ..
 
 # Run the Python script that converts all specifications.md files to PDF
-pip3 install pypandoc
-pip3 install frontmatter
-python3 --version
-python3 build-pdfs.py
+# pip3 install pypandoc
+# pip3 install frontmatter
+# python3 --version
+# python3 build-pdfs.py
 
 ## push
 # cd _site
