@@ -3,6 +3,9 @@
 # enable error reporting to the console
 set -e
 
+# Clone repo
+git clone https://${GITHUB_TOKEN}@github.com/citation-file-format/citation-file-format.github.io.git --branch master _site
+
 # Build Jekyll
 # echo "Build Jekyll site"
 bundle install
@@ -31,4 +34,5 @@ git config user.email "travis-ci@sdruskat.net"
 git config user.name "Travis CI"
 git add --all
 git commit -a -m "Travis #$TRAVIS_BUILD_NUMBER"
+ls -la ./assets/pdf
 git push --force origin master
