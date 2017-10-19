@@ -202,16 +202,18 @@ for specsfile in glob.iglob('./**/specifications.md', recursive=True):
 #        f.write(new_contents)
 
 # Build PDF
-pdoc_args = ['--pdf-engine=xelatex', '--toc', '--toc-depth=4',
-             '--bibliography=./_bibliography/references.bib',
-             '--csl=./_bibliography/ieee-with-url.csl',
-             '--metadata=date:"' +
-             datetime.date.today().strftime('%d %B %Y') + '"',
-             '--template=./template/default.latex']
-filters = ['pandoc-citeproc']
-pypandoc.convert_file(specsdir + "/cff-specifications-" + version + ".md",
-                      to='pdf', extra_args=pdoc_args, filters=filters,
-                      outputfile=specsdir + "/cff-specifications-" +
-                      version + ".pdf")
-os.remove(specsdir + "/cff-specifications-" + version + ".md")
-os.remove(specsdir + "/tmp.md")
+    pdoc_args = ['--latex-engine=xelatex', '--toc', '--toc-depth=4',
+                 '--bibliography=./_bibliography/references.bib',
+                 '--csl=./_bibliography/ieee-with-url.csl',
+                 '--metadata=date:"' +
+                 datetime.date.today().strftime('%d %B %Y') + '"',
+                 '--template=./template/default.latex']
+    filters = ['pandoc-citeproc']
+    pypandoc.convert_file(specsdir + "/cff-specifications-" + version + ".md",
+                          to='pdf', extra_args=pdoc_args, filters=filters,
+                          outputfile=specsdir + "/cff-specifications-" +
+                          version + ".pdf")
+    os.remove(specsdir + "/cff-specifications-" + version + ".md")
+    os.remove(specsdir + "/tmp.md")
+    shutil.move(specsdir + "/cff-specifications-" + version + ".pdf",
+                "./assets/pdf/cff-specifications-" + version + ".pdf")
