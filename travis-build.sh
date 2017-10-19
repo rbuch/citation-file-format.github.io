@@ -5,6 +5,8 @@ set -e
 
 # Build Jekyll
 # echo "Build Jekyll site"
+bundle install
+bundle exec jekyll build
 # bundle exec jekyll build
 
 # Set up and build custom pandoc (for fix of https://github.com/jgm/pandoc/issues/3529)
