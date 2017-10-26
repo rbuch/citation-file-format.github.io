@@ -19,7 +19,7 @@
 
 
 
-<title>            Citation File Format (CFF)      Citation File Format (CFF)      </title>
+<title>            Citation File Format Core (CFF-Core)      Citation File Format (CFF)      </title>
 
 
 
@@ -33,11 +33,11 @@
 
 <meta property="og:locale" content="en">
 <meta property="og:site_name" content="Citation File Format (CFF)">
-<meta property="og:title" content="Citation File Format (CFF)">
+<meta property="og:title" content="Citation File Format Core (CFF-Core)">
 
 
-  <link rel="canonical" href="https://citation-file-format.github.io/0.9-RC1/specifications/">
-  <meta property="og:url" content="https://citation-file-format.github.io/0.9-RC1/specifications/">
+  <link rel="canonical" href="https://citation-file-format.github.io/1.0-RC1/specifications/">
+  <meta property="og:url" content="https://citation-file-format.github.io/1.0-RC1/specifications/">
 
 
 
@@ -152,7 +152,7 @@
 
 <div id="main" role="main">
   <article class="page" itemscope itemtype="http://schema.org/CreativeWork">
-    <meta itemprop="headline" content="Citation File Format (CFF)">
+    <meta itemprop="headline" content="Citation File Format Core (CFF-Core)">
     
     
     
@@ -160,9 +160,9 @@
     <div class="page__inner-wrap">
       
         <header>
-          <h1 class="page__title" itemprop="headline">Citation File Format (CFF)
+          <h1 class="page__title" itemprop="headline">Citation File Format Core (CFF-Core)
 </h1>
-          <h2 class="page__title" itemprop="headline">Version 0.9-RC1
+          <h2 class="page__title" itemprop="headline">Version 1.0-RC1
 </h2>
           
             <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
@@ -170,7 +170,7 @@
 
 
 
-  46 minute read
+  30 minute read
 </p>
           
         </header>
@@ -179,7 +179,7 @@
       <section class="page__content" itemprop="text">
         
           <h1>Abstract</h1>
-          <p>The <em>Citation File Format</em> (<em>CFF</em>) is a human- <em>and</em> machine-readable format for CITATION files. These files provide citation metadata for (research and scientific) software. The format aims to support all use cases for software citation described in <a href="#principles">(Smith et al., 2016)</a>. CFF is serialized in <a href="http://yaml.org">YAML</a> <a href="http://yaml.org/spec/1.2/spec.html">1.2</a>, and is therefore Unicode-based and cross-language (in terms of both natural language scripts and programming languages). This specification, together with the Unicode standard for characters, aims to provide all the information necessary to understand CFF, and to use (i.e., write) and re-use (i.e., read, validate, convert from) it. These specifications are maintained openly at <a href="https://github.com/sdruskat/citation-file-format">https://github.com/sdruskat/citation-file-format</a>.</p>
+          <p>The <em>Citation File Format</em> (<em>CFF</em>) is a human- <em>and</em> machine-readable format for CITATION files. These files provide citation metadata for (research and scientific) software. The format aims to support citation-specific use cases for software citation described in <a href="#principles">(Smith et al., 2016)</a>. CFF is serialized in <a href="http://yaml.org">YAML</a> <a href="http://yaml.org/spec/1.2/spec.html">1.2</a>, and is therefore Unicode-based and cross-language. This specification, together with the Unicode standard for characters, aims to provide all the information necessary to understand CFF, and to use (i.e., write) and re-use (i.e., read, validate, convert from) it. These specifications are maintained openly at <a href="https://github.com/citation-file-format/citation-file-format">https://github.com/citation-file-format/citation-file-format</a>.</p>
 
         
         <aside class="sidebar__right">
@@ -189,6 +189,7 @@
   <li><a href="#introduction" id="markdown-toc-introduction">Introduction</a>    <ul>
       <li><a href="#status-of-this-document" id="markdown-toc-status-of-this-document">Status of this document</a></li>
       <li><a href="#rationale" id="markdown-toc-rationale">Rationale</a></li>
+      <li><a href="#status-of-the-format" id="markdown-toc-status-of-the-format">Status of the format</a></li>
       <li><a href="#goals" id="markdown-toc-goals">Goals</a></li>
       <li><a href="#concepts" id="markdown-toc-concepts">Concepts</a></li>
     </ul>
@@ -214,15 +215,14 @@
       </li>
       <li><a href="#person-objects" id="markdown-toc-person-objects">Person objects</a>        <ul>
           <li><a href="#exemplary-uses-2" id="markdown-toc-exemplary-uses-2">Exemplary uses</a></li>
-          <li><a href="#person-roles" id="markdown-toc-person-roles">Person roles</a></li>
         </ul>
       </li>
     </ul>
   </li>
   <li><a href="#specified-value-strings" id="markdown-toc-specified-value-strings">Specified value strings</a>    <ul>
       <li><a href="#status-strings" id="markdown-toc-status-strings">Status strings</a></li>
+      <li><a href="#license-strings" id="markdown-toc-license-strings">License strings</a></li>
       <li><a href="#language-strings" id="markdown-toc-language-strings">Language strings</a></li>
-      <li><a href="#programming-language-strings" id="markdown-toc-programming-language-strings">Programming language strings</a></li>
     </ul>
   </li>
   <li><a href="#schema" id="markdown-toc-schema">Schema</a></li>
@@ -260,18 +260,19 @@
 
 <p><a href="https://doi.org/10.5281/zenodo.1003150"><img src="https://citation-file-format.github.io/assets/images/zenodo.1003150.svg" alt="DOI" /></a></p>
 
-<p><a href="/assets/pdf/cff-specifications-0.9-RC1.pdf" class="btn btn--primary btn--large"><strong>Download PDF</strong></a></p>
+<p><a href="/assets/pdf/cff-specifications-1.0-RC1.pdf" class="btn btn--primary btn--large"><strong>Download PDF</strong></a></p>
 
 <h1 id="introduction">Introduction</h1>
 
 <h2 id="status-of-this-document">Status of this document</h2>
 
-<p>This document reflects the version 0.9-RC1 of the <em>Citation File Format</em> (CFF).
+<p>This document reflects version 1.0-RC1 of the <em>Citation File Format</em> (CFF)’s
+<em>Core</em> branch (cf. <a href="#status-of-the-format">Status of the format</a>).
 CFF has been developed in the context of the <a href="http://wssspe.researchcomputing.org.uk/wssspe5-1/"><em>Workshop on Sustainable Software
 for Science: Practice and Experiences
 (WSSSPE5.1)</em></a>, which was held
 on 6 September 2017 in Manchester, UK. More specifically, the constraints for
-CFF has been developed in the discusion and speed blogging group “Development
+CFF have been developed in the discussion and speed blogging group “Development
 and implementation of a standard format for CITATION files”, whose members were
 Stephan Druskat (Humboldt-Universität zu Berlin, Germany), Neil Chue Hong
 (Software Sustainability Institute, University of Edinburgh, UK), Raniere Silva
@@ -279,15 +280,16 @@ Stephan Druskat (Humboldt-Universität zu Berlin, Germany), Neil Chue Hong
 (University of Tromsø, Norway), Andrew Rowley (University of Manchester, UK),
 and Alexander Konovalov (University of St. Andrews, UK).</p>
 
-<p>CFF Version 0.9-RC1 has been developed by Stephan Druskat with contributions from
+<p>CFF Version 1.0-RC1 has been developed by Stephan Druskat with contributions from
 the following.</p>
 
 <ul>
   <li>Radovan Bast (<a href="https://github.com/bast">@bast</a>): Reporter</li>
   <li>Raniere Silva (<a href="https://github.com/rgaiacs">@rgaiacs</a>): Reporter</li>
+  <li>Michael R. Crusoe (<a href="https://github.com/mr-c">@mr-c</a>): Reporter</li>
 </ul>
 
-<p>CFF has been developed to provide the first iteration of a format for <code class="highlighter-rouge">CITATION</code>
+<p>CFF has been developed to provide a format for <code class="highlighter-rouge">CITATION</code>
 files which could be recommended to readers of the blog post which has been
 produced by the group during the workshop and shortly after, and which will be
 published on the <a href="https://www.software.ac.uk/blog">blog page</a> of the <a href="https://www.software.ac.uk/">Software
@@ -295,12 +297,14 @@ Sustainability Institute</a>.</p>
 
 <h2 id="rationale">Rationale</h2>
 
-<p class="notice--primary">The rationale for a standardized, machine- and human-readable format for
-<code class="highlighter-rouge">CITATION</code> files is discussed in more detail in 
-<a href="#standardized-citation-files">Druskat, (2017)</a>. CFF has been developed to support all 
-use cases for the citation of software, as
-discussed in <a href="#principles">Smith et al., (2016)</a>, and thus promote attribution and credit for
-software in general, and research software in particular.</p>
+<p>The rationale for a standardized, machine- and human-readable format for
+<code class="highlighter-rouge">CITATION</code> files is discussed in more detail in
+<a href="#standardized-citation-files">Druskat, (2017)</a>. 
+CFF has been developed to support all citation-specific use cases for the
+citation of software, as discussed in
+<a href="#principles">Smith et al., (2016)</a>, 
+and thus promote attribution and credit for software in general, and research
+software in particular.</p>
 
 <p>In a blog post <a href="#citation-files">(Wilson, 2013)</a>, Robin Wilson has introduced <code class="highlighter-rouge">CITATION</code>
 files as a means to make citation information for software easily accessible.
@@ -313,18 +317,54 @@ such as there is for journals for example.</p>
 
 <p>Some have followed the advice, and have uploaded <code class="highlighter-rouge">CITATION</code> (or <code class="highlighter-rouge">CITATION.md</code>,
 or <code class="highlighter-rouge">CITATION.txt</code>) files to the root of the source code repository holding their
-software. While this practice has made for a good start, plain text,
-unstandardized <code class="highlighter-rouge">CITATION</code> files are not machine-readable, and machine-
-readability is a precondition for re-use of the citation information in
-different contexts which could further support a fair distribution of credit for
-research software.</p>
+software. While this practice has made for a good start, free form <code class="highlighter-rouge">CITATION</code>
+files  are not machine-readable, and machine- readability is a precondition for
+re-use of the citation information in different contexts which could further
+support a fair distribution of credit for research software.</p>
+
+<h2 id="status-of-the-format">Status of the format</h2>
+
+<p>CFF-Core has been branched out to address 
+<a href="https://github.com/citation-file-format/citation-file-format/issues/23">issue citation-file-format/citation-file-format#23</a>.
+While an ideal format for software citation would arguably implement transitive
+credit <a href="#transitive-credit">(Katz, 2014)</a>, there is no concrete implementation yet
+that is available for practical use by software creators. The most concrete
+suggestion for an implementation is <a href="#transitive-credit-json-ld">Katz &amp; Smith, (2015)</a>, the
+application of which, however, seems impractical from a usability point of view
+in terms of human-writability. Especially regarding the current state of the
+practice of providing citation metadata for software (cf. 
+<a href="#software-citation-practices">Howison &amp; Bullard, (2016)</a>) it seems that at this point in time, a lower-threshold
+approach - in terms of technical complexity - could potentially drive higher participation 
+in the provision of software citation metadata.</p>
+
+<p>On the other end of the complexity spectrum, free form <code class="highlighter-rouge">CITATION</code> files as suggested by Robin
+Wilson <a href="#citation-files">(Wilson, 2013)</a> provide an easy-to-access way of providing citation metadata
+for software. However, as these files are not reliably formatted, and thus not
+machine-readable, their potential for re-use is rather low. Re-use of software citation metadata, however,
+is a key factor in the promotion of software citation along the software citation principles
+<a href="#principles">(Smith et al., 2016)</a>, and ultimately the fair distribution of credit for software in science.</p>
+
+<p>CFF aims to provide a compromise between the ideal state of software
+citation, i.e., transitive credit, and the state of the practice, i.e., free form
+<code class="highlighter-rouge">CITATION</code> files.</p>
+
+<p>CFF-Core, in this context, provides an implementation for basic 
+software citation metadata, so that creators of research software can supply relevant
+metadata for citation easily. CFF-Core aims at covering use cases <em>1 (Use software for a paper)</em>, 
+<em>2 (Use software in/with new software)</em>, and <em>15 (Store software entry)</em> as
+defined in the software citation principles paper <a href="#principles">(Smith et al., 2016)</a>.</p>
+
+<p>Further development of CFF towards an implementation of transitive credit may be
+undertaken in the future in another branch of CFF which may serve as an extension
+to CFF-Core.</p>
 
 <h2 id="goals">Goals</h2>
+
 <p>The goal of CFF is to provide an all-purpose citation format (similar to BibTeX
- or RIS), and specifically provide optimized means of citation for software via
- the provision of software-specific reference keys and types, e.g., a dedicated
- type for source code and one for executables, and a reference key for versions,
- cf. <a href="#reference-types">Reference types</a>.</p>
+or RIS), and specifically provide optimized means of citation for software via
+the provision of software-specific reference keys and types, e.g., a dedicated
+type for source code and one for executables, and a reference key for versions,
+cf. <a href="#reference-types">Reference types</a>.</p>
 
 <p>The ultimate goal of CFF as a project is comprehensive uptake and re-use of the
 format by Research Software Engineers and software developers as well as by
@@ -336,7 +376,8 @@ maintenance, etc., in academia.</p>
 <h2 id="concepts">Concepts</h2>
 
 <p>For users of other reference formats, such as BibTeX or RIS, it is important to
-note that in CFF, all available keys can be used for all reference types. CFF
+note that in CFF, all available keys can be used for all <a href="#reference-types">reference types</a>. 
+For now, CFF
 leaves reasonability of use with format users and providers of tooling, such as
 conversion software for CFF and other formats. In other words, the use of keys
 should follow common sense. If not, it will confuse the user of the <code class="highlighter-rouge">CITATION</code>
@@ -346,8 +387,8 @@ your specific use case, please consider contributing to the format as described
 in section <a href="#contributions">Contributions</a>.</p>
 
 <p>Furthermore please note that if a section of a work is referenced, this is not
-supported by a dedicated reference type. Instead, the <code class="highlighter-rouge">section</code> key in the parent
-type (i.e., <code class="highlighter-rouge">book</code> for a section of a book, etc.) should be used.</p>
+supported by a dedicated reference type. Instead, the <code class="highlighter-rouge">section</code> key should be used
+within a specific “parent” (i.e., <code class="highlighter-rouge">book</code> for a section of a book, etc.).</p>
 
 <h1 id="format">Format</h1>
 
@@ -359,7 +400,7 @@ YAML 1.2 Specifications <a href="#yaml-1-2-specs">(Ben-Kiki et al., 2009)</a>.</
 
 <h2 id="file-structure">File structure</h2>
 
-<p>CFF <code class="highlighter-rouge">CITATION</code> files are YAML 1.2 dictionaries (“maps”) with
+<p>CFF <code class="highlighter-rouge">CITATION</code> files represent YAML 1.2 dictionaries (“maps”) with
 three mandatory keys: <code class="highlighter-rouge">cff-version</code>, <code class="highlighter-rouge">message</code>, <code class="highlighter-rouge">references</code>.</p>
 
 <p><code class="highlighter-rouge">cff-version</code> must specify the exact version of the
@@ -391,8 +432,22 @@ values, cf. <a href="#reference-types">reference types</a>.</p>
 
 <p><code class="highlighter-rouge">title</code> must specify the title of the referenced work.</p>
 
+<p>Example:</p>
+
+<figure class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="na">cff-version</span><span class="pi">:</span> <span class="s">1.0.0</span>
+<span class="na">message</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Please</span><span class="nv"> </span><span class="s">cite</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">following</span><span class="nv"> </span><span class="s">works</span><span class="nv"> </span><span class="s">when</span><span class="nv"> </span><span class="s">using</span><span class="nv"> </span><span class="s">this</span><span class="nv"> </span><span class="s">software."</span>
+<span class="na">references</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="na">type</span><span class="pi">:</span> <span class="s">book</span>
+    <span class="na">authors</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">...</span>
+    <span class="na">title</span><span class="pi">:</span> <span class="s">The science of citation</span>
+  <span class="pi">-</span> <span class="na">type</span><span class="pi">:</span> <span class="s">software</span>
+    <span class="na">authors</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">...</span>
+    <span class="na">title</span><span class="pi">:</span> <span class="s">Software Citation Tool</span></code></pre></figure>
+
 <p>Additionally, it can contain any further <a href="#reference-keys">reference keys</a>. In version 
-0.9-RC1, 
+1.0-RC1, 
 CFF does not specify a strict schema where specific <a href="#reference-types">reference
 types</a> can only contain specific <a href="#reference-keys">reference keys</a>, although this may be
 implemented in future versions.</p>
@@ -420,7 +475,7 @@ contact information.</p>
 
 <p>These keys take a collection of <a href="#person-objects">person objects</a> as value. Person objects
 provide a fixed set of keys to reference individuals, including a detailed
-set for specifiying personal names, an affiliation, a role, etc.</p>
+set for specifiying personal names, an affiliation, etc.</p>
 
 <p>Example:</p>
 
@@ -433,32 +488,29 @@ set for specifiying personal names, an affiliation, a role, etc.</p>
         <span class="na">affiliation</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Humboldt-Universität</span><span class="nv"> </span><span class="s">zu</span><span class="nv"> </span><span class="s">Berlin"</span>
         <span class="na">email</span><span class="pi">:</span> <span class="s2">"</span><span class="s">mail@sdruskat.net"</span>
         <span class="na">website</span><span class="pi">:</span> <span class="s">http://sdruskat.net</span>
-        <span class="na">role</span><span class="pi">:</span> <span class="s">main-author</span>
       <span class="pi">-</span> <span class="na">family-names</span><span class="pi">:</span> <span class="s">Beethoven</span>
         <span class="na">name-particle</span><span class="pi">:</span> <span class="s">van</span>
         <span class="na">given-names</span><span class="pi">:</span> <span class="s">Ludwig</span>
-        <span class="na">role</span><span class="pi">:</span> <span class="s">artist</span>
       <span class="pi">-</span> <span class="na">family-names</span><span class="pi">:</span> <span class="s">Fernández de Córdoba</span>
         <span class="na">given-names</span><span class="pi">:</span> <span class="s">Gonzalo</span>
         <span class="na">name-suffix</span><span class="pi">:</span> <span class="s">Jr.</span>
-        <span class="na">role</span><span class="pi">:</span> <span class="s">tester</span>
     <span class="s">...</span></code></pre></figure>
 
-<p><strong>type</strong>, <strong>languages</strong>, <strong>programming-languages</strong>, <strong>status</strong></p>
+<p><strong>type</strong>, <strong>languages</strong>, <strong>status</strong></p>
 
 <p>These keys only take values from a defined set, cf. the respective sections:</p>
 
 <ul>
   <li><a href="#reference-types">Reference types</a></li>
   <li><a href="#language-strings">Language strings</a></li>
-  <li><a href="#programming-language-strings">Programming language strings</a></li>
   <li><a href="#status-strings">Status strings</a></li>
 </ul>
 
 <p><strong>license‑url</strong>, <strong>repository</strong>, <strong>repository-code</strong>, <strong>repository-artifact</strong>,
 <strong>url</strong></p>
 
-<p>These keys take URL strings as values.</p>
+<p>These keys take URL strings as values. URLs are being validated by a regular
+expression as provided in a <a href="https://gist.github.com/dperini/729294">GitHub Gist by Diego Perini</a>.</p>
 
 <p><strong>keywords</strong></p>
 
@@ -477,7 +529,7 @@ set for specifiying personal names, an affiliation, a role, etc.</p>
 <p><strong>scope</strong></p>
 
 <p>A reference item can specify a more detailed scope for the reference, via the 
-reference key <code class="highlighter-rouge">scope</code>. This key can be useful if certatin references should only
+reference key <code class="highlighter-rouge">scope</code>. This key can be useful if certain references should only
 be cited under specific circumstances, e.g., only when a specific package
 of the software is used. In such a case, the package would ideally have its own
 CFF file, but if this is not possible for whatever reason, the <code class="highlighter-rouge">scope</code> key
@@ -699,7 +751,7 @@ general. These include:</p>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">license</code></td>
-      <td>String</td>
+      <td><em><a href="#license-strings">License string</a></em></td>
       <td>The license under which a work is licensed</td>
     </tr>
     <tr>
@@ -766,11 +818,6 @@ general. These include:</p>
       <td><code class="highlighter-rouge">pmcid</code></td>
       <td>String</td>
       <td>The PMCID of a work</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">programming-languages</code></td>
-      <td>Collection of <a href="#programming-language-strings"><em>programming language strings</em></a></td>
-      <td>The programming language of the work</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">publisher</code></td>
@@ -1404,11 +1451,6 @@ collections with a defined set of keys, of which only <code class="highlighter-r
       <td>String (<em>URL</em>)</td>
       <td style="text-align: center">•</td>
     </tr>
-    <tr>
-      <td>role</td>
-      <td><a href="#person-roles"><em>Person roles</em></a> string</td>
-      <td style="text-align: center">•</td>
-    </tr>
   </tbody>
 </table>
 
@@ -1418,7 +1460,7 @@ collections with a defined set of keys, of which only <code class="highlighter-r
 
 <p><strong>Name keys</strong></p>
 
-<p>CFF aims at implementing a culturally neutral model for personal names, 
+<p>CFF aims to implement a culturally neutral model for personal names, 
 according to the
 <a href="https://www.w3.org/International/questions/qa-personal-names">suggestions on splitting personal names by the W3C</a> 
 and the implementation of personal name splitting in 
@@ -1465,102 +1507,9 @@ file authors to find the optimal name split in any given case.</p>
 <code class="highlighter-rouge">dddd-dddd-dddd-dddd</code>, e.g., <code class="highlighter-rouge">0000-0003-4925-7248</code>.</li>
 </ul>
 
-<h3 id="person-roles">Person roles</h3>
-
-<p>A person object can be assigned a role for the purposes of
-specifying authorship status, e.g., to distinguish main authors of a software
-from contributors who have provided a small patch. The defined roles are:</p>
-
-<table>
-  <thead>
-    <tr>
-      <th>Key</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><code class="highlighter-rouge">administrator</code> (e.g., of a software system)</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">artist</code></td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">assignee</code> (e.g., of a patent)</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">author</code></td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">benchmarker</code> (e.g., of a software)</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">cartographer</code></td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">composer</code></td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">contributor</code></td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">creator</code></td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">designer</code></td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">director</code> (e.g., of a movie)</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">editor</code> (e.g., of an edited book/edition)</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">evangelist</code> (e.g., for a software)</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">institution</code> (e.g., issuing a standard)</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">inventor</code></td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">main-author</code></td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">maintainer</code> (of a software project)</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">manager</code> (e.g., of a software project)</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">programmer</code></td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">reporter</code> (e.g., of a court case/a software bug)</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">researcher</code> (e.g., authoring a data set/informing a software implementation)</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">engineer</code> (e.g., for a software)</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">technical-writer</code> (e.g., of a software documentation)</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">tester</code> (e.g., of a software)</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">trainer</code></td>
-    </tr>
-  </tbody>
-</table>
-
-<p class="text-right">Table: Defined roles for person objects.</p>
-
 <h1 id="specified-value-strings">Specified value strings</h1>
 
-<p>The keys <code class="highlighter-rouge">status</code>, <code class="highlighter-rouge">languages</code> and <code class="highlighter-rouge">programming-languages</code> can only take values
+<p>The keys <code class="highlighter-rouge">status</code>, <code class="highlighter-rouge">license</code>, and <code class="highlighter-rouge">languages</code> can only take values
 from a fixed set of strings. These are specified below.</p>
 
 <h2 id="status-strings">Status strings</h2>
@@ -1578,7 +1527,7 @@ specifies the following value strings for the key <code class="highlighter-rouge
   <tbody>
     <tr>
       <td><code class="highlighter-rouge">in-preparation</code></td>
-      <td>A work in preparation, e.g., a manuscript</td>
+      <td>A work in preparation, e.g., a manuscript (covers drafts)</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">abstract</code></td>
@@ -1596,10 +1545,35 @@ specifies the following value strings for the key <code class="highlighter-rouge
       <td><code class="highlighter-rouge">advance-online</code></td>
       <td>A work that has been published online in advance of publication in the target medium</td>
     </tr>
+    <tr>
+      <td><code class="highlighter-rouge">preprint</code></td>
+      <td>A work that has been published as a preprint before peer review</td>
+    </tr>
   </tbody>
 </table>
 
 <p class="text-right">Table: Defined statuses for works.</p>
+
+<h2 id="license-strings">License strings</h2>
+
+<p>License strings must conform with the <a href="https://spdx.org/licenses/">SPDX Licenses
+list</a>, i.e., a license must be specified via the
+short identifier from the list. If a license is not included in the SPDX
+Licenses list, the <code class="highlighter-rouge">license-url</code> should be provided as a fallback.</p>
+
+<p>Example:</p>
+
+<figure class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="na">references</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="na">type</span><span class="pi">:</span> <span class="s">software</span>
+    <span class="na">authors</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">...</span>
+    <span class="na">title</span><span class="pi">:</span> <span class="s">My Research Tool</span>
+    <span class="na">license</span><span class="pi">:</span> <span class="s">Apache-2.0</span>
+  <span class="pi">-</span> <span class="na">type</span><span class="pi">:</span> <span class="s">software</span>
+    <span class="na">authors</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">...</span>
+    <span class="na">title</span><span class="pi">:</span> <span class="s">Obscure Research Tool</span>
+    <span class="na">license-url</span><span class="pi">:</span> <span class="s">http://r3s34archs0ft.com/eula</span></code></pre></figure>
 
 <h2 id="language-strings">Language strings</h2>
 
@@ -1620,2340 +1594,6 @@ of ISO 639-1 codes is maintained at
     <span class="na">languages</span><span class="pi">:</span>
       <span class="pi">-</span> <span class="s">en</span>
       <span class="pi">-</span> <span class="s">bpa</span></code></pre></figure>
-
-<h2 id="programming-language-strings">Programming language strings</h2>
-
-<p>CFF specifies the following value strings for the key <code class="highlighter-rouge">programming-languages</code>.
-If a language is not included, please use the string <code class="highlighter-rouge">other</code> with a lower-case,
-hyphenated string argument, and do not include the version of the programming
-language used, e.g., for <em>My Fancy Language v4.2.1</em>, use <code class="highlighter-rouge">other=my-fancy-
-language</code>. Additionally, please create an issue on the <a href="https://github.com/sdruskat/citation-file-format/issues/new">GitHub repository for
-CFF</a>, asking to
-include the programming language in the list.</p>
-
-<table>
-  <thead>
-    <tr>
-      <th>CFF key</th>
-      <th>Language name</th>
-      <th>Language type</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><code class="highlighter-rouge">1c-enterprise</code></td>
-      <td>1C Enterprise</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">abap</code></td>
-      <td>ABAP</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">abnf</code></td>
-      <td>ABNF</td>
-      <td>data</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">actionscript</code></td>
-      <td>ActionScript</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">ada</code></td>
-      <td>Ada</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">adobe-font-metrics</code></td>
-      <td>Adobe Font Metrics</td>
-      <td>data</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">agda</code></td>
-      <td>Agda</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">ags-script</code></td>
-      <td>AGS Script</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">alloy</code></td>
-      <td>Alloy</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">alpine-abuild</code></td>
-      <td>Alpine Abuild</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">ampl</code></td>
-      <td>AMPL</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">ant-build-system</code></td>
-      <td>Ant Build System</td>
-      <td>data</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">antlr</code></td>
-      <td>ANTLR</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">apacheconf</code></td>
-      <td>ApacheConf</td>
-      <td>data</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">apex</code></td>
-      <td>Apex</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">api-blueprint</code></td>
-      <td>API Blueprint</td>
-      <td>markup</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">apl</code></td>
-      <td>APL</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">apollo-guidance-computer</code></td>
-      <td>Apollo Guidance Computer</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">applescript</code></td>
-      <td>AppleScript</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">arc</code></td>
-      <td>Arc</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">arduino</code></td>
-      <td>Arduino</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">asciidoc</code></td>
-      <td>AsciiDoc</td>
-      <td>prose</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">asn.1</code></td>
-      <td>ASN.1</td>
-      <td>data</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">asp</code></td>
-      <td>ASP</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">aspectj</code></td>
-      <td>AspectJ</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">assembly</code></td>
-      <td>Assembly</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">ats</code></td>
-      <td>ATS</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">augeas</code></td>
-      <td>Augeas</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">autohotkey</code></td>
-      <td>AutoHotkey</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">autoit</code></td>
-      <td>AutoIt</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">awk</code></td>
-      <td>Awk</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">ballerina</code></td>
-      <td>Ballerina</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">batchfile</code></td>
-      <td>Batchfile</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">befunge</code></td>
-      <td>Befunge</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">bison</code></td>
-      <td>Bison</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">bitbake</code></td>
-      <td>BitBake</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">blade</code></td>
-      <td>Blade</td>
-      <td>markup</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">blitzbasic</code></td>
-      <td>BlitzBasic</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">blitzmax</code></td>
-      <td>BlitzMax</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">bluespec</code></td>
-      <td>Bluespec</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">boo</code></td>
-      <td>Boo</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">brainfuck</code></td>
-      <td>Brainfuck</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">brightscript</code></td>
-      <td>Brightscript</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">bro</code></td>
-      <td>Bro</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">c#</code></td>
-      <td>C#</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">c++</code></td>
-      <td>C++</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">c</code></td>
-      <td>C</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">c-objdump</code></td>
-      <td>C-ObjDump</td>
-      <td>data</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">c2hs-haskell</code></td>
-      <td>C2hs Haskell</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">cap'n-proto</code></td>
-      <td>Cap’n Proto</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">cartocss</code></td>
-      <td>CartoCSS</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">ceylon</code></td>
-      <td>Ceylon</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">chapel</code></td>
-      <td>Chapel</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">charity</code></td>
-      <td>Charity</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">chuck</code></td>
-      <td>ChucK</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">cirru</code></td>
-      <td>Cirru</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">clarion</code></td>
-      <td>Clarion</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">clean</code></td>
-      <td>Clean</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">click</code></td>
-      <td>Click</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">clips</code></td>
-      <td>CLIPS</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">clojure</code></td>
-      <td>Clojure</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">closure-templates</code></td>
-      <td>Closure Templates</td>
-      <td>markup</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">cmake</code></td>
-      <td>CMake</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">cobol</code></td>
-      <td>COBOL</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">coffeescript</code></td>
-      <td>CoffeeScript</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">coldfusion</code></td>
-      <td>ColdFusion</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">coldfusion-cfc</code></td>
-      <td>ColdFusion CFC</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">collada</code></td>
-      <td>COLLADA</td>
-      <td>data</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">common-lisp</code></td>
-      <td>Common Lisp</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">component-pascal</code></td>
-      <td>Component Pascal</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">cool</code></td>
-      <td>Cool</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">coq</code></td>
-      <td>Coq</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">cpp-objdump</code></td>
-      <td>Cpp-ObjDump</td>
-      <td>data</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">creole</code></td>
-      <td>Creole</td>
-      <td>prose</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">crystal</code></td>
-      <td>Crystal</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">cson</code></td>
-      <td>CSON</td>
-      <td>data</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">csound</code></td>
-      <td>Csound</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">csound-document</code></td>
-      <td>Csound Document</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">csound-score</code></td>
-      <td>Csound Score</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">css</code></td>
-      <td>CSS</td>
-      <td>markup</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">csv</code></td>
-      <td>CSV</td>
-      <td>data</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">cuda</code></td>
-      <td>Cuda</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">cweb</code></td>
-      <td>CWeb</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">cycript</code></td>
-      <td>Cycript</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">cython</code></td>
-      <td>Cython</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">d</code></td>
-      <td>D</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">d-objdump</code></td>
-      <td>D-ObjDump</td>
-      <td>data</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">darcs-patch</code></td>
-      <td>Darcs Patch</td>
-      <td>data</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">dart</code></td>
-      <td>Dart</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">dataweave</code></td>
-      <td>DataWeave</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">desktop</code></td>
-      <td>desktop</td>
-      <td>data</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">diff</code></td>
-      <td>Diff</td>
-      <td>data</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">digital-command-language</code></td>
-      <td>DIGITAL Command Language</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">dm</code></td>
-      <td>DM</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">dns-zone</code></td>
-      <td>DNS Zone</td>
-      <td>data</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">dockerfile</code></td>
-      <td>Dockerfile</td>
-      <td>data</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">dogescript</code></td>
-      <td>Dogescript</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">dtrace</code></td>
-      <td>DTrace</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">dylan</code></td>
-      <td>Dylan</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">e</code></td>
-      <td>E</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">eagle</code></td>
-      <td>Eagle</td>
-      <td>data</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">easybuild</code></td>
-      <td>Easybuild</td>
-      <td>data</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">ebnf</code></td>
-      <td>EBNF</td>
-      <td>data</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">ec</code></td>
-      <td>eC</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">ecere-projects</code></td>
-      <td>Ecere Projects</td>
-      <td>data</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">ecl</code></td>
-      <td>ECL</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">eclipse</code></td>
-      <td>ECLiPSe</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">edn</code></td>
-      <td>edn</td>
-      <td>data</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">eiffel</code></td>
-      <td>Eiffel</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">ejs</code></td>
-      <td>EJS</td>
-      <td>markup</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">elixir</code></td>
-      <td>Elixir</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">elm</code></td>
-      <td>Elm</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">emacs-lisp</code></td>
-      <td>Emacs Lisp</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">emberscript</code></td>
-      <td>EmberScript</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">eq</code></td>
-      <td>EQ</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">erlang</code></td>
-      <td>Erlang</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">f#</code></td>
-      <td>F#</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">factor</code></td>
-      <td>Factor</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">fancy</code></td>
-      <td>Fancy</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">fantom</code></td>
-      <td>Fantom</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">filebench-wml</code></td>
-      <td>Filebench WML</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">filterscript</code></td>
-      <td>Filterscript</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">fish</code></td>
-      <td>fish</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">flux</code></td>
-      <td>FLUX</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">formatted</code></td>
-      <td>Formatted</td>
-      <td>data</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">forth</code></td>
-      <td>Forth</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">fortran</code></td>
-      <td>Fortran</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">freemarker</code></td>
-      <td>FreeMarker</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">frege</code></td>
-      <td>Frege</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">g-code</code></td>
-      <td>G-code</td>
-      <td>data</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">game-maker-language</code></td>
-      <td>Game Maker Language</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">gams</code></td>
-      <td>GAMS</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">gap</code></td>
-      <td>GAP</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">gcc-machine-description</code></td>
-      <td>GCC Machine Description</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">gdb</code></td>
-      <td>GDB</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">gdscript</code></td>
-      <td>GDScript</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">genie</code></td>
-      <td>Genie</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">genshi</code></td>
-      <td>Genshi</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">gentoo-ebuild</code></td>
-      <td>Gentoo Ebuild</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">gentoo-eclass</code></td>
-      <td>Gentoo Eclass</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">gerber-image</code></td>
-      <td>Gerber Image</td>
-      <td>data</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">gettext-catalog</code></td>
-      <td>Gettext Catalog</td>
-      <td>prose</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">gherkin</code></td>
-      <td>Gherkin</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">glsl</code></td>
-      <td>GLSL</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">glyph</code></td>
-      <td>Glyph</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">gn</code></td>
-      <td>GN</td>
-      <td>data</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">gnuplot</code></td>
-      <td>Gnuplot</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">go</code></td>
-      <td>Go</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">golo</code></td>
-      <td>Golo</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">gosu</code></td>
-      <td>Gosu</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">grace</code></td>
-      <td>Grace</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">gradle</code></td>
-      <td>Gradle</td>
-      <td>data</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">grammatical-framework</code></td>
-      <td>Grammatical Framework</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">graph-modeling-language</code></td>
-      <td>Graph Modeling Language</td>
-      <td>data</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">graphql</code></td>
-      <td>GraphQL</td>
-      <td>data</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">graphviz</code></td>
-      <td>Graphviz (DOT)</td>
-      <td>data</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">groovy</code></td>
-      <td>Groovy</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">groovy-server-pages</code></td>
-      <td>Groovy Server Pages</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">hack</code></td>
-      <td>Hack</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">haml</code></td>
-      <td>Haml</td>
-      <td>markup</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">handlebars</code></td>
-      <td>Handlebars</td>
-      <td>markup</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">harbour</code></td>
-      <td>Harbour</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">haskell</code></td>
-      <td>Haskell</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">haxe</code></td>
-      <td>Haxe</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">hcl</code></td>
-      <td>HCL</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">hlsl</code></td>
-      <td>HLSL</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">html+django</code></td>
-      <td>HTML+Django</td>
-      <td>markup</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">html+ecr</code></td>
-      <td>HTML+ECR</td>
-      <td>markup</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">html+eex</code></td>
-      <td>HTML+EEX</td>
-      <td>markup</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">html+erb</code></td>
-      <td>HTML+ERB</td>
-      <td>markup</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">html+php</code></td>
-      <td>HTML+PHP</td>
-      <td>markup</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">html</code></td>
-      <td>HTML</td>
-      <td>markup</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">http</code></td>
-      <td>HTTP</td>
-      <td>data</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">hy</code></td>
-      <td>Hy</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">hyphy</code></td>
-      <td>HyPhy</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">idl</code></td>
-      <td>IDL</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">idris</code></td>
-      <td>Idris</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">igor-pro</code></td>
-      <td>IGOR Pro</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">inform-7</code></td>
-      <td>Inform 7</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">ini</code></td>
-      <td>INI</td>
-      <td>data</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">inno-setup</code></td>
-      <td>Inno Setup</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">io</code></td>
-      <td>Io</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">ioke</code></td>
-      <td>Ioke</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">irc-log</code></td>
-      <td>IRC log</td>
-      <td>data</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">isabelle</code></td>
-      <td>Isabelle</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">isabelle-root</code></td>
-      <td>Isabelle ROOT</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">j</code></td>
-      <td>J</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">jasmin</code></td>
-      <td>Jasmin</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">java</code></td>
-      <td>Java</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">java-server-pages</code></td>
-      <td>Java Server Pages</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">javascript</code></td>
-      <td>JavaScript</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">jflex</code></td>
-      <td>JFlex</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">jison</code></td>
-      <td>Jison</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">jison-lex</code></td>
-      <td>Jison Lex</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">jolie</code></td>
-      <td>Jolie</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">json</code></td>
-      <td>JSON</td>
-      <td>data</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">json5</code></td>
-      <td>JSON5</td>
-      <td>data</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">jsoniq</code></td>
-      <td>JSONiq</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">jsonld</code></td>
-      <td>JSONLD</td>
-      <td>data</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">jsx</code></td>
-      <td>JSX</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">julia</code></td>
-      <td>Julia</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">jupyter-notebook</code></td>
-      <td>Jupyter Notebook</td>
-      <td>markup</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">kicad-layout</code></td>
-      <td>KiCad Layout</td>
-      <td>data</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">kicad-legacy-layout</code></td>
-      <td>KiCad Legacy Layout</td>
-      <td>data</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">kicad-schematic</code></td>
-      <td>KiCad Schematic</td>
-      <td>data</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">kit</code></td>
-      <td>Kit</td>
-      <td>markup</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">kotlin</code></td>
-      <td>Kotlin</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">krl</code></td>
-      <td>KRL</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">labview</code></td>
-      <td>LabVIEW</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">lasso</code></td>
-      <td>Lasso</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">latte</code></td>
-      <td>Latte</td>
-      <td>markup</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">lean</code></td>
-      <td>Lean</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">less</code></td>
-      <td>Less</td>
-      <td>markup</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">lex</code></td>
-      <td>Lex</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">lfe</code></td>
-      <td>LFE</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">lilypond</code></td>
-      <td>LilyPond</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">limbo</code></td>
-      <td>Limbo</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">linker-script</code></td>
-      <td>Linker Script</td>
-      <td>data</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">linux-kernel-module</code></td>
-      <td>Linux Kernel Module</td>
-      <td>data</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">liquid</code></td>
-      <td>Liquid</td>
-      <td>markup</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">literate-agda</code></td>
-      <td>Literate Agda</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">literate-coffeescript</code></td>
-      <td>Literate CoffeeScript</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">literate-haskell</code></td>
-      <td>Literate Haskell</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">livescript</code></td>
-      <td>LiveScript</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">llvm</code></td>
-      <td>LLVM</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">logos</code></td>
-      <td>Logos</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">logtalk</code></td>
-      <td>Logtalk</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">lolcode</code></td>
-      <td>LOLCODE</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">lookml</code></td>
-      <td>LookML</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">loomscript</code></td>
-      <td>LoomScript</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">lsl</code></td>
-      <td>LSL</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">lua</code></td>
-      <td>Lua</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">m</code></td>
-      <td>M</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">m4</code></td>
-      <td>M4</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">m4sugar</code></td>
-      <td>M4Sugar</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">makefile</code></td>
-      <td>Makefile</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">mako</code></td>
-      <td>Mako</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">markdown</code></td>
-      <td>Markdown</td>
-      <td>prose</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">marko</code></td>
-      <td>Marko</td>
-      <td>markup</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">mask</code></td>
-      <td>Mask</td>
-      <td>markup</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">mathematica</code></td>
-      <td>Mathematica</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">matlab</code></td>
-      <td>Matlab</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">maven-pom</code></td>
-      <td>Maven POM</td>
-      <td>data</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">max</code></td>
-      <td>Max</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">maxscript</code></td>
-      <td>MAXScript</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">mediawiki</code></td>
-      <td>MediaWiki</td>
-      <td>prose</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">mercury</code></td>
-      <td>Mercury</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">meson</code></td>
-      <td>Meson</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">metal</code></td>
-      <td>Metal</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">minid</code></td>
-      <td>MiniD</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">mirah</code></td>
-      <td>Mirah</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">modelica</code></td>
-      <td>Modelica</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">modula-2</code></td>
-      <td>Modula-2</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">module-management-system</code></td>
-      <td>Module Management System</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">monkey</code></td>
-      <td>Monkey</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">moocode</code></td>
-      <td>Moocode</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">moonscript</code></td>
-      <td>MoonScript</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">mql4</code></td>
-      <td>MQL4</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">mql5</code></td>
-      <td>MQL5</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">mtml</code></td>
-      <td>MTML</td>
-      <td>markup</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">muf</code></td>
-      <td>MUF</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">mupad</code></td>
-      <td>mupad</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">myghty</code></td>
-      <td>Myghty</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">ncl</code></td>
-      <td>NCL</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">nearley</code></td>
-      <td>Nearley</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">nemerle</code></td>
-      <td>Nemerle</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">nesc</code></td>
-      <td>nesC</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">netlinx+erb</code></td>
-      <td>NetLinx+ERB</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">netlinx</code></td>
-      <td>NetLinx</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">netlogo</code></td>
-      <td>NetLogo</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">newlisp</code></td>
-      <td>NewLisp</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">nginx</code></td>
-      <td>Nginx</td>
-      <td>data</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">nim</code></td>
-      <td>Nim</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">ninja</code></td>
-      <td>Ninja</td>
-      <td>data</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">nit</code></td>
-      <td>Nit</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">nix</code></td>
-      <td>Nix</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">nl</code></td>
-      <td>NL</td>
-      <td>data</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">nsis</code></td>
-      <td>NSIS</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">nu</code></td>
-      <td>Nu</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">numpy</code></td>
-      <td>NumPy</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">objdump</code></td>
-      <td>ObjDump</td>
-      <td>data</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">objective-c++</code></td>
-      <td>Objective-C++</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">objective-c</code></td>
-      <td>Objective-C</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">objective-j</code></td>
-      <td>Objective-J</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">ocaml</code></td>
-      <td>OCaml</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">omgrofl</code></td>
-      <td>Omgrofl</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">ooc</code></td>
-      <td>ooc</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">opa</code></td>
-      <td>Opa</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">opal</code></td>
-      <td>Opal</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">opencl</code></td>
-      <td>OpenCL</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">openedge-abl</code></td>
-      <td>OpenEdge ABL</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">openrc-runscript</code></td>
-      <td>OpenRC runscript</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">openscad</code></td>
-      <td>OpenSCAD</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">opentype-feature-file</code></td>
-      <td>OpenType Feature File</td>
-      <td>data</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">org</code></td>
-      <td>Org</td>
-      <td>prose</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">other</code></td>
-      <td> </td>
-      <td> </td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">ox</code></td>
-      <td>Ox</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">oxygene</code></td>
-      <td>Oxygene</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">oz</code></td>
-      <td>Oz</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">p4</code></td>
-      <td>P4</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">pan</code></td>
-      <td>Pan</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">papyrus</code></td>
-      <td>Papyrus</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">parrot</code></td>
-      <td>Parrot</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">parrot-assembly</code></td>
-      <td>Parrot Assembly</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">parrot-internal-representation</code></td>
-      <td>Parrot Internal Representation</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">pascal</code></td>
-      <td>Pascal</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">pawn</code></td>
-      <td>PAWN</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">pep8</code></td>
-      <td>Pep8</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">perl</code></td>
-      <td>Perl</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">perl-6</code></td>
-      <td>Perl 6</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">php</code></td>
-      <td>PHP</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">pic</code></td>
-      <td>Pic</td>
-      <td>markup</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">pickle</code></td>
-      <td>Pickle</td>
-      <td>data</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">picolisp</code></td>
-      <td>PicoLisp</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">piglatin</code></td>
-      <td>PigLatin</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">pike</code></td>
-      <td>Pike</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">plpgsql</code></td>
-      <td>PLpgSQL</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">plsql</code></td>
-      <td>PLSQL</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">pod</code></td>
-      <td>Pod</td>
-      <td>prose</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">pogoscript</code></td>
-      <td>PogoScript</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">pony</code></td>
-      <td>Pony</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">postscript</code></td>
-      <td>PostScript</td>
-      <td>markup</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">pov-ray-sdl</code></td>
-      <td>POV-Ray SDL</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">powerbuilder</code></td>
-      <td>PowerBuilder</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">powershell</code></td>
-      <td>PowerShell</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">processing</code></td>
-      <td>Processing</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">prolog</code></td>
-      <td>Prolog</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">propeller-spin</code></td>
-      <td>Propeller Spin</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">protocol-buffer</code></td>
-      <td>Protocol Buffer</td>
-      <td>data</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">public-key</code></td>
-      <td>Public Key</td>
-      <td>data</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">pug</code></td>
-      <td>Pug</td>
-      <td>markup</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">puppet</code></td>
-      <td>Puppet</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">pure-data</code></td>
-      <td>Pure Data</td>
-      <td>data</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">purebasic</code></td>
-      <td>PureBasic</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">purescript</code></td>
-      <td>PureScript</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">python</code></td>
-      <td>Python</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">python-console</code></td>
-      <td>Python console</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">python-traceback</code></td>
-      <td>Python traceback</td>
-      <td>data</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">qmake</code></td>
-      <td>QMake</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">qml</code></td>
-      <td>QML</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">r</code></td>
-      <td>R</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">racket</code></td>
-      <td>Racket</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">ragel</code></td>
-      <td>Ragel</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">raml</code></td>
-      <td>RAML</td>
-      <td>markup</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">rascal</code></td>
-      <td>Rascal</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">raw-token-data</code></td>
-      <td>Raw token data</td>
-      <td>data</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">rdoc</code></td>
-      <td>RDoc</td>
-      <td>prose</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">realbasic</code></td>
-      <td>REALbasic</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">reason</code></td>
-      <td>Reason</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">rebol</code></td>
-      <td>Rebol</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">red</code></td>
-      <td>Red</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">redcode</code></td>
-      <td>Redcode</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">regular-expression</code></td>
-      <td>Regular Expression</td>
-      <td>data</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">ren'py</code></td>
-      <td>Ren’Py</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">renderscript</code></td>
-      <td>RenderScript</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">restructuredtext</code></td>
-      <td>reStructuredText</td>
-      <td>prose</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">rexx</code></td>
-      <td>REXX</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">rhtml</code></td>
-      <td>RHTML</td>
-      <td>markup</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">ring</code></td>
-      <td>Ring</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">rmarkdown</code></td>
-      <td>RMarkdown</td>
-      <td>prose</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">robotframework</code></td>
-      <td>RobotFramework</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">roff</code></td>
-      <td>Roff</td>
-      <td>markup</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">rouge</code></td>
-      <td>Rouge</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">rpm-spec</code></td>
-      <td>RPM Spec</td>
-      <td>data</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">ruby</code></td>
-      <td>Ruby</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">runoff</code></td>
-      <td>RUNOFF</td>
-      <td>markup</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">rust</code></td>
-      <td>Rust</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">sage</code></td>
-      <td>Sage</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">saltstack</code></td>
-      <td>SaltStack</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">sas</code></td>
-      <td>SAS</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">sass</code></td>
-      <td>Sass</td>
-      <td>markup</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">scala</code></td>
-      <td>Scala</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">scaml</code></td>
-      <td>Scaml</td>
-      <td>markup</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">scheme</code></td>
-      <td>Scheme</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">scilab</code></td>
-      <td>Scilab</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">scss</code></td>
-      <td>SCSS</td>
-      <td>markup</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">self</code></td>
-      <td>Self</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">shaderlab</code></td>
-      <td>ShaderLab</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">shell</code></td>
-      <td>Shell</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">shellsession</code></td>
-      <td>ShellSession</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">shen</code></td>
-      <td>Shen</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">slash</code></td>
-      <td>Slash</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">slim</code></td>
-      <td>Slim</td>
-      <td>markup</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">smali</code></td>
-      <td>Smali</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">smalltalk</code></td>
-      <td>Smalltalk</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">smarty</code></td>
-      <td>Smarty</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">smt</code></td>
-      <td>SMT</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">sourcepawn</code></td>
-      <td>SourcePawn</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">sparql</code></td>
-      <td>SPARQL</td>
-      <td>data</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">spline-font-database</code></td>
-      <td>Spline Font Database</td>
-      <td>data</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">sqf</code></td>
-      <td>SQF</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">sql</code></td>
-      <td>SQL</td>
-      <td>data</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">sqlpl</code></td>
-      <td>SQLPL</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">squirrel</code></td>
-      <td>Squirrel</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">srecode-template</code></td>
-      <td>SRecode Template</td>
-      <td>markup</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">stan</code></td>
-      <td>Stan</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">standard-ml</code></td>
-      <td>Standard ML</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">stata</code></td>
-      <td>Stata</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">ston</code></td>
-      <td>STON</td>
-      <td>data</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">stylus</code></td>
-      <td>Stylus</td>
-      <td>markup</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">sublime-text-config</code></td>
-      <td>Sublime Text Config</td>
-      <td>data</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">subrip-text</code></td>
-      <td>SubRip Text</td>
-      <td>data</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">supercollider</code></td>
-      <td>SuperCollider</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">svg</code></td>
-      <td>SVG</td>
-      <td>data</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">swift</code></td>
-      <td>Swift</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">systemverilog</code></td>
-      <td>SystemVerilog</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">tcl</code></td>
-      <td>Tcl</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">tcsh</code></td>
-      <td>Tcsh</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">tea</code></td>
-      <td>Tea</td>
-      <td>markup</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">terra</code></td>
-      <td>Terra</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">tex</code></td>
-      <td>TeX</td>
-      <td>markup</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">text</code></td>
-      <td>Text</td>
-      <td>prose</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">textile</code></td>
-      <td>Textile</td>
-      <td>prose</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">thrift</code></td>
-      <td>Thrift</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">ti-program</code></td>
-      <td>TI Program</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">tla</code></td>
-      <td>TLA</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">toml</code></td>
-      <td>TOML</td>
-      <td>data</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">turing</code></td>
-      <td>Turing</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">turtle</code></td>
-      <td>Turtle</td>
-      <td>data</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">twig</code></td>
-      <td>Twig</td>
-      <td>markup</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">txl</code></td>
-      <td>TXL</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">type-language</code></td>
-      <td>Type Language</td>
-      <td>data</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">typescript</code></td>
-      <td>TypeScript</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">unified-parallel-c</code></td>
-      <td>Unified Parallel C</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">unity3d-asset</code></td>
-      <td>Unity3D Asset</td>
-      <td>data</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">unix-assembly</code></td>
-      <td>Unix Assembly</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">uno</code></td>
-      <td>Uno</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">unrealscript</code></td>
-      <td>UnrealScript</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">urweb</code></td>
-      <td>UrWeb</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">vala</code></td>
-      <td>Vala</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">vcl</code></td>
-      <td>VCL</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">verilog</code></td>
-      <td>Verilog</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">vhdl</code></td>
-      <td>VHDL</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">vim-script</code></td>
-      <td>Vim script</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">visual-basic</code></td>
-      <td>Visual Basic</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">volt</code></td>
-      <td>Volt</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">vue</code></td>
-      <td>Vue</td>
-      <td>markup</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">wavefront-material</code></td>
-      <td>Wavefront Material</td>
-      <td>data</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">wavefront-object</code></td>
-      <td>Wavefront Object</td>
-      <td>data</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">web-ontology-language</code></td>
-      <td>Web Ontology Language</td>
-      <td>data</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">webassembly</code></td>
-      <td>WebAssembly</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">webidl</code></td>
-      <td>WebIDL</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">wisp</code></td>
-      <td>wisp</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">world-of-warcraft-addon-data</code></td>
-      <td>World of Warcraft Addon Data</td>
-      <td>data</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">x10</code></td>
-      <td>X10</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">xbase</code></td>
-      <td>xBase</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">xc</code></td>
-      <td>XC</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">xcompose</code></td>
-      <td>XCompose</td>
-      <td>data</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">xml</code></td>
-      <td>XML</td>
-      <td>data</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">xojo</code></td>
-      <td>Xojo</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">xpages</code></td>
-      <td>XPages</td>
-      <td>data</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">xpm</code></td>
-      <td>XPM</td>
-      <td>data</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">xproc</code></td>
-      <td>XProc</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">xquery</code></td>
-      <td>XQuery</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">xs</code></td>
-      <td>XS</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">xslt</code></td>
-      <td>XSLT</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">xtend</code></td>
-      <td>Xtend</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">yacc</code></td>
-      <td>Yacc</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">yaml</code></td>
-      <td>YAML</td>
-      <td>data</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">yang</code></td>
-      <td>YANG</td>
-      <td>data</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">zephir</code></td>
-      <td>Zephir</td>
-      <td>programming</td>
-    </tr>
-    <tr>
-      <td><code class="highlighter-rouge">zimpl</code></td>
-      <td>Zimpl</td>
-      <td>programming</td>
-    </tr>
-  </tbody>
-</table>
-
-<p class="text-right">Table: List of programming language names available in CFF. Table based on the languages available on GitHub (via <a href="https://github.com/github/linguist/blob/master/lib/linguist/languages.yml">https://github.com/github/linguist/blob/master/lib/linguist/languages.yml</a>, MIT license, Copyright (c) 2017 GitHub, Inc.).</p>
 
 <h1 id="schema">Schema</h1>
 
@@ -4032,15 +1672,7 @@ the following.</p>
       <span class="pi">-</span> <span class="s">nlp</span>
       <span class="pi">-</span> <span class="s">parser</span>
       <span class="pi">-</span> <span class="s">deep convolutional neural network</span>
-    <span class="na">programming-languages</span><span class="pi">:</span>
-      <span class="pi">-</span> <span class="s">java</span>
-      <span class="pi">-</span> <span class="s">python</span>
-      <span class="pi">-</span> <span class="s">c</span>
-      <span class="pi">-</span> <span class="s">haskell</span>
-      <span class="pi">-</span> <span class="s">pascal</span>
-      <span class="pi">-</span> <span class="s">rust</span>
-    <span class="na">license</span><span class="pi">:</span> <span class="s">Apache License, Version 2.0</span>
-    <span class="na">license-url</span><span class="pi">:</span> <span class="s">http://www.apache.org/licenses/LICENSE-2.0</span>
+    <span class="na">license</span><span class="pi">:</span> <span class="s">Apache-2.0</span>
     <span class="na">url</span><span class="pi">:</span> <span class="s">https://sdruskat.github.io/my-research-tool</span></code></pre></figure>
 
 <h3 id="a-software-without-a-doi">A software without a DOI</h3>
@@ -4083,26 +1715,21 @@ this.</p>
     <span class="na">authors</span><span class="pi">:</span>
       <span class="pi">-</span> <span class="na">family-names</span><span class="pi">:</span> <span class="s">Doe</span>
         <span class="na">given-names</span><span class="pi">:</span> <span class="s">Jane</span>
-        <span class="na">role</span><span class="pi">:</span> <span class="s">main-author</span>
       <span class="pi">-</span> <span class="na">family-names</span><span class="pi">:</span> <span class="s">Bielefeld</span>
         <span class="na">name-particle</span><span class="pi">:</span> <span class="s">von</span>
         <span class="na">given-names</span><span class="pi">:</span> <span class="s">Arthur</span>
-        <span class="na">role</span><span class="pi">:</span> <span class="s">tester</span>
       <span class="pi">-</span> <span class="na">family-names</span><span class="pi">:</span> <span class="s">McAuthor</span>
         <span class="na">given-names</span><span class="pi">:</span> <span class="s">Juniper</span>
         <span class="na">name-suffix</span><span class="pi">:</span> <span class="s">Jr.</span>
-        <span class="na">role</span><span class="pi">:</span> <span class="s">maintainer</span>
     <span class="na">title</span><span class="pi">:</span> <span class="s">My Research Tool</span>
     <span class="na">doi</span><span class="pi">:</span> <span class="s">10043/zenodo.1234</span>
   <span class="pi">-</span> <span class="na">type</span><span class="pi">:</span> <span class="s">article</span>
     <span class="na">authors</span><span class="pi">:</span>
       <span class="pi">-</span> <span class="na">family-names</span><span class="pi">:</span> <span class="s">Doe</span>
         <span class="na">given-names</span><span class="pi">:</span> <span class="s">Jane</span>
-        <span class="na">role</span><span class="pi">:</span> <span class="s">main-author</span>
       <span class="pi">-</span> <span class="na">family-names</span><span class="pi">:</span> <span class="s">Bielefeld</span>
         <span class="na">name-particle</span><span class="pi">:</span> <span class="s">von</span>
         <span class="na">given-names</span><span class="pi">:</span> <span class="s">Arthur</span>
-        <span class="na">role</span><span class="pi">:</span> <span class="s">author</span>
     <span class="na">title</span><span class="pi">:</span> <span class="s2">"</span><span class="s">My</span><span class="nv"> </span><span class="s">Research</span><span class="nv"> </span><span class="s">Tool:</span><span class="nv"> </span><span class="s">A</span><span class="nv"> </span><span class="s">100%</span><span class="nv"> </span><span class="s">accuracy</span><span class="nv"> </span><span class="s">syntax</span><span class="nv"> </span><span class="s">parser</span><span class="nv"> </span><span class="s">for</span><span class="nv"> </span><span class="s">all</span><span class="nv"> </span><span class="s">languages"</span>
     <span class="na">year</span><span class="pi">:</span> <span class="s">2099</span>
     <span class="na">journal</span><span class="pi">:</span> <span class="s">Journal of Hard Science Fiction</span>
@@ -4142,10 +1769,8 @@ hash would be an appropriate way to cite the software used. <a href="#principles
     <span class="na">authors</span><span class="pi">:</span>
       <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Humboldt-Universität</span><span class="nv"> </span><span class="s">zu</span><span class="nv"> </span><span class="s">Berlin"</span>
         <span class="na">website</span><span class="pi">:</span> <span class="s">https://www.linguistik.hu-berlin.de/</span>
-        <span class="na">role</span><span class="pi">:</span> <span class="s">maintainer</span>
       <span class="pi">-</span> <span class="na">family-names</span><span class="pi">:</span> <span class="s">Doe</span>
         <span class="na">given-names</span><span class="pi">:</span> <span class="s">Jane</span>
-        <span class="na">role</span><span class="pi">:</span> <span class="s">main-author</span>
     <span class="na">title</span><span class="pi">:</span> <span class="s">mrt-iain-m-banks</span>
     <span class="na">version</span><span class="pi">:</span> <span class="s">1.0.4 (Iain M. Banks)</span>
     <span class="na">url</span><span class="pi">:</span> <span class="s">https://github.com/doe/docker-brew-mrt-core/blob/160d54f9e935/iain/Dockerfile</span>
@@ -4160,7 +1785,6 @@ hash would be an appropriate way to cite the software used. <a href="#principles
     <span class="na">authors</span><span class="pi">:</span>
       <span class="pi">-</span> <span class="na">family-names</span><span class="pi">:</span> <span class="s">Doe</span>
         <span class="na">given-names</span><span class="pi">:</span> <span class="s">Jane</span>
-        <span class="na">role</span><span class="pi">:</span> <span class="s">main-author</span>
     <span class="na">title</span><span class="pi">:</span> <span class="s">My Research Tool Kickstarter</span>
     <span class="na">version</span><span class="pi">:</span> <span class="s">2.0.0</span>
     <span class="na">doi</span><span class="pi">:</span> <span class="s">10043/zenodo.1234</span>
@@ -4196,7 +1820,6 @@ hash would be an appropriate way to cite the software used. <a href="#principles
     <span class="na">authors</span><span class="pi">:</span>
       <span class="pi">-</span> <span class="na">family-names</span><span class="pi">:</span> <span class="s">Smith</span>
         <span class="na">given-names</span><span class="pi">:</span> <span class="s">Arfon M.</span>
-        <span class="na">role</span><span class="pi">:</span> <span class="s">main-author</span>
       <span class="pi">-</span> <span class="na">family-names</span><span class="pi">:</span> <span class="s">Katz</span>
         <span class="na">given-names</span><span class="pi">:</span> <span class="s">Daniel S.</span>
         <span class="na">affiliation</span><span class="pi">:</span> <span class="s2">"</span><span class="s">National</span><span class="nv"> </span><span class="s">Center</span><span class="nv"> </span><span class="s">for</span><span class="nv"> </span><span class="s">Supercomputing</span><span class="nv"> </span><span class="s">Applications</span><span class="nv"> </span><span class="s">&amp;</span> 
@@ -4204,10 +1827,8 @@ hash would be an appropriate way to cite the software used. <a href="#principles
         <span class="s">Sciences,</span><span class="nv"> </span><span class="s">University</span><span class="nv"> </span><span class="s">of</span><span class="nv"> </span><span class="s">Illinois</span><span class="nv"> </span><span class="s">at</span><span class="nv"> </span><span class="s">Urbana-Champaign,</span><span class="nv"> </span><span class="s">Urbana,</span><span class="nv"> </span><span class="s">Illinois,</span> 
         <span class="s">United</span><span class="nv"> </span><span class="s">States"</span>
         <span class="na">orcid</span><span class="pi">:</span> <span class="s">0000-0001-5934-7525</span>
-        <span class="na">role</span><span class="pi">:</span> <span class="s">main-author</span>
       <span class="pi">-</span> <span class="na">family-names</span><span class="pi">:</span> <span class="s">Niemeyer</span>
         <span class="na">given-names</span><span class="pi">:</span> <span class="s">Kyle E.</span>
-        <span class="na">role</span><span class="pi">:</span> <span class="s">main-author</span>
       <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s2">"</span><span class="s">FORCE11</span><span class="nv"> </span><span class="s">Software</span><span class="nv"> </span><span class="s">Citation</span><span class="nv"> </span><span class="s">Working</span><span class="nv"> </span><span class="s">Group"</span>
         <span class="na">website</span><span class="pi">:</span> <span class="s">https://www.force11.org/group/software-citation-working-group</span>
     <span class="na">title</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Software</span><span class="nv"> </span><span class="s">citation</span><span class="nv"> </span><span class="s">principles"</span>
@@ -4244,7 +1865,6 @@ hash would be an appropriate way to cite the software used. <a href="#principles
     <span class="na">authors</span><span class="pi">:</span>
       <span class="pi">-</span> <span class="na">family-names</span><span class="pi">:</span> <span class="s">Doe</span>
         <span class="na">given-names</span><span class="pi">:</span> <span class="s">Jane</span>
-        <span class="na">role</span><span class="pi">:</span> <span class="s">main-author</span>
     <span class="na">title</span><span class="pi">:</span> <span class="s2">"</span><span class="s">The</span><span class="nv"> </span><span class="s">future</span><span class="nv"> </span><span class="s">of</span><span class="nv"> </span><span class="s">syntax</span><span class="nv"> </span><span class="s">parsing"</span>
     <span class="na">year</span><span class="pi">:</span> <span class="s">2017</span>
     <span class="na">publisher</span><span class="pi">:</span>
@@ -4371,6 +1991,15 @@ license text can be obtained from the URL
  
 </li>
 <li><p><span id="citation-files">Wilson, Robin. (2013). Encouraging citation of software - introducing CITATION files. Retrieved from <a href="https://www.software.ac.uk/blog/2013-09-02-encouraging-citation-software-introducing-citation-files">https://www.software.ac.uk/blog/2013-09-02-encouraging-citation-software-introducing-citation-files</a>.</span></p>
+ 
+</li>
+<li><p><span id="transitive-credit">Katz, Daniel S. (2014). Transitive Credit as a Means to Address Social and Technological Concerns Stemming from Citation and Attribution of Digital Products. <i>Journal of Open Research Software</i>, <i>2</i>(1), e20. <a href="https://doi.org/10.5334/jors.be">https://doi.org/10.5334/jors.be</a>.</span></p>
+ 
+</li>
+<li><p><span id="transitive-credit-json-ld">Katz, Daniel S, &amp; Smith, Arfon M. (2015). Implementing transitive credit with JSON-LD. <i>Journal of Open Research Software</i>, <i>3</i>(e7). <a href="https://doi.org/10.5334/jors.by">https://doi.org/10.5334/jors.by</a>.</span></p>
+ 
+</li>
+<li><p><span id="software-citation-practices">Howison, James, &amp; Bullard, Julia. (2016). Software in the scientific literature: Problems with seeing, finding, and using software mentioned in the biology literature. <i>Journal of the Association for Information Science and Technology</i>, <i>67</i>(9), 2137–2155. <a href="https://doi.org/10.1002/asi.23538">https://doi.org/10.1002/asi.23538</a>.</span></p>
  
 </li>
 <li><p><span id="yaml-1-2-specs">Ben-Kiki, Oren, Evans, Clark, &amp; döt Net, Ingy. (2009). YAML Ain’t Markup Language (YAML™) Version 1.2. 3rd Edition, Patched at 2009-10-01. Retrieved from <a href="http://yaml.org/spec/1.2/spec.html">http://yaml.org/spec/1.2/spec.html</a>.</span></p>

@@ -127,7 +127,7 @@
       <nav id="site-nav" class="greedy-nav">
         <a class="site-title" href="https://citation-file-format.github.io/">Citation File Format (CFF)</a>
         <ul class="visible-links">
-          <li class="masthead__menu-item"><a href="/0.9-RC1/">Current version</a></li>
+          <li class="masthead__menu-item"><a href="/1.0-RC1/">Current version</a></li>
           
             
             <li class="masthead__menu-item"><a href="https://citation-file-format.github.io/versions/">All versions</a></li>
@@ -2422,6 +2422,9 @@ license text can be obtained from the URL
  
 </li>
 <li><p><span id="transitive-credit-json-ld">Katz, Daniel S, &amp; Smith, Arfon M. (2015). Implementing transitive credit with JSON-LD. <i>Journal of Open Research Software</i>, <i>3</i>(e7). <a href="https://doi.org/10.5334/jors.by">https://doi.org/10.5334/jors.by</a>.</span></p>
+ 
+</li>
+<li><p><span id="software-citation-practices">Howison, James, &amp; Bullard, Julia. (2016). Software in the scientific literature: Problems with seeing, finding, and using software mentioned in the biology literature. <i>Journal of the Association for Information Science and Technology</i>, <i>67</i>(9), 2137–2155. <a href="https://doi.org/10.1002/asi.23538">https://doi.org/10.1002/asi.23538</a>.</span></p>
  
 </li></ol>
         
