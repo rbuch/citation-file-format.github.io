@@ -19,7 +19,7 @@
 
 
 
-<title>            Citation File Format Core (CFF-Core)      Citation File Format (CFF)      </title>
+<title>            Citation File Format - Core Module (CFF-Core)      Citation File Format (CFF)      </title>
 
 
 
@@ -33,11 +33,11 @@
 
 <meta property="og:locale" content="en">
 <meta property="og:site_name" content="Citation File Format (CFF)">
-<meta property="og:title" content="Citation File Format Core (CFF-Core)">
+<meta property="og:title" content="Citation File Format - Core Module (CFF-Core)">
 
 
-  <link rel="canonical" href="https://citation-file-format.github.io/1.0-RC1/specifications/">
-  <meta property="og:url" content="https://citation-file-format.github.io/1.0-RC1/specifications/">
+  <link rel="canonical" href="https://citation-file-format.github.io/1.0.1/specifications/">
+  <meta property="og:url" content="https://citation-file-format.github.io/1.0.1/specifications/">
 
 
 
@@ -152,7 +152,7 @@
 
 <div id="main" role="main">
   <article class="page" itemscope itemtype="http://schema.org/CreativeWork">
-    <meta itemprop="headline" content="Citation File Format Core (CFF-Core)">
+    <meta itemprop="headline" content="Citation File Format - Core Module (CFF-Core)">
     
     
     
@@ -160,9 +160,9 @@
     <div class="page__inner-wrap">
       
         <header>
-          <h1 class="page__title" itemprop="headline">Citation File Format Core (CFF-Core)
+          <h1 class="page__title" itemprop="headline">Citation File Format - Core Module (CFF-Core)
 </h1>
-          <h2 class="page__title" itemprop="headline">Version 1.0-RC1
+          <h2 class="page__title" itemprop="headline">Version 1.0.1
 </h2>
           
             <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
@@ -170,7 +170,7 @@
 
 
 
-  30 minute read
+  36 minute read
 </p>
           
         </header>
@@ -179,7 +179,7 @@
       <section class="page__content" itemprop="text">
         
           <h1>Abstract</h1>
-          <p>The <em>Citation File Format</em> (<em>CFF</em>) is a human- <em>and</em> machine-readable format for CITATION files. These files provide citation metadata for (research and scientific) software. The format aims to support citation-specific use cases for software citation described in <a href="#principles">(Smith et al., 2016)</a>. CFF is serialized in <a href="http://yaml.org">YAML</a> <a href="http://yaml.org/spec/1.2/spec.html">1.2</a>, and is therefore Unicode-based and cross-language. This specification, together with the Unicode standard for characters, aims to provide all the information necessary to understand CFF, and to use (i.e., write) and re-use (i.e., read, validate, convert from) it. These specifications are maintained openly at <a href="https://github.com/citation-file-format/citation-file-format">https://github.com/citation-file-format/citation-file-format</a>.</p>
+          <p>The <em>Citation File Format</em> (<em>CFF</em>) is a human- <em>and</em> machine-readable format for CITATION files. These files provide citation metadata for (research and scientific) software. The format aims to support citation-specific use cases for software citation described in <a href="#principles">(Smith et al., 2016)</a>. CFF is serialized in <a href="http://yaml.org">YAML</a> <a href="http://yaml.org/spec/1.2/spec.html">1.2</a>, and is therefore Unicode-based and cross-language. This specification, together with the Unicode standard for characters, aims to provide all the information necessary to understand CFF, and to use (i.e., write) and re-use (i.e., read, validate, convert from) it. These specifications are maintained openly at <a href="https://github.com/citation-file-format/citation-file-format">https://github.com/citation-file-format/citation-file-format</a>. CFF is a source format for <a href="https://codemeta.github.io/">CodeMeta</a> <a href="https://github.com/codemeta/codemeta/blob/master/codemeta.json">JSON</a> files.</p>
 
         
         <aside class="sidebar__right">
@@ -195,13 +195,16 @@
     </ul>
   </li>
   <li><a href="#format" id="markdown-toc-format">Format</a>    <ul>
+      <li><a href="#formatting" id="markdown-toc-formatting">Formatting</a></li>
       <li><a href="#file-structure" id="markdown-toc-file-structure">File structure</a>        <ul>
-          <li><a href="#reference-structure" id="markdown-toc-reference-structure">Reference structure</a></li>
-          <li><a href="#notable-reference-keys" id="markdown-toc-notable-reference-keys">Notable reference keys</a></li>
+          <li><a href="#cff-version" id="markdown-toc-cff-version"><code class="highlighter-rouge">cff-version</code></a></li>
+          <li><a href="#message" id="markdown-toc-message"><code class="highlighter-rouge">message</code></a></li>
+          <li><a href="#software-citation-metadata" id="markdown-toc-software-citation-metadata">Software citation metadata</a></li>
+          <li><a href="#references" id="markdown-toc-references"><code class="highlighter-rouge">references</code></a></li>
         </ul>
       </li>
-      <li><a href="#formatting" id="markdown-toc-formatting">Formatting</a></li>
       <li><a href="#reference-keys" id="markdown-toc-reference-keys">Reference keys</a>        <ul>
+          <li><a href="#notable-reference-keys" id="markdown-toc-notable-reference-keys">Notable reference keys</a></li>
           <li><a href="#exemplary-uses" id="markdown-toc-exemplary-uses">Exemplary uses</a></li>
         </ul>
       </li>
@@ -252,7 +255,7 @@
   <li><a href="#infrastructure" id="markdown-toc-infrastructure">Infrastructure</a></li>
   <li><a href="#contributions" id="markdown-toc-contributions">Contributions</a></li>
   <li><a href="#license" id="markdown-toc-license">License</a></li>
-  <li><a href="#references" id="markdown-toc-references">References</a></li>
+  <li><a href="#references-1" id="markdown-toc-references-1">References</a></li>
 </ul>
 
   </nav>
@@ -260,13 +263,13 @@
 
 <p><a href="https://doi.org/10.5281/zenodo.1003150"><img src="https://citation-file-format.github.io/assets/images/zenodo.1003150.svg" alt="DOI" /></a></p>
 
-<p><a href="/assets/pdf/cff-specifications-1.0-RC1.pdf" class="btn btn--primary btn--large"><strong>Download PDF</strong></a></p>
+<p><a href="/assets/pdf/cff-specifications-1.0.1.pdf" class="btn btn--primary btn--large"><strong>Download PDF</strong></a></p>
 
 <h1 id="introduction">Introduction</h1>
 
 <h2 id="status-of-this-document">Status of this document</h2>
 
-<p>This document reflects version 1.0-RC1 of the <em>Citation File Format</em> (CFF)’s
+<p>This document reflects version 1.0.1 of the <em>Citation File Format</em> (CFF)’s
 <em>Core</em> branch (cf. <a href="#status-of-the-format">Status of the format</a>).
 CFF has been developed in the context of the <a href="http://wssspe.researchcomputing.org.uk/wssspe5-1/"><em>Workshop on Sustainable Software
 for Science: Practice and Experiences
@@ -280,13 +283,31 @@ Stephan Druskat (Humboldt-Universität zu Berlin, Germany), Neil Chue Hong
 (University of Tromsø, Norway), Andrew Rowley (University of Manchester, UK),
 and Alexander Konovalov (University of St. Andrews, UK).</p>
 
-<p>CFF Version 1.0-RC1 has been developed by Stephan Druskat with contributions from
-the following.</p>
+<p>This version is based partly on the changes introduced during the
+<a href="https://www.force2017.org/">FORCE2017</a> hackathon of the <a href="https://github.com/force11/force11-sciwg">FORCE11 Software
+Citation Implementation Working
+Group</a> in order to make CFF
+crosswalkable in <a href="https://github.com/codemeta/codemeta">CodeMeta</a>. It mainly
+introduces format modularization, and the final specification of CFF-Core as
+the module for providing citation metadata.</p>
+
+<p>Future versions will additionally introduce at least a metadata module to
+capture the maximum amount of metadata that can be represented in a CodeMeta
+JSON file.</p>
+
+<p>CFF Version 1.0.1 has been developed by Stephan Druskat with contributions from the following.</p>
 
 <ul>
-  <li>Radovan Bast (<a href="https://github.com/bast">@bast</a>): Reporter</li>
-  <li>Raniere Silva (<a href="https://github.com/rgaiacs">@rgaiacs</a>): Reporter</li>
-  <li>Michael R. Crusoe (<a href="https://github.com/mr-c">@mr-c</a>): Reporter</li>
+  <li>Morane Gruenpeter (<a href="https://github.com/moranegg">@moranegg</a>) helped prepare CFF 1.0-RC1 for the CodeMeta crosswalk, and tested the crosswalk.</li>
+  <li>Neil Chue Hong (<a href="https://github.com/npch">@npch</a>) consulted and helped prepare CFF 1.0-RC1 for the CodeMeta crosswalk.</li>
+</ul>
+
+<p>Reporters</p>
+
+<ul>
+  <li>Radovan Bast (<a href="https://github.com/bast">@bast</a>)</li>
+  <li>Raniere Silva (<a href="https://github.com/rgaiacs">@rgaiacs</a>)</li>
+  <li>Michael R. Crusoe (<a href="https://github.com/mr-c">@mr-c</a>)</li>
 </ul>
 
 <p>CFF has been developed to provide a format for <code class="highlighter-rouge">CITATION</code>
@@ -332,8 +353,8 @@ that is available for practical use by software creators. The most concrete
 suggestion for an implementation is <a href="#transitive-credit-json-ld">Katz &amp; Smith, (2015)</a>, the
 application of which, however, seems impractical from a usability point of view
 in terms of human-writability. Especially regarding the current state of the
-practice of providing citation metadata for software (cf. 
-<a href="#software-citation-practices">Howison &amp; Bullard, (2016)</a>) it seems that at this point in time, a lower-threshold
+practice of providing citation metadata for software <a href="#software-citation-practices">(Howison &amp; Bullard, 2016)</a>, 
+it seems that at this point in time, a lower-threshold
 approach - in terms of technical complexity - could potentially drive higher participation 
 in the provision of software citation metadata.</p>
 
@@ -354,8 +375,12 @@ metadata for citation easily. CFF-Core aims at covering use cases <em>1 (Use sof
 <em>2 (Use software in/with new software)</em>, and <em>15 (Store software entry)</em> as
 defined in the software citation principles paper <a href="#principles">(Smith et al., 2016)</a>.</p>
 
-<p>Further development of CFF towards an implementation of transitive credit may be
-undertaken in the future in another branch of CFF which may serve as an extension
+<p>CFF-Core can be used as a source format for <a href="https://github.com/codemeta/codemeta">CodeMeta</a> JSON,
+which is emerging as the standard format for software metadata.</p>
+
+<p>Further development of CFF will include a CFF-Meta module which will provide a set
+of keys to provide more general metadata for research software. CFF-Meta will
+implement the complete set of CodeMeta keys, and will be usable as an extension
 to CFF-Core.</p>
 
 <h2 id="goals">Goals</h2>
@@ -371,7 +396,8 @@ format by Research Software Engineers and software developers as well as by
 vendors and services, such as software repositories, reference managers, etc.,
 in order to boost the visibility of citation information for research software,
 and empower the fair distribution of credit for software development,
-maintenance, etc., in academia.</p>
+maintenance, etc., in academia. This can partly be achieved through CFF’s
+compatibility with <a href="https://github.com/codemeta/codemeta">CodeMeta</a>.</p>
 
 <h2 id="concepts">Concepts</h2>
 
@@ -398,150 +424,6 @@ within a specific “parent” (i.e., <code class="highlighter-rouge">book</code
 readability and the required core data types. For details, see the
 YAML 1.2 Specifications <a href="#yaml-1-2-specs">(Ben-Kiki et al., 2009)</a>.</p>
 
-<h2 id="file-structure">File structure</h2>
-
-<p>CFF <code class="highlighter-rouge">CITATION</code> files represent YAML 1.2 dictionaries (“maps”) with
-three mandatory keys: <code class="highlighter-rouge">cff-version</code>, <code class="highlighter-rouge">message</code>, <code class="highlighter-rouge">references</code>.</p>
-
-<p><code class="highlighter-rouge">cff-version</code> must specify the exact version of the
-Citation File Format that is used for the file.</p>
-
-<p><code class="highlighter-rouge">message</code> must specify instructions to users on how
-to cite the software the CITATION.cff file is associated
-with.</p>
-
-<p><code class="highlighter-rouge">references</code> must specify a list of references.</p>
-
-<p>Example:</p>
-
-<figure class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="na">cff-version</span><span class="pi">:</span> <span class="s">1.0.0</span>
-<span class="na">message</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Please</span><span class="nv"> </span><span class="s">cite</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">following</span><span class="nv"> </span><span class="s">works</span><span class="nv"> </span><span class="s">when</span><span class="nv"> </span><span class="s">using</span><span class="nv"> </span><span class="s">this</span><span class="nv"> </span><span class="s">software."</span>
-<span class="na">references</span><span class="pi">:</span>
-  <span class="pi">-</span> <span class="s">...</span>
-  <span class="pi">-</span> <span class="s">...</span></code></pre></figure>
-
-<h3 id="reference-structure">Reference structure</h3>
-
-<p>A reference item, i.e., an item in the list under <code class="highlighter-rouge">references</code>, must at least
-specify values for the following mandatory keys: <code class="highlighter-rouge">type</code>, <code class="highlighter-rouge">authors</code>, <code class="highlighter-rouge">title</code>.</p>
-
-<p><code class="highlighter-rouge">type</code> must specify the type of the referenced work. For a list of available 
-values, cf. <a href="#reference-types">reference types</a>.</p>
-
-<p><code class="highlighter-rouge">authors</code> must specify a list of <a href="#person-objects">person objects</a>.</p>
-
-<p><code class="highlighter-rouge">title</code> must specify the title of the referenced work.</p>
-
-<p>Example:</p>
-
-<figure class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="na">cff-version</span><span class="pi">:</span> <span class="s">1.0.0</span>
-<span class="na">message</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Please</span><span class="nv"> </span><span class="s">cite</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">following</span><span class="nv"> </span><span class="s">works</span><span class="nv"> </span><span class="s">when</span><span class="nv"> </span><span class="s">using</span><span class="nv"> </span><span class="s">this</span><span class="nv"> </span><span class="s">software."</span>
-<span class="na">references</span><span class="pi">:</span>
-  <span class="pi">-</span> <span class="na">type</span><span class="pi">:</span> <span class="s">book</span>
-    <span class="na">authors</span><span class="pi">:</span>
-      <span class="pi">-</span> <span class="s">...</span>
-    <span class="na">title</span><span class="pi">:</span> <span class="s">The science of citation</span>
-  <span class="pi">-</span> <span class="na">type</span><span class="pi">:</span> <span class="s">software</span>
-    <span class="na">authors</span><span class="pi">:</span>
-      <span class="pi">-</span> <span class="s">...</span>
-    <span class="na">title</span><span class="pi">:</span> <span class="s">Software Citation Tool</span></code></pre></figure>
-
-<p>Additionally, it can contain any further <a href="#reference-keys">reference keys</a>. In version 
-1.0-RC1, 
-CFF does not specify a strict schema where specific <a href="#reference-types">reference
-types</a> can only contain specific <a href="#reference-keys">reference keys</a>, although this may be
-implemented in future versions.</p>
-
-<h3 id="notable-reference-keys">Notable reference keys</h3>
-
-<p><strong>conference</strong>, <strong>database‑provider</strong>, <strong>institution</strong>, <strong>publisher</strong></p>
-
-<p>These keys take an <a href="#entity-objects">entity object</a> as value. Entity objects
-reference named entities and provide a fixed set of keys, such as <code class="highlighter-rouge">name</code> and
-contact information.</p>
-
-<p>Example:</p>
-
-<figure class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="na">references</span><span class="pi">:</span>
-  <span class="pi">-</span> <span class="na">type</span><span class="pi">:</span> <span class="s">book</span>
-    <span class="na">publisher</span><span class="pi">:</span>
-      <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">PeerJ</span>
-        <span class="na">city</span><span class="pi">:</span> <span class="s">London</span>
-        <span class="na">country</span><span class="pi">:</span> <span class="s">GB</span>
-        <span class="na">website</span><span class="pi">:</span> <span class="s">https://peerj.com/</span></code></pre></figure>
-
-<p><strong>authors</strong>, <strong>contact</strong>, <strong>editors</strong>, <strong>editors-series</strong>, <strong>recipients</strong>,
-<strong>senders</strong>, <strong>translators</strong></p>
-
-<p>These keys take a collection of <a href="#person-objects">person objects</a> as value. Person objects
-provide a fixed set of keys to reference individuals, including a detailed
-set for specifiying personal names, an affiliation, etc.</p>
-
-<p>Example:</p>
-
-<figure class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="na">references</span><span class="pi">:</span>
-  <span class="pi">-</span> <span class="na">type</span><span class="pi">:</span> <span class="s">software</span>
-    <span class="na">authors</span><span class="pi">:</span>
-      <span class="pi">-</span> <span class="na">family-names</span><span class="pi">:</span> <span class="s">Druskat</span>
-        <span class="na">given-names</span><span class="pi">:</span> <span class="s">Stephan</span>
-        <span class="na">orcid</span><span class="pi">:</span> <span class="s">0000-0003-4925-7248</span>
-        <span class="na">affiliation</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Humboldt-Universität</span><span class="nv"> </span><span class="s">zu</span><span class="nv"> </span><span class="s">Berlin"</span>
-        <span class="na">email</span><span class="pi">:</span> <span class="s2">"</span><span class="s">mail@sdruskat.net"</span>
-        <span class="na">website</span><span class="pi">:</span> <span class="s">http://sdruskat.net</span>
-      <span class="pi">-</span> <span class="na">family-names</span><span class="pi">:</span> <span class="s">Beethoven</span>
-        <span class="na">name-particle</span><span class="pi">:</span> <span class="s">van</span>
-        <span class="na">given-names</span><span class="pi">:</span> <span class="s">Ludwig</span>
-      <span class="pi">-</span> <span class="na">family-names</span><span class="pi">:</span> <span class="s">Fernández de Córdoba</span>
-        <span class="na">given-names</span><span class="pi">:</span> <span class="s">Gonzalo</span>
-        <span class="na">name-suffix</span><span class="pi">:</span> <span class="s">Jr.</span>
-    <span class="s">...</span></code></pre></figure>
-
-<p><strong>type</strong>, <strong>languages</strong>, <strong>status</strong></p>
-
-<p>These keys only take values from a defined set, cf. the respective sections:</p>
-
-<ul>
-  <li><a href="#reference-types">Reference types</a></li>
-  <li><a href="#language-strings">Language strings</a></li>
-  <li><a href="#status-strings">Status strings</a></li>
-</ul>
-
-<p><strong>license‑url</strong>, <strong>repository</strong>, <strong>repository-code</strong>, <strong>repository-artifact</strong>,
-<strong>url</strong></p>
-
-<p>These keys take URL strings as values. URLs are being validated by a regular
-expression as provided in a <a href="https://gist.github.com/dperini/729294">GitHub Gist by Diego Perini</a>.</p>
-
-<p><strong>keywords</strong></p>
-
-<p>This key takes a collection of strings.</p>
-
-<p>Example:</p>
-
-<figure class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="na">references</span><span class="pi">:</span>
-  <span class="pi">-</span> <span class="na">type</span><span class="pi">:</span> <span class="s">software</span>
-    <span class="na">keywords</span><span class="pi">:</span>
-      <span class="pi">-</span> <span class="s">linguistics</span>
-      <span class="pi">-</span> <span class="s2">"</span><span class="s">multi-layer</span><span class="nv"> </span><span class="s">annotation"</span>
-      <span class="pi">-</span> <span class="s">web service</span>
-    <span class="s">...</span></code></pre></figure>
-
-<p><strong>scope</strong></p>
-
-<p>A reference item can specify a more detailed scope for the reference, via the 
-reference key <code class="highlighter-rouge">scope</code>. This key can be useful if certain references should only
-be cited under specific circumstances, e.g., only when a specific package
-of the software is used. In such a case, the package would ideally have its own
-CFF file, but if this is not possible for whatever reason, the <code class="highlighter-rouge">scope</code> key
-my come in handy.</p>
-
-<p>Example:</p>
-
-<figure class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="na">references</span><span class="pi">:</span>
-  <span class="pi">-</span> <span class="na">scope</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Cite</span><span class="nv"> </span><span class="s">this</span><span class="nv"> </span><span class="s">paper</span><span class="nv"> </span><span class="s">when</span><span class="nv"> </span><span class="s">you</span><span class="nv"> </span><span class="s">run</span><span class="nv"> </span><span class="s">software</span><span class="nv"> </span><span class="s">X</span><span class="nv"> </span><span class="s">with</span><span class="nv"> </span><span class="s">flag</span><span class="nv"> </span><span class="s">--xy"</span>
-    <span class="na">type</span><span class="pi">:</span> <span class="s">article</span>
-    <span class="s">...</span></code></pre></figure>
-
 <h2 id="formatting">Formatting</h2>
 
 <p>CFF follows the formatting rules of YAML 1.2, of which one of
@@ -561,9 +443,256 @@ general. These include:</p>
   <p><code class="highlighter-rouge">:  {  }  [  ]  ,  &amp;  *  #  ?  |  -  &lt;  &gt;  =  !  %  @  \</code></p>
 </blockquote>
 
+<h2 id="file-structure">File structure</h2>
+
+<p>CFF <code class="highlighter-rouge">CITATION</code> files represent YAML 1.2 dictionaries (“maps”) with
+the following keys listed in the table below. These primary keys
+are used to specify</p>
+
+<ul>
+  <li>the version of CFF in use (<code class="highlighter-rouge">cff-version</code>);</li>
+  <li>a message which should be conveyed to the user of the software,
+along the lines of “If you use this software, please cite it as follows” (<code class="highlighter-rouge">message</code>);</li>
+  <li>the citation metadata for the software version itself, according to <a href="#principles">(Smith et al., 2016)</a>,
+i.e., metadata that can be picked up in a CodeMeta JSON file;</li>
+  <li>optionally, a list of references which should be cited in different use cases or scopes, e.g., a software paper describing the abstract concepts of the software (<code class="highlighter-rouge">references</code>).</li>
+</ul>
+
+<h3 id="cff-version"><code class="highlighter-rouge">cff-version</code></h3>
+
+<p><code class="highlighter-rouge">cff-version</code> must specify the exact version of the
+Citation File Format that is used for the file.</p>
+
+<figure class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="na">cff-version</span><span class="pi">:</span> <span class="s">1.0.0</span></code></pre></figure>
+
+<h3 id="message"><code class="highlighter-rouge">message</code></h3>
+
+<p><code class="highlighter-rouge">message</code> must specify instructions to users on how
+to cite the software the CITATION.cff file is associated
+with.</p>
+
+<figure class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="na">message</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Please</span><span class="nv"> </span><span class="s">cite</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">following</span><span class="nv"> </span><span class="s">works</span><span class="nv"> </span><span class="s">when</span><span class="nv"> </span><span class="s">using</span><span class="nv"> </span><span class="s">this</span><span class="nv"> </span><span class="s">software."</span></code></pre></figure>
+
+<h3 id="software-citation-metadata">Software citation metadata</h3>
+
+<p>The primary citation metadata provided to users that wish to cite the software
+version which the CFF file is for. This metadata can be provided via a subset
+of the keys from the table below. The keys follow the basic requirements for
+software citation metadata for the three basic use cases, as detailed in 
+<a href="#principles">Smith et al., (2016), p. 31</a> and reproduced
+below for convenience.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Use case:</th>
+      <th style="text-align: center">Use software for a paper</th>
+      <th style="text-align: center">Use software in/with new software</th>
+      <th style="text-align: center">Store software entry</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Unique identifier</td>
+      <td style="text-align: center">●</td>
+      <td style="text-align: center">●</td>
+      <td style="text-align: center">●</td>
+    </tr>
+    <tr>
+      <td>Software name</td>
+      <td style="text-align: center">●</td>
+      <td style="text-align: center">●</td>
+      <td style="text-align: center">●</td>
+    </tr>
+    <tr>
+      <td>Author(s)</td>
+      <td style="text-align: center">●</td>
+      <td style="text-align: center">●</td>
+      <td style="text-align: center">●</td>
+    </tr>
+    <tr>
+      <td>Version number</td>
+      <td style="text-align: center">●</td>
+      <td style="text-align: center">●</td>
+      <td style="text-align: center">●</td>
+    </tr>
+    <tr>
+      <td>Release date</td>
+      <td style="text-align: center">●</td>
+      <td style="text-align: center">●</td>
+      <td style="text-align: center">●</td>
+    </tr>
+    <tr>
+      <td>Location/repository</td>
+      <td style="text-align: center">●</td>
+      <td style="text-align: center">●</td>
+      <td style="text-align: center">●</td>
+    </tr>
+    <tr>
+      <td>Software license</td>
+      <td style="text-align: center">+</td>
+      <td style="text-align: center">+</td>
+      <td style="text-align: center"> </td>
+    </tr>
+    <tr>
+      <td>Description</td>
+      <td style="text-align: center">+</td>
+      <td style="text-align: center">+</td>
+      <td style="text-align: center">+</td>
+    </tr>
+    <tr>
+      <td>Keywords</td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: center">+</td>
+    </tr>
+  </tbody>
+</table>
+
+<p class="text-right">Table: Basic requirements for citation use cases, reproduced from <a href="#principles">Smith et al., (2016), p. 31</a>. Solid circles (●) indicate that the use case depends on that metadata, plus signs (+) indicate that the use case would benefit from that metadata if available.</p>
+
+<p>Provision of the metadata should follow the best 
+practices detailed in <a href="#principles">(Smith et al., 2016)</a>, i.e.:</p>
+
+<ul>
+  <li><strong>Give credit</strong> where credit is due: Make sure that you include every person in the authors list who deserves to be listed as an author. This may include people that have not contributed lines of code, but have contributed as testers, designers, reporters, managers, etc.</li>
+  <li>Provide a <strong>unique identifier</strong>: Publish your software version via services that provide it with a DOI, e.g., <a href="https://zenodo.org/">Zenodo</a> or <a href="https://figshare.com/">figshare</a>. This also ensures <strong>accessibility</strong> of the software, as in these cases the unique identifier points to a landing page rather than an actual software product.</li>
+  <li>Be <strong>specific</strong> by providing a version number, and citation metadata pertaining to that version. If possible, let your unique identifier point to a software version rather than the “software as such” (all versions of the software). If you want to provide the user with the possibility to cite the software as such in addition to a specific version, create a <a href="TODO">reference</a> to the software landing page, a software paper, or similar in the CFF file.<br />
+If, for some reason, you cannot provide a DOI for your software version, provide the version number or a commit reference (e.g., a Git hash or a Subversion revision number), and a URL to the source code or build artifact repository.<br />
+If your software is closed source and you cannot provide a DOI, provide the version number or other version identifier, contact details, and a URL which points to the software landing page, homepage, or similar.</li>
+</ul>
+
+<p>Finally, following the software citation principle of <em>Persistence</em>, make sure that the citation metadata persists, even when the software’s lifespan is over.</p>
+
+<p>CFF-Core provides the following keys for software citation metadata.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>CFF key</th>
+      <th>CFF data type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">abstract</code></td>
+      <td>String</td>
+      <td>A description of the software (version)</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">authors</code></td>
+      <td>Collection of <a href="#entity-objects">entity</a> or <a href="#person-objects">person</a> objects</td>
+      <td>The author(s) of the software</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">commit</code></td>
+      <td>String</td>
+      <td>The commit hash or revision number of the software version</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">contact</code></td>
+      <td>Collection of <a href="#entity-objects">entity</a> or <a href="#person-objects">person</a> objects</td>
+      <td>The contact person, group, company, etc. for the software version</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">date-released</code></td>
+      <td>Date</td>
+      <td>The release date of the software version</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">doi</code></td>
+      <td>String</td>
+      <td>The DOI of the work (not the resolver URL, i.e., <em>10.5281/zenodo.1003150</em>, not <em>http://doi.org/10.5281/zenodo.1003150</em>)</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">keywords</code></td>
+      <td>Collection of strings</td>
+      <td>Keywords pertaining to the software version</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">license</code></td>
+      <td><a href="https://spdx.org/">SPDX</a> <a href="https://spdx.org/licenses/">License List</a> Identifier string (or name string for non-standard licenses)</td>
+      <td>The license the software version is licensed under</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">license-url</code></td>
+      <td>String (URL)</td>
+      <td>The URL of the license text under which the software version is licensed (only for non-standard licenses not included in the <a href="https://spdx.org/licenses/">SPDX License List</a>)</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">repository</code></td>
+      <td>String (URL)</td>
+      <td>The URL to the software version in a repository (when the repository is neither a source code repository or a build artifact repository)</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">repository-code</code></td>
+      <td>String (URL)</td>
+      <td>The URL to the software version in a source code repository</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">repository-artifact</code></td>
+      <td>String (URL)</td>
+      <td>The URL to the software version in a build artifact/binary/release repository</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">title</code></td>
+      <td>String</td>
+      <td>The name of the software (may include a specific name for the software version)</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">url</code></td>
+      <td>String (URL)</td>
+      <td>The URL to a landing page/website for the software version</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">version</code></td>
+      <td>String</td>
+      <td>The version of the software</td>
+    </tr>
+  </tbody>
+</table>
+
+<p class="text-right">Table: CFF-Core keys and accepted data types for the provision of citation metadata.</p>
+
+<h3 id="references"><code class="highlighter-rouge">references</code></h3>
+
+<p>Provides an optional list of references pertaining to the software version, or the software itself, e.g., a software paper describing the abstract concepts of the software, a paper describing an algorithm that has been implemented in the software version, etc.</p>
+
+<p>A reference item, i.e., an item in the list under <code class="highlighter-rouge">references</code>, must at least
+specify values for the following mandatory keys: <code class="highlighter-rouge">type</code>, <code class="highlighter-rouge">authors</code>, <code class="highlighter-rouge">title</code>.</p>
+
+<p><code class="highlighter-rouge">type</code> must specify the type of the referenced work. For a list of available 
+values, cf. <a href="#reference-types">reference types</a>.</p>
+
+<p><code class="highlighter-rouge">authors</code> must specify a list of <a href="#person-objects">person objects</a>.</p>
+
+<p><code class="highlighter-rouge">title</code> must specify the title of the referenced work.</p>
+
+<p>Example:</p>
+
+<figure class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="na">cff-version</span><span class="pi">:</span> <span class="s">1.0.0</span>
+<span class="na">message</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Please</span><span class="nv"> </span><span class="s">cite</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">following</span><span class="nv"> </span><span class="s">works</span><span class="nv"> </span><span class="s">when</span><span class="nv"> </span><span class="s">using</span><span class="nv"> </span><span class="s">this</span><span class="nv"> </span><span class="s">software."</span>
+<span class="nn">...</span>
+<span class="na">references</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="na">type</span><span class="pi">:</span> <span class="s">book</span>
+    <span class="na">authors</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">...</span>
+    <span class="na">title</span><span class="pi">:</span> <span class="s">The science of citation</span>
+  <span class="pi">-</span> <span class="na">type</span><span class="pi">:</span> <span class="s">software</span>
+    <span class="na">authors</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">...</span>
+    <span class="na">title</span><span class="pi">:</span> <span class="s">Software Citation Tool</span></code></pre></figure>
+
+<p>Additionally, it can contain any further <a href="#reference-keys">reference keys</a>. In version 
+1.0.1, 
+CFF does not specify a strict schema where specific <a href="#reference-types">reference
+types</a> can only contain specific <a href="#reference-keys">reference keys</a>, although this may be
+implemented in future versions.</p>
+
 <h2 id="reference-keys">Reference keys</h2>
 
-<p>CFF defines the following reference keys.</p>
+<p>CFF-Core defines the following reference keys.</p>
 
 <table>
   <thead>
@@ -811,7 +940,7 @@ general. These include:</p>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">patent-states</code></td>
-      <td>String</td>
+      <td>Collection of strings</td>
       <td>The states for which a patent is granted</td>
     </tr>
     <tr>
@@ -856,7 +985,7 @@ general. These include:</p>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">senders</code></td>
-      <td>Collection of <em><a href="#person-objects">person objects</a></em></td>
+      <td>Collection of <em><a href="#entity-objects">entity</a></em> or <em><a href="#person-objects">person objects</a></em></td>
       <td>The sender of a personal communication</td>
     </tr>
     <tr>
@@ -922,28 +1051,121 @@ general. These include:</p>
   </tbody>
 </table>
 
-<p class="text-right">Table: Complete list of CFF keys.</p>
+<p class="text-right">Table: Complete list of CFF-Core reference keys.</p>
+
+<h3 id="notable-reference-keys">Notable reference keys</h3>
+
+<p><strong><code class="highlighter-rouge">conference</code></strong>, <strong><code class="highlighter-rouge">database‑provider</code></strong>, <strong><code class="highlighter-rouge">institution</code></strong>, <strong><code class="highlighter-rouge">publisher</code></strong></p>
+
+<p>These keys take an <a href="#entity-objects">entity object</a> as value. Entity objects
+reference named entities and provide a fixed set of keys, such as <code class="highlighter-rouge">name</code> and
+contact information.</p>
+
+<p>Example:</p>
+
+<figure class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="na">references</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="na">type</span><span class="pi">:</span> <span class="s">book</span>
+    <span class="na">publisher</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">PeerJ</span>
+        <span class="na">city</span><span class="pi">:</span> <span class="s">London</span>
+        <span class="na">country</span><span class="pi">:</span> <span class="s">GB</span>
+        <span class="na">website</span><span class="pi">:</span> <span class="s">https://peerj.com/</span></code></pre></figure>
+
+<p><strong><code class="highlighter-rouge">authors</code></strong>, <strong><code class="highlighter-rouge">contact</code></strong>, <strong><code class="highlighter-rouge">editors</code></strong>, <strong><code class="highlighter-rouge">editors-series</code></strong>, <strong><code class="highlighter-rouge">recipients</code></strong>,
+<strong><code class="highlighter-rouge">senders</code></strong>, <strong><code class="highlighter-rouge">translators</code></strong></p>
+
+<p>These keys take a collection of entity objects or 
+<a href="#person-objects">person objects</a> as value. Person objects
+provide a fixed set of keys to reference individuals, including a detailed
+set for specifiying personal names, an affiliation, etc.</p>
+
+<p>Example:</p>
+
+<figure class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="na">references</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="na">type</span><span class="pi">:</span> <span class="s">software</span>
+    <span class="na">authors</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="na">family-names</span><span class="pi">:</span> <span class="s">Druskat</span>
+        <span class="na">given-names</span><span class="pi">:</span> <span class="s">Stephan</span>
+        <span class="na">orcid</span><span class="pi">:</span> <span class="s">0000-0003-4925-7248</span>
+        <span class="na">affiliation</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Humboldt-Universität</span><span class="nv"> </span><span class="s">zu</span><span class="nv"> </span><span class="s">Berlin"</span>
+        <span class="na">email</span><span class="pi">:</span> <span class="s2">"</span><span class="s">mail@sdruskat.net"</span>
+        <span class="na">website</span><span class="pi">:</span> <span class="s">http://sdruskat.net</span>
+      <span class="pi">-</span> <span class="na">family-names</span><span class="pi">:</span> <span class="s">Beethoven</span>
+        <span class="na">name-particle</span><span class="pi">:</span> <span class="s">van</span>
+        <span class="na">given-names</span><span class="pi">:</span> <span class="s">Ludwig</span>
+      <span class="pi">-</span> <span class="na">family-names</span><span class="pi">:</span> <span class="s">Fernández de Córdoba</span>
+        <span class="na">given-names</span><span class="pi">:</span> <span class="s">Gonzalo</span>
+        <span class="na">name-suffix</span><span class="pi">:</span> <span class="s">Jr.</span>
+    <span class="s">...</span></code></pre></figure>
+
+<p><strong><code class="highlighter-rouge">type</code></strong>, <strong><code class="highlighter-rouge">languages</code></strong>, <strong><code class="highlighter-rouge">status</code></strong></p>
+
+<p>These keys only take values from a defined set, cf. the respective sections:</p>
+
+<ul>
+  <li><a href="#reference-types">Reference types</a></li>
+  <li><a href="#language-strings">Language strings</a></li>
+  <li><a href="#status-strings">Status strings</a></li>
+</ul>
+
+<p><strong><code class="highlighter-rouge">license‑url</code></strong>, <strong><code class="highlighter-rouge">repository</code></strong>, <strong><code class="highlighter-rouge">repository-code</code></strong>, <strong><code class="highlighter-rouge">repository-artifact</code></strong>,
+<strong><code class="highlighter-rouge">url</code></strong></p>
+
+<p>These keys take URL strings as values. URLs will be validated by a regular
+expression, such as the one provided in a <a href="https://gist.github.com/dperini/729294">GitHub Gist by Diego Perini</a>.</p>
+
+<p><strong><code class="highlighter-rouge">keywords</code></strong></p>
+
+<p>This key takes a collection of strings.</p>
+
+<p>Example:</p>
+
+<figure class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="na">references</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="na">type</span><span class="pi">:</span> <span class="s">software</span>
+    <span class="na">keywords</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">linguistics</span>
+      <span class="pi">-</span> <span class="s2">"</span><span class="s">multi-layer</span><span class="nv"> </span><span class="s">annotation"</span>
+      <span class="pi">-</span> <span class="s">web service</span>
+    <span class="s">...</span></code></pre></figure>
+
+<p><strong><code class="highlighter-rouge">scope</code></strong></p>
+
+<p>A reference item can specify a more detailed scope for the reference, via the 
+reference key <code class="highlighter-rouge">scope</code>. This key can be useful if certain references should only
+be cited under specific circumstances, e.g., only when a specific package
+of the software is used. In such a case, the package would ideally have its own
+CFF file, but if this is not possible for whatever reason, the <code class="highlighter-rouge">scope</code> key
+may come in handy.</p>
+
+<p>For a discussion of this key, cf. <a href="https://github.com/citation-file-format/citation-file-format/issues/15">issue citation-file-format/citation-file-format#15</a>.</p>
+
+<p>Example:</p>
+
+<figure class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="na">references</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="na">scope</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Cite</span><span class="nv"> </span><span class="s">this</span><span class="nv"> </span><span class="s">paper</span><span class="nv"> </span><span class="s">when</span><span class="nv"> </span><span class="s">you</span><span class="nv"> </span><span class="s">run</span><span class="nv"> </span><span class="s">software</span><span class="nv"> </span><span class="s">X</span><span class="nv"> </span><span class="s">with</span><span class="nv"> </span><span class="s">flag</span><span class="nv"> </span><span class="s">--xy"</span>
+    <span class="na">type</span><span class="pi">:</span> <span class="s">article</span>
+    <span class="s">...</span></code></pre></figure>
 
 <h3 id="exemplary-uses">Exemplary uses</h3>
 
 <p>This section details exemplary use cases for some of the keys to avoid
 ambiguity/misuse.</p>
 
-<p><strong>abstract</strong></p>
+<p><strong><code class="highlighter-rouge">abstract</code></strong></p>
 
 <ul>
   <li>If the work is a journal paper or other academic work: The abstract of the work.</li>
   <li>If the work is a film, broadcast or similar: The synopsis of the work.</li>
 </ul>
 
-<p><strong>department</strong></p>
+<p><strong><code class="highlighter-rouge">department</code></strong></p>
 
 <ul>
   <li>If the work is a thesis: The academic department where the thesis has been produced.</li>
   <li>If the work is a government document: The governmental department which has issued the document.</li>
 </ul>
 
-<p><strong>format</strong></p>
+<p><strong><code class="highlighter-rouge">format</code></strong></p>
 
 <ul>
   <li>If the work is a music file: The digital format in which a musical piece is saved, e.g., MP3.</li>
@@ -951,7 +1173,7 @@ ambiguity/misuse.</p>
   <li>If the work is a painting: The format of the painting, e.g., the width and height of the canvas.</li>
 </ul>
 
-<p><strong>institution</strong></p>
+<p><strong><code class="highlighter-rouge">institution</code></strong></p>
 
 <ul>
   <li>If the work is a report: The institution where the report has been produced.</li>
@@ -964,20 +1186,20 @@ ambiguity/misuse.</p>
   <li>If the work is a conference: The organisation which held the conference.</li>
 </ul>
 
-<p><strong>languages</strong></p>
+<p><strong><code class="highlighter-rouge">languages</code></strong></p>
 
 <ul>
   <li>If the work is a book: The language in which the book is written.</li>
 </ul>
 
-<p><strong>location</strong></p>
+<p><strong><code class="highlighter-rouge">location</code></strong></p>
 
 <ul>
   <li>If the work is an artwork: E.g., the museum holding the work.</li>
   <li>If the work is a historical work, illuminated manuscript or similar: The library or archive where the work is held.</li>
 </ul>
 
-<p><strong>medium</strong></p>
+<p><strong><code class="highlighter-rouge">medium</code></strong></p>
 
 <ul>
   <li>If the work is an artwork: The medium of the artwork, e.g., “photograph”, 
@@ -985,14 +1207,14 @@ ambiguity/misuse.</p>
   <li>If the work is a book or similar: Whether it is a printed book or an ebook.</li>
 </ul>
 
-<p><strong>month</strong></p>
+<p><strong><code class="highlighter-rouge">month</code></strong></p>
 
 <ul>
   <li>If the work is a conference: The month in which the conference has been held.</li>
   <li>If the work is a magazine article: The month in which the magazine issue containing the article has been published.</li>
 </ul>
 
-<p><strong>number</strong></p>
+<p><strong><code class="highlighter-rouge">number</code></strong></p>
 
 <ul>
   <li>If the work is a conference paper: E.g., the submission number of the paper</li>
@@ -1003,19 +1225,19 @@ ambiguity/misuse.</p>
   <li>If the work is a historical work, illuminated manuscript or similar: The codex or folio number of a manuscript, or the library identifier for a manuscript.</li>
 </ul>
 
-<p><strong>term</strong></p>
+<p><strong><code class="highlighter-rouge">term</code></strong></p>
 
 <ul>
   <li>If the work is a dictionary or encyclopedia: The term in the dictionary or encyclopedia that is being referenced.</li>
 </ul>
 
-<p><strong>title</strong></p>
+<p><strong><code class="highlighter-rouge">title</code></strong></p>
 
 <ul>
   <li>If the work is a case: The name of the case (e.g., Name v. Name).</li>
 </ul>
 
-<p><strong>version</strong></p>
+<p><strong><code class="highlighter-rouge">version</code></strong></p>
 
 <ul>
   <li>If the work is a software: The version of the referenced software.</li>
@@ -1032,191 +1254,191 @@ ambiguity/misuse.</p>
   </thead>
   <tbody>
     <tr>
-      <td><strong>art</strong></td>
+      <td><strong><code class="highlighter-rouge">art</code></strong></td>
       <td>A work of art, e.g., a painting</td>
     </tr>
     <tr>
-      <td><strong>article</strong></td>
+      <td><strong><code class="highlighter-rouge">article</code></strong></td>
       <td> </td>
     </tr>
     <tr>
-      <td><strong>audiovisual</strong></td>
+      <td><strong><code class="highlighter-rouge">audiovisual</code></strong></td>
       <td> </td>
     </tr>
     <tr>
-      <td><strong>bill</strong></td>
+      <td><strong><code class="highlighter-rouge">bill</code></strong></td>
       <td>A legal bill</td>
     </tr>
     <tr>
-      <td><strong>blog</strong></td>
+      <td><strong><code class="highlighter-rouge">blog</code></strong></td>
       <td>A blog post</td>
     </tr>
     <tr>
-      <td><strong>book</strong></td>
+      <td><strong><code class="highlighter-rouge">book</code></strong></td>
       <td>A book or e-book</td>
     </tr>
     <tr>
-      <td><strong>catalogue</strong></td>
+      <td><strong><code class="highlighter-rouge">catalogue</code></strong></td>
       <td> </td>
     </tr>
     <tr>
-      <td><strong>conference</strong></td>
+      <td><strong><code class="highlighter-rouge">conference</code></strong></td>
       <td> </td>
     </tr>
     <tr>
-      <td><strong>conference-paper</strong></td>
+      <td><strong><code class="highlighter-rouge">conference-paper</code></strong></td>
       <td> </td>
     </tr>
     <tr>
-      <td><strong>data</strong></td>
+      <td><strong><code class="highlighter-rouge">data</code></strong></td>
       <td>A data set</td>
     </tr>
     <tr>
-      <td><strong>database</strong></td>
+      <td><strong><code class="highlighter-rouge">database</code></strong></td>
       <td>An aggregated or online database</td>
     </tr>
     <tr>
-      <td><strong>dictionary</strong></td>
+      <td><strong><code class="highlighter-rouge">dictionary</code></strong></td>
       <td> </td>
     </tr>
     <tr>
-      <td><strong>edited-work</strong></td>
+      <td><strong><code class="highlighter-rouge">edited-work</code></strong></td>
       <td>An edited work, e.g., a book</td>
     </tr>
     <tr>
-      <td><strong>encyclopedia</strong></td>
+      <td><strong><code class="highlighter-rouge">encyclopedia</code></strong></td>
       <td> </td>
     </tr>
     <tr>
-      <td><strong>film-broadcast</strong></td>
+      <td><strong><code class="highlighter-rouge">film-broadcast</code></strong></td>
       <td>A film or broadcast</td>
     </tr>
     <tr>
-      <td><strong>generic</strong></td>
+      <td><strong><code class="highlighter-rouge">generic</code></strong></td>
       <td>The fallback type</td>
     </tr>
     <tr>
-      <td><strong>government-document</strong></td>
+      <td><strong><code class="highlighter-rouge">government-document</code></strong></td>
       <td> </td>
     </tr>
     <tr>
-      <td><strong>grant</strong></td>
+      <td><strong><code class="highlighter-rouge">grant</code></strong></td>
       <td>A research or other grant</td>
     </tr>
     <tr>
-      <td><strong>hearing</strong></td>
+      <td><strong><code class="highlighter-rouge">hearing</code></strong></td>
       <td> </td>
     </tr>
     <tr>
-      <td><strong>historical-work</strong></td>
+      <td><strong><code class="highlighter-rouge">historical-work</code></strong></td>
       <td>A historical work, e.g., a medieval manuscript</td>
     </tr>
     <tr>
-      <td><strong>legal-case</strong></td>
+      <td><strong><code class="highlighter-rouge">legal-case</code></strong></td>
       <td> </td>
     </tr>
     <tr>
-      <td><strong>legal-rule</strong></td>
+      <td><strong><code class="highlighter-rouge">legal-rule</code></strong></td>
       <td> </td>
     </tr>
     <tr>
-      <td><strong>magazine-article</strong></td>
+      <td><strong><code class="highlighter-rouge">magazine-article</code></strong></td>
       <td> </td>
     </tr>
     <tr>
-      <td><strong>manual</strong></td>
+      <td><strong><code class="highlighter-rouge">manual</code></strong></td>
       <td>A manual</td>
     </tr>
     <tr>
-      <td><strong>map</strong></td>
+      <td><strong><code class="highlighter-rouge">map</code></strong></td>
       <td>A geographical map</td>
     </tr>
     <tr>
-      <td><strong>multimedia</strong></td>
+      <td><strong><code class="highlighter-rouge">multimedia</code></strong></td>
       <td>A multimedia file</td>
     </tr>
     <tr>
-      <td><strong>music</strong></td>
+      <td><strong><code class="highlighter-rouge">music</code></strong></td>
       <td>A music file or sheet music</td>
     </tr>
     <tr>
-      <td><strong>newspaper-article</strong></td>
+      <td><strong><code class="highlighter-rouge">newspaper-article</code></strong></td>
       <td> </td>
     </tr>
     <tr>
-      <td><strong>pamphlet</strong></td>
+      <td><strong><code class="highlighter-rouge">pamphlet</code></strong></td>
       <td> </td>
     </tr>
     <tr>
-      <td><strong>patent</strong></td>
+      <td><strong><code class="highlighter-rouge">patent</code></strong></td>
       <td> </td>
     </tr>
     <tr>
-      <td><strong>personal-communication</strong></td>
+      <td><strong><code class="highlighter-rouge">personal-communication</code></strong></td>
       <td> </td>
     </tr>
     <tr>
-      <td><strong>proceedings</strong></td>
+      <td><strong><code class="highlighter-rouge">proceedings</code></strong></td>
       <td>Conference proceedings</td>
     </tr>
     <tr>
-      <td><strong>report</strong></td>
+      <td><strong><code class="highlighter-rouge">report</code></strong></td>
       <td> </td>
     </tr>
     <tr>
-      <td><strong>serial</strong></td>
+      <td><strong><code class="highlighter-rouge">serial</code></strong></td>
       <td> </td>
     </tr>
     <tr>
-      <td><strong>slides</strong></td>
+      <td><strong><code class="highlighter-rouge">slides</code></strong></td>
       <td>Slides, i.e., a published slide deck</td>
     </tr>
     <tr>
-      <td><strong>software</strong></td>
+      <td><strong><code class="highlighter-rouge">software</code></strong></td>
       <td>Software</td>
     </tr>
     <tr>
-      <td><strong>software-code</strong></td>
+      <td><strong><code class="highlighter-rouge">software-code</code></strong></td>
       <td>Software source code</td>
     </tr>
     <tr>
-      <td><strong>software-container</strong></td>
+      <td><strong><code class="highlighter-rouge">software-container</code></strong></td>
       <td>A software container (e.g., a docker container)</td>
     </tr>
     <tr>
-      <td><strong>software-executable</strong></td>
+      <td><strong><code class="highlighter-rouge">software-executable</code></strong></td>
       <td>An executable software, i.e., a binary/artifact</td>
     </tr>
     <tr>
-      <td><strong>software-virtual-machine</strong></td>
+      <td><strong><code class="highlighter-rouge">software-virtual-machine</code></strong></td>
       <td>A virtual machine/vm image</td>
     </tr>
     <tr>
-      <td><strong>sound-recording</strong></td>
+      <td><strong><code class="highlighter-rouge">sound-recording</code></strong></td>
       <td> </td>
     </tr>
     <tr>
-      <td><strong>standard</strong></td>
+      <td><strong><code class="highlighter-rouge">standard</code></strong></td>
       <td> </td>
     </tr>
     <tr>
-      <td><strong>statute</strong></td>
+      <td><strong><code class="highlighter-rouge">statute</code></strong></td>
       <td> </td>
     </tr>
     <tr>
-      <td><strong>thesis</strong></td>
+      <td><strong><code class="highlighter-rouge">thesis</code></strong></td>
       <td>An academic thesis</td>
     </tr>
     <tr>
-      <td><strong>unpublished</strong></td>
+      <td><strong><code class="highlighter-rouge">unpublished</code></strong></td>
       <td> </td>
     </tr>
     <tr>
-      <td><strong>video</strong></td>
+      <td><strong><code class="highlighter-rouge">video</code></strong></td>
       <td>A video recording</td>
     </tr>
     <tr>
-      <td><strong>website</strong></td>
+      <td><strong><code class="highlighter-rouge">website</code></strong></td>
       <td> </td>
     </tr>
   </tbody>
@@ -1249,67 +1471,67 @@ a defined set of keys. Only the key <code class="highlighter-rouge">name</code> 
     <tr>
       <td><code class="highlighter-rouge">address</code></td>
       <td>String</td>
-      <td style="text-align: center">•</td>
+      <td style="text-align: center">●</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">city</code></td>
       <td>String</td>
-      <td style="text-align: center">•</td>
+      <td style="text-align: center">●</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">region</code></td>
       <td>String</td>
-      <td style="text-align: center">•</td>
+      <td style="text-align: center">●</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">post-code</code></td>
       <td>String</td>
-      <td style="text-align: center">•</td>
+      <td style="text-align: center">●</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">country</code></td>
       <td>String</td>
-      <td style="text-align: center">•</td>
+      <td style="text-align: center">●</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">orcid</code></td>
       <td>String</td>
-      <td style="text-align: center">•</td>
+      <td style="text-align: center">●</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">email</code></td>
       <td>String</td>
-      <td style="text-align: center">•</td>
+      <td style="text-align: center">●</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">tel</code></td>
       <td>String</td>
-      <td style="text-align: center">•</td>
+      <td style="text-align: center">●</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">fax</code></td>
       <td>String</td>
-      <td style="text-align: center">•</td>
+      <td style="text-align: center">●</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">website</code></td>
       <td>String (<em>URL</em>)</td>
-      <td style="text-align: center">•</td>
+      <td style="text-align: center">●</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">date-start</code></td>
       <td>Date</td>
-      <td style="text-align: center">•</td>
+      <td style="text-align: center">●</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">date-end</code></td>
       <td>Date</td>
-      <td style="text-align: center">•</td>
+      <td style="text-align: center">●</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">location</code></td>
       <td>String</td>
-      <td style="text-align: center">•</td>
+      <td style="text-align: center">●</td>
     </tr>
   </tbody>
 </table>
@@ -1318,25 +1540,25 @@ a defined set of keys. Only the key <code class="highlighter-rouge">name</code> 
 
 <h3 id="exemplary-uses-1">Exemplary uses</h3>
 
-<p><strong>address</strong></p>
+<p><strong><code class="highlighter-rouge">address</code></strong></p>
 
 <ul>
   <li>To be used for street names and house numbers, etc.</li>
 </ul>
 
-<p><strong>region</strong></p>
+<p><strong><code class="highlighter-rouge">region</code></strong></p>
 
 <ul>
   <li>To be used for, e.g., states (as in US states or German federal states).</li>
 </ul>
 
-<p><strong>post-code</strong></p>
+<p><strong><code class="highlighter-rouge">post-code</code></strong></p>
 
 <ul>
   <li>The post code or zip code of an address.</li>
 </ul>
 
-<p><strong>country</strong></p>
+<p><strong><code class="highlighter-rouge">country</code></strong></p>
 
 <ul>
   <li>The ISO 3166-1 alpha-2 country code for a country. A list of ISO 3166-1 
@@ -1353,7 +1575,7 @@ alpha-2 codes can be found at
         <span class="na">city</span><span class="pi">:</span> <span class="s">London</span>
         <span class="na">country</span><span class="pi">:</span> <span class="s">GB</span></code></pre></figure>
 
-<p><strong>date-start</strong> and <strong>date-end</strong></p>
+<p><strong><code class="highlighter-rouge">date-start</code></strong> and <strong><code class="highlighter-rouge">date-end</code></strong></p>
 
 <ul>
   <li>The start and end date of, e.g., a conference. This must be formatted 
@@ -1377,79 +1599,79 @@ collections with a defined set of keys, of which only <code class="highlighter-r
   </thead>
   <tbody>
     <tr>
-      <td>family-names</td>
+      <td><code class="highlighter-rouge">family-names</code></td>
       <td>String</td>
       <td style="text-align: center"> </td>
     </tr>
     <tr>
-      <td>given-names</td>
+      <td><code class="highlighter-rouge">given-names</code></td>
       <td>String</td>
       <td style="text-align: center"> </td>
     </tr>
     <tr>
-      <td>name-particle</td>
+      <td><code class="highlighter-rouge">name-particle</code></td>
       <td>String</td>
-      <td style="text-align: center">•</td>
+      <td style="text-align: center">●</td>
     </tr>
     <tr>
-      <td>name-suffix</td>
+      <td><code class="highlighter-rouge">name-suffix</code></td>
       <td>String</td>
-      <td style="text-align: center">•</td>
+      <td style="text-align: center">●</td>
     </tr>
     <tr>
-      <td>affiliation</td>
+      <td><code class="highlighter-rouge">affiliation</code></td>
       <td>String</td>
-      <td style="text-align: center">•</td>
+      <td style="text-align: center">●</td>
     </tr>
     <tr>
-      <td>address</td>
+      <td><code class="highlighter-rouge">address</code></td>
       <td>String</td>
-      <td style="text-align: center">•</td>
+      <td style="text-align: center">●</td>
     </tr>
     <tr>
-      <td>city</td>
+      <td><code class="highlighter-rouge">city</code></td>
       <td>String</td>
-      <td style="text-align: center">•</td>
+      <td style="text-align: center">●</td>
     </tr>
     <tr>
-      <td>region</td>
+      <td><code class="highlighter-rouge">region</code></td>
       <td>String</td>
-      <td style="text-align: center">•</td>
+      <td style="text-align: center">●</td>
     </tr>
     <tr>
-      <td>post-code</td>
+      <td><code class="highlighter-rouge">post-code</code></td>
       <td>String</td>
-      <td style="text-align: center">•</td>
+      <td style="text-align: center">●</td>
     </tr>
     <tr>
-      <td>country</td>
+      <td><code class="highlighter-rouge">country</code></td>
       <td>String</td>
-      <td style="text-align: center">•</td>
+      <td style="text-align: center">●</td>
     </tr>
     <tr>
-      <td>orcid</td>
+      <td><code class="highlighter-rouge">orcid</code></td>
       <td>String</td>
-      <td style="text-align: center">•</td>
+      <td style="text-align: center">●</td>
     </tr>
     <tr>
-      <td>email</td>
+      <td><code class="highlighter-rouge">email</code></td>
       <td>String</td>
-      <td style="text-align: center">•</td>
+      <td style="text-align: center">●</td>
     </tr>
     <tr>
-      <td>tel</td>
+      <td><code class="highlighter-rouge">tel</code></td>
       <td>String</td>
-      <td style="text-align: center">•</td>
+      <td style="text-align: center">●</td>
     </tr>
     <tr>
-      <td>fax</td>
+      <td><code class="highlighter-rouge">fax</code></td>
       <td>String</td>
-      <td style="text-align: center">•</td>
+      <td style="text-align: center">●</td>
     </tr>
     <tr>
-      <td>website</td>
+      <td><code class="highlighter-rouge">website</code></td>
       <td>String (<em>URL</em>)</td>
-      <td style="text-align: center">•</td>
+      <td style="text-align: center">●</td>
     </tr>
   </tbody>
 </table>
@@ -1488,7 +1710,7 @@ alternative is highly localized customization, which would be counterintuitive
 as to CFF’s goal to be easily accessible. Thus, it is ultimately the task of CFF 
 file authors to find the optimal name split in any given case.</p>
 
-<p><strong>affiliation</strong></p>
+<p><strong><code class="highlighter-rouge">affiliation</code></strong></p>
 
 <ul>
   <li>To specify the affiliation of a person, e.g., a university, research centre, etc.</li>
@@ -1500,7 +1722,7 @@ file authors to find the optimal name split in any given case.</p>
   <li>Cf. <a href="#entity-objects">Entity objects</a> for details.</li>
 </ul>
 
-<p><strong>orcid</strong></p>
+<p><strong><code class="highlighter-rouge">orcid</code></strong></p>
 
 <ul>
   <li>To specify an <a href="https://orcid.org/">ORCID</a> identifier in the format
@@ -1604,7 +1826,7 @@ can be validated.</p>
 
 <h2 id="software-examples">Software examples</h2>
 
-<p>One of the main foci of CFF is to comprehensively cover the provision of 
+<p>The main focus of CFF-Core is to comprehensively cover the provision of 
 citation metadata for software. To this end, it should always be used based on
 the Software Citation Principles <a href="#principles">(Smith et al., 2016)</a>! Please make sure you
 follow the best practices wherever possible. Two typical scenarios for
@@ -1982,7 +2204,7 @@ SA-4.0</a> license. The full
 license text can be obtained from the URL
 <a href="https://creativecommons.org/licenses/by-sa/4.0/legalcode">https://creativecommons.org/licenses/by-sa/4.0/legalcode</a>.</p>
 
-<h1 id="references">References</h1>
+<h1 id="references-1">References</h1>
 
 <ol class="bibliography"><li><p><span id="standardized-citation-files">Druskat, Stephan. (2017). Track 2 Lightning Talk: Should CITATION files be standardized? In N. Chue Hong, S. Druskat, R. Haines, C. Jay, D. S. Katz, &amp; S. Sufi (Eds.), <i>Proceedings of the Workshop on Sustainable Software for Science: Practice and Experiences (WSSSPE5.1)</i>. figshare. <a href="https://doi.org/10.6084/m9.figshare.3827058">https://doi.org/10.6084/m9.figshare.3827058</a>.</span></p>
  
