@@ -284,6 +284,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <p><a href="/assets/pdf/cff-specifications-1.0.1.pdf" class="btn btn--primary btn--large"><strong>Download PDF</strong></a></p>
 
+<p class="notice--danger"><em>Known bugs:</em> <a href="https://github.com/citation-file-format/citation-file-format/issues/41">citation-file-format#41</a></p>
+
 <h1 id="introduction">Introduction</h1>
 
 <h2 id="status-of-this-document">Status of this document</h2>
@@ -482,7 +484,7 @@ i.e., metadata that can be picked up in a CodeMeta JSON file;</li>
 <p><code class="highlighter-rouge">cff-version</code> must specify the exact version of the
 Citation File Format that is used for the file.</p>
 
-<figure class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="na">cff-version</span><span class="pi">:</span> <span class="s">1.0.0</span></code></pre></figure>
+<figure class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="na">cff-version</span><span class="pi">:</span> <span class="s">1.0.1</span></code></pre></figure>
 
 <h3 id="message"><code class="highlighter-rouge">message</code></h3>
 
@@ -690,7 +692,7 @@ values, cf. <a href="#reference-types">reference types</a>.</p>
 
 <p>Example:</p>
 
-<figure class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="na">cff-version</span><span class="pi">:</span> <span class="s">1.0.0</span>
+<figure class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="na">cff-version</span><span class="pi">:</span> <span class="s">1.0.1</span>
 <span class="na">message</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Please</span><span class="nv"> </span><span class="s">cite</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">following</span><span class="nv"> </span><span class="s">works</span><span class="nv"> </span><span class="s">when</span><span class="nv"> </span><span class="s">using</span><span class="nv"> </span><span class="s">this</span><span class="nv"> </span><span class="s">software."</span>
 <span class="nn">...</span>
 <span class="na">references</span><span class="pi">:</span>
@@ -1875,7 +1877,7 @@ repository, or executable.</p>
 <p>Therefore, a minimal <code class="highlighter-rouge">CITATION.cff</code> file in such a case would look similar to
 the following.</p>
 
-<figure class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="na">cff-version</span><span class="pi">:</span> <span class="s">1.0.0</span>
+<figure class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="na">cff-version</span><span class="pi">:</span> <span class="s">1.0.1</span>
 <span class="na">message</span><span class="pi">:</span> <span class="s">If you use this software, please cite it as below.</span>
 <span class="na">references</span><span class="pi">:</span>
   <span class="pi">-</span> <span class="na">type</span><span class="pi">:</span> <span class="s">software</span>
@@ -1889,7 +1891,7 @@ the following.</p>
 
 <p>A more comprehensive version could look similar to the following.</p>
 
-<figure class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="na">cff-version</span><span class="pi">:</span> <span class="s">1.0.0</span>
+<figure class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="na">cff-version</span><span class="pi">:</span> <span class="s">1.0.1</span>
 <span class="na">message</span><span class="pi">:</span> <span class="s">If you use this software, please cite it as below.</span>
 <span class="na">references</span><span class="pi">:</span>
   <span class="pi">-</span> <span class="na">type</span><span class="pi">:</span> <span class="s">software</span>
@@ -1930,7 +1932,7 @@ contact name/email is an alternative to the location/repository.”
 and release date cannot be determined, a <code class="highlighter-rouge">CITATION.cff</code> file could look like
 this.</p>
 
-<figure class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="na">cff-version</span><span class="pi">:</span> <span class="s">1.0.0</span>
+<figure class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="na">cff-version</span><span class="pi">:</span> <span class="s">1.0.1</span>
 <span class="na">message</span><span class="pi">:</span> <span class="s2">"</span><span class="s">If</span><span class="nv"> </span><span class="s">you</span><span class="nv"> </span><span class="s">dare</span><span class="nv"> </span><span class="s">to</span><span class="nv"> </span><span class="s">use</span><span class="nv"> </span><span class="s">this</span><span class="nv"> </span><span class="s">commercial,</span><span class="nv"> </span><span class="s">closed-source,</span><span class="nv"> </span><span class="s">unversioned</span><span class="nv"> </span><span class="s">software</span> 
 <span class="s">in</span><span class="nv"> </span><span class="s">your</span><span class="nv"> </span><span class="s">research,</span><span class="nv"> </span><span class="s">please</span><span class="nv"> </span><span class="s">at</span><span class="nv"> </span><span class="s">least</span><span class="nv"> </span><span class="s">cite</span><span class="nv"> </span><span class="s">it</span><span class="nv"> </span><span class="s">as</span><span class="nv"> </span><span class="s">below."</span>
 <span class="na">references</span><span class="pi">:</span>
@@ -1948,7 +1950,7 @@ this.</p>
 
 <h3 id="software-with-two-references"><code class="highlighter-rouge">software</code> (with two references)</h3>
 
-<figure class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="na">cff-version</span><span class="pi">:</span> <span class="s">1.0.0</span>
+<figure class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="na">cff-version</span><span class="pi">:</span> <span class="s">1.0.1</span>
 <span class="na">message</span><span class="pi">:</span> <span class="s2">"</span><span class="s">If</span><span class="nv"> </span><span class="s">you</span><span class="nv"> </span><span class="s">use</span><span class="nv"> </span><span class="s">My</span><span class="nv"> </span><span class="s">Research</span><span class="nv"> </span><span class="s">Tool,</span><span class="nv"> </span><span class="s">please</span><span class="nv"> </span><span class="s">cite</span><span class="nv"> </span><span class="s">both</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">software</span><span class="nv"> </span><span class="s">and</span><span class="nv"> </span><span class="s">the</span> 
 <span class="s">outline</span><span class="nv"> </span><span class="s">paper."</span>
 <span class="na">references</span><span class="pi">:</span>
@@ -1989,7 +1991,7 @@ falling back on a combination of the repository URL and version number/commit
 hash would be an appropriate way to cite the software used. <a href="#principles">(Smith et al., 2016, p. 12)</a></p>
 </blockquote>
 
-<figure class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="na">cff-version</span><span class="pi">:</span> <span class="s">1.0.0</span>
+<figure class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="na">cff-version</span><span class="pi">:</span> <span class="s">1.0.1</span>
 <span class="na">message</span><span class="pi">:</span> <span class="s2">"</span><span class="s">If</span><span class="nv"> </span><span class="s">you</span><span class="nv"> </span><span class="s">use</span><span class="nv"> </span><span class="s">this</span><span class="nv"> </span><span class="s">MRT</span><span class="nv"> </span><span class="s">alpha</span><span class="nv"> </span><span class="s">snapshot</span><span class="nv"> </span><span class="s">version,</span><span class="nv"> </span><span class="s">please</span><span class="nv"> </span><span class="s">cite."</span>
 <span class="na">references</span><span class="pi">:</span>
   <span class="pi">-</span> <span class="na">type</span><span class="pi">:</span> <span class="s">software-code</span>
@@ -2003,7 +2005,7 @@ hash would be an appropriate way to cite the software used. <a href="#principles
 
 <h3 id="software-container"><code class="highlighter-rouge">software-container</code></h3>
 
-<figure class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="na">cff-version</span><span class="pi">:</span> <span class="s">1.0.0</span>
+<figure class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="na">cff-version</span><span class="pi">:</span> <span class="s">1.0.1</span>
 <span class="na">message</span><span class="pi">:</span> <span class="s2">"</span><span class="s">If</span><span class="nv"> </span><span class="s">you</span><span class="nv"> </span><span class="s">use</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">MRT</span><span class="nv"> </span><span class="s">Docker</span><span class="nv"> </span><span class="s">container,</span><span class="nv"> </span><span class="s">please</span><span class="nv"> </span><span class="s">cite</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">following."</span>
 <span class="na">references</span><span class="pi">:</span>
   <span class="pi">-</span> <span class="na">type</span><span class="pi">:</span> <span class="s">software-container</span>
@@ -2019,7 +2021,7 @@ hash would be an appropriate way to cite the software used. <a href="#principles
 
 <h3 id="software-executable"><code class="highlighter-rouge">software-executable</code></h3>
 
-<figure class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="na">cff-version</span><span class="pi">:</span> <span class="s">1.0.0</span>
+<figure class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="na">cff-version</span><span class="pi">:</span> <span class="s">1.0.1</span>
 <span class="na">message</span><span class="pi">:</span> <span class="s2">"</span><span class="s">If</span><span class="nv"> </span><span class="s">you</span><span class="nv"> </span><span class="s">use</span><span class="nv"> </span><span class="s">MRT,</span><span class="nv"> </span><span class="s">please</span><span class="nv"> </span><span class="s">cite</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">following."</span>
 <span class="na">references</span><span class="pi">:</span>
   <span class="pi">-</span> <span class="na">type</span><span class="pi">:</span> <span class="s">software-executable</span>
@@ -2036,7 +2038,7 @@ hash would be an appropriate way to cite the software used. <a href="#principles
 
 <h3 id="art"><code class="highlighter-rouge">art</code></h3>
 
-<figure class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="na">cff-version</span><span class="pi">:</span> <span class="s">1.0.0</span>
+<figure class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="na">cff-version</span><span class="pi">:</span> <span class="s">1.0.1</span>
 <span class="na">message</span><span class="pi">:</span> <span class="s2">"</span><span class="s">If</span><span class="nv"> </span><span class="s">you</span><span class="nv"> </span><span class="s">use</span><span class="nv"> </span><span class="s">this</span><span class="nv"> </span><span class="s">software,</span><span class="nv"> </span><span class="s">please</span><span class="nv"> </span><span class="s">cite</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">following."</span>
 <span class="na">references</span><span class="pi">:</span>
   <span class="pi">-</span> <span class="na">type</span><span class="pi">:</span> <span class="s">art</span>
@@ -2054,7 +2056,7 @@ hash would be an appropriate way to cite the software used. <a href="#principles
 
 <h3 id="article"><code class="highlighter-rouge">article</code></h3>
 
-<figure class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="na">cff-version</span><span class="pi">:</span> <span class="s">1.0.0</span>
+<figure class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="na">cff-version</span><span class="pi">:</span> <span class="s">1.0.1</span>
 <span class="na">message</span><span class="pi">:</span> <span class="s2">"</span><span class="s">If</span><span class="nv"> </span><span class="s">you</span><span class="nv"> </span><span class="s">use</span><span class="nv"> </span><span class="s">this</span><span class="nv"> </span><span class="s">software,</span><span class="nv"> </span><span class="s">please</span><span class="nv"> </span><span class="s">cite</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">following</span><span class="nv"> </span><span class="s">paper."</span>
 <span class="na">references</span><span class="pi">:</span>
   <span class="pi">-</span> <span class="na">type</span><span class="pi">:</span> <span class="s">article</span>
@@ -2082,7 +2084,7 @@ hash would be an appropriate way to cite the software used. <a href="#principles
 
 <h3 id="blog"><code class="highlighter-rouge">blog</code></h3>
 
-<figure class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="na">cff-version</span><span class="pi">:</span> <span class="s">1.0.0</span>
+<figure class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="na">cff-version</span><span class="pi">:</span> <span class="s">1.0.1</span>
 <span class="na">message</span><span class="pi">:</span> <span class="s2">"</span><span class="s">If</span><span class="nv"> </span><span class="s">you</span><span class="nv"> </span><span class="s">use</span><span class="nv"> </span><span class="s">MRT</span><span class="nv"> </span><span class="s">in</span><span class="nv"> </span><span class="s">your</span><span class="nv"> </span><span class="s">research,</span><span class="nv"> </span><span class="s">please</span><span class="nv"> </span><span class="s">cite</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">following</span><span class="nv"> </span><span class="s">blog</span><span class="nv"> </span><span class="s">article."</span>
 <span class="na">references</span><span class="pi">:</span>
   <span class="pi">-</span> <span class="na">type</span><span class="pi">:</span> <span class="s">blog</span>
@@ -2099,7 +2101,7 @@ hash would be an appropriate way to cite the software used. <a href="#principles
 
 <h3 id="book"><code class="highlighter-rouge">book</code></h3>
 
-<figure class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="na">cff-version</span><span class="pi">:</span> <span class="s">1.0.0</span>
+<figure class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="na">cff-version</span><span class="pi">:</span> <span class="s">1.0.1</span>
 <span class="na">message</span><span class="pi">:</span> <span class="s2">"</span><span class="s">If</span><span class="nv"> </span><span class="s">you</span><span class="nv"> </span><span class="s">use</span><span class="nv"> </span><span class="s">MRT</span><span class="nv"> </span><span class="s">for</span><span class="nv"> </span><span class="s">your</span><span class="nv"> </span><span class="s">research,</span><span class="nv"> </span><span class="s">please</span><span class="nv"> </span><span class="s">cite</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">following</span><span class="nv"> </span><span class="s">book."</span>
 <span class="na">references</span><span class="pi">:</span>
   <span class="pi">-</span> <span class="na">type</span><span class="pi">:</span> <span class="s">book</span>
@@ -2115,7 +2117,7 @@ hash would be an appropriate way to cite the software used. <a href="#principles
 
 <h3 id="conference-paper"><code class="highlighter-rouge">conference-paper</code></h3>
 
-<figure class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="na">cff-version</span><span class="pi">:</span> <span class="s">1.0.0</span>
+<figure class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="na">cff-version</span><span class="pi">:</span> <span class="s">1.0.1</span>
 <span class="na">message</span><span class="pi">:</span> <span class="s2">"</span><span class="s">If</span><span class="nv"> </span><span class="s">you</span><span class="nv"> </span><span class="s">use</span><span class="nv"> </span><span class="s">MRT</span><span class="nv"> </span><span class="s">for</span><span class="nv"> </span><span class="s">your</span><span class="nv"> </span><span class="s">research,</span><span class="nv"> </span><span class="s">please</span><span class="nv"> </span><span class="s">cite</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">following."</span>
 <span class="na">references</span><span class="pi">:</span>
   <span class="pi">-</span> <span class="na">type</span><span class="pi">:</span> <span class="s">conference-paper</span>
@@ -2149,7 +2151,7 @@ hash would be an appropriate way to cite the software used. <a href="#principles
 key. Specific citation styles may or may not attach a suffix to the authors,
 such as “, eds.” or similar.</p>
 
-<figure class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="na">cff-version</span><span class="pi">:</span> <span class="s">1.0.0</span>
+<figure class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="na">cff-version</span><span class="pi">:</span> <span class="s">1.0.1</span>
 <span class="na">message</span><span class="pi">:</span> <span class="s2">"</span><span class="s">If</span><span class="nv"> </span><span class="s">you</span><span class="nv"> </span><span class="s">use</span><span class="nv"> </span><span class="s">MRT,</span><span class="nv"> </span><span class="s">please</span><span class="nv"> </span><span class="s">cite</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">following."</span>
 <span class="na">references</span><span class="pi">:</span>
   <span class="pi">-</span> <span class="na">type</span><span class="pi">:</span> <span class="s">edited-work</span>
@@ -2165,7 +2167,7 @@ such as “, eds.” or similar.</p>
 
 <h3 id="report"><code class="highlighter-rouge">report</code></h3>
 
-<figure class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="na">cff-version</span><span class="pi">:</span> <span class="s">1.0.0</span>
+<figure class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="na">cff-version</span><span class="pi">:</span> <span class="s">1.0.1</span>
 <span class="na">message</span><span class="pi">:</span> <span class="s2">"</span><span class="s">If</span><span class="nv"> </span><span class="s">you</span><span class="nv"> </span><span class="s">use</span><span class="nv"> </span><span class="s">MRT</span><span class="nv"> </span><span class="s">in</span><span class="nv"> </span><span class="s">your</span><span class="nv"> </span><span class="s">research,</span><span class="nv"> </span><span class="s">please</span><span class="nv"> </span><span class="s">cite</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">following."</span>
 <span class="na">references</span><span class="pi">:</span>
   <span class="pi">-</span> <span class="na">type</span><span class="pi">:</span> <span class="s">report</span>
@@ -2178,7 +2180,7 @@ such as “, eds.” or similar.</p>
 
 <h3 id="thesis"><code class="highlighter-rouge">thesis</code></h3>
 
-<figure class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="na">cff-version</span><span class="pi">:</span> <span class="s">1.0.0</span>
+<figure class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="na">cff-version</span><span class="pi">:</span> <span class="s">1.0.1</span>
 <span class="na">message</span><span class="pi">:</span> <span class="s2">"</span><span class="s">If</span><span class="nv"> </span><span class="s">you</span><span class="nv"> </span><span class="s">use</span><span class="nv"> </span><span class="s">MRT</span><span class="nv"> </span><span class="s">in</span><span class="nv"> </span><span class="s">your</span><span class="nv"> </span><span class="s">research,</span><span class="nv"> </span><span class="s">please</span><span class="nv"> </span><span class="s">cite</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">following."</span>
 <span class="na">references</span><span class="pi">:</span>
   <span class="pi">-</span> <span class="na">type</span><span class="pi">:</span> <span class="s">thesis</span>
