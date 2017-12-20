@@ -464,9 +464,12 @@ general. These include:</p>
 
 <h2 id="file-structure">File structure</h2>
 
-<p>CFF <code class="highlighter-rouge">CITATION</code> files represent YAML 1.2 dictionaries (“maps”) with
-the following keys listed in the table below. These primary keys
-are used to specify</p>
+<p><code class="highlighter-rouge">CITATION.cff</code> files represent YAML 1.2 dictionaries (“maps”) with
+the keys listed in the table below. Note that the order of the keys is arbitrary,
+and that most YAML <a href="https://en.wikipedia.org/wiki/Lint_(software)">linter</a>s 
+will re-order the keys alphabetically.</p>
+
+<p>The primary keys are used to specify</p>
 
 <ul>
   <li>the version of CFF in use (<code class="highlighter-rouge">cff-version</code>);</li>
@@ -1623,7 +1626,8 @@ according to <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO 8601</a>, e.g.
 <blockquote>
   <p>The ORCID iD is expressed as an https URI, i.e. the 16-digit identifier is 
 preceded by “https://orcid.org/”. A hyphen is inserted every 4 digits of the 
-identifier to aid readability. (<a href="https://support.orcid.org/knowledgebase/articles/116780-structure-of-the-orcid-identifier">https://support.orcid.org/knowledgebase/articles/116780-structure-of-the-orcid-identifier</a>, 
+identifier to aid readability.<br />
+(<a href="https://support.orcid.org/knowledgebase/articles/116780-structure-of-the-orcid-identifier">https://support.orcid.org/knowledgebase/articles/116780-structure-of-the-orcid-identifier</a>, 
 section “Expressing the ORCID iD”)</p>
 </blockquote>
 
@@ -1995,6 +1999,7 @@ this.</p>
 <span class="na">date-released</span><span class="pi">:</span> <span class="s">2017-12-18</span>
 <span class="na">references</span><span class="pi">:</span>
   <span class="pi">-</span> <span class="na">type</span><span class="pi">:</span> <span class="s">article</span>
+    <span class="na">scope</span><span class="pi">:</span> <span class="s">Cite this paper if you want to reference the general concepts of MRT.</span>
     <span class="na">authors</span><span class="pi">:</span>
       <span class="pi">-</span> <span class="na">family-names</span><span class="pi">:</span> <span class="s">Doe</span>
         <span class="na">given-names</span><span class="pi">:</span> <span class="s">Jane</span>
