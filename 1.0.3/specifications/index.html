@@ -339,10 +339,10 @@ Sustainability Institute</a>.</p>
 
 <p>The rationale for a standardized, machine- and human-readable format for
 <code class="highlighter-rouge">CITATION</code> files is discussed in more detail in
-<a href="#standardized-citation-files">Druskat, (2017)</a>. 
+<a href="#standardized-citation-files">Druskat, (2017)</a>.
 CFF has been developed to support all citation-specific use cases for the
 citation of software, as discussed in
-<a href="#principles">Smith et al., (2016)</a>, 
+<a href="#principles">Smith et al., (2016)</a>,
 and thus promote attribution and credit for software in general, and research
 software in particular.</p>
 
@@ -364,7 +364,7 @@ support a fair distribution of credit for research software.</p>
 
 <h2 id="status-of-the-format">Status of the format</h2>
 
-<p>CFF-Core has been branched out to address 
+<p>CFF-Core has been branched out to address
 <a href="https://github.com/citation-file-format/citation-file-format/issues/23">issue citation-file-format/citation-file-format#23</a>.
 While an ideal format for software citation would arguably implement transitive
 credit <a href="#transitive-credit">(Katz, 2014)</a>, there is no concrete implementation yet
@@ -372,9 +372,9 @@ that is available for practical use by software creators. The most concrete
 suggestion for an implementation is <a href="#transitive-credit-json-ld">Katz &amp; Smith, (2015)</a>, the
 application of which, however, seems impractical from a usability point of view
 in terms of human-writability. Especially regarding the current state of the
-practice of providing citation metadata for software <a href="#software-citation-practices">(Howison &amp; Bullard, 2016)</a>, 
+practice of providing citation metadata for software <a href="#software-citation-practices">(Howison &amp; Bullard, 2016)</a>,
 it seems that at this point in time, a lower-threshold
-approach - in terms of technical complexity - could potentially drive higher participation 
+approach - in terms of technical complexity - could potentially drive higher participation
 in the provision of software citation metadata.</p>
 
 <p>On the other end of the complexity spectrum, free form <code class="highlighter-rouge">CITATION</code> files as suggested by Robin
@@ -388,9 +388,9 @@ is a key factor in the promotion of software citation along the software citatio
 citation, i.e., transitive credit, and the state of the practice, i.e., free form
 <code class="highlighter-rouge">CITATION</code> files.</p>
 
-<p>CFF-Core, in this context, provides an implementation for basic 
+<p>CFF-Core, in this context, provides an implementation for basic
 software citation metadata, so that creators of research software can supply relevant
-metadata for citation easily. CFF-Core aims at covering use cases <em>1 (Use software for a paper)</em>, 
+metadata for citation easily. CFF-Core aims at covering use cases <em>1 (Use software for a paper)</em>,
 <em>2 (Use software in/with new software)</em>, and <em>15 (Store software entry)</em> as
 defined in the software citation principles paper <a href="#principles">(Smith et al., 2016)</a>.</p>
 
@@ -421,7 +421,7 @@ compatibility with <a href="https://github.com/codemeta/codemeta">CodeMeta</a>.<
 <h2 id="concepts">Concepts</h2>
 
 <p>For users of other reference formats, such as BibTeX or RIS, it is important to
-note that in CFF, all available keys can be used for all <a href="#reference-types">reference types</a>. 
+note that in CFF, all available keys can be used for all <a href="#reference-types">reference types</a>.
 For now, CFF
 leaves reasonability of use with format users and providers of tooling, such as
 conversion software for CFF and other formats. In other words, the use of keys
@@ -451,10 +451,10 @@ followed by a whitespace.</p>
 
 <p>Structure is determined by indentation, i.e., lines
 containing nested elements must be indented by at least one whitespace character,
-although using at least two whitespaces as a standard for indentation preserves 
+although using at least two whitespaces as a standard for indentation preserves
 readability.</p>
 
-<p>Value strings can (and sometimes should) be double-quoted, e.g. <code class="highlighter-rouge">"string"</code>, 
+<p>Value strings can (and sometimes should) be double-quoted, e.g. <code class="highlighter-rouge">"string"</code>,
 especially when they contain YAML special characters, or special characters in
 general. These include:</p>
 
@@ -466,7 +466,7 @@ general. These include:</p>
 
 <p><code class="highlighter-rouge">CITATION.cff</code> files represent YAML 1.2 dictionaries (“maps”) with
 the keys listed in the table below. Note that the order of the keys is arbitrary,
-and that most YAML <a href="https://en.wikipedia.org/wiki/Lint_(software)">linter</a>s 
+and that most YAML <a href="https://en.wikipedia.org/wiki/Lint_(software)">linter</a>s
 will re-order the keys alphabetically.</p>
 
 <p>The primary keys are used to specify</p>
@@ -500,7 +500,7 @@ with.</p>
 <p>The primary citation metadata provided to users that wish to cite the software
 version which the CFF file is for. This metadata can be provided via a subset
 of the keys from the table below. The keys follow the basic requirements for
-software citation metadata for the three basic use cases, as detailed in 
+software citation metadata for the three basic use cases, as detailed in
 <a href="#principles">Smith et al., (2016), p. 31</a> and reproduced
 below for convenience.</p>
 
@@ -573,14 +573,14 @@ below for convenience.</p>
 
 <p class="text-right">Table: Basic requirements for citation use cases, reproduced from <a href="#principles">Smith et al., (2016), p. 31</a>. Solid circles (●) indicate that the use case depends on that metadata, plus signs (+) indicate that the use case would benefit from that metadata if available.</p>
 
-<p>Provision of the metadata should follow the best 
+<p>Provision of the metadata should follow the best
 practices detailed in <a href="#principles">(Smith et al., 2016)</a>, i.e.:</p>
 
 <ul>
   <li><strong>Give credit</strong> where credit is due: Make sure that you include every person in the authors list who deserves to be listed as an author. This may include people that have not contributed lines of code, but have contributed as testers, designers, reporters, managers, etc.</li>
   <li>Provide a <strong>unique identifier</strong>: Publish your software version via services that provide it with a DOI, e.g., <a href="https://zenodo.org/">Zenodo</a> or <a href="https://figshare.com/">figshare</a>. This also ensures <strong>accessibility</strong> of the software, as in these cases the unique identifier points to a landing page rather than an actual software product.</li>
-  <li>Be <strong>specific</strong> by providing a version number, and citation metadata pertaining to that version. If possible, let your unique identifier point to a software version rather than the “software as such” (all versions of the software). If you want to provide the user with the possibility to cite the software as such in addition to a specific version, create a <a href="TODO">reference</a> to the software landing page, a software paper, or similar in the CFF file.<br />
-If, for some reason, you cannot provide a DOI for your software version, provide the version number or a commit reference (e.g., a Git hash or a Subversion revision number), and a URL to the source code or build artifact repository.<br />
+  <li>Be <strong>specific</strong> by providing a version number, and citation metadata pertaining to that version. If possible, let your unique identifier point to a software version rather than the “software as such” (all versions of the software). If you want to provide the user with the possibility to cite the software as such in addition to a specific version, create a <a href="TODO">reference</a> to the software landing page, a software paper, or similar in the CFF file.
+If, for some reason, you cannot provide a DOI for your software version, provide the version number or a commit reference (e.g., a Git hash or a Subversion revision number), and a URL to the source code or build artifact repository.
 If your software is closed source and you cannot provide a DOI, provide the version number or other version identifier, contact details, and a URL which points to the software landing page, homepage, or similar.</li>
 </ul>
 
@@ -700,7 +700,7 @@ If your software is closed source and you cannot provide a DOI, provide the vers
 <p>A reference item, i.e., an item in the list under <code class="highlighter-rouge">references</code>, must at least
 specify values for the following mandatory keys: <code class="highlighter-rouge">type</code>, <code class="highlighter-rouge">authors</code>, <code class="highlighter-rouge">title</code>.</p>
 
-<p><code class="highlighter-rouge">type</code> must specify the type of the referenced work. For a list of available 
+<p><code class="highlighter-rouge">type</code> must specify the type of the referenced work. For a list of available
 values, cf. <a href="#reference-types">reference types</a>.</p>
 
 <p><code class="highlighter-rouge">authors</code> must specify a list of <a href="#entity-objects">entity</a> or <a href="#person-objects">person objects</a>.</p>
@@ -722,8 +722,8 @@ values, cf. <a href="#reference-types">reference types</a>.</p>
       <span class="pi">-</span> <span class="s">...</span>
     <span class="na">title</span><span class="pi">:</span> <span class="s">Software Citation Tool</span></code></pre></figure>
 
-<p>Additionally, it can contain any further <a href="#reference-keys">reference keys</a>. In version 
-1.0.3, 
+<p>Additionally, it can contain any further <a href="#reference-keys">reference keys</a>. In version
+1.0.3,
 CFF does not specify a strict schema where specific <a href="#reference-types">reference
 types</a> can only contain specific <a href="#reference-keys">reference keys</a>, although this may be
 implemented in future versions.</p>
@@ -1112,7 +1112,7 @@ contact information.</p>
 <p><strong><code class="highlighter-rouge">authors</code></strong>, <strong><code class="highlighter-rouge">contact</code></strong>, <strong><code class="highlighter-rouge">editors</code></strong>, <strong><code class="highlighter-rouge">editors-series</code></strong>, <strong><code class="highlighter-rouge">recipients</code></strong>,
 <strong><code class="highlighter-rouge">senders</code></strong>, <strong><code class="highlighter-rouge">translators</code></strong></p>
 
-<p>These keys take a collection of entity objects or 
+<p>These keys take a collection of entity objects or
 <a href="#person-objects">person objects</a> as value. Person objects
 provide a fixed set of keys to reference individuals, including a detailed
 set for specifiying personal names, an affiliation, etc.</p>
@@ -1168,7 +1168,7 @@ expression, such as the one provided in a <a href="https://gist.github.com/dperi
 
 <p><strong><code class="highlighter-rouge">scope</code></strong></p>
 
-<p>A reference item can specify a more detailed scope for the reference, via the 
+<p>A reference item can specify a more detailed scope for the reference, via the
 reference key <code class="highlighter-rouge">scope</code>. This key can be useful if certain references should only
 be cited under specific circumstances, e.g., only when a specific package
 of the software is used. In such a case, the package would ideally have its own
@@ -1240,7 +1240,7 @@ ambiguity/misuse.</p>
 <p><strong><code class="highlighter-rouge">medium</code></strong></p>
 
 <ul>
-  <li>If the work is an artwork: The medium of the artwork, e.g., “photograph”, 
+  <li>If the work is an artwork: The medium of the artwork, e.g., “photograph”,
 “painting”, “oil on canvas”, etc.</li>
   <li>If the work is a book or similar: Whether it is a printed book or an ebook.</li>
 </ul>
@@ -1488,7 +1488,7 @@ ambiguity/misuse.</p>
 
 <h2 id="entity-objects">Entity objects</h2>
 
-<p>Entity objects can represent different types of entities, e.g., 
+<p>Entity objects can represent different types of entities, e.g.,
 a publishing company, or conference. In CFF, they are realized as collections with
 a defined set of keys. Only the key <code class="highlighter-rouge">name</code> is mandatory.</p>
 
@@ -1599,7 +1599,7 @@ a defined set of keys. Only the key <code class="highlighter-rouge">name</code> 
 <p><strong><code class="highlighter-rouge">country</code></strong></p>
 
 <ul>
-  <li>The ISO 3166-1 alpha-2 country code for a country. A list of ISO 3166-1 
+  <li>The ISO 3166-1 alpha-2 country code for a country. A list of ISO 3166-1
 alpha-2 codes can be found at
 <a href="https://en.wikipedia.org/wiki/ISO_3166-1">Wikipedia:ISO 3166-1</a>.</li>
 </ul>
@@ -1616,18 +1616,18 @@ alpha-2 codes can be found at
 <p><strong><code class="highlighter-rouge">date-start</code></strong> and <strong><code class="highlighter-rouge">date-end</code></strong></p>
 
 <ul>
-  <li>The start and end date of, e.g., a conference. This must be formatted 
-according to <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO 8601</a>, e.g., 
+  <li>The start and end date of, e.g., a conference. This must be formatted
+according to <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO 8601</a>, e.g.,
 <code class="highlighter-rouge">YYYY-MM-DD</code>, or <code class="highlighter-rouge">2017-10-04T16:20:57+00:00</code>.</li>
 </ul>
 
 <p><strong><code class="highlighter-rouge">orcid</code></strong></p>
 
 <blockquote>
-  <p>The ORCID iD is expressed as an https URI, i.e. the 16-digit identifier is 
-preceded by “https://orcid.org/”. A hyphen is inserted every 4 digits of the 
-identifier to aid readability.<br />
-(<a href="https://support.orcid.org/knowledgebase/articles/116780-structure-of-the-orcid-identifier">https://support.orcid.org/knowledgebase/articles/116780-structure-of-the-orcid-identifier</a>, 
+  <p>The ORCID iD is expressed as an https URI, i.e. the 16-digit identifier is
+preceded by “https://orcid.org/”. A hyphen is inserted every 4 digits of the
+identifier to aid readability.
+(<a href="https://support.orcid.org/knowledgebase/articles/116780-structure-of-the-orcid-identifier">https://support.orcid.org/knowledgebase/articles/116780-structure-of-the-orcid-identifier</a>,
 section “Expressing the ORCID iD”)</p>
 </blockquote>
 
@@ -1734,32 +1734,32 @@ collections with a defined set of keys, of which only <code class="highlighter-r
 
 <p><strong>Name keys</strong></p>
 
-<p>CFF aims to implement a culturally neutral model for personal names, 
+<p>CFF aims to implement a culturally neutral model for personal names,
 according to the
-<a href="https://www.w3.org/International/questions/qa-personal-names">suggestions on splitting personal names by the W3C</a> 
-and the implementation of personal name splitting in 
+<a href="https://www.w3.org/International/questions/qa-personal-names">suggestions on splitting personal names by the W3C</a>
+and the implementation of personal name splitting in
 BibTeX <a href="#names-in-bibtex">(Hufflen, 2006)</a>.</p>
 
 <p>To this end, CFF provides four generic keys to specify personal names:</p>
 
 <ol>
-  <li>Values for <code class="highlighter-rouge">family-names</code> specify family names, including combinations of given and 
-patronymic forms, such as <em>Guðmundsdóttir</em> or <em>bin Osman</em>; double names with or 
-without hyphen, such as <em>Leutheusser-Schnarrenberger</em> or <em>Sánchez Vicario</em>. It 
+  <li>Values for <code class="highlighter-rouge">family-names</code> specify family names, including combinations of given and
+patronymic forms, such as <em>Guðmundsdóttir</em> or <em>bin Osman</em>; double names with or
+without hyphen, such as <em>Leutheusser-Schnarrenberger</em> or <em>Sánchez Vicario</em>. It
 can potentially also specify names that include prepositions or (nobiliary)
 particles, especially if they occur in between family names such as in Spanish-
 or Portuguese-origin names, such as <em>Fernández de Córdoba</em>.</li>
   <li>Values for <code class="highlighter-rouge">given-names</code> specify given and any other names.</li>
   <li>Values for <code class="highlighter-rouge">name-particle</code> specify nobiliary particles and prepositions, such as in
 Ludwig <em>van</em> Beethoven or Rafael <em>van der</em> Vaart.</li>
-  <li>Values for <code class="highlighter-rouge">name-suffix</code> specify suffixes such as <em>Jr.</em> or <em>III</em> (as in 
+  <li>Values for <code class="highlighter-rouge">name-suffix</code> specify suffixes such as <em>Jr.</em> or <em>III</em> (as in
 <a href="https://en.wikipedia.org/wiki/Tr%C3%A9_Cool">Frank Edwin Wright <em>III</em></a>).</li>
 </ol>
 
 <p>Note that these keys may still not be optimal for, e.g., Icelandic names which
-do not have the concept of family names, or Chinese generation names, but the 
-alternative is highly localized customization, which would be counterintuitive 
-as to CFF’s goal to be easily accessible. Thus, it is ultimately the task of CFF 
+do not have the concept of family names, or Chinese generation names, but the
+alternative is highly localized customization, which would be counterintuitive
+as to CFF’s goal to be easily accessible. Thus, it is ultimately the task of CFF
 file authors to find the optimal name split in any given case.</p>
 
 <p><strong><code class="highlighter-rouge">affiliation</code></strong></p>
@@ -1827,6 +1827,8 @@ specifies the following value strings for the key <code class="highlighter-rouge
 
 <p class="text-right">Table: Defined statuses for works.</p>
 
+<p>For a work that is complete and has been published, leave <code class="highlighter-rouge">status</code> unset.</p>
+
 <h2 id="license-strings">License strings</h2>
 
 <p>License strings must conform with the <a href="https://spdx.org/licenses/">SPDX Licenses
@@ -1852,9 +1854,9 @@ Licenses list, the <code class="highlighter-rouge">license-url</code> should be 
 
 <p>Natural languages as a value for the key <code class="highlighter-rouge">languages</code> are specified via their
 respective 3-character <a href="https://en.wikipedia.org/wiki/ISO_639-3">ISO 639-3</a> code. A list
-of ISO 639-3 codes in maintained at 
+of ISO 639-3 codes in maintained at
 <a href="https://en.wikipedia.org/wiki/List_of_ISO_639-3_codes">Wikipedia:List of ISO 639-3 codes</a>.
-Alternatively, a language’s 2-character 
+Alternatively, a language’s 2-character
 <a href="https://en.wikipedia.org/wiki/ISO_639-1">ISO 639-1</a> code may be used. A list
 of ISO 639-1 codes is maintained at
 <a href="https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes">Wikipedia:List of ISO 639-1 codes</a>.</p>
@@ -1876,17 +1878,17 @@ of ISO 639-1 codes is maintained at
 <h1 id="examples">Examples</h1>
 
 <p>All of the following examples are minimal working examples, so they can be copied
-and pasted into a <code class="highlighter-rouge">CITATION.cff</code> file and will validate against the 
+and pasted into a <code class="highlighter-rouge">CITATION.cff</code> file and will validate against the
 <a href="#schema">CFF schema</a>.</p>
 
 <h2 id="software-examples">Software examples</h2>
 
-<p>The main focus of CFF-Core is to comprehensively cover the provision of 
+<p>The main focus of CFF-Core is to comprehensively cover the provision of
 citation metadata for software. To this end, it should always be used based on
 the Software Citation Principles <a href="#principles">(Smith et al., 2016)</a>! Please make sure you
 follow the best practices wherever possible. Two typical scenarios for
 software citation metadata include the existence and respectively lack of a
-DOI for the software for which citation metadata is provided, for both of which 
+DOI for the software for which citation metadata is provided, for both of which
 examples follow.</p>
 
 <h3 id="a-software-with-a-doi">A software with a DOI</h3>
@@ -1899,11 +1901,11 @@ acceptance, particularly as they are the standard for other digital products
 such as publications.</p>
 </blockquote>
 
-<p>Furthermore, DOIs should point to a “unique, specific software version” 
+<p>Furthermore, DOIs should point to a “unique, specific software version”
 <a href="#principles">(Smith et al., 2016, p. 12)</a>. Also it is recommended <a href="#principles">(Smith et al., 2016, p. 13)</a> that:</p>
 
 <blockquote>
-  <p>the [DOI] should resolve to a persistent landing page that contains metadata 
+  <p>the [DOI] should resolve to a persistent landing page that contains metadata
 and a link to the software itself, rather than directly to the source code files,
 repository, or executable.</p>
 </blockquote>
@@ -1955,7 +1957,7 @@ provide information on how to access the specific software, but this may be a
 company’s product number or a link to a website that allows the software be
 purchased.” <a href="#principles">(Smith et al., 2016, p. 13)</a>. Furthermore, “if the version number and
 release date are not available, the download date can be used. Similarly, the
-contact name/email is an alternative to the location/repository.” 
+contact name/email is an alternative to the location/repository.”
 <a href="#principles">(Smith et al., 2016, p. 7)</a></p>
 
 <p>Hence, for a closed source software without a DOI for which the version number
@@ -1963,8 +1965,8 @@ and release date cannot be determined, a <code class="highlighter-rouge">CITATIO
 this.</p>
 
 <figure class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="na">cff-version</span><span class="pi">:</span> <span class="s">1.0.3</span>
-<span class="na">message</span><span class="pi">:</span> 
-  <span class="s">If you dare use this commercial, closed-source, strangely versioned</span> 
+<span class="na">message</span><span class="pi">:</span>
+  <span class="s">If you dare use this commercial, closed-source, strangely versioned</span>
   <span class="s">software in your research, please at least cite it as below.</span>
 <span class="na">authors</span><span class="pi">:</span>
   <span class="pi">-</span> <span class="na">family-names</span><span class="pi">:</span> <span class="s">Vader</span>
@@ -2111,9 +2113,9 @@ hash would be an appropriate way to cite the software used. <a href="#principles
         <span class="na">given-names</span><span class="pi">:</span> <span class="s">Arfon M.</span>
       <span class="pi">-</span> <span class="na">family-names</span><span class="pi">:</span> <span class="s">Katz</span>
         <span class="na">given-names</span><span class="pi">:</span> <span class="s">Daniel S.</span>
-        <span class="na">affiliation</span><span class="pi">:</span> <span class="s2">"</span><span class="s">National</span><span class="nv"> </span><span class="s">Center</span><span class="nv"> </span><span class="s">for</span><span class="nv"> </span><span class="s">Supercomputing</span><span class="nv"> </span><span class="s">Applications</span><span class="nv"> </span><span class="s">&amp;</span> 
-        <span class="s">Electrical</span><span class="nv"> </span><span class="s">and</span><span class="nv"> </span><span class="s">Computer</span><span class="nv"> </span><span class="s">Engineering</span><span class="nv"> </span><span class="s">Department</span><span class="nv"> </span><span class="s">&amp;</span><span class="nv"> </span><span class="s">School</span><span class="nv"> </span><span class="s">of</span><span class="nv"> </span><span class="s">Information</span> 
-        <span class="s">Sciences,</span><span class="nv"> </span><span class="s">University</span><span class="nv"> </span><span class="s">of</span><span class="nv"> </span><span class="s">Illinois</span><span class="nv"> </span><span class="s">at</span><span class="nv"> </span><span class="s">Urbana-Champaign,</span><span class="nv"> </span><span class="s">Urbana,</span><span class="nv"> </span><span class="s">Illinois,</span> 
+        <span class="na">affiliation</span><span class="pi">:</span> <span class="s2">"</span><span class="s">National</span><span class="nv"> </span><span class="s">Center</span><span class="nv"> </span><span class="s">for</span><span class="nv"> </span><span class="s">Supercomputing</span><span class="nv"> </span><span class="s">Applications</span><span class="nv"> </span><span class="s">&amp;</span>
+        <span class="s">Electrical</span><span class="nv"> </span><span class="s">and</span><span class="nv"> </span><span class="s">Computer</span><span class="nv"> </span><span class="s">Engineering</span><span class="nv"> </span><span class="s">Department</span><span class="nv"> </span><span class="s">&amp;</span><span class="nv"> </span><span class="s">School</span><span class="nv"> </span><span class="s">of</span><span class="nv"> </span><span class="s">Information</span>
+        <span class="s">Sciences,</span><span class="nv"> </span><span class="s">University</span><span class="nv"> </span><span class="s">of</span><span class="nv"> </span><span class="s">Illinois</span><span class="nv"> </span><span class="s">at</span><span class="nv"> </span><span class="s">Urbana-Champaign,</span><span class="nv"> </span><span class="s">Urbana,</span><span class="nv"> </span><span class="s">Illinois,</span>
         <span class="s">United</span><span class="nv"> </span><span class="s">States"</span>
         <span class="na">orcid</span><span class="pi">:</span> <span class="s">https://orcid.org/0000-0001-5934-7525</span>
       <span class="pi">-</span> <span class="na">family-names</span><span class="pi">:</span> <span class="s">Niemeyer</span>
@@ -2198,7 +2200,7 @@ hash would be an appropriate way to cite the software used. <a href="#principles
     <span class="na">year</span><span class="pi">:</span> <span class="s">2017</span>
     <span class="na">collection-title</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Proceedings</span><span class="nv"> </span><span class="s">of</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">1st</span><span class="nv"> </span><span class="s">Conference</span><span class="nv"> </span><span class="s">on</span><span class="nv"> </span><span class="s">Wishful</span><span class="nv"> </span><span class="s">Thinking"</span>
     <span class="na">collection-doi</span><span class="pi">:</span> <span class="s">10.5281/zenodo.123456</span>
-    <span class="na">editors</span><span class="pi">:</span> 
+    <span class="na">editors</span><span class="pi">:</span>
       <span class="pi">-</span> <span class="na">family-names</span><span class="pi">:</span> <span class="s">Kirk</span>
         <span class="na">given-names</span><span class="pi">:</span> <span class="s">James T.</span>
     <span class="na">conference</span><span class="pi">:</span>
@@ -2296,7 +2298,7 @@ such as “, eds.” or similar.</p>
 
 <h1 id="infrastructure">Infrastructure</h1>
 
-<p>The roadmap for CFF plans for the provision of further infrastructure (e.g., 
+<p>The roadmap for CFF plans for the provision of further infrastructure (e.g.,
 software packages and web services), to support the following use cases for CFF:</p>
 
 <ul>
