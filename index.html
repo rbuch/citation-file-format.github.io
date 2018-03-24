@@ -200,6 +200,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <header><h4 class="nav__title"><i class="fa fa-file-text"></i> On This Page</h4></header>
 <ul class="toc__menu" id="markdown-toc">
   <li><a href="#citation-file-format-cff" id="markdown-toc-citation-file-format-cff">Citation File Format (CFF)</a>    <ul>
+      <li><a href="#example" id="markdown-toc-example">Example</a></li>
+      <li><a href="#tools" id="markdown-toc-tools">Tools</a></li>
       <li><a href="#status" id="markdown-toc-status">Status</a></li>
       <li><a href="#context" id="markdown-toc-context">Context</a></li>
       <li><a href="#contributing" id="markdown-toc-contributing">Contributing</a></li>
@@ -218,6 +220,32 @@ citation metadata for software. It is maintained openly on GitHub:
 <a href="https://github.com/citation-file-format">https://github.com/citation-file-format</a>.</p>
 
 <p>The current version is <a href="/1.0.3/">1.0.3</a>.</p>
+
+<h2 id="example">Example</h2>
+
+<p>If you want to make your software easily citable, you can put a file called
+<code class="highlighter-rouge">CITATION.cff</code> in the root of your repository. This file should provide at least the
+minimally necessary metadata to cite your software. An example:</p>
+
+<figure class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="na">cff-version</span><span class="pi">:</span> <span class="s">1.0.3</span>
+<span class="na">message</span><span class="pi">:</span> <span class="s">If you use this software, please cite it as below.</span>
+<span class="na">authors</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="na">family-names</span><span class="pi">:</span> <span class="s">Druskat</span>
+    <span class="na">given-names</span><span class="pi">:</span> <span class="s">Stephan</span>
+    <span class="na">orcid</span><span class="pi">:</span> <span class="s">https://orcid.org/0000-0003-4925-7248</span>
+<span class="na">title</span><span class="pi">:</span> <span class="s">My Research Tool</span>
+<span class="na">version</span><span class="pi">:</span> <span class="s">1.0.4</span>
+<span class="na">doi</span><span class="pi">:</span> <span class="s">10.5281/zenodo.1234</span>
+<span class="na">date-released</span><span class="pi">:</span> <span class="s">2017-12-18</span></code></pre></figure>
+
+<p>This file can be used to provide much more information about your software. For
+an overview of what kind of metadata for software can be supplied with the
+Citation File Format, please see <a href="/1.0.3/">the current version of the format specifications</a>.</p>
+
+<h2 id="tools">Tools</h2>
+
+<p>There are a number of tools that can help you work with the Citation File Format.
+For an overview, please see <a href="https://github.com/citation-file-format/citation-file-format">the main GitHub repository</a>.</p>
 
 <h2 id="status">Status</h2>
 
