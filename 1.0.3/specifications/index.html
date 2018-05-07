@@ -253,23 +253,23 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <li><a href="#schema" id="markdown-toc-schema">Schema</a></li>
   <li><a href="#examples" id="markdown-toc-examples">Examples</a>    <ul>
       <li><a href="#software-examples" id="markdown-toc-software-examples">Software examples</a>        <ul>
-          <li><a href="#a-software-with-a-doi" id="markdown-toc-a-software-with-a-doi">A software with a DOI</a></li>
-          <li><a href="#a-software-without-a-doi" id="markdown-toc-a-software-without-a-doi">A software without a DOI</a></li>
-          <li><a href="#software-with-a-further-reference" id="markdown-toc-software-with-a-further-reference">Software with a further reference</a></li>
+          <li><a href="#software-with-a-doi" id="markdown-toc-software-with-a-doi">Software with a DOI</a></li>
+          <li><a href="#software-without-a-doi" id="markdown-toc-software-without-a-doi">Software without a DOI</a></li>
           <li><a href="#source-code-without-a-doi" id="markdown-toc-source-code-without-a-doi">Source code without a DOI</a></li>
           <li><a href="#a-software-container" id="markdown-toc-a-software-container">A software container</a></li>
           <li><a href="#an-executable" id="markdown-toc-an-executable">An executable</a></li>
-        </ul>
-      </li>
-      <li><a href="#some-references-examples" id="markdown-toc-some-references-examples">Some <code class="highlighter-rouge">references</code> examples</a>        <ul>
-          <li><a href="#art" id="markdown-toc-art"><code class="highlighter-rouge">art</code></a></li>
-          <li><a href="#article" id="markdown-toc-article"><code class="highlighter-rouge">article</code></a></li>
-          <li><a href="#blog" id="markdown-toc-blog"><code class="highlighter-rouge">blog</code></a></li>
-          <li><a href="#book" id="markdown-toc-book"><code class="highlighter-rouge">book</code></a></li>
-          <li><a href="#conference-paper" id="markdown-toc-conference-paper"><code class="highlighter-rouge">conference-paper</code></a></li>
-          <li><a href="#edited-work" id="markdown-toc-edited-work"><code class="highlighter-rouge">edited-work</code></a></li>
-          <li><a href="#report" id="markdown-toc-report"><code class="highlighter-rouge">report</code></a></li>
-          <li><a href="#thesis" id="markdown-toc-thesis"><code class="highlighter-rouge">thesis</code></a></li>
+          <li><a href="#software-with-a-further-reference" id="markdown-toc-software-with-a-further-reference">Software with a further reference</a></li>
+          <li><a href="#some-references-examples" id="markdown-toc-some-references-examples">Some references examples</a>            <ul>
+              <li><a href="#art" id="markdown-toc-art">art</a></li>
+              <li><a href="#article" id="markdown-toc-article">article</a></li>
+              <li><a href="#blog" id="markdown-toc-blog">blog</a></li>
+              <li><a href="#book" id="markdown-toc-book">book</a></li>
+              <li><a href="#conference-paper" id="markdown-toc-conference-paper">conference-paper</a></li>
+              <li><a href="#edited-work" id="markdown-toc-edited-work">edited-work</a></li>
+              <li><a href="#report" id="markdown-toc-report">report</a></li>
+              <li><a href="#thesis" id="markdown-toc-thesis">thesis</a></li>
+            </ul>
+          </li>
         </ul>
       </li>
     </ul>
@@ -397,13 +397,13 @@ metadata for citation easily. CFF-Core aims at covering use cases <em>1 (Use sof
 <em>2 (Use software in/with new software)</em>, and <em>15 (Store software entry)</em> as
 defined in the software citation principles paper <a href="#principles">(Smith et al., 2016)</a>.</p>
 
-<p>CFF-Core can be used as a source format for <a href="https://github.com/codemeta/codemeta">CodeMeta</a> JSON,
+<p>CFF-Core can be used as a human-writable source and input format for <a href="https://github.com/codemeta/codemeta">CodeMeta</a> JSON,
 which is emerging as the standard format for software metadata.</p>
 
 <p>Further development of CFF will include a CFF-Meta module which will provide a set
 of keys to provide more general metadata for research software. CFF-Meta will
-implement the complete set of CodeMeta keys, and will be usable as an extension
-to CFF-Core.</p>
+implement the complete set of <a href="https://github.com/codemeta/codemeta">CodeMeta</a> keys, and will be usable as an extension
+to CFF-Core. For more information, see ‘<a href="#infrastructure">Infrastructure</a>’.</p>
 
 <h2 id="goals">Goals</h2>
 
@@ -1895,14 +1895,11 @@ and pasted into a <code class="highlighter-rouge">CITATION.cff</code> file and w
 <h2 id="software-examples">Software examples</h2>
 
 <p>The main focus of CFF-Core is to comprehensively cover the provision of
-citation metadata for software. To this end, it should always be used based on
-the Software Citation Principles <a href="#principles">(Smith et al., 2016)</a>! Please make sure you
-follow the best practices wherever possible. Two typical scenarios for
-software citation metadata include the existence and respectively lack of a
-DOI for the software for which citation metadata is provided, for both of which
-examples follow.</p>
+citation metadata for software. To this end, use of CFF-Core should - wherever possible - be based on
+the Software Citation Principles <a href="#principles">(Smith et al., 2016)</a>. Scenarios for
+software citation are listed below. These are not intended to be comphrensive, but rather to represent both typical and edge cases for software citation.</p>
 
-<h3 id="a-software-with-a-doi">A software with a DOI</h3>
+<h3 id="software-with-a-doi">Software with a DOI</h3>
 
 <p>Note that <a href="#principles">Smith et al., (2016), p. 12</a> recommend</p>
 
@@ -1961,7 +1958,7 @@ the following.</p>
 <span class="na">license</span><span class="pi">:</span> <span class="s">Apache-2.0</span>
 <span class="na">url</span><span class="pi">:</span> <span class="s">https://sdruskat.github.io/my-research-tool</span></code></pre></figure>
 
-<h3 id="a-software-without-a-doi">A software without a DOI</h3>
+<h3 id="software-without-a-doi">Software without a DOI</h3>
 
 <p>For software without a DOI, it is recommended that “the metadata should still
 provide information on how to access the specific software, but this may be a
@@ -1993,49 +1990,14 @@ this.</p>
     <span class="na">email</span><span class="pi">:</span> <span class="s">father@imperial-empire.com</span>
     <span class="na">tel</span><span class="pi">:</span> <span class="s">+850 (0)123-45-666</span></code></pre></figure>
 
-<h3 id="software-with-a-further-reference">Software with a further reference</h3>
-
-<figure class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="na">cff-version</span><span class="pi">:</span> <span class="s">1.0.3</span>
-<span class="na">message</span><span class="pi">:</span> <span class="s">If you use My Research Tool, please cite both the software and the outline paper.</span>
-<span class="na">authors</span><span class="pi">:</span>
-  <span class="pi">-</span> <span class="na">family-names</span><span class="pi">:</span> <span class="s">Doe</span>
-    <span class="na">given-names</span><span class="pi">:</span> <span class="s">Jane</span>
-  <span class="pi">-</span> <span class="na">family-names</span><span class="pi">:</span> <span class="s">Bielefeld</span>
-    <span class="na">name-particle</span><span class="pi">:</span> <span class="s">von</span>
-    <span class="na">given-names</span><span class="pi">:</span> <span class="s">Arthur</span>
-  <span class="pi">-</span> <span class="na">family-names</span><span class="pi">:</span> <span class="s">McAuthor</span>
-    <span class="na">given-names</span><span class="pi">:</span> <span class="s">Juniper</span>
-    <span class="na">name-suffix</span><span class="pi">:</span> <span class="s">Jr.</span>
-<span class="na">title</span><span class="pi">:</span> <span class="s">My Research Tool</span>
-<span class="na">version</span><span class="pi">:</span> <span class="s">1.0.4</span>
-<span class="na">doi</span><span class="pi">:</span> <span class="s">10.5281/zenodo.1234</span>
-<span class="na">date-released</span><span class="pi">:</span> <span class="s">2017-12-18</span>
-<span class="na">references</span><span class="pi">:</span>
-  <span class="pi">-</span> <span class="na">type</span><span class="pi">:</span> <span class="s">article</span>
-    <span class="na">scope</span><span class="pi">:</span> <span class="s">Cite this paper if you want to reference the general concepts of MRT.</span>
-    <span class="na">authors</span><span class="pi">:</span>
-      <span class="pi">-</span> <span class="na">family-names</span><span class="pi">:</span> <span class="s">Doe</span>
-        <span class="na">given-names</span><span class="pi">:</span> <span class="s">Jane</span>
-      <span class="pi">-</span> <span class="na">family-names</span><span class="pi">:</span> <span class="s">Bielefeld</span>
-        <span class="na">name-particle</span><span class="pi">:</span> <span class="s">von</span>
-        <span class="na">given-names</span><span class="pi">:</span> <span class="s">Arthur</span>
-    <span class="na">title</span><span class="pi">:</span> <span class="s2">"</span><span class="s">My</span><span class="nv"> </span><span class="s">Research</span><span class="nv"> </span><span class="s">Tool:</span><span class="nv"> </span><span class="s">A</span><span class="nv"> </span><span class="s">100%</span><span class="nv"> </span><span class="s">accuracy</span><span class="nv"> </span><span class="s">syntax</span><span class="nv"> </span><span class="s">parser</span><span class="nv"> </span><span class="s">for</span><span class="nv"> </span><span class="s">all</span><span class="nv"> </span><span class="s">languages"</span>
-    <span class="na">year</span><span class="pi">:</span> <span class="s">2099</span>
-    <span class="na">journal</span><span class="pi">:</span> <span class="s">Journal of Hard Science Fiction</span>
-    <span class="na">volume</span><span class="pi">:</span> <span class="s">42</span>
-    <span class="na">issue</span><span class="pi">:</span> <span class="s2">"</span><span class="s">13"</span>
-    <span class="na">doi</span><span class="pi">:</span> <span class="s">10.9999/hardscifi-lang.42132</span></code></pre></figure>
-
 <h3 id="source-code-without-a-doi">Source code without a DOI</h3>
 
-<blockquote>
-  <p>We recognize that there are certain situations where it may not be possible to
+<p>We recognize that there are certain situations where it may not be possible to
 follow the recommended best-practice. For example, if (1) the software authors
 did not register a DOI and/or release a specific version, or (2) the version of
 the software used does not match what is available to cite. In those cases,
 falling back on a combination of the repository URL and version number/commit
 hash would be an appropriate way to cite the software used. <a href="#principles">(Smith et al., 2016, p. 12)</a></p>
-</blockquote>
 
 <figure class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="na">cff-version</span><span class="pi">:</span> <span class="s">1.0.3</span>
 <span class="na">message</span><span class="pi">:</span> <span class="s2">"</span><span class="s">If</span><span class="nv"> </span><span class="s">you</span><span class="nv"> </span><span class="s">use</span><span class="nv"> </span><span class="s">this</span><span class="nv"> </span><span class="s">MRT</span><span class="nv"> </span><span class="s">alpha</span><span class="nv"> </span><span class="s">snapshot</span><span class="nv"> </span><span class="s">version,</span><span class="nv"> </span><span class="s">please</span><span class="nv"> </span><span class="s">cite."</span>
@@ -2077,9 +2039,44 @@ hash would be an appropriate way to cite the software used. <a href="#principles
 <span class="na">date-released</span><span class="pi">:</span> <span class="s">2017-12-18</span>
 <span class="na">repository-artifact</span><span class="pi">:</span> <span class="s">https://hu.berlin/nexus/mrt-kickstarter/2.0.4/mrt2-kickstarter.exe</span></code></pre></figure>
 
-<h2 id="some-references-examples">Some <code class="highlighter-rouge">references</code> examples</h2>
+<h3 id="software-with-a-further-reference">Software with a further reference</h3>
 
-<h3 id="art"><code class="highlighter-rouge">art</code></h3>
+<p>Where authors wish to encourage citation of an outline paper with citation of their software, we recommend the use of <a href="#references-optional">reference keys</a> to highlight the existence of further references.</p>
+
+<figure class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="na">cff-version</span><span class="pi">:</span> <span class="s">1.0.3</span>
+<span class="na">message</span><span class="pi">:</span> <span class="s">If you use My Research Tool, please cite both the software and the outline paper.</span>
+<span class="na">authors</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="na">family-names</span><span class="pi">:</span> <span class="s">Doe</span>
+    <span class="na">given-names</span><span class="pi">:</span> <span class="s">Jane</span>
+  <span class="pi">-</span> <span class="na">family-names</span><span class="pi">:</span> <span class="s">Bielefeld</span>
+    <span class="na">name-particle</span><span class="pi">:</span> <span class="s">von</span>
+    <span class="na">given-names</span><span class="pi">:</span> <span class="s">Arthur</span>
+  <span class="pi">-</span> <span class="na">family-names</span><span class="pi">:</span> <span class="s">McAuthor</span>
+    <span class="na">given-names</span><span class="pi">:</span> <span class="s">Juniper</span>
+    <span class="na">name-suffix</span><span class="pi">:</span> <span class="s">Jr.</span>
+<span class="na">title</span><span class="pi">:</span> <span class="s">My Research Tool</span>
+<span class="na">version</span><span class="pi">:</span> <span class="s">1.0.4</span>
+<span class="na">doi</span><span class="pi">:</span> <span class="s">10.5281/zenodo.1234</span>
+<span class="na">date-released</span><span class="pi">:</span> <span class="s">2017-12-18</span>
+<span class="na">references</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="na">type</span><span class="pi">:</span> <span class="s">article</span>
+    <span class="na">scope</span><span class="pi">:</span> <span class="s">Cite this paper if you want to reference the general concepts of MRT.</span>
+    <span class="na">authors</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="na">family-names</span><span class="pi">:</span> <span class="s">Doe</span>
+        <span class="na">given-names</span><span class="pi">:</span> <span class="s">Jane</span>
+      <span class="pi">-</span> <span class="na">family-names</span><span class="pi">:</span> <span class="s">Bielefeld</span>
+        <span class="na">name-particle</span><span class="pi">:</span> <span class="s">von</span>
+        <span class="na">given-names</span><span class="pi">:</span> <span class="s">Arthur</span>
+    <span class="na">title</span><span class="pi">:</span> <span class="s2">"</span><span class="s">My</span><span class="nv"> </span><span class="s">Research</span><span class="nv"> </span><span class="s">Tool:</span><span class="nv"> </span><span class="s">A</span><span class="nv"> </span><span class="s">100%</span><span class="nv"> </span><span class="s">accuracy</span><span class="nv"> </span><span class="s">syntax</span><span class="nv"> </span><span class="s">parser</span><span class="nv"> </span><span class="s">for</span><span class="nv"> </span><span class="s">all</span><span class="nv"> </span><span class="s">languages"</span>
+    <span class="na">year</span><span class="pi">:</span> <span class="s">2099</span>
+    <span class="na">journal</span><span class="pi">:</span> <span class="s">Journal of Hard Science Fiction</span>
+    <span class="na">volume</span><span class="pi">:</span> <span class="s">42</span>
+    <span class="na">issue</span><span class="pi">:</span> <span class="s2">"</span><span class="s">13"</span>
+    <span class="na">doi</span><span class="pi">:</span> <span class="s">10.9999/hardscifi-lang.42132</span></code></pre></figure>
+
+<h3 id="some-references-examples">Some references examples</h3>
+
+<h4 id="art">art</h4>
 
 <figure class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="na">cff-version</span><span class="pi">:</span> <span class="s">1.0.3</span>
 <span class="na">message</span><span class="pi">:</span> <span class="s2">"</span><span class="s">If</span><span class="nv"> </span><span class="s">you</span><span class="nv"> </span><span class="s">use</span><span class="nv"> </span><span class="s">this</span><span class="nv"> </span><span class="s">software,</span><span class="nv"> </span><span class="s">please</span><span class="nv"> </span><span class="s">cite</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">following."</span>
@@ -2105,7 +2102,7 @@ hash would be an appropriate way to cite the software used. <a href="#principles
       <span class="na">city</span><span class="pi">:</span> <span class="s">Madrid</span>
       <span class="na">country</span><span class="pi">:</span> <span class="s">ES</span></code></pre></figure>
 
-<h3 id="article"><code class="highlighter-rouge">article</code></h3>
+<h4 id="article">article</h4>
 
 <figure class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="na">cff-version</span><span class="pi">:</span> <span class="s">1.0.3</span>
 <span class="na">message</span><span class="pi">:</span> <span class="s">If you use this software, please cite it as below.</span>
@@ -2141,7 +2138,7 @@ hash would be an appropriate way to cite the software used. <a href="#principles
     <span class="na">doi</span><span class="pi">:</span> <span class="s">10.7717/peerj-cs.86</span>
     <span class="na">url</span><span class="pi">:</span> <span class="s">https://doi.org/10.7717/peerj-cs.86</span></code></pre></figure>
 
-<h3 id="blog"><code class="highlighter-rouge">blog</code></h3>
+<h4 id="blog">blog</h4>
 
 <figure class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="na">cff-version</span><span class="pi">:</span> <span class="s">1.0.3</span>
 <span class="na">message</span><span class="pi">:</span> <span class="s">If you use this software, please cite the software itself and the blog post.</span>
@@ -2166,7 +2163,7 @@ hash would be an appropriate way to cite the software used. <a href="#principles
       <span class="na">city</span><span class="pi">:</span> <span class="s">Berlin</span>
       <span class="na">country</span><span class="pi">:</span> <span class="s">DE</span></code></pre></figure>
 
-<h3 id="book"><code class="highlighter-rouge">book</code></h3>
+<h4 id="book">book</h4>
 
 <figure class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="na">cff-version</span><span class="pi">:</span> <span class="s">1.0.3</span>
 <span class="na">message</span><span class="pi">:</span> <span class="s2">"</span><span class="s">If</span><span class="nv"> </span><span class="s">you</span><span class="nv"> </span><span class="s">use</span><span class="nv"> </span><span class="s">MRT</span><span class="nv"> </span><span class="s">for</span><span class="nv"> </span><span class="s">your</span><span class="nv"> </span><span class="s">research,</span><span class="nv"> </span><span class="s">please</span><span class="nv"> </span><span class="s">cite</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">following</span><span class="nv"> </span><span class="s">book."</span>
@@ -2190,7 +2187,7 @@ hash would be an appropriate way to cite the software used. <a href="#principles
       <span class="na">city</span><span class="pi">:</span> <span class="s">Bielefeld</span>
     <span class="na">medium</span><span class="pi">:</span> <span class="s">print</span></code></pre></figure>
 
-<h3 id="conference-paper"><code class="highlighter-rouge">conference-paper</code></h3>
+<h4 id="conference-paper">conference-paper</h4>
 
 <figure class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="na">cff-version</span><span class="pi">:</span> <span class="s">1.0.3</span>
 <span class="na">message</span><span class="pi">:</span> <span class="s">If you use this software, please cite the software and the paper.</span>
@@ -2228,7 +2225,7 @@ hash would be an appropriate way to cite the software used. <a href="#principles
     <span class="na">end</span><span class="pi">:</span> <span class="s">45</span>
     <span class="na">doi</span><span class="pi">:</span> <span class="s">10.5281/zenodo.1234</span></code></pre></figure>
 
-<h3 id="edited-work"><code class="highlighter-rouge">edited-work</code></h3>
+<h4 id="edited-work">edited-work</h4>
 
 <p>Note that the editors of the edited work must be specified under the <code class="highlighter-rouge">authors</code>
 key. Specific citation styles may or may not attach a suffix to the authors,
@@ -2256,7 +2253,7 @@ such as “, eds.” or similar.</p>
       <span class="na">city</span><span class="pi">:</span> <span class="s">Bielefeld</span>
       <span class="na">country</span><span class="pi">:</span> <span class="s">DE</span></code></pre></figure>
 
-<h3 id="report"><code class="highlighter-rouge">report</code></h3>
+<h4 id="report">report</h4>
 
 <figure class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="na">cff-version</span><span class="pi">:</span> <span class="s">1.0.3</span>
 <span class="na">message</span><span class="pi">:</span> <span class="s">If you use this software, please cite it as below.</span>
@@ -2277,7 +2274,7 @@ such as “, eds.” or similar.</p>
     <span class="na">year</span><span class="pi">:</span> <span class="s">2017</span>
     <span class="na">date-accessed</span><span class="pi">:</span> <span class="s">2017-09-23</span></code></pre></figure>
 
-<h3 id="thesis"><code class="highlighter-rouge">thesis</code></h3>
+<h4 id="thesis">thesis</h4>
 
 <figure class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="na">cff-version</span><span class="pi">:</span> <span class="s">1.0.3</span>
 <span class="na">message</span><span class="pi">:</span> <span class="s">If you use this software, please cite it as below.</span>
@@ -2323,12 +2320,11 @@ software packages and web services), to support the following use cases for CFF:
 
 <p>Contributions to the format specifications are welcome! For details on how to
 contribute, please refer to the GitHub repository for CFF at
-<a href="http://github.com/sdruskat/citation-file-format">http://github.com/sdruskat/citation-file-format</a>.</p>
+<a href="https://github.com/citation-file-format/citation-file-format">https://github.com/citation-file-format/citation-file-format</a>.</p>
 
 <h1 id="license">License</h1>
 
-<p>This document is licensed under a <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC-BY-
-SA-4.0</a> license. The full
+<p>This document is licensed under a <a href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>. The full
 license text can be obtained from the URL
 <a href="https://creativecommons.org/licenses/by-sa/4.0/legalcode">https://creativecommons.org/licenses/by-sa/4.0/legalcode</a>.</p>
 

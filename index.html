@@ -190,7 +190,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 
 
-  2 minute read
+  3 minute read
 </p>
           
         </header>
@@ -218,17 +218,17 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <h1 id="citation-file-format-cff">Citation File Format (CFF)</h1>
 
-<p>CFF is a human- and machine-readable file format in YAML 1.2 which provides
+<p>Citation File Format is a human- and machine-readable file format in <a href="http://www.yaml.org/spec/1.2/spec.html">YAML 1.2</a> which provides
 citation metadata for software. It is maintained openly on GitHub:
 <a href="https://github.com/citation-file-format">https://github.com/citation-file-format</a>.</p>
 
-<p>The current version is <a href="/1.0.3/">1.0.3</a>.</p>
+<p>The current version is <a href="/1.0.3/">1.0.3</a>, for which there is a <a href="/1.0.3/">detailed format specification</a>.</p>
 
 <h2 id="example">Example</h2>
 
 <p>If you want to make your software easily citable, you can put a file called
 <code class="highlighter-rouge">CITATION.cff</code> in the root of your repository. This file should provide at least the
-minimally necessary metadata to cite your software. An example:</p>
+minimally necessary metadata to cite your software. For example:</p>
 
 <figure class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="na">cff-version</span><span class="pi">:</span> <span class="s">1.0.3</span>
 <span class="na">message</span><span class="pi">:</span> <span class="s">If you use this software, please cite it as below.</span>
@@ -241,14 +241,13 @@ minimally necessary metadata to cite your software. An example:</p>
 <span class="na">doi</span><span class="pi">:</span> <span class="s">10.5281/zenodo.1234</span>
 <span class="na">date-released</span><span class="pi">:</span> <span class="s">2017-12-18</span></code></pre></figure>
 
-<p>This file can be used to provide much more information about your software. For
-an overview of what kind of metadata for software can be supplied with the
+<p>A CFF file can also be used to record much more information about your software. For
+an overview of what software metadata can be supplied with the
 Citation File Format, please see <a href="/1.0.3/">the current version of the format specifications</a>.</p>
 
 <h2 id="tools">Tools</h2>
 
-<p>There are a number of tools that can help you work with the Citation File Format.
-For an overview, please see <a href="https://github.com/citation-file-format/citation-file-format">the main GitHub repository</a>.</p>
+<p>There are a number of tools that can help you work with the Citation File Format to perform useful tasks: generate a <code class="highlighter-rouge">CITATION.cff</code> file from a <a href="http://www.doi.org/">DOI</a>, convert CFF files to formats required by reference management software’, or validate <code class="highlighter-rouge">CITATION.cff</code> files. For further information, please see <a href="https://github.com/citation-file-format/citation-file-format#tools">the CFF GitHub repository</a>.</p>
 
 <h2 id="status">Status</h2>
 
@@ -257,29 +256,29 @@ from non-standardized <code class="highlighter-rouge">CITATION</code> files as s
 Wilson <a href="#citation-files">(Wilson, 2013)</a><sup id="fnref:no-file-no-use"><a href="#fn:no-file-no-use" class="footnote">1</a></sup> to full transitive credit encoded in JSON-LD
 <a href="#transitive-credit-json-ld">(Katz &amp; Smith, 2015)</a>.</p>
 
-<p>Along this spectrum, CFF is located somewhere between these two extremes as it adds
+<p>Along this spectrum, Citation File Format is located somewhere between these two extremes as it adds
 machine-readability and thus a greater re-use potential to <code class="highlighter-rouge">CITATION</code> files,
 but does not offer transitive credit capabilities (yet), or support for all
 citation use cases as outlined by <a href="#principles">Smith et al., (2016)</a>.</p>
 
-<p>CFF aims at providing a practical solution, and human-friendly properties such
+<p>Citation File Format aims at providing a practical solution, and human-friendly properties such
 as readability and writability, for the most common software citation use
 cases, i.e., <em>1. Use software for a paper</em>, <em>2. Use software in/with new software</em>,
 and <em>15. Store software entry</em> (cf. Table 2, <a href="#principles">Smith et al., (2016), p. 6</a>).</p>
 
-<p>The basic structure of CFF (i.e., having a <em>message</em> and one or more
+<p>The basic structure of Citation File Format (i.e., having a <em>message</em> and one or more
 <em>references</em>) explicitly reflects the structure of plain-text <code class="highlighter-rouge">CITATION</code> files
 and manifests its status as a compromise between what is currently <em>useful</em> and
-<em>usable</em>, and what is <em>desired</em> (fully transitive credit and attribution).</p>
+<em>usable</em>, and what is <em>desired</em> (fully transitive credit and attribution). As such, it has value both as a discrete format with everyday application and as a input format populating other citation formats.</p>
 
 <h2 id="context">Context</h2>
 
-<p>CFF is an indirect outcome of the discussion group “DS3. Development and
+<p>Software citations enhance the dissemination of code, improve software sustainability and ensure authors receive credit for development work. The Citation File Format is an indirect outcome of the discussion group “DS3. Development and
 implementation of a standard format for CITATION files.” at the <a href="http://wssspe.researchcomputing.org.uk/wssspe5-1/">Workshop on
 Sustainable Software for Science: Practice and Experiences
 (WSSSPE5.1)</a> (6 September
 2017, Manchester, UK). The group discussed the potential and outlined
-requirements for a format for machine-readable CITATION files[^citation-files],
+requirements for a format for machine-readable CITATION files,
 and has authored a blog post on the subject, which will be published on the
 <a href="http://software.ac.uk/blog/">blog</a> of the <a href="http://software.ac.uk/">Software Sustainability
 Institute</a>.</p>
@@ -295,9 +294,9 @@ Institute</a>.</p>
   <li>Alexander Konovalov (University of St. Andrews, UK)</li>
 </ul>
 
-<p>One requirement for the blog post was to be able to make a concrete suggestion
+<p>One requirement for the <a href="http://software.ac.uk/blog/">blog post</a> was to be able to make a concrete suggestion
 for a format for these machine-readable CITATION files, which triggered the
-development of CFF.</p>
+development of Citation File Format.</p>
 
 <h2 id="contributing">Contributing</h2>
 
