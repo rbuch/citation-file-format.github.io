@@ -254,10 +254,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <li><a href="#examples" id="markdown-toc-examples">Examples</a>    <ul>
       <li><a href="#software-examples" id="markdown-toc-software-examples">Software examples</a>        <ul>
           <li><a href="#software-with-a-doi" id="markdown-toc-software-with-a-doi">Software with a DOI</a></li>
-          <li><a href="#software-without-a-doi" id="markdown-toc-software-without-a-doi">Software without a DOI</a></li>
           <li><a href="#source-code-without-a-doi" id="markdown-toc-source-code-without-a-doi">Source code without a DOI</a></li>
-          <li><a href="#a-software-container" id="markdown-toc-a-software-container">A software container</a></li>
+          <li><a href="#closed-source-software-without-a-doi" id="markdown-toc-closed-source-software-without-a-doi">Closed-source software without a DOI</a></li>
           <li><a href="#an-executable" id="markdown-toc-an-executable">An executable</a></li>
+          <li><a href="#a-software-container" id="markdown-toc-a-software-container">A software container</a></li>
           <li><a href="#software-with-a-further-reference" id="markdown-toc-software-with-a-further-reference">Software with a further reference</a></li>
           <li><a href="#some-references-examples" id="markdown-toc-some-references-examples">Some references examples</a>            <ul>
               <li><a href="#art" id="markdown-toc-art">art</a></li>
@@ -1901,6 +1901,12 @@ citation metadata for software. To this end, use of CFF-Core should - wherever p
 the Software Citation Principles <a href="#principles">(Smith et al., 2016)</a>. Scenarios for
 software citation are listed below. These are not intended to be comphrensive, but rather to represent both typical and edge cases for software citation.</p>
 
+<p>The following sections list recommendations for producing CITATION files in various circumstances.
+In particular, if a DOI is available this information should be included.  A DOI is not required, 
+however, since one may not have been registered for the version of the software in question.  In this 
+case, as much information to specify the precise version of the software and how it can be obtained
+should be given.</p>
+
 <h3 id="software-with-a-doi">Software with a DOI</h3>
 
 <p>Note that <a href="#principles">Smith et al., (2016), p. 12</a> recommend</p>
@@ -1960,38 +1966,6 @@ the following.</p>
 <span class="na">license</span><span class="pi">:</span> <span class="s">Apache-2.0</span>
 <span class="na">url</span><span class="pi">:</span> <span class="s">https://sdruskat.github.io/my-research-tool</span></code></pre></figure>
 
-<h3 id="software-without-a-doi">Software without a DOI</h3>
-
-<p>For software without a DOI, it is recommended that “the metadata should still
-provide information on how to access the specific software, but this may be a
-company’s product number or a link to a website that allows the software be
-purchased.” <a href="#principles">(Smith et al., 2016, p. 13)</a>. Furthermore, “if the version number and
-release date are not available, the download date can be used. Similarly, the
-contact name/email is an alternative to the location/repository.”
-<a href="#principles">(Smith et al., 2016, p. 7)</a></p>
-
-<p>Hence, for a closed source software without a DOI for which the version number
-and release date cannot be determined, a <code class="highlighter-rouge">CITATION.cff</code> file could look like
-this.</p>
-
-<figure class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="na">cff-version</span><span class="pi">:</span> <span class="s">1.0.3</span>
-<span class="na">message</span><span class="pi">:</span>
-  <span class="s">If you dare use this commercial, closed-source, strangely versioned</span>
-  <span class="s">software in your research, please at least cite it as below.</span>
-<span class="na">authors</span><span class="pi">:</span>
-  <span class="pi">-</span> <span class="na">family-names</span><span class="pi">:</span> <span class="s">Vader</span>
-    <span class="na">name-suffix</span><span class="pi">:</span> <span class="s">né Skywalker</span>
-    <span class="na">given-names</span><span class="pi">:</span> <span class="s1">'</span><span class="s">Anakin</span><span class="nv"> </span><span class="s">"Darth"'</span>
-<span class="na">title</span><span class="pi">:</span> <span class="s">Opaquity</span>
-<span class="na">version</span><span class="pi">:</span> <span class="s">opq-1234-XZVF-ACME-RLY</span>
-<span class="na">date-released</span><span class="pi">:</span> <span class="s">2017-02-28</span>
-<span class="na">url</span><span class="pi">:</span> <span class="s">http://www.opaquity.com</span>
-<span class="na">contact</span><span class="pi">:</span>
-  <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Dark Side Software</span>
-    <span class="na">address</span><span class="pi">:</span> <span class="s">DS-1 Orbital Battle Station, near Scarif</span>
-    <span class="na">email</span><span class="pi">:</span> <span class="s">father@imperial-empire.com</span>
-    <span class="na">tel</span><span class="pi">:</span> <span class="s">+850 (0)123-45-666</span></code></pre></figure>
-
 <h3 id="source-code-without-a-doi">Source code without a DOI</h3>
 
 <p>We recognize that there are certain situations where it may not be possible to
@@ -2013,6 +1987,51 @@ hash would be an appropriate way to cite the software used. <a href="#principles
 <span class="na">repository-code</span><span class="pi">:</span> <span class="s">https://github.com/doe/mrt</span>
 <span class="na">commit</span><span class="pi">:</span> <span class="s">160d54f9e935c914df38c1ffda752112b5c979a8</span></code></pre></figure>
 
+<h3 id="closed-source-software-without-a-doi">Closed-source software without a DOI</h3>
+
+<p>For software without a DOI, it is recommended that “the metadata should still
+provide information on how to access the specific software, but this may be a
+company’s product number or a link to a website that allows the software be
+purchased.” <a href="#principles">(Smith et al., 2016, p. 13)</a>. Furthermore, “if the version number and
+release date are not available, the download date can be used. Similarly, the
+contact name/email is an alternative to the location/repository.”
+<a href="#principles">(Smith et al., 2016, p. 7)</a></p>
+
+<p>Hence, for closed-source software without a DOI for which the version number
+and release date cannot be determined, a <code class="highlighter-rouge">CITATION.cff</code> file could look like
+this.</p>
+
+<figure class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="na">cff-version</span><span class="pi">:</span> <span class="s">1.0.3</span>
+<span class="na">message</span><span class="pi">:</span>
+  <span class="s">If you dare use this commercial, closed-source, strangely versioned</span>
+  <span class="s">software in your research, please at least cite it as below.</span>
+<span class="na">authors</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="na">family-names</span><span class="pi">:</span> <span class="s">Vader</span>
+    <span class="na">name-suffix</span><span class="pi">:</span> <span class="s">né Skywalker</span>
+    <span class="na">given-names</span><span class="pi">:</span> <span class="s1">'</span><span class="s">Anakin</span><span class="nv"> </span><span class="s">"Darth"'</span>
+<span class="na">title</span><span class="pi">:</span> <span class="s">Opaquity</span>
+<span class="na">version</span><span class="pi">:</span> <span class="s">opq-1234-XZVF-ACME-RLY</span>
+<span class="na">date-released</span><span class="pi">:</span> <span class="s">2017-02-28</span>
+<span class="na">url</span><span class="pi">:</span> <span class="s">http://www.opaquity.com</span>
+<span class="na">contact</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">Dark Side Software</span>
+    <span class="na">address</span><span class="pi">:</span> <span class="s">DS-1 Orbital Battle Station, near Scarif</span>
+    <span class="na">email</span><span class="pi">:</span> <span class="s">father@imperial-empire.com</span>
+    <span class="na">tel</span><span class="pi">:</span> <span class="s">+850 (0)123-45-666</span></code></pre></figure>
+
+<h3 id="an-executable">An executable</h3>
+
+<figure class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="na">cff-version</span><span class="pi">:</span> <span class="s">1.0.3</span>
+<span class="na">message</span><span class="pi">:</span> <span class="s2">"</span><span class="s">If</span><span class="nv"> </span><span class="s">you</span><span class="nv"> </span><span class="s">use</span><span class="nv"> </span><span class="s">MRT,</span><span class="nv"> </span><span class="s">please</span><span class="nv"> </span><span class="s">cite</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">following."</span>
+<span class="na">authors</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="na">family-names</span><span class="pi">:</span> <span class="s">Druskat</span>
+    <span class="na">given-names</span><span class="pi">:</span> <span class="s">Stephan</span>
+    <span class="na">orcid</span><span class="pi">:</span> <span class="s">https://orcid.org/0000-0003-4925-7248</span>
+<span class="na">title</span><span class="pi">:</span> <span class="s">My Research Tool Kickstarter</span>
+<span class="na">version</span><span class="pi">:</span> <span class="s">2.0.4</span>
+<span class="na">date-released</span><span class="pi">:</span> <span class="s">2017-12-18</span>
+<span class="na">repository-artifact</span><span class="pi">:</span> <span class="s">https://hu.berlin/nexus/mrt-kickstarter/2.0.4/mrt2-kickstarter.exe</span></code></pre></figure>
+
 <h3 id="a-software-container">A software container</h3>
 
 <figure class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="na">cff-version</span><span class="pi">:</span> <span class="s">1.0.3</span>
@@ -2027,19 +2046,6 @@ hash would be an appropriate way to cite the software used. <a href="#principles
 <span class="na">url</span><span class="pi">:</span> <span class="s">https://github.com/doe/docker-brew-mrt-core/blob/160d54f9e935/iain/Dockerfile</span>
 <span class="na">repository</span><span class="pi">:</span> <span class="s">https://hub.docker.hu-berlin.de/_/mrt-iain-m-banks/</span>
 <span class="na">date-released</span><span class="pi">:</span> <span class="s">2017-12-18</span></code></pre></figure>
-
-<h3 id="an-executable">An executable</h3>
-
-<figure class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="na">cff-version</span><span class="pi">:</span> <span class="s">1.0.3</span>
-<span class="na">message</span><span class="pi">:</span> <span class="s2">"</span><span class="s">If</span><span class="nv"> </span><span class="s">you</span><span class="nv"> </span><span class="s">use</span><span class="nv"> </span><span class="s">MRT,</span><span class="nv"> </span><span class="s">please</span><span class="nv"> </span><span class="s">cite</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">following."</span>
-<span class="na">authors</span><span class="pi">:</span>
-  <span class="pi">-</span> <span class="na">family-names</span><span class="pi">:</span> <span class="s">Druskat</span>
-    <span class="na">given-names</span><span class="pi">:</span> <span class="s">Stephan</span>
-    <span class="na">orcid</span><span class="pi">:</span> <span class="s">https://orcid.org/0000-0003-4925-7248</span>
-<span class="na">title</span><span class="pi">:</span> <span class="s">My Research Tool Kickstarter</span>
-<span class="na">version</span><span class="pi">:</span> <span class="s">2.0.4</span>
-<span class="na">date-released</span><span class="pi">:</span> <span class="s">2017-12-18</span>
-<span class="na">repository-artifact</span><span class="pi">:</span> <span class="s">https://hu.berlin/nexus/mrt-kickstarter/2.0.4/mrt2-kickstarter.exe</span></code></pre></figure>
 
 <h3 id="software-with-a-further-reference">Software with a further reference</h3>
 
