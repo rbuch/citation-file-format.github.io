@@ -200,7 +200,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <section class="page__content" itemprop="text">
         
           <h1>Abstract</h1>
-          <p>The <em>Citation File Format</em> (<em>CFF</em>) is a human- <em>and</em> machine-readable format for CITATION files. These files provide citation metadata for (research and scientific) software. The format aims to support citation-specific use cases for software citation described in <a href="#principles">(Smith et al., 2016)</a>. CFF is serialized in <a href="http://yaml.org">YAML</a> <a href="http://yaml.org/spec/1.2/spec.html">1.2</a>, and is therefore Unicode-based and cross-language. This specification, together with the Unicode standard for characters, aims to provide all the information necessary to understand CFF, and to use (i.e., write) and re-use (i.e., read, validate, convert from) it. These specifications are maintained openly at <a href="https://github.com/citation-file-format/citation-file-format">https://github.com/citation-file-format/citation-file-format</a>. CFF is a source format for <a href="https://codemeta.github.io/">CodeMeta</a> <a href="https://github.com/codemeta/codemeta/blob/master/codemeta.json">JSON</a> files.</p>
+          <p>The <em>Citation File Format</em> (<em>CFF</em>) is a human- <em>and</em> machine-readable format for CITATION files. These files provide citation metadata for (research and scientific) software. The format aims to support citation-specific use cases for software citation described in <a class="citation" href="#principles">(Smith et al., 2016)</a>. CFF is serialized in <a href="http://yaml.org">YAML</a> <a href="http://yaml.org/spec/1.2/spec.html">1.2</a>, and is therefore Unicode-based and cross-language. This specification, together with the Unicode standard for characters, aims to provide all the information necessary to understand CFF, and to use (i.e., write) and re-use (i.e., read, validate, convert from) it. These specifications are maintained openly at <a href="https://github.com/citation-file-format/citation-file-format">https://github.com/citation-file-format/citation-file-format</a>. CFF is a source format for <a href="https://codemeta.github.io/">CodeMeta</a> <a href="https://github.com/codemeta/codemeta/blob/master/codemeta.json">JSON</a> files.</p>
 
         
         <aside class="sidebar__right">
@@ -341,14 +341,14 @@ Sustainability Institute</a>.</p>
 
 <p>The rationale for a standardized, machine- and human-readable format for
 <code class="highlighter-rouge">CITATION</code> files is discussed in more detail in
-<a href="#standardized-citation-files">Druskat, (2017)</a>. 
+<a class="citation" href="#standardized-citation-files">Druskat, (2017)</a>. 
 CFF has been developed to support all citation-specific use cases for the
 citation of software, as discussed in
-<a href="#principles">Smith et al., (2016)</a>, 
+<a class="citation" href="#principles">Smith et al., (2016)</a>, 
 and thus promote attribution and credit for software in general, and research
 software in particular.</p>
 
-<p>In a blog post <a href="#citation-files">(Wilson, 2013)</a>, Robin Wilson has introduced <code class="highlighter-rouge">CITATION</code>
+<p>In a blog post <a class="citation" href="#citation-files">(Wilson, 2013)</a>, Robin Wilson has introduced <code class="highlighter-rouge">CITATION</code>
 files as a means to make citation information for software easily accessible.
 This accessibility is important, because in order to receive deserved credit for
 research software in the academic system - where credit is still mainly measured
@@ -369,22 +369,22 @@ support a fair distribution of credit for research software.</p>
 <p>CFF-Core has been branched out to address 
 <a href="https://github.com/citation-file-format/citation-file-format/issues/23">issue citation-file-format/citation-file-format#23</a>.
 While an ideal format for software citation would arguably implement transitive
-credit <a href="#transitive-credit">(Katz, 2014)</a>, there is no concrete implementation yet
+credit <a class="citation" href="#transitive-credit">(Katz, 2014)</a>, there is no concrete implementation yet
 that is available for practical use by software creators. The most concrete
-suggestion for an implementation is <a href="#transitive-credit-json-ld">Katz &amp; Smith, (2015)</a>, the
+suggestion for an implementation is <a class="citation" href="#transitive-credit-json-ld">Katz &amp; Smith, (2015)</a>, the
 application of which, however, seems impractical from a usability point of view
 in terms of human-writability. Especially regarding the current state of the
-practice of providing citation metadata for software <a href="#software-citation-practices">(Howison &amp; Bullard, 2016)</a>, 
+practice of providing citation metadata for software <a class="citation" href="#software-citation-practices">(Howison &amp; Bullard, 2016)</a>, 
 it seems that at this point in time, a lower-threshold
 approach - in terms of technical complexity - could potentially drive higher participation 
 in the provision of software citation metadata.</p>
 
 <p>On the other end of the complexity spectrum, free form <code class="highlighter-rouge">CITATION</code> files as suggested by Robin
-Wilson <a href="#citation-files">(Wilson, 2013)</a> provide an easy-to-access way of providing citation metadata
+Wilson <a class="citation" href="#citation-files">(Wilson, 2013)</a> provide an easy-to-access way of providing citation metadata
 for software. However, as these files are not reliably formatted, and thus not
 machine-readable, their potential for re-use is rather low. Re-use of software citation metadata, however,
 is a key factor in the promotion of software citation along the software citation principles
-<a href="#principles">(Smith et al., 2016)</a>, and ultimately the fair distribution of credit for software in science.</p>
+<a class="citation" href="#principles">(Smith et al., 2016)</a>, and ultimately the fair distribution of credit for software in science.</p>
 
 <p>CFF aims to provide a compromise between the ideal state of software
 citation, i.e., transitive credit, and the state of the practice, i.e., free form
@@ -394,7 +394,7 @@ citation, i.e., transitive credit, and the state of the practice, i.e., free for
 software citation metadata, so that creators of research software can supply relevant
 metadata for citation easily. CFF-Core aims at covering use cases <em>1 (Use software for a paper)</em>, 
 <em>2 (Use software in/with new software)</em>, and <em>15 (Store software entry)</em> as
-defined in the software citation principles paper <a href="#principles">(Smith et al., 2016)</a>.</p>
+defined in the software citation principles paper <a class="citation" href="#principles">(Smith et al., 2016)</a>.</p>
 
 <p>CFF-Core can be used as a source format for <a href="https://github.com/codemeta/codemeta">CodeMeta</a> JSON,
 which is emerging as the standard format for software metadata.</p>
@@ -443,7 +443,7 @@ within a specific “parent” (i.e., <code class="highlighter-rouge">book</code
 
 <p>CFF is implemented in YAML 1.2, as the language provides optimal human-
 readability and the required core data types. For details, see the
-YAML 1.2 Specifications <a href="#yaml-1-2-specs">(Ben-Kiki et al., 2009)</a>.</p>
+YAML 1.2 Specifications <a class="citation" href="#yaml-1-2-specs">(Ben-Kiki et al., 2009)</a>.</p>
 
 <h2 id="formatting">Formatting</h2>
 
@@ -474,7 +474,7 @@ are used to specify</p>
   <li>the version of CFF in use (<code class="highlighter-rouge">cff-version</code>);</li>
   <li>a message which should be conveyed to the user of the software,
 along the lines of “If you use this software, please cite it as follows” (<code class="highlighter-rouge">message</code>);</li>
-  <li>the citation metadata for the software version itself, according to <a href="#principles">(Smith et al., 2016)</a>,
+  <li>the citation metadata for the software version itself, according to <a class="citation" href="#principles">(Smith et al., 2016)</a>,
 i.e., metadata that can be picked up in a CodeMeta JSON file;</li>
   <li>optionally, a list of references which should be cited in different use cases or scopes, e.g., a software paper describing the abstract concepts of the software (<code class="highlighter-rouge">references</code>).</li>
 </ul>
@@ -500,7 +500,7 @@ with.</p>
 version which the CFF file is for. This metadata can be provided via a subset
 of the keys from the table below. The keys follow the basic requirements for
 software citation metadata for the three basic use cases, as detailed in 
-<a href="#principles">Smith et al., (2016), p. 31</a> and reproduced
+<a class="citation" href="#principles">Smith et al., (2016), p. 31</a> and reproduced
 below for convenience.</p>
 
 <table>
@@ -570,10 +570,10 @@ below for convenience.</p>
   </tbody>
 </table>
 
-<p class="text-right">Table: Basic requirements for citation use cases, reproduced from <a href="#principles">Smith et al., (2016), p. 31</a>. Solid circles (●) indicate that the use case depends on that metadata, plus signs (+) indicate that the use case would benefit from that metadata if available.</p>
+<p class="text-right">Table: Basic requirements for citation use cases, reproduced from <a class="citation" href="#principles">Smith et al., (2016), p. 31</a>. Solid circles (●) indicate that the use case depends on that metadata, plus signs (+) indicate that the use case would benefit from that metadata if available.</p>
 
 <p>Provision of the metadata should follow the best 
-practices detailed in <a href="#principles">(Smith et al., 2016)</a>, i.e.:</p>
+practices detailed in <a class="citation" href="#principles">(Smith et al., 2016)</a>, i.e.:</p>
 
 <ul>
   <li><strong>Give credit</strong> where credit is due: Make sure that you include every person in the authors list who deserves to be listed as an author. This may include people that have not contributed lines of code, but have contributed as testers, designers, reporters, managers, etc.</li>
@@ -1723,7 +1723,7 @@ collections with a defined set of keys, of which only <code class="highlighter-r
 according to the
 <a href="https://www.w3.org/International/questions/qa-personal-names">suggestions on splitting personal names by the W3C</a> 
 and the implementation of personal name splitting in 
-BibTeX <a href="#names-in-bibtex">(Hufflen, 2006)</a>.</p>
+BibTeX <a class="citation" href="#names-in-bibtex">(Hufflen, 2006)</a>.</p>
 
 <p>To this end, CFF provides four generic keys to specify personal names:</p>
 
@@ -1869,7 +1869,7 @@ and pasted into a <code class="highlighter-rouge">CITATION.cff</code> file and w
 
 <p>The main focus of CFF-Core is to comprehensively cover the provision of 
 citation metadata for software. To this end, it should always be used based on
-the Software Citation Principles <a href="#principles">(Smith et al., 2016)</a>! Please make sure you
+the Software Citation Principles <a class="citation" href="#principles">(Smith et al., 2016)</a>! Please make sure you
 follow the best practices wherever possible. Two typical scenarios for
 software citation metadata include the existence and respectively lack of a
 DOI for the software for which citation metadata is provided, for both of which 
@@ -1877,7 +1877,7 @@ examples follow.</p>
 
 <h3 id="a-software-with-a-doi">A software with a DOI</h3>
 
-<p>Note that <a href="#principles">Smith et al., (2016), p. 12</a> recommend</p>
+<p>Note that <a class="citation" href="#principles">Smith et al., (2016), p. 12</a> recommend</p>
 
 <blockquote>
   <p>[…] the use of DOIs as the unique identifier due to their common usage and
@@ -1886,7 +1886,7 @@ such as publications.</p>
 </blockquote>
 
 <p>Furthermore, DOIs should point to a “unique, specific software version” 
-<a href="#principles">(Smith et al., 2016, p. 12)</a>. Also it is recommended <a href="#principles">(Smith et al., 2016, p. 13)</a> that:</p>
+<a class="citation" href="#principles">(Smith et al., 2016, p. 12)</a>. Also it is recommended <a class="citation" href="#principles">(Smith et al., 2016, p. 13)</a> that:</p>
 
 <blockquote>
   <p>the [DOI] should resolve to a persistent landing page that contains metadata 
@@ -1939,10 +1939,10 @@ the following.</p>
 <p>For software without a DOI, it is recommended that “the metadata should still
 provide information on how to access the specific software, but this may be a
 company’s product number or a link to a website that allows the software be
-purchased.” <a href="#principles">(Smith et al., 2016, p. 13)</a>. Furthermore, “if the version number and
+purchased.” <a class="citation" href="#principles">(Smith et al., 2016, p. 13)</a>. Furthermore, “if the version number and
 release date are not available, the download date can be used. Similarly, the
 contact name/email is an alternative to the location/repository.” 
-<a href="#principles">(Smith et al., 2016, p. 7)</a></p>
+<a class="citation" href="#principles">(Smith et al., 2016, p. 7)</a></p>
 
 <p>Hence, for a closed source software without a DOI for which the version number
 and release date cannot be determined, a <code class="highlighter-rouge">CITATION.cff</code> file could look like
@@ -2006,7 +2006,7 @@ follow the recommended best-practice. For example, if (1) the software authors
 did not register a DOI and/or release a specific version, or (2) the version of
 the software used does not match what is available to cite. In those cases,
 falling back on a combination of the repository URL and version number/commit
-hash would be an appropriate way to cite the software used. <a href="#principles">(Smith et al., 2016, p. 12)</a></p>
+hash would be an appropriate way to cite the software used. <a class="citation" href="#principles">(Smith et al., 2016, p. 12)</a></p>
 </blockquote>
 
 <figure class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="na">cff-version</span><span class="pi">:</span> <span class="s">1.0.2</span>
@@ -2376,7 +2376,7 @@ license text can be obtained from the URL
   </ul>
 </div>
 
-<div class="page__footer-copyright">&copy; 2018 Stephan Druskat. Powered by <a href="http://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+<div class="page__footer-copyright">&copy; 2019 Stephan Druskat. Powered by <a href="http://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
 
       </footer>
     </div>
